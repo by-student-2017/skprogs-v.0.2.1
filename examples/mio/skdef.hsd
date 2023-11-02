@@ -276,7 +276,7 @@ AtomParameters {
       Mass = 55.85
       Occupations {
 	$OCCUPATIONS_Ar
-    # https://pubs.acs.org/doi/10.1021/ct4004959
+    # [1] https://pubs.acs.org/doi/10.1021/ct4004959
     # fd fp fs
 	3D = 4.0 3.0
 	4P = 0.0 0.0
@@ -291,14 +291,14 @@ AtomParameters {
       # 0.2 step for Power, range [2,17]
       DensityCompression = PowerCompression{ Power = 2; Radius = 14.0 }
       WaveCompressions = SingleAtomCompressions {
-    # https://doi.org/10.1021/ct4004959, r0=(r0/rcov)*rcov [Angstrom] -> r0/0.529 [bohr]
-    # https://pubs.acs.org/doi/10.1021/ct4004959, Table 1. r0 [bohr]
+    # [1] https://doi.org/10.1021/ct4004959, r0=(r0/rcov)*rcov [Angstrom] -> r0/0.529 [bohr]
+    # [1] https://pubs.acs.org/doi/10.1021/ct4004959, Table 1. r0 [bohr]
 	D = PowerCompression { Power = 2; Radius = 3.7 }
 	P = PowerCompression { Power = 2; Radius = 3.7 }
 	S = PowerCompression { Power = 2; Radius = 3.7 }
       }
       # https://dftb.org/fileadmin/DFTB/public/misc/slakoformat.pdf
-      # https://pubs.acs.org/doi/10.1021/ct4004959
+      # [1] https://pubs.acs.org/doi/10.1021/ct4004959
       # Ud Up Us
       CustomizedHubbards {
 	3D = 0.422038
@@ -308,8 +308,8 @@ AtomParameters {
     }
   }
   
-  # https://doi.org/10.1021/acs.jctc.2c01115
-  # https://pubs.acs.org/doi/suppl/10.1021/acs.jctc.2c01115/suppl_file/ct2c01115_si_001.pdf
+  # [2] https://doi.org/10.1021/acs.jctc.2c01115
+  # [2] https://pubs.acs.org/doi/suppl/10.1021/acs.jctc.2c01115/suppl_file/ct2c01115_si_001.pdf
   Co {
     AtomConfig {
       AtomicNumber = 27
