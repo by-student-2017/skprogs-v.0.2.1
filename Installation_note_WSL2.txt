@@ -1,0 +1,115 @@
+------------------------------------------------------------------------------
+skprogs (Edit: 31/Oct/2023)
+(https://github.com/dftbplus/skprogs)
+
+libXC (ver.6.2.2)
+1. cd /mnt/d
+2. git clone https://gitlab.com/libxc/libxc.git libxc
+3. cd libxc
+4. git checkout 6.2.2
+5. mkdir _build
+6. FC=gfortran CC=gcc cmake -DENABLE_FORTRAN=True -DCMAKE_INSTALL_PREFIX="/mnt/d/libxc" -B _build ./
+7. cmake --build _build -- -j
+8. pushd _build
+9. ctest -j
+10. popd
+11. cmake --install _build
+(you can get "/mnt/d/libxc/lib/libxc.a")
+
+Environment settings (this is not necessary.)
+1. echo 'export PATH=$PATH:/mnt/d/libxc/lib' >> ~/.bashrc
+2. echo 'export PATH=$PATH:/mnt/d/libxc/include' >> ~/.bashrc
+3. echo 'export PATH=$PATH:/mnt/d/libxc/lib/pkgconfig' >> ~/.bashrc
+4. bash
+
+Results of ctest (libxc) (about 0.5 h)
+----------
+99% tests passed, 2 tests failed out of 19986
+
+Total Test time (real) = 1760.41 sec
+
+The following tests FAILED:
+        2185 - Libxc-gga_x_2d_pbe-BrOH-unpol-1-run (Timeout)
+        2186 - Libxc-gga_x_2d_pbe-BrOH-unpol-1-check (Failed)
+Errors while running CTest
+Output from these tests are in: /mnt/d/libxc/_build/Testing/Temporary/LastTest.log
+Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.
+----------
+
+Installation (maybe, similar to skprogs-0.2.tar.gz)
+0. sudo apt update
+  sudo apt -y install gfortran g++ build-essential
+  sudo apt -y install libopenmpi-dev libscalapack-openmpi-dev
+  sudo apt -y install libopenblas-dev
+  sudo apt -y install make cmake
+  sudo apt -y install python3-numpy python3-setuptools
+1. cd /mnt/d
+2. git clone https://github.com/dftbplus/skprogs.git
+3. cd skprogs
+4. mkdir _build
+5. CMAKE_PREFIX_PATH="/mnt/d/libxc" FC=gfortran cmake -DCMAKE_INSTALL_PREFIX="/mnt/d/skprogs" -B _build ./
+6. cmake --build _build -- -j
+7. pushd _build
+8. ctest -j
+9. popd
+10. cmake --install _build
+
+Environment settings
+1. echo 'export PATH=$PATH:/mnt/d/skprogs/bin' >> ~/.bashrc
+2. bash
+
+Results of ctest (skprogs) (about 12 min)
+----------
+100% tests passed, 0 tests failed out of 8
+
+Total Test time (real) = 745.16 sec
+----------
+
+Installation (skgen)
+1. cd /mnt/d/skprogs/sktools
+2. sudo python3 setup.py install
+
+Generating SK-files (C, H, O)
+(dummy repulsive: spline)
+1. cd /mnt/d/skprogs
+2. source /mnt/d/skprogs/bin/skprogs-activate.sh
+3. cd examples/mio
+4. /mnt/d/skprogs/sktools/src/sktools/scripts/skgen.py -o slateratom -t sktwocnt sktable -d C,H,O C,H,O
+
+Generating SK-files (Ti, O)
+(dummy repulsive: spline)
+1. cd /mnt/d/skprogs
+2. source /mnt/d/skprogs/bin/skprogs-activate.sh
+3. cd examples/mio
+4. /mnt/d/skprogs/sktools/src/sktools/scripts/skgen.py -o slateratom -t sktwocnt sktable -d Ti,O Ti,O
+
+Generating SK-files (Au, S)
+(dummy repulsive: spline)
+1. cd /mnt/d/skprogs
+2. source /mnt/d/skprogs/bin/skprogs-activate.sh
+3. cd examples/mio
+4. /mnt/d/skprogs/sktools/src/sktools/scripts/skgen.py -o slateratom -t sktwocnt sktable -d Au,S Au,S
+
+Help
+1. /mnt/d/skprogs/sktools/src/sktools/scripts/skgen.py -h
+2. /mnt/d/skprogs/sktools/src/sktools/scripts/skgen.py sktable -h
+(Note: -d = --dummy-repulsive = add dummy repulsive spline to the sk tables)
+
+python3 version
+1. python3 -V
+  Python 3.10.12
+  
+Usage
+1. cd /mnt/d/skprogs/examples/mio
+2. vim skdef.hsd
+3. /mnt/d/skprogs/sktools/src/sktools/scripts/skgen.py -o slateratom -t sktwocnt sktable -d Fe Fe
+4. less Fe-Fe.skf
+(see https://dftb.org/fileadmin/DFTB/public/misc/slakoformat.pdf
+  Line 2: Ed Ep Es SPE Ud Up Us fd fp fs)
+
+check band
+1. cd /mnt/d/skprogs/examples/band_check/BCC
+2. cp ./../../mio/Fe-Fe.skf ./
+3. ./run.sh
+4. evince band.png
+------------------------------------------------------------------------------
