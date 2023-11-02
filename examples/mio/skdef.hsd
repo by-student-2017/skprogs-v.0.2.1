@@ -261,12 +261,13 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression{ Power = 2; Radius = 13.0 }
+      DensityCompression = PowerCompression{ Power = 2; Radius = 14.0 }
       WaveCompressions = SingleAtomCompressions {
-    # https://doi.org/10.1021/ct4004959, r0=(r0/rcov)*rcov
+    # https://doi.org/10.1021/ct4004959, r0=(r0/rcov)*rcov [Angstrom] -> r0/0.529 [bohr]
+    # https://pubs.acs.org/doi/10.1021/ct4004959, Table 1. r0 [bohr]
 	D = PowerCompression { Power = 2; Radius = 3.7 }
-	P = PowerCompression { Power = 2; Radius = 2.0 }
-	S = PowerCompression { Power = 2; Radius = 2.0 }
+	P = PowerCompression { Power = 2; Radius = 3.7 }
+	S = PowerCompression { Power = 2; Radius = 3.7 }
       }
       # https://dftb.org/fileadmin/DFTB/public/misc/slakoformat.pdf
       # https://pubs.acs.org/doi/10.1021/ct4004959
