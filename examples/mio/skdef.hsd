@@ -554,6 +554,14 @@ OnecenterParameters {
     # https://www.basissetexchange.org/
     # https://www.tc.uni-koeln.de/PP/index.en.html
     # http://www.shodor.org/chemviz/basis/index.html
+    #
+    # https://en.wikipedia.org/wiki/Slater-type_orbital
+    #[2] https://pubs.acs.org/doi/suppl/10.1021/acs.jctc.2c01115/suppl_file/ct2c01115_si_001.pdf
+    #Basis Functions
+    # The radial wave function with angular momentum l has the form
+    #  R_l(r) = sum( sum( c_ij * r^(l+j-1) * e^-(a_i * r) ) from j=1 to npow ) from i=1 to nexp
+    # Here nexp is the number of exponents for each l. The exponents (a_i) and maximum powers (npow).
+    #
 	#S = 0.01 0.0685 0.4690 3.2120 22.0
 	#P = 0.01 0.0685 0.4690 3.2120 22.0
 	#D = 0.01 0.0685 0.4690 3.2120 22.0
@@ -594,14 +602,14 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 0.01 0.0685 0.4690 3.2120 22.0
-	P = 0.01 0.0685 0.4690 3.2120 22.0
-	D = 0.01 0.0685 0.4690 3.2120 22.0
+	S = 0.0685 0.4690 3.2120 22.0 54.00
+	P = 0.0685 0.4690 3.2120 22.0 54.00
+	D = 0.0685 0.4690 3.2120 22.0 54.00
       }
       MaxPowers {
-	D = 5
-	P = 5
-	S = 5
+	D = 4
+	P = 4
+	S = 4
       }
     }
   }
