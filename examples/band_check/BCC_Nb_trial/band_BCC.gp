@@ -29,18 +29,18 @@ ef = EF[1]
 unset table
 
 set parametric
-set trange [7:-12]
+set trange [8:-12]
 
 # plot
 set terminal png
 set output "band.png"
 set title "BCC: P-N-G-H-P-G-N"
 set grid y
-set ytics 2.5
+set ytics 2
 unset xtics
 unset yrange
 set ylabel "Binding Energy / eV"
-set yrange [7:-12] reverse
+set yrange [8:-12] reverse
 set xzeroaxis
 plot "band.plot" u 1:(ef-$2) w p pt 7 ps 0.6 t "DFTB" , \
   11,t with lines title "" lw 1 lc rgb "gray", \

@@ -353,9 +353,9 @@ AtomParameters {
       Occupations {
 	$OCCUPATIONS_Kr
     # fd fp fs
-	4D = 2.0 1.0
+	4D = 2.0 2.0
 	5P = 0.0 0.0
-	5S = 1.0 1.0
+	5S = 1.0 0.0
       }
       ValenceShells = 5s 5p 4d
       Relativistics = None
@@ -555,12 +555,21 @@ OnecenterParameters {
     # https://www.tc.uni-koeln.de/PP/index.en.html
     # http://www.shodor.org/chemviz/basis/index.html
     #
+    # https://www.basissetexchange.org/
+    #
     # https://en.wikipedia.org/wiki/Slater-type_orbital
     #[2] https://pubs.acs.org/doi/suppl/10.1021/acs.jctc.2c01115/suppl_file/ct2c01115_si_001.pdf
     #Basis Functions
     # The radial wave function with angular momentum l has the form
     #  R_l(r) = sum( sum( c_ij * r^(l+j-1) * e^-(a_i * r) ) from j=1 to npow ) from i=1 to nexp
     # Here nexp is the number of exponents for each l. The exponents (a_i) and maximum powers (npow).
+    #
+    #Memo
+    # a_i = (Z-s)/(n'*a0), (atomic unit: a0=1)
+    # principal quantum number, n->n': 4->3.7, 5->4.0, 6->4.2
+    # 1s / 2s, 2p / 3s, 3p / 3d / 4s, 4p / 4d / 4f / 5s, 5p / 5d / 5f / 
+    # s,p group: (n-1):s=0.85
+    # others: s=1.00
     #
 	#S = 0.01 0.0685 0.4690 3.2120 22.0
 	#P = 0.01 0.0685 0.4690 3.2120 22.0
@@ -602,14 +611,14 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 0.0685 0.4690 3.2120 22.0 54.00
-	P = 0.0685 0.4690 3.2120 22.0 54.00
-	D = 0.0685 0.4690 3.2120 22.0 54.00
+	S = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	P = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	D = 2.50 6.02 14.49 34.89 84.00 # Ref.[2]
       }
       MaxPowers {
-	D = 4
-	P = 4
-	S = 4
+	D = 3 # Ref.[2]
+	P = 3 # Ref.[2]
+	S = 3 # Ref.[2]
       }
     }
   }
