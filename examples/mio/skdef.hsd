@@ -307,9 +307,7 @@ AtomParameters {
       }
     }
   }
-  
-  # [2] https://doi.org/10.1021/acs.jctc.2c01115
-  # [2] https://pubs.acs.org/doi/suppl/10.1021/acs.jctc.2c01115/suppl_file/ct2c01115_si_001.pdf
+
   Co {
     AtomConfig {
       AtomicNumber = 27
@@ -331,17 +329,14 @@ AtomParameters {
       # 0.2 step for Power, range [2,17]
       DensityCompression = PowerCompression{ Power = 2; Radius = 14.0 }
       WaveCompressions = SingleAtomCompressions {
-    # https://doi.org/10.1021/ct4004959, r0=(r0/rcov)*rcov [Angstrom] -> r0/0.529 [bohr]
-    # https://pubs.acs.org/doi/10.1021/ct4004959, Table 1. r0 [bohr]
+    # [1] https://doi.org/10.1021/ct4004959, r0=(r0/rcov)*rcov [Angstrom] -> r0/0.529 [bohr]
+    # [1] https://pubs.acs.org/doi/10.1021/ct4004959, Table 1. r0 [bohr]
 	D = PowerCompression { Power = 2; Radius = 3.3 }
 	P = PowerCompression { Power = 2; Radius = 3.3 }
 	S = PowerCompression { Power = 2; Radius = 3.3 }
-	#D = PowerCompression { Power = 14.03; Radius =  2.15 } # Ref.[2]
-	#P = PowerCompression { Power =  8.60; Radius =  5.58 } # Ref.[2]
-	#S = PowerCompression { Power =  3.18; Radius = 13.25 } # Ref.[2]
       }
       # https://dftb.org/fileadmin/DFTB/public/misc/slakoformat.pdf
-      # https://pubs.acs.org/doi/10.1021/ct4004959
+      # [1] https://pubs.acs.org/doi/10.1021/ct4004959
       # Ud Up Us
       CustomizedHubbards {
 	3D = 0.462884
@@ -357,7 +352,6 @@ AtomParameters {
       Mass = 92.91
       Occupations {
 	$OCCUPATIONS_Kr
-    # https://pubs.acs.org/doi/10.1021/ct4004959
     # fd fp fs
 	4D = 2.0 1.0
 	5P = 0.0 0.0
@@ -370,16 +364,16 @@ AtomParameters {
       ShellResolved = Yes
       # 0.1 step for Radius, range [rcov, 10*rcov]
       # 0.2 step for Power, range [2,17]
-      DensityCompression = PowerCompression{ Power = 2; Radius = 20.0 }
+      DensityCompression = PowerCompression{ Power = 2; Radius = 14.0 }
       WaveCompressions = SingleAtomCompressions {
-    # https://doi.org/10.1021/ct4004959, r0=(r0/rcov)*rcov [Angstrom] -> r0/0.529 [bohr]
-    # https://pubs.acs.org/doi/10.1021/ct4004959, Table 1. r0 [bohr]
+    # [1] https://doi.org/10.1021/ct4004959, r0=(r0/rcov)*rcov [Angstrom] -> r0/0.529 [bohr]
+    # [1] https://pubs.acs.org/doi/10.1021/ct4004959, Table 1. r0 [bohr]
 	D = PowerCompression { Power = 2; Radius = 5.2 }
 	P = PowerCompression { Power = 2; Radius = 5.2 }
 	S = PowerCompression { Power = 2; Radius = 5.2 }
       }
       # https://dftb.org/fileadmin/DFTB/public/misc/slakoformat.pdf
-      # https://pubs.acs.org/doi/10.1021/ct4004959
+      # [1] https://pubs.acs.org/doi/10.1021/ct4004959
       # Ud Up Us
       CustomizedHubbards {
 	4D = 0.294607
@@ -434,6 +428,8 @@ OnecenterParameters {
     }
   }
 
+  # [2] https://doi.org/10.1021/acs.jctc.2c01115
+  # [2] https://pubs.acs.org/doi/suppl/10.1021/acs.jctc.2c01115/suppl_file/ct2c01115_si_001.pdf
   Li {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
@@ -570,6 +566,8 @@ OnecenterParameters {
     }
   }
 
+  # [2] https://doi.org/10.1021/acs.jctc.2c01115
+  # [2] https://pubs.acs.org/doi/suppl/10.1021/acs.jctc.2c01115/suppl_file/ct2c01115_si_001.pdf
   Co {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
