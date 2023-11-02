@@ -252,20 +252,19 @@ AtomParameters {
 	$OCCUPATIONS_Ar
     # https://pubs.acs.org/doi/10.1021/ct4004959
     # fd fp fs
-	3D = 3.0 3.0
+	3D = 4.0 3.0
 	4P = 0.0 0.0
-	4S = 1.0 1.0
+	4S = 1.0 0.0
       }
       ValenceShells = 4s 4p 3d
       Relativistics = None
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression{ Power = 2; Radius = 17.0 }
+      DensityCompression = PowerCompression{ Power = 2; Radius = 13.0 }
       WaveCompressions = SingleAtomCompressions {
     # https://doi.org/10.1021/ct4004959, r0=(r0/rcov)*rcov
-    # Ed Ep Es
-	D = PowerCompression { Power = 2; Radius = 4.0 }
+	D = PowerCompression { Power = 2; Radius = 3.7 }
 	P = PowerCompression { Power = 2; Radius = 2.0 }
 	S = PowerCompression { Power = 2; Radius = 2.0 }
       }
@@ -419,14 +418,23 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 0.01 0.0685 0.4690 3.2120 26.0
-	P = 0.01 0.0685 0.4690 3.2120 26.0
-	D = 0.01 0.0685 0.4690 3.2120 26.0
+    # https://pubs.acs.org/doi/10.1021/ct4004959
+    # https://dftb.org/fileadmin/DFTB/public/misc/slakoformat.pdf
+    # Ed Ep Es
+    # http://cosmologic-services.de/basis-sets/basissets.php
+    # http://dirac.chem.sdu.dk/basisarchives/dyall/index.html
+    # http://tyr0.chem.wsu.edu/~kipeters/basis.html
+    # https://www.basissetexchange.org/
+    # https://www.tc.uni-koeln.de/PP/index.en.html
+    # http://www.shodor.org/chemviz/basis/index.html
+	S = 0.01 0.0685 0.4690 3.2120 22.0
+	P = 0.01 0.0685 0.4690 3.2120 22.0
+	D = 0.01 0.0685 0.4690 3.2120 22.0
       }
       MaxPowers {
-	S = 5
-	P = 5
 	D = 5
+	P = 5
+	S = 5
       }
     }
   }
