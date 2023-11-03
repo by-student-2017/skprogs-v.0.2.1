@@ -2,6 +2,8 @@
 skprogs (Edit: 31/Oct/2023)
 (https://github.com/dftbplus/skprogs)
 
+Linux case: /mnt/d -> ${HOME}
+
 libXC (ver.6.2.2)
 1. cd /mnt/d
 2. git clone https://gitlab.com/libxc/libxc.git libxc
