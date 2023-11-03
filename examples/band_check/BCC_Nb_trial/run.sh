@@ -31,4 +31,7 @@ rm -f band.out
 rm -f info_gnu.dat
 rm -f band.plot
 
+echo "---------- Evaluate DS ----------"
+./msd.sh
+
 echo "---------- Ende ----------"
