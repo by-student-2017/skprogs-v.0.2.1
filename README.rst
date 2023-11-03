@@ -197,3 +197,15 @@ licensing conditions.
 
 .. |build status| image:: https://img.shields.io/github/actions/workflow/status/dftbplus/skprogs/build.yml
     :target: https://github.com/dftbplus/skprogs/actions/
+
+## Reference ######################################
+
+- [1] [DFTB Parameters for the Periodic Table: Part 1, Electronic Structure](https://pubs.acs.org/doi/10.1021/ct4004959)
+- [2] [Self-Consistent-Charge Density-Functional Tight-Binding Parameters for Modeling an All-Solid-State Lithium Battery](https://doi.org/10.1021/acs.jctc.2c01115)
+
+## Acknowledgment (For examples) ######################################
+- This project (modified version) is/was partially supported by the following :
+  + meguREnergy Co., Ltd.
+  + ATSUMITEC Co., Ltd.
+  + RIKEN
+
