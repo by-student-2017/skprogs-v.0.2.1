@@ -199,24 +199,28 @@ licensing conditions.
     :target: https://github.com/dftbplus/skprogs/actions/
 
 
-## Reference ######################################
+Reference
+=======
 - [1] [DFTB Parameters for the Periodic Table: Part 1, Electronic Structure](https://pubs.acs.org/doi/10.1021/ct4004959)
 - [2] [Self-Consistent-Charge Density-Functional Tight-Binding Parameters for Modeling an All-Solid-State Lithium Battery](https://doi.org/10.1021/acs.jctc.2c01115)
 
 
-## My Wish ######################################
+My Wish
+=======
 - I strongly hope that parameter files will be prepared for almost all elements and their combinations free of charge.
 - With Hotcent, I was not able to set the parameters satisfactorily due to my lack of skill. I hope that the parameters will be better organized in skprog-v.0.2.
 
 
-## Acknowledgment (For examples) ######################################
+Acknowledgment (For examples)
+=======
 - This project (modified version) is/was partially supported by the following :
   + meguREnergy Co., Ltd.
   + ATSUMITEC Co., Ltd.
   + RIKEN
 
 
-## PC specs used for test ######################################
+PC specs used for test
+=======
 + OS: Microsoft Windows 11 Home 64 bit
 + BIOS: 1.14.0
 + CPU： 12th Gen Intel(R) Core(TM) i7-12700
