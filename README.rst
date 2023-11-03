@@ -213,11 +213,12 @@ My Wish
 
 Acknowledgment (For examples)
 =======
+- Without the support of "meguREnergy Co., Ltd." and "ATSUMITEC Co., Ltd.", I would not have been able to develop the examples to the level shown on this github. I would like to express my sincere gratitude. 
 - This project (modified version) is/was partially supported by the following :
-- meguREnergy Co., Ltd. (Although the period was limited, it provided me with a research environment.)
-- ATSUMITEC Co., Ltd. (Although the period was limited, it provided me with a research environment.)
+- meguREnergy Co., Ltd.
+- ATSUMITEC Co., Ltd.
 - RIKEN
-
+- 
 
 PC specs used for test
 =======
