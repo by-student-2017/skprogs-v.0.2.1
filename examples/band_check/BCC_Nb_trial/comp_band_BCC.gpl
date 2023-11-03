@@ -1,12 +1,11 @@
 #!/usr/local/bin/gnuplot -persist
 #------------------------------------------------
-#set terminal png enhanced lw 2 font ",20"
-set terminal png
+set terminal pngcairo color enhanced font "Arial" fontscale 1.0
 set output "comp_band.png"
 #------------------------------------------------
 set key opaque box lc rgb "white" height 1
 #------------------------------------------------
-xmin = 0
+xmin = 1
 xmax = 81
 #------------------------------------------------
 ytop = -12
