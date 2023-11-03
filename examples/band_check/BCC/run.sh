@@ -17,6 +17,8 @@ mpirun -np 1 dftb+ < dftb_in.hsd > dftb_out_band.hsd
 echo "---------- plot (gnuplot) ----------"
 grep -v "KPT" band.out > band.dat
 gnuplot band_BCC.gp
+./conv_dftbp_band.sh
+gnuplot comp_band_BCC.gpl
 
 echo "---------- Delete files ----------"
 rm -f dftb_in.hsd
