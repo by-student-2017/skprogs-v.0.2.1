@@ -214,8 +214,8 @@ My Wish
 Acknowledgment (For examples)
 =======
 - This project (modified version) is/was partially supported by the following :
-- meguREnergy Co., Ltd.
-- ATSUMITEC Co., Ltd.
+- meguREnergy Co., Ltd. (Although the period was limited, it provided me with a research environment.)
+- ATSUMITEC Co., Ltd. (Although the period was limited, it provided me with a research environment.)
 - RIKEN
 
 
