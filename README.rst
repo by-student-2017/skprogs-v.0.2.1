@@ -217,6 +217,7 @@ Acknowledgment (For examples)
 - This project (modified version) is/was partially supported by the following :
 - meguREnergy Co., Ltd.
 - ATSUMITEC Co., Ltd.
+- RIKEN
 - Without the support of "meguREnergy Co., Ltd." and "ATSUMITEC Co., Ltd.", I would not have been able to develop the examples to the level shown on this github. I would like to express my sincere gratitude. 
 
 PC specs used for test
