@@ -229,3 +229,4 @@ PC specs used for test
 + Memory：32 GB
 + GPU: NVIDIA GeForce RTX3070
 + WSL2: VERSION="22.04.1 LTS (Jammy Jellyfish)"
++ Please, see "Installation_note_WSL2.txt"
