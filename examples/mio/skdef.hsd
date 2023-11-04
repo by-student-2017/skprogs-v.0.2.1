@@ -287,8 +287,8 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      # 0.1 step for Radius, range [rcov, 10*rcov]
-      # 0.2 step for Power, range [2,17]
+      # 0.1*rcov step for Radius, range [rcov, 10*rcov]
+      # 0.2 step for Power, range [2, 17]
       DensityCompression = PowerCompression{ Power = 2; Radius = 14.0 }
       WaveCompressions = SingleAtomCompressions {
     # [1] https://doi.org/10.1021/ct4004959, r0=(r0/rcov)*rcov [Angstrom] -> r0/0.529 [bohr]
