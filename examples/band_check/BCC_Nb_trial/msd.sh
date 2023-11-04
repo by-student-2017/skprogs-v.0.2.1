@@ -2,8 +2,8 @@
 
 join dftbp_band.dat ./qe/qe_bands.dat > msd_band.dat
 
-ytop=-8
-ybottom=8
+ytop=-6
+ybottom=10
 
 echo "---------------------------------"
 if [ ! "$1" == "" ]; then
@@ -19,12 +19,13 @@ kbT3=`echo ${kbT} | awk '{printf "%f",(3.0*$1)}'`
 echo "3*kbT = "${kbT3}" [eV] at ${Temp} [K]"
 
 awk -v ybottom=${ybottom} -v ytop=${ytop} -v kbT=${kbT} '
-BEGIN{n=0;VD=0.0;VDT=0.0}
+BEGIN{n=0;VD=0.0;VDT=0.0;eta=0.0}
 {
   if(ybottom>$3 && $3>ytop){
     VD=VD+($3-$2)^2
     n=n+1
     VDT=VDT+($3-$2)^2*exp(-((($2)^2)^0.5)/(3.0*kbT))
+    ETA=ETA+(($3-$2)^2)^0.5
   }
 }END{
   printf "---------------------------------\n"
@@ -35,8 +36,11 @@ BEGIN{n=0;VD=0.0;VDT=0.0}
   printf "SDT = %f [eV] \n",SDT
   printf "---------------------------------\n"
   printf "SDT = sqrt(sum(VDT)/n) \n"
-  printf "VDT = (E(DFTB)-E(DFT))^2*exp(-|E(DFTB)-EF|/(3.0*kbT)) \n"
+  printf "VDT = (E(DFT)-E(DFTB))^2*exp(-|E(DFTB)-EF|/(3.0*kbT)) \n"
   printf "3*kbT = %f [eV] \n",(3.0*kbT)
+  printf "---------------------------------\n"
+  printf "ETA = %f [eV]\n",(ETA/n)
+  printf "ETA = sum(|E(DFT)-E(DFTB)|)/n \n"
   printf "---------------------------------\n"
 }' msd_band.dat
 

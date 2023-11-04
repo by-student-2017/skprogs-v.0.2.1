@@ -205,6 +205,12 @@ Reference
 - [2] [Self-Consistent-Charge Density-Functional Tight-Binding Parameters for Modeling an All-Solid-State Lithium Battery](https://doi.org/10.1021/acs.jctc.2c01115)
 
 
+Note 1 (Importance of basis functions)
+=======
+- As pointed out in literature [1], basis functions are important (especially in the s-band). [1]
+- Hence, to reproduce the KS matrix elements with Slater-type orbitals, special basis sets would need to be constructed to handle steep confinement potentials. [1]
+
+
 My Wish
 =======
 - I strongly hope that parameter files will be prepared for almost all elements and their combinations free of charge.
