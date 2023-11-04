@@ -215,7 +215,7 @@ Future plans
 =======
 - I plan to automate the fitting. However, since I don't fully understand the skprogs code, I'm confused about how to automate it to fit physically. This is because if you use scipy's Nelder–Mead method to fit without thinking, there is a possibility that the fit may not be physically correct.
 - I plan to automate the fit only after extensive manual exploration.
-- Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-factor. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. There are no plans to create training data using VASP in the future.
+- Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-factor. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. In my environment, I would not create training data with VASP.
 
 
 My Wish
