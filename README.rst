@@ -225,6 +225,7 @@ My Wish
 - With Hotcent, I was not able to set the parameters satisfactorily due to my lack of skill. I hope that the parameters will be better organized in skprog-v.0.2.
 - Ultimately, it is necessary to improve the repulsive force, but it is important to maintain the electronic structure in the optimal structure for almost all elements. In order to develop parameters that can be used free of charge, we sincerely hope for the cooperation of many people in terms of paper reports and financial support.
 
+
 Acknowledgment (For examples)
 =======
 - This project (modified version) is/was partially supported by the following :
@@ -232,6 +233,7 @@ Acknowledgment (For examples)
 - ATSUMITEC Co., Ltd.
 - RIKEN
 - Without the support of "meguREnergy Co., Ltd." and "ATSUMITEC Co., Ltd.", I would not have been able to develop the examples to the level shown on this github. I would like to express my sincere gratitude. 
+
 
 PC specs used for test
 =======
@@ -247,3 +249,4 @@ PC specs used for test
 + [DFTB+ ver.23.1](https://dftbplus.org/download/dftb-stable)
 + Python 3.10.12
 + Please, see "Installation_note_WSL2.txt"
+
