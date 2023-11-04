@@ -115,3 +115,23 @@ check band
 3. ./run.sh
 4. evince band.png
 ------------------------------------------------------------------------------
+Installation (Ubuntu 22.04.1 LTS on windows11 (WSL2))
+
+1. sudo apt update
+2. sudo apt -y install gfortran gcc build-essential libopenmpi-dev
+3. sudo apt -y install libblas-dev liblapack-dev libopenblas-dev libfftw3-dev libxc-dev
+4. sudo apt -y install gnuplot xcrysden grace
+5. wget https://www.quantum-espresso.org/XYZ/qe-7.2-ReleasePack.tar.gz
+6. tar zxvf qe-7.2*
+7. cd qe-7.2
+8. ./configure
+#------------------------------------------------
+The following libraries have been found:
+  BLAS_LIBS= -lopenblas
+  LAPACK_LIBS=-L/usr/local/cuda/lib64  -lopenblas
+  FFT_LIBS= -lfftw3
+#------------------------------------------------
+9. make pw
+10. make w90
+  (Note: w90 = Wannier90)
+------------------------------------------------------------------------------
