@@ -211,6 +211,12 @@ Note 1 (Importance of basis functions)
 - Hence, to reproduce the KS matrix elements with Slater-type orbitals, special basis sets would need to be constructed to handle steep confinement potentials. [1]
 
 
+Future plans
+=======
+- I plan to automate the fitting. However, since I don't fully understand the skprogs code, I'm confused about how to automate it to fit physically. This is because if you use scipy's Nelder–Mead method to fit without thinking, there is a possibility that the fit may not be physically correct.
+- I plan to automate the fit only after extensive manual exploration.
+
+
 My Wish
 =======
 - I strongly hope that parameter files will be prepared for almost all elements and their combinations free of charge.
