@@ -215,6 +215,7 @@ Future plans
 =======
 - I plan to automate the fitting. However, since I don't fully understand the skprogs code, I'm confused about how to automate it to fit physically. This is because if you use scipy's Nelder–Mead method to fit without thinking, there is a possibility that the fit may not be physically correct.
 - I plan to automate the fit only after extensive manual exploration.
+- Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-factor. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. There are no plans to create training data using VASP in the future.
 
 
 My Wish
@@ -222,6 +223,7 @@ My Wish
 - I strongly hope that parameter files will be prepared for almost all elements and their combinations free of charge.
 - With Hotcent, I was not able to set the parameters satisfactorily due to my lack of skill. I hope that the parameters will be better organized in skprog-v.0.2.
 - Ultimately, it is necessary to improve the repulsive force, but it is important to maintain the electronic structure in the optimal structure for almost all elements. In order to develop parameters that can be used free of charge, we sincerely hope for the cooperation of many people in terms of paper reports and financial support.
+- 
 
 
 Acknowledgment (For examples)
