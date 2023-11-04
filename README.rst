@@ -209,6 +209,7 @@ Note 1 (Importance of basis functions)
 =======
 - As pointed out in literature [1], basis functions are important (especially in the s-band). [1]
 - Hence, to reproduce the KS matrix elements with Slater-type orbitals, special basis sets would need to be constructed to handle steep confinement potentials. [1]
+- I'm not quite sure what to do with the parameters regarding "SlaterAtom". Even if MaxPowers is increased, Nb etc. (especially the s band) will differ greatly from the QE (DFT) results.
 
 
 Future plans
@@ -223,8 +224,6 @@ My Wish
 - I strongly hope that parameter files will be prepared for almost all elements and their combinations free of charge.
 - With Hotcent, I was not able to set the parameters satisfactorily due to my lack of skill. I hope that the parameters will be better organized in skprog-v.0.2.
 - Ultimately, it is necessary to improve the repulsive force, but it is important to maintain the electronic structure in the optimal structure for almost all elements. In order to develop parameters that can be used free of charge, we sincerely hope for the cooperation of many people in terms of paper reports and financial support.
-- 
-
 
 Acknowledgment (For examples)
 =======
