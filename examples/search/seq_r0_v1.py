@@ -26,25 +26,25 @@ subprocess.run("echo \"No.: ETA value [eV], r0, sigma\" > Evalute.txt", shell=Tr
 # fitting parameters
 element = "B"
 #------------------------
-rcov = 0.84      # Covalentradii [Angstrom]
-r0  = rcov/0.529*1.85 # Radius [bohr] = [Angstrom]/0.529
-sigma = 2.0      # Power
+#rcov = 0.84      # Covalentradii [Angstrom]
+#r0  = rcov/0.529*1.85 # Radius [bohr] = [Angstrom]/0.529
+#sigma = 2.0      # Power
 #------------------------
-area=[
-  (r0,3.0*r0),
-  (2.0,14.0)
-]
+#area=[
+#  (r0,3.0*r0),
+#  (2.0,14.0)
+#]
 #------------------------
-print("initial parameters, r0: "+str(r0))
-print("initial parameters, sigma: "+str(sigma))
-x0 = np.array([r0,sigma])
+#print("initial parameters, r0: "+str(r0))
+#print("initial parameters, sigma: "+str(sigma))
+#x0 = np.array([r0,sigma])
 
 subprocess.run("cd ./"+str(element)+" ; rm -f -r results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; mkdir results ; cd ../", shell=True)
 
 count = 0
 #----------------------------------------------------------------------
-def f(x):
+def f(r0,sigma):
   
   print("------------------------")
   global count
@@ -67,7 +67,7 @@ def f(x):
     y = 99999.999
   
   print("Evaluate: ",str(y))
-  print("Parameters: x0 = "+"[ "+str(x[0])+","+str(x[1])+" ]")
+  print("Parameters: "+"[ "+str(r0)+","+str(sigma)+" ]")
   print("------------------------")
   subprocess.run("mv "+str(file_inp)+" ./"+str(element)+"/results/"+str(file_inp)+"_No"+str(count), shell=True)
   subprocess.run("cp ./"+str(element)+"/comp_band.png ./"+str(element)+"/results/comp_band_No"+str(count)+".png", shell=True)
@@ -75,7 +75,13 @@ def f(x):
 
   return y
 #----------------------------------------------------------------------
-res = minimize(f,x0,bounds=area,method='Nelder-Mead',options={'adaptive':True})
+for sigma in np.arange(2.0,14.0,0.2):
+  for r0 in np.arange(2.5,6.5,0.1):
+    print("initial parameters, r0: "+str(r0))
+    print("initial parameters, sigma: "+str(sigma))
+    res = f(r0,sigma)
+#----------------------------------------------------------------------
+#res = minimize(f,x0,bounds=area,method='Nelder-Mead',options={'adaptive':True})
 #res = minimize(f,x0,method='Nelder-Mead')
 #res = minimize(f,x0,method='TNC')
 #res = minimize(f,x0,method='Powell')
