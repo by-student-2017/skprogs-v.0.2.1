@@ -5,7 +5,7 @@ import sys
 #----------------------------------------------------------------------
 # command: python3 nm_r0_v1.py
 #----------------------------------------------------------------------
-file_tmp = 'skdef.hsd.tmp'
+file_tmp = 'skdef.hsd.tmp_r0'
 file_inp = 'skdef.hsd'
 file_msd = 'msd.dat'
 
