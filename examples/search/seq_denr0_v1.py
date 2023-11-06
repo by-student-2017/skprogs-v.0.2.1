@@ -4,7 +4,7 @@ import subprocess
 import sys
 import os
 #----------------------------------------------------------------------
-# command: python3 nm_r0_v1.py
+# command: python3 seq_denr0_v1.py
 #----------------------------------------------------------------------
 file_tmp = 'skdef.hsd.tmp_denr0'
 file_inp = 'skdef.hsd'
@@ -26,19 +26,6 @@ subprocess.run("echo \"No.: ETA value [eV], r0, sigma\" > Evalute.txt", shell=Tr
 #----------------------------------------------------------------------
 # fitting parameters
 element = "B"
-#------------------------
-#rcov = 0.84      # Covalentradii [Angstrom]
-#r0  = rcov/0.529*1.85 # Radius [bohr] = [Angstrom]/0.529
-#sigma = 2.0      # Power
-#------------------------
-#area=[
-#  (r0,3.0*r0),
-#  (2.0,14.0)
-#]
-#------------------------
-#print("initial parameters, r0: "+str(r0))
-#print("initial parameters, sigma: "+str(sigma))
-#x0 = np.array([r0,sigma])
 
 subprocess.run("cd ./"+str(element)+" ; rm -f -r results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; mkdir results ; cd ../", shell=True)
@@ -85,8 +72,3 @@ for sigma in np.arange(2.0,20.0,1.0): # >XX.X: !!! [slateratom] SCF is NOT conve
     print("initial parameters, sigma: "+str(sigma))
     res = f(r0,sigma)
 #----------------------------------------------------------------------
-#res = minimize(f,x0,bounds=area,method='Nelder-Mead',options={'adaptive':True})
-#res = minimize(f,x0,method='Nelder-Mead')
-#res = minimize(f,x0,method='TNC')
-#res = minimize(f,x0,method='Powell')
-#res = minimize(f,x0,method='BFGS')

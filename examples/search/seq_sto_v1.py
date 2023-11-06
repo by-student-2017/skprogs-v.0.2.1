@@ -2,8 +2,9 @@ import numpy as np
 from scipy.optimize import minimize
 import subprocess
 import sys
+import os
 #----------------------------------------------------------------------
-# command: python3 nm_r0_v1.py
+# command: python3 seq_sto_v1.py
 #----------------------------------------------------------------------
 file_tmp = 'skdef.hsd.tmp_sto'
 file_inp = 'skdef.hsd'
