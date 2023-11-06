@@ -133,8 +133,8 @@ AtomParameters {
       ShellResolved = No
       DensityCompression = PowerCompression { Power = sigma; Radius = r0 }
       WaveCompressions = SingleAtomCompressions {
-	S = PowerCompression { Power = 10.4; Radius = 3.0 }
-	P = PowerCompression { Power = 10.4; Radius = 3.0 }
+	S = PowerCompression { Power = 9.4; Radius = 3.0 }
+	P = PowerCompression { Power = 9.4; Radius = 3.0 }
       }
     }
   }

@@ -54,20 +54,21 @@ def f(stosp,stod):
   subprocess.call("sed -i s/stosp/\""+str(stos_all)+"\"/g "+str(file_inp), shell=True)
   subprocess.call("sed -i s/stod/\""+str(stop_all)+"\"/g "+str(file_inp), shell=True)
   
-  sub = subprocess.run("/mnt/d/skprogs/sktools/src/sktools/scripts/skgen.py -o slateratom -t sktwocnt sktable -d "+str(element)+" "+str(element), shell=True)
+  skgen = subprocess.run("/mnt/d/skprogs/sktools/src/sktools/scripts/skgen.py -o slateratom -t sktwocnt sktable -d "+str(element)+" "+str(element), shell=True, stdout=subprocess.PIPE)
   
-  subprocess.run("cd ./"+str(element)+" ; ./run.sh ; cd ../", shell=True)
-  
-  evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+str(element)+"/"+str(file_msd), shell=True, stdout=subprocess.PIPE)
-  if evaluate.returncode == 0:
-    y = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
+  if os.path.exists(str(element)+"-"+str(element)+".skf"): 
+    evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+str(element)+"/"+str(file_msd), shell=True, stdout=subprocess.PIPE)
+    if evaluate.returncode == 0:
+      y = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
+      subprocess.run("mv "+str(file_inp)+" ./"+str(element)+"/results/"+str(file_inp)+"_No"+str(count), shell=True)
+      subprocess.run("cp ./"+str(element)+"/comp_band.png ./"+str(element)+"/results/comp_band_No"+str(count)+".png", shell=True)
+    else:
+      y = 99999.999
   else:
     y = 99999.999
   
   print("Evaluate: ",str(y))
   print("------------------------")
-  subprocess.run("mv "+str(file_inp)+" ./"+str(element)+"/results/"+str(file_inp)+"_No"+str(count), shell=True)
-  subprocess.run("cp ./"+str(element)+"/comp_band.png ./"+str(element)+"/results/comp_band_No"+str(count)+".png", shell=True)
   subprocess.run("echo No."+str(count)+": "+str(y)+", "+str(spt)+", "+str(dt)+" >> Evalute.txt", shell=True)
 
   return y

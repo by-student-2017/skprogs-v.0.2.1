@@ -2,10 +2,11 @@ import numpy as np
 from scipy.optimize import minimize
 import subprocess
 import sys
+import os
 #----------------------------------------------------------------------
 # command: python3 nm_r0_v1.py
 #----------------------------------------------------------------------
-file_tmp = 'skdef.hsd.tmp_r0'
+file_tmp = 'skdef.hsd.tmp_denr0'
 file_inp = 'skdef.hsd'
 file_msd = 'msd.dat'
 
@@ -51,32 +52,35 @@ def f(r0,sigma):
   count += 1
   print(count)
   
+  subprocess.run("rm *-*.skf", shell=True)
+  
   subprocess.run("cp "+" "+str(file_tmp)+" "+str(file_inp), shell=True)
   
   subprocess.call("sed -i s/r0/"+str(r0)+"/g "+str(file_inp), shell=True)
   subprocess.call("sed -i s/sigma/"+str(sigma)+"/g "+str(file_inp), shell=True)
   
-  sub = subprocess.run("/mnt/d/skprogs/sktools/src/sktools/scripts/skgen.py -o slateratom -t sktwocnt sktable -d "+str(element)+" "+str(element), shell=True)
+  skgen = subprocess.run("/mnt/d/skprogs/sktools/src/sktools/scripts/skgen.py -o slateratom -t sktwocnt sktable -d "+str(element)+" "+str(element), shell=True, stdout=subprocess.PIPE)
   
-  subprocess.run("cd ./"+str(element)+" ; ./run.sh ; cd ../", shell=True)
-  
-  evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+str(element)+"/"+str(file_msd), shell=True, stdout=subprocess.PIPE)
-  if evaluate.returncode == 0:
-    y = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
+  if os.path.exists(str(element)+"-"+str(element)+".skf"): 
+    evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+str(element)+"/"+str(file_msd), shell=True, stdout=subprocess.PIPE)
+    if evaluate.returncode == 0:
+      y = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
+      subprocess.run("mv "+str(file_inp)+" ./"+str(element)+"/results/"+str(file_inp)+"_No"+str(count), shell=True)
+      subprocess.run("cp ./"+str(element)+"/comp_band.png ./"+str(element)+"/results/comp_band_No"+str(count)+".png", shell=True)
+    else:
+      y = 99999.999
   else:
     y = 99999.999
   
   print("Evaluate: ",str(y))
   print("Parameters: "+"[ "+str(r0)+","+str(sigma)+" ]")
   print("------------------------")
-  subprocess.run("mv "+str(file_inp)+" ./"+str(element)+"/results/"+str(file_inp)+"_No"+str(count), shell=True)
-  subprocess.run("cp ./"+str(element)+"/comp_band.png ./"+str(element)+"/results/comp_band_No"+str(count)+".png", shell=True)
   subprocess.run("echo No."+str(count)+": "+str(y)+", "+str(r0)+", "+str(sigma)+" >> Evalute.txt", shell=True)
 
   return y
 #----------------------------------------------------------------------
-for sigma in np.arange(2.0,12.0,0.2): # >12.0: !!! [slateratom] SCF is NOT converged, maximal SCF iterations exceeded.
-  for r0 in np.arange(2.0,10.0,0.2): # [bohr] unit
+for sigma in np.arange(2.0,20.0,1.0): # >XX.X: !!! [slateratom] SCF is NOT converged, maximal SCF iterations exceeded.
+  for r0 in np.arange(6.0,40.0,1.0): # [bohr] unit
     print("initial parameters, r0: "+str(r0))
     print("initial parameters, sigma: "+str(sigma))
     res = f(r0,sigma)
