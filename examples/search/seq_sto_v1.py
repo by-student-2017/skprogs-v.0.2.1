@@ -26,8 +26,11 @@ subprocess.run("echo \"No.: ETA value [eV], spt, dt\" > Evalute.txt", shell=True
 # fitting parameters
 element = "B"
 #------------------------
-stosp = [0.5,0.95,2.62,6.0]
-stod  = [0.5,0.95,2.62,6.0]
+stospt = np.array([1.0,1.10,1.20,1.3])
+stodt  = np.array([1.0,1.10,1.20,1.3])
+#------------------------
+stosp  = np.array([0.5,0.95,2.62,6.0])
+stod   = np.array([0.5,0.95,2.62,6.0])
 #------------------------
 print("initial parameters, SP: "+str(stosp))
 print("initial parameters, D : "+str(stod))
@@ -37,7 +40,7 @@ subprocess.run("cd ./"+str(element)+" ; mkdir results ; cd ../", shell=True)
 
 count = 0
 #----------------------------------------------------------------------
-def f(stos,stop,spt,dt):
+def f(stosp,stod):
   
   print("------------------------")
   global count
@@ -45,11 +48,10 @@ def f(stos,stop,spt,dt):
   print(count)
   
   subprocess.run("cp "+" "+str(file_tmp)+" "+str(file_inp), shell=True)
-  
-  stos_all = str(stosp[0]*spt)+" "+str(stosp[1]*spt)+" "+str(stosp[2]*spt)+" "+str(stosp[3]*spt)
-  stop_all = str(stod[0]*dt)+" "+str(stod[1]*dt)+" "+str(stod[2]*dt)+" "+str(stod[3]*dt)
+
+  stos_all = str(stosp[0])+" "+str(stosp[1])+" "+str(stosp[2])+" "+str(stosp[3])
+  stop_all = str(stod[0])+" "+str(stod[1])+" "+str(stod[2])+" "+str(stod[3])  
   subprocess.call("sed -i s/stosp/\""+str(stos_all)+"\"/g "+str(file_inp), shell=True)
-  subprocess.call("sed -i s/stosp/\""+str(stop_all)+"\"/g "+str(file_inp), shell=True)
   subprocess.call("sed -i s/stod/\""+str(stop_all)+"\"/g "+str(file_inp), shell=True)
   
   sub = subprocess.run("/mnt/d/skprogs/sktools/src/sktools/scripts/skgen.py -o slateratom -t sktwocnt sktable -d "+str(element)+" "+str(element), shell=True)
@@ -72,9 +74,9 @@ def f(stos,stop,spt,dt):
 #----------------------------------------------------------------------
 for dt in np.arange(0.7,1.5,0.1):
   for spt in np.arange(0.7,1.5,0.1):
-    print("initial parameters, spt: "+str(spt))
-    print("initial parameters, dt : "+str(dt))
-    res = f(stos,stop,spt,dt)
+    new_stosp = stosp * stospt ** spt
+    new_stod  = stod * stodt ** dt
+    res = f(new_stosp,new_stod)
 #----------------------------------------------------------------------
 #res = minimize(f,x0,bounds=area,method='Nelder-Mead',options={'adaptive':True})
 #res = minimize(f,x0,method='Nelder-Mead')
