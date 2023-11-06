@@ -61,7 +61,10 @@ def f(x):
   subprocess.run("cd ./"+str(element)+" ; ./run.sh ; cd ../", shell=True)
   
   evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+str(element)+"/"+str(file_msd), shell=True, stdout=subprocess.PIPE)
-  y = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
+  if evaluate.returncode == 0:
+    y = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
+  else:
+    y = 99999.999
   
   print("Evaluate: ",str(y))
   print("Parameters: x0 = "+"[ "+str(x[0])+","+str(x[1])+" ]")
