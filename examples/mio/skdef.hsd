@@ -186,14 +186,14 @@ AtomParameters {
     }
   }
 
-  S {
+  Si {
     AtomConfig {
-      AtomicNumber = 16
-      Mass = 32.065
+      AtomicNumber = 14
+      Mass = 28.0855
       Occupations {
 	$OCCUPATIONS_Ne
 	3S = 1.0 1.0
-	3P = 2.0 2.0
+	3P = 1.0 1.0
 	3D = 0.0 0.0
       }
       ValenceShells = 3s 3p 3d
@@ -203,8 +203,8 @@ AtomParameters {
       ShellResolved = No
       DensityCompression = PowerCompression{ Power = 2; Radius = 9.0 }
       WaveCompressions = SingleAtomCompressions {
-	S = PowerCompression { Power = 2; Radius = 3.8 }
-	P = PowerCompression { Power = 2; Radius = 3.8 }
+	S = PowerCompression { Power = 2; Radius = 4.4 }
+	P = PowerCompression { Power = 2; Radius = 4.4 }
 	D = PowerCompression { Power = 2; Radius = 4.4 }
       }
     }
@@ -233,6 +233,30 @@ AtomParameters {
       }
       CustomizedOnsites {
 	3D = 0.520437
+      }
+    }
+  }
+
+  S {
+    AtomConfig {
+      AtomicNumber = 16
+      Mass = 32.065
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 2.0 2.0
+	3D = 0.0 0.0
+      }
+      ValenceShells = 3s 3p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 2; Radius = 9.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2; Radius = 3.8 }
+	P = PowerCompression { Power = 2; Radius = 3.8 }
+	D = PowerCompression { Power = 2; Radius = 4.4 }
       }
     }
   }
@@ -287,8 +311,8 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      # 0.1*rcov step for Radius, range [rcov, 10*rcov]
-      # 0.2 step for Power, range [2, 17]
+      # 0.1 step for Radius, range [rcov, 10*rcov]
+      # 0.2 step for Power, range [2,17]
       DensityCompression = PowerCompression{ Power = 2; Radius = 14.0 }
       WaveCompressions = SingleAtomCompressions {
     # [1] https://doi.org/10.1021/ct4004959, r0=(r0/rcov)*rcov [Angstrom] -> r0/0.529 [bohr]
@@ -462,10 +486,8 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 0.5 1.2 2.9 7.0
-	P = 0.5 1.2 2.9 7.0
-	#S = 0.50 1.20 2.90 7.00 # Ref.[2]
-	#P = 0.50 1.20 2.90 7.00 # Ref.[2]
+	S = 0.5 1.2 2.9 7.0 # same as Ref.[2]
+	P = 0.5 1.2 2.9 7.0 # same as Ref.[2]
       }
       MaxPowers {
 	S = 3
@@ -478,10 +500,8 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 0.5 1.26 3.17 8.0
-	P = 0.5 1.26 3.17 8.0
-	#S = 0.50 1.26 3.17 8.00 # Ref.[2]
-	#P = 0.50 1.26 3.17 8.00 # Ref.[2]
+	S = 0.5 1.26 3.17 8.0 # same as Ref.[2]
+	P = 0.5 1.26 3.17 8.0 # same as Ref.[2]
       }
       MaxPowers {
 	S = 3
@@ -490,13 +510,13 @@ OnecenterParameters {
     }
   }
 
-  S {
+  Si {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 0.5 1.19 2.83 6.73 16.0
-	P = 0.5 1.19 2.83 6.73 16.0
-	D = 0.5 1.19 2.83 6.73 16.0
+	S = 0.50 1.09 2.55  5.98 14.00 # Ref.[2]*14/15
+	P = 0.50 1.09 2.55  5.98 14.00 # Ref.[2]*14/15
+	D = 1.50 2.95 6.26 13.24 28.00 # Ref.[2]*28/30
       }
       MaxPowers {
 	S = 3
@@ -516,6 +536,22 @@ OnecenterParameters {
 	#S = 0.50 1.17 2.74  6.41 15.00 # Ref.[2]
 	#P = 0.50 1.17 2.74  6.41 15.00 # Ref.[2]
 	#D = 1.50 3.17 6.71 14.19 30.00 # Ref.[2]
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  S {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.5 1.19 2.83 6.73 16.0
+	P = 0.5 1.19 2.83 6.73 16.0
+	D = 0.5 1.19 2.83 6.73 16.0
       }
       MaxPowers {
 	S = 3
@@ -724,6 +760,7 @@ TwoCenterParameters {
   Li-Li { Grid = $EqGridCutoff10; Calculator = $SkTwocnt_300_150 }
   Co-Co { Grid = $EqGridCutoff12; Calculator = $SkTwocnt_400_200 }
   Nb-Nb { Grid = $EqGridCutoff12; Calculator = $SkTwocnt_400_200 }
+  Si-Si { Grid = $EqGridCutoff10; Calculator = $SkTwocnt_300_150 }
 }
 
 # skgen -o slateratom -t sktwocnt sktable H,O H,O |& tee -a output
