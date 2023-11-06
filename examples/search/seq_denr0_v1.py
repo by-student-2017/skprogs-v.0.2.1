@@ -76,7 +76,7 @@ def f(r0,sigma):
   return y
 #----------------------------------------------------------------------
 for sigma in np.arange(2.0,12.0,0.2): # >12.0: !!! [slateratom] SCF is NOT converged, maximal SCF iterations exceeded.
-  for r0 in np.arange(4.0,17.0,1.0): # [bohr] unit
+  for r0 in np.arange(2.0,10.0,0.2): # [bohr] unit
     print("initial parameters, r0: "+str(r0))
     print("initial parameters, sigma: "+str(sigma))
     res = f(r0,sigma)
