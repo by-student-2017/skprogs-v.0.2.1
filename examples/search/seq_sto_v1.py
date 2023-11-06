@@ -17,7 +17,7 @@ print("CPU: ",str(num_core.stdout).lstrip("b'").rstrip("\\n'"))
 dftbp_adress = "mpirun -np "+str(num_core)+" dftb+"
 pwscf_adress = "mpirun -np "+str(num_core)+" pw.x"
 
-subprocess.run("echo \"No.: ETA value [eV]\" > Evalute.txt", shell=True)
+subprocess.run("echo \"No.: ETA value [eV], spt, dt\" > Evalute.txt", shell=True)
 
 #natom = 1
 #r0 = numpy.ones(int(natom)+1)
@@ -26,26 +26,18 @@ subprocess.run("echo \"No.: ETA value [eV]\" > Evalute.txt", shell=True)
 # fitting parameters
 element = "B"
 #------------------------
-spt = 1.0
-dt  = 1.0
 stosp = [0.5,0.95,2.62,6.0]
 stod  = [0.5,0.95,2.62,6.0]
 #------------------------
-area=[
-  (0.8,1.5),
-  (0.8,1.5)
-]
-#------------------------
 print("initial parameters, SP: "+str(stosp))
 print("initial parameters, D : "+str(stod))
-x0 = np.array([spt,dt])
 
 subprocess.run("cd ./"+str(element)+" ; rm -f -r results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; mkdir results ; cd ../", shell=True)
 
 count = 0
 #----------------------------------------------------------------------
-def f(x):
+def f(stos,stop,spt,dt):
   
   print("------------------------")
   global count
@@ -57,6 +49,7 @@ def f(x):
   stos_all = str(stosp[0]*spt)+" "+str(stosp[1]*spt)+" "+str(stosp[2]*spt)+" "+str(stosp[3]*spt)
   stop_all = str(stod[0]*dt)+" "+str(stod[1]*dt)+" "+str(stod[2]*dt)+" "+str(stod[3]*dt)
   subprocess.call("sed -i s/stosp/\""+str(stos_all)+"\"/g "+str(file_inp), shell=True)
+  subprocess.call("sed -i s/stosp/\""+str(stop_all)+"\"/g "+str(file_inp), shell=True)
   subprocess.call("sed -i s/stod/\""+str(stop_all)+"\"/g "+str(file_inp), shell=True)
   
   sub = subprocess.run("/mnt/d/skprogs/sktools/src/sktools/scripts/skgen.py -o slateratom -t sktwocnt sktable -d "+str(element)+" "+str(element), shell=True)
@@ -70,15 +63,20 @@ def f(x):
     y = 99999.999
   
   print("Evaluate: ",str(y))
-  print("Parameters: x0 = "+"[ "+str(x[0])+","+str(x[1])+" ]")
   print("------------------------")
   subprocess.run("mv "+str(file_inp)+" ./"+str(element)+"/results/"+str(file_inp)+"_No"+str(count), shell=True)
   subprocess.run("cp ./"+str(element)+"/comp_band.png ./"+str(element)+"/results/comp_band_No"+str(count)+".png", shell=True)
-  subprocess.run("echo No."+str(count)+": "+str(y)+" >> Evalute.txt", shell=True)
+  subprocess.run("echo No."+str(count)+": "+str(y)+", "+str(spt)+", "+str(dt)+" >> Evalute.txt", shell=True)
 
   return y
 #----------------------------------------------------------------------
-res = minimize(f,x0,bounds=area,method='Nelder-Mead',options={'adaptive':True})
+for dt in np.arange(0.7,1.5,0.1):
+  for spt in np.arange(0.7,1.5,0.1):
+    print("initial parameters, spt: "+str(spt))
+    print("initial parameters, dt : "+str(dt))
+    res = f(stos,stop,spt,dt)
+#----------------------------------------------------------------------
+#res = minimize(f,x0,bounds=area,method='Nelder-Mead',options={'adaptive':True})
 #res = minimize(f,x0,method='Nelder-Mead')
 #res = minimize(f,x0,method='TNC')
 #res = minimize(f,x0,method='Powell')
