@@ -1,0 +1,33 @@
+----------------------------------------------------------------------------------------------------
+https://github.com/pekkosk/hotbit/wiki/Parameters-and-parametrization
+2. Calculate confined atom with DFT
+- To get wave functions for the atoms (in molecules)
+- Compression mimics the fact, that while atoms are bound to molecules or solids, their wave functions are more compressed and not as diffuse as for a free atom.
+- Use quadratic external potential V_ext(r)=-Z/r + (r/!r0)**2 (Frauenheim type confinement)
+- r0 is the first parameter in the parametrization process; rule of thumb r0=1.85*(covalent radius)
+----------------------------------------------------------------------------------------------------
+https://arxiv.org/ftp/arxiv/papers/2307/2307.03953.pdf
+1) PtRu containing parameters for Ru-Pt compounds from [131]
+2) TransMet containing Ag-Ag, Au-Au, Cu-Cu, Ni-Ni, Pd-Pd, Pt-Pt (for nanoclusters) from [132]
+3) trans3d-LANLFeC for Fe-C-O from [133]
+4) Al2O3 containing files Al-Al, Al-O, O-O, optimized for solid Al2O3 from [134]
+5) Ga2O3 containing files Ga-Ga, Ga-O, O-O, optimized for solid Ga2O3 from [135]
+6) BC containing B-C from https://github.com/tlyoon/BC_SKfiles
+7) 3ob_cnoh containing parameters for C-H-N-O-P-S interactions from 
+  https://bitbucket.org/solccp/adpt_core/src/master/erepfit/example/3ob_cnoh/
+  https://doi.org/10.48550/arXiv.2307.03953
+8) Verners_2023 containing parameters for a range of materials (similar to pbc parameterization) 
+  from http://dx.doi.org/10.13140/RG.2.2.28507.54564
+9) Li-C containing data for Li-graphite interaction from [136]
+10) Al-C containing improved Al-C interaction based on matsci-parameters from 
+  https://apps.dtic.mil/sti/tr/pdf/AD1026685.pdf
+11) dataset_Ru_RuO for Ru-O from https://doi.org/10.17617/3.CRSJQV (requires specifying full path in the parameters file, because it contains separate subdirectories for Ru and Ru-O)
+12) MoS containing Mo-S from https://github.com/hyllios/dftb_auto (need to be converted from svn format to skf!)
+13) https://doi.org/10.1021/acs.jctc.3c00310
+  (Si-Ti.skf, Ti-Si.skf, N-Ti.skf, Ti-N.skf)
+  We used tiorg-0-1 (51) (for TiO2-C3N4 system) and matsci-0-3 (72) (for Si-Ti-O systems) parameter sets. 
+----------------------------------------------------------------------------------------------------
+I'm very saddened that you mentioned this as a reference, 
+but it wasn't a good job because I prioritized automating and creating a series of data. 
+"https://github.com/by-student-2017/Slater-Koster-parameters-no-repulsion_v1" will be recreated.
+----------------------------------------------------------------------------------------------------

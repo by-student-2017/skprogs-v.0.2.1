@@ -10,6 +10,8 @@ grep "Fermi" POSCAR.scf.out > info.dat
 
 ${MPI_PREFIX} pw.x < POSCAR.bands.in | tee POSCAR.bands.out
 
+
+
 ${MPI_PREFIX} bands.x < bands.in
 
 ./conv_qe_bands.sh
