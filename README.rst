@@ -213,7 +213,7 @@ Note 1 (Importance of basis functions)
 - In "STO-nG" used in Gaussian etc., s and p orbitals are treated as SP. Therefore, here again, s and p are fitted using parameters other than Hubbard as SP.
 - First, we will use the already known reference value for the "slateratom" parameter. The parameter of the reference atom is multiplied by "fitting atomic number/reference atomic number" to obtain the initial value of the search for the parameter of the fitting atom.
 - Although some conditions are different from the paper [1], r0 of "QUASINANO" gives good results.
-- Although we are currently investigating, there is a similar trend regarding simga parameters.
+- Although we are currently investigating, there is a similar trend regarding simga parameters. In B, as the simga is increased from 2.0, the s-band approaches the DFT result.
 
 
 Future plans
