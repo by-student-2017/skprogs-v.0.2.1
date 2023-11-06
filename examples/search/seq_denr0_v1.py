@@ -48,7 +48,8 @@ def f(r0,sigma):
   
   skgen = subprocess.run("/mnt/d/skprogs/sktools/src/sktools/scripts/skgen.py -o slateratom -t sktwocnt sktable -d "+str(element)+" "+str(element), shell=True, stdout=subprocess.PIPE)
   
-  if os.path.exists(str(element)+"-"+str(element)+".skf"): 
+  if os.path.exists(str(element)+"-"+str(element)+".skf"):
+    subprocess.run("cd ./"+str(element)+" ; ./run.sh ; cd ../", shell=True)
     evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+str(element)+"/"+str(file_msd), shell=True, stdout=subprocess.PIPE)
     if evaluate.returncode == 0:
       y = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
