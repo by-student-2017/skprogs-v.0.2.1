@@ -17,6 +17,8 @@ print("CPU: ",str(num_core.stdout).lstrip("b'").rstrip("\\n'"))
 dftbp_adress = "mpirun -np "+str(num_core)+" dftb+"
 pwscf_adress = "mpirun -np "+str(num_core)+" pw.x"
 
+subprocess.run("echo \"No.: ETA value [eV]\" > Evalute.txt", shell=True)
+
 #natom = 1
 #r0 = numpy.ones(int(natom)+1)
 
@@ -36,8 +38,6 @@ area=[
 print("initial parameters, r0: "+str(r0))
 print("initial parameters, sigma: "+str(sigma))
 x0 = np.array([r0,sigma])
-
-subprocess.run("echo \"No.: ETA value [eV]\" > ./"+str(element)+"/results/Evalute.txt", shell=True)
 
 count = 0
 #----------------------------------------------------------------------
@@ -65,7 +65,7 @@ def f(x):
   print("------------------------")
   subprocess.run("mv "+str(file_inp)+" ./"+str(element)+"/results/"+str(file_inp)+"_No"+str(count), shell=True)
   subprocess.run("cp ./"+str(element)+"/comp_band.png ./"+str(element)+"/results/comp_band_No"+str(count)+".png", shell=True)
-  subprocess.run("echo No."+str(count)+": "+str(y)+" >> ./"+str(element)+"/results/Evalute.txt", shell=True)
+  subprocess.run("echo No."+str(count)+": "+str(y)+" >> Evalute.txt", shell=True)
 
   return y
 #----------------------------------------------------------------------
