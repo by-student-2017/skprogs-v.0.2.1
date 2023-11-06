@@ -29,8 +29,8 @@ element = "B"
 stospt = np.array([1.0,1.10,1.20,1.3])
 stodt  = np.array([1.0,1.10,1.20,1.3])
 #------------------------
-stosp  = np.array([0.5,0.95,2.62,6.0])
-stod   = np.array([0.5,0.95,2.62,6.0])
+stosp  = np.array([0.5,0.75,1.92,4.3])
+stod   = np.array([0.5,0.75,1.92,4.3])
 #------------------------
 print("initial parameters, SP: "+str(stosp))
 print("initial parameters, D : "+str(stod))
