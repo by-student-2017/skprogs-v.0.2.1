@@ -3,7 +3,7 @@ from scipy.optimize import minimize
 import subprocess
 import sys
 #----------------------------------------------------------------------
-# command: python3 nm_v1.py
+# command: python3 nm_r0_v1.py
 #----------------------------------------------------------------------
 file_tmp = 'skdef.hsd.tmp'
 file_inp = 'skdef.hsd'
@@ -26,18 +26,21 @@ subprocess.run("echo \"No.: ETA value [eV]\" > Evalute.txt", shell=True)
 # fitting parameters
 element = "B"
 #------------------------
-rcov = 0.84     # Covalentradii [Angstrom]
-r0  = rcov/0.529 # Radius [bohr] = [Angstrom]/0.529
-sigma = 2.0     # Power
+rcov = 0.84      # Covalentradii [Angstrom]
+r0  = rcov/0.529*1.85 # Radius [bohr] = [Angstrom]/0.529
+sigma = 2.0      # Power
 #------------------------
 area=[
-  (rcov,3.0*rcov),
+  (r0,3.0*r0),
   (2.0,14.0)
 ]
 #------------------------
 print("initial parameters, r0: "+str(r0))
 print("initial parameters, sigma: "+str(sigma))
 x0 = np.array([r0,sigma])
+
+subprocess.run("cd ./"+str(element)+" ; rm -f -r results ; cd ../", shell=True)
+subprocess.run("cd ./"+str(element)+" ; mkdir results ; cd ../", shell=True)
 
 count = 0
 #----------------------------------------------------------------------
