@@ -75,8 +75,9 @@ def f(r0,sigma):
 
   return y
 #----------------------------------------------------------------------
-for sigma in np.arange(2.0,14.0,0.2):
-  for r0 in np.arange(2.5,6.5,0.1):
+for sigma in np.arange(2.0,14.0,0.2): 
+  #for r0 in np.arange(1.6,6.5,0.1): # [bohr] unit
+  for r0 in np.arange(3.0,3.1,0.1): # [bohr] unit
     print("initial parameters, r0: "+str(r0))
     print("initial parameters, sigma: "+str(sigma))
     res = f(r0,sigma)
