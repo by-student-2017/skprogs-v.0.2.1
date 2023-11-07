@@ -205,7 +205,7 @@ Reference
 - [2] [Self-Consistent-Charge Density-Functional Tight-Binding Parameters for Modeling an All-Solid-State Lithium Battery](https://doi.org/10.1021/acs.jctc.2c01115)
 
 
-Information
+Information of skprogs code
 =======
 - sktools/src/sktools/compressions.py
 
