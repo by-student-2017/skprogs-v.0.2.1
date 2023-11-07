@@ -18,10 +18,7 @@ print("CPU: ",str(num_core.stdout).lstrip("b'").rstrip("\\n'"))
 dftbp_adress = "mpirun -np "+str(num_core)+" dftb+"
 pwscf_adress = "mpirun -np "+str(num_core)+" pw.x"
 
-subprocess.run("echo \"No.: ETA value [eV], spt, dt\" > Evalute.txt", shell=True)
-
-#natom = 1
-#r0 = numpy.ones(int(natom)+1)
+subprocess.run("echo \"#No.: ETA value [eV], spt, dt\" > Evalute.txt", shell=True)
 
 #----------------------------------------------------------------------
 # fitting parameters
@@ -75,14 +72,11 @@ def f(stosp,stod):
 
   return y
 #----------------------------------------------------------------------
+# fitting parameters
 for dt in np.arange(0.7,1.5,0.1):
   for spt in np.arange(0.7,1.5,0.05):
     new_stosp = stosp * stospt ** spt
     new_stod  = stod * stodt ** dt
     res = f(new_stosp,new_stod)
+  subprocess.run("echo -n >> Evalute.txt", shell=True)
 #----------------------------------------------------------------------
-#res = minimize(f,x0,bounds=area,method='Nelder-Mead',options={'adaptive':True})
-#res = minimize(f,x0,method='Nelder-Mead')
-#res = minimize(f,x0,method='TNC')
-#res = minimize(f,x0,method='Powell')
-#res = minimize(f,x0,method='BFGS')

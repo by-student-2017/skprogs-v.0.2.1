@@ -1,0 +1,22 @@
+No.: Evaluate value, r0(density), sigma(density)
+No.30: 1.048396, 35.0, 2.0
+No.59: 1.09676, 30.0, 3.0
+No.85: 1.102385, 22.0, 4.0
+No.115: 1.104895, 18.0, 5.0
+No.147: 1.107151, 16.0, 6.0
+No.179: 1.105994, 14.0, 7.0
+No.212: 1.106098, 13.0, 8.0
+No.245: 1.104276, 12.0, 9.0
+No.279: 1.106932, 12.0, 10.0
+No.313: 1.108567, 12.0, 11.0
+No.346: 1.103901, 11.0, 12.0
+No.380: 1.104947, 11.0, 13.0
+No.414: 1.105692, 11.0, 14.0
+No.448: 1.106203, 11.0, 15.0
+No.482: 1.106458, 11.0, 16.0
+No.516: 1.106687, 11.0, 17.0
+
+Note 1: In this search, the range of "Evaluate value" is not appropriate, so we can only determine whether the band change is saturated.
+Note 2: Above the respective values of "r0" and "simga = Power", it is saturated and only changes by about 1%.
+Note 3: This data can be used as a guide to search for a better range by combining with other crystal structures and atoms.
+Note 4: The figures corresponding to numbers are omitted here due to capacity limitations. It can be calculated in about 12 hours on a normal PC, so it might be a good idea to test it yourself.

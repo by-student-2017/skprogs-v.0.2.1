@@ -1,0 +1,15 @@
+#!/usr/local/bin/gnuplot -persist
+#------------------------------------------------
+set terminal pngcairo color enhanced font "Arial" fontscale 1.0
+set output "map.png"
+#------------------------------------------------
+#set key opaque box lc rgb "white" height 1
+#------------------------------------------------
+set xlabel "Radii, r0 / bohr"
+set ylabel "Power (= sigma)"
+set zlabel "Evaluate value [eV]"
+set zrange[*:2.0]
+set pm3d map
+set pm3d interpolate 3, 3
+splot "Evalute.txt" u 3:4:2 t ""
+#------------------------------------------------

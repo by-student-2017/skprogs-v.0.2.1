@@ -16,15 +16,11 @@ subprocess.run("export OMP_NUM_THREADS=1", shell=True)
 num_core = subprocess.run("grep 'core id' /proc/cpuinfo | sort -u | wc -l", shell=True, stdout=subprocess.PIPE)
 print("CPU: ",str(num_core.stdout).lstrip("b'").rstrip("\\n'"))
 dftbp_adress = "mpirun -np "+str(num_core)+" dftb+"
-pwscf_adress = "mpirun -np "+str(num_core)+" pw.x"
+#pwscf_adress = "mpirun -np "+str(num_core)+" pw.x"
 
-subprocess.run("echo \"No.: ETA value [eV], r0, sigma\" > Evalute.txt", shell=True)
-
-#natom = 1
-#r0 = numpy.ones(int(natom)+1)
+subprocess.run("echo \"#No.: ETA value [eV], r0, sigma\" > Evalute.txt", shell=True)
 
 #----------------------------------------------------------------------
-# fitting parameters
 element = "B"
 
 subprocess.run("cd ./"+str(element)+" ; rm -f -r results ; cd ../", shell=True)
@@ -44,7 +40,9 @@ def f(r0,sigma):
   subprocess.call("sed -i s/r0/"+str(r0)+"/g "+str(file_inp), shell=True)
   subprocess.call("sed -i s/sigma/"+str(sigma)+"/g "+str(file_inp), shell=True)
   
+  subprocess.run("export OMP_NUM_THREADS="+str(num_core), shell=True)
   skgen = subprocess.run("/mnt/d/skprogs/sktools/src/sktools/scripts/skgen.py -o slateratom -t sktwocnt sktable -d "+str(element)+" "+str(element), shell=True, stdout=subprocess.PIPE)
+  subprocess.run("export OMP_NUM_THREADS=1", shell=True)
   
   if os.path.exists(str(element)+"-"+str(element)+".skf"):
     subprocess.run("cd ./"+str(element)+" ; ./run.sh ; cd ../", shell=True)
@@ -65,14 +63,11 @@ def f(r0,sigma):
 
   return y
 #----------------------------------------------------------------------
-for sigma in np.arange(2.0,12.0,0.2): # >12.0: !!! [slateratom] SCF is NOT converged, maximal SCF iterations exceeded.
+# fitting parameters
+for sigma in np.arange(2.0,12.0,0.2):
   for r0 in np.arange(3.0,3.1,0.1): # [bohr] unit
     print("initial parameters, r0: "+str(r0))
     print("initial parameters, sigma: "+str(sigma))
     res = f(r0,sigma)
+  subprocess.run("echo -n >> Evalute.txt", shell=True)
 #----------------------------------------------------------------------
-#res = minimize(f,x0,bounds=area,method='Nelder-Mead',options={'adaptive':True})
-#res = minimize(f,x0,method='Nelder-Mead')
-#res = minimize(f,x0,method='TNC')
-#res = minimize(f,x0,method='Powell')
-#res = minimize(f,x0,method='BFGS')
