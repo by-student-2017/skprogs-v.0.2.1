@@ -215,6 +215,17 @@ Information
 
   radius : float, Radius of the compression (r0)
 
+- slateratom/lib/core_overlap.f90
+
+  !> Calculates analytic matrix elements of confining potential.
+  
+    vconf(ii, nn, oo) = ...
+
+  !> Calculates arbitrary moments of electron distribution, e.g. expectation values of <r>, <r^2>
+  
+    moment(1, ii, pp) = ...
+    
+    moment(2, ii, pp) = ...
 
 
 Note 1 (Importance of basis functions)
