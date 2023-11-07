@@ -237,7 +237,7 @@ Note 1 (Importance of basis functions)
 =======
 - As pointed out in literature [1], basis functions are important (especially in the s-band). [1]
 - Hence, to reproduce the KS matrix elements with Slater-type orbitals, special basis sets would need to be constructed to handle steep confinement potentials. [1]
-- In "STO-nG (https://www.basissetexchange.org/)" used in Gaussian etc., s and p orbitals are treated as SP. Therefore, here again, s and p are fitted using parameters other than Hubbard as SP.
+- In "STO-nG (https://www.basissetexchange.org/)" used in Gaussian etc., s and p orbitals are treated as SP. Therefore, regarding the radial wave function, s and p are treated as SP.
 - First, we will use the already known reference value for the "slateratom" parameter. The parameter of the reference atom is multiplied by "fitting atomic number/reference atomic number" to obtain the initial value of the search for the parameter of the fitting atom.
 - Although the conditions are different from paper [1], good r0 results are obtained for "QUASINANO". There is a similar trend for simga parameters. When increasing simga from 2.0, the s-band approaches the DFT result.
 
