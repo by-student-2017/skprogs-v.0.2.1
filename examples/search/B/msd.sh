@@ -2,8 +2,8 @@
 
 join dftbp_band.dat qe_bands.dat > msd_band.dat
 
-ytop=-14
-ybottom=6
+ytop=-2
+ybottom=16
 
 echo "---------------------------------"
 if [ ! "$1" == "" ]; then
