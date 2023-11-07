@@ -8,8 +8,14 @@ set output "map.png"
 set xlabel "Radii, r0 / bohr"
 set ylabel "Power (= sigma)"
 set zlabel "Evaluate value [eV]"
-set zrange[*:2.0]
+set zrange[*:1.4]
+set mxtics 5
+set  ytics 1
+set mytics 2
+set grid x mx
+set grid y my
 set pm3d map
 set pm3d interpolate 3, 3
+set palette cubehelix start 1 cycles 5 saturation 3 negative
 splot "Evalute.txt" u 3:4:2 t ""
 #------------------------------------------------
