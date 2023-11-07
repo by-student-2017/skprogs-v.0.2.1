@@ -227,6 +227,11 @@ Information of skprogs code
     
     moment(2, ii, pp) = ...
 
+- doc/devel/code_structure.txt
+
+  ZORA: https://www.scm.com/support/background/more-details-of-the-zora-relativistic-hamiltonian/
+
+
 
 Note 1 (Importance of basis functions)
 =======
