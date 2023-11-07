@@ -1,19 +1,18 @@
 #!/bin/bash
 
-join dftbp_band.dat ./qe/qe_bands.dat > msd_band.dat
+join dftbp_band.dat qe_bands.dat > msd_band.dat
 
 # These are related with comp_band.png
-ytop=-6    # Binding energy [eV], unoccupied range (conduction band)
-           # Fermi Energy, EF = 0
-ybottom=10 # Binding energy [eV],   occupied range (valence band)
+ytop=-2    # Binding energy [eV]
+ybottom=16 # Binding energy [eV]
 
 echo "---------------------------------"
 if [ ! "$1" == "" ]; then
   Temp=$1
 else
   echo "---------------------------------"
-  echo "Auto set 300 K"
-  Temp=300.0 # [K]
+  echo "Auto set 10000 K"
+  Temp=10000.0 # [K]
 fi
 kbT=`echo ${Temp} | awk '{printf "%f",(8.6173e-5*$1)}'`
 echo "kbT = "${kbT}" [eV] at ${Temp} [K]"
@@ -44,7 +43,7 @@ BEGIN{n=0;VD=0.0;VDT=0.0;eta=0.0}
   printf "ETA = %f [eV]\n",(ETA/n)
   printf "ETA = sum(|E(DFT)-E(DFTB)|)/n \n"
   printf "---------------------------------\n"
-}' msd_band.dat
+}' msd_band.dat | tee msd.dat
 
 echo "gnuplot"
 echo "set yrange[${ybottom}:${ytop}]"
