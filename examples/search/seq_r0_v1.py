@@ -13,8 +13,9 @@ file_msd = 'msd.dat'
 #cif2cell_adress = "cif2cell"
 
 subprocess.run("export OMP_NUM_THREADS=1", shell=True)
-num_core = subprocess.run("grep 'core id' /proc/cpuinfo | sort -u | wc -l", shell=True, stdout=subprocess.PIPE)
-print("CPU: ",str(num_core.stdout).lstrip("b'").rstrip("\\n'"))
+sub_num_core = subprocess.run("grep 'core id' /proc/cpuinfo | sort -u | wc -l", shell=True, stdout=subprocess.PIPE)
+print("CPU: ",str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
+num_core = int(str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
 dftbp_adress = "mpirun -np "+str(num_core)+" dftb+"
 #pwscf_adress = "mpirun -np "+str(num_core)+" pw.x"
 
