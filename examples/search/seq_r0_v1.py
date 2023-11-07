@@ -69,5 +69,5 @@ for sigma in np.arange(2.0,12.0,0.2):
     print("initial parameters, r0: "+str(r0))
     print("initial parameters, sigma: "+str(sigma))
     res = f(r0,sigma)
-  subprocess.run("echo -n >> Evalute.txt", shell=True)
+  subprocess.run("echo \"\" >> Evalute.txt", shell=True)
 #----------------------------------------------------------------------

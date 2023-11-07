@@ -78,5 +78,5 @@ for dt in np.arange(0.7,1.5,0.1):
     new_stosp = stosp * stospt ** spt
     new_stod  = stod * stodt ** dt
     res = f(new_stosp,new_stod)
-  subprocess.run("echo -n >> Evalute.txt", shell=True)
+  subprocess.run("echo \"\" >> Evalute.txt", shell=True)
 #----------------------------------------------------------------------
