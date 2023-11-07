@@ -207,7 +207,7 @@ Reference
 
 Information
 =======
-sktools/src/sktools/compressions.py:
+- sktools/src/sktools/compressions.py
 
   Compression by a power function (r/r0)^n.
 
