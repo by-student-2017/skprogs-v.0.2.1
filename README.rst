@@ -217,11 +217,11 @@ Information
 
 - slateratom/lib/core_overlap.f90
 
-  !> Calculates analytic matrix elements of confining potential.
+  Calculates analytic matrix elements of confining potential.
   
     vconf(ii, nn, oo) = ...
 
-  !> Calculates arbitrary moments of electron distribution, e.g. expectation values of <r>, <r^2>
+  Calculates arbitrary moments of electron distribution, e.g. expectation values of <r>, <r^2>
   
     moment(1, ii, pp) = ...
     
