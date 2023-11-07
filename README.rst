@@ -208,9 +208,13 @@ Reference
 Information
 =======
 sktools/src/sktools/compressions.py:
+
   Compression by a power function (r/r0)^n.
+
   power : float, Power of the compression function (n).
+
   radius : float, Radius of the compression (r0)
+
 
 
 Note 1 (Importance of basis functions)
