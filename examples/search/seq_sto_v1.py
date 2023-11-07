@@ -24,11 +24,11 @@ subprocess.run("echo \"#No.: ETA value [eV], spt, dt\" > Evalute.txt", shell=Tru
 # fitting parameters
 element = "B"
 #------------------------
-stospt = np.array([1.0,1.10,1.20,1.3])
-stodt  = np.array([1.0,1.10,1.20,1.3])
+stospt = np.array([1.0,1.03,1.06,1.09])
+stodt  = np.array([1.0,1.03,1.06,1.09])
 #------------------------
-stosp  = np.array([0.5,0.75,1.92,4.3])
-stod   = np.array([0.5,0.75,1.92,4.3])
+stosp  = np.array([0.5,0.8,1.6,3.2])
+stod   = np.array([0.5,0.8,1.6,3.2])
 #------------------------
 print("initial parameters, SP: "+str(stosp))
 print("initial parameters, D : "+str(stod))
