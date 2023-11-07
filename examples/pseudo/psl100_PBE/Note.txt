@@ -1,0 +1,76 @@
+------------------------------------------------------------------------------
+You can get from:
+  https://github.com/by-student-2017/cif2qewan/tree/master/pseudo/psl100_PBE
+------------------------------------------------------------------------------
+PSlibrary
+(Welcome to pslibrary | A library of ultrasoft and PAW pseudopotentials (dalcorso.github.io))
+
+compiling ld1 on QE
+1. cd /mnt/d/QE72-Wannier90/qe-7.2
+2. make ld1
+
+install rename command
+1. sudo apt -y install rename
+
+pslibrary.1.0.0 (PBEsol)
+1. wget https://people.sissa.it/dalcorso/pslibrary/pslibrary.1.0.0.tar.gz
+2. tar zxvf pslibrary.1.0.0.tar.gz
+3. cd pslibrary.1.0.0
+4. vim QE_path
+-----
+PWDIR='/mnt/d/QE72-Wannier90/qe-7.2'
+-----
+5. cd pbesol
+6. ./../make_ps
+7. ./../make_test
+8. cd PSEUDOPOTENTIALS
+9. ls
+
+pslibrary.0.3.1 (LDA=pz)
+1. wget https://people.sissa.it/dalcorso/pslibrary/pslibrary.0.3.1.tar.gz
+2. tar zxvf pslibrary.0.3.1.tar.gz
+3. cd pslibrary.0.3.1
+4. vim QE_path
+-----
+PWDIR='/mnt/d/QE72-Wannier90/qe-7.2'
+-----
+5. cd pbesol
+6. ./../make_ps
+7. ./../make_test
+8. cd PSEUDOPOTENTIALS
+9. ls
+
+pslibrary.0.2.3 (PBE)
+1. wget https://people.sissa.it/dalcorso/pslibrary/pslibrary.0.2.3.tar.gz
+2. tar zxvf pslibrary.0.2.3.tar.gz
+3. cd pslibrary.0.2.3
+4. vim make_ps
+-----
+PWDIR='/mnt/d/QE72-Wannier90/qe-7.2'
+-----
+5. cd pbe
+6. ./../make_ps
+7. cd PSEUDOPOTENTIALS
+8. rename -v "s/.UPF/_psl.0.2.3.UPF/" *rrkjus.UPF
+9. rename -v "s/paw_kj.UPF/kjpaw_psl.0.2.3.UPF/" *paw_kj.UPF
+10. ls
+
+pslibrary.0.1 (PBE)
+1. wget https://people.sissa.it/dalcorso/pslibrary/pslibrary.0.1.tar.gz
+2. tar zxvf pslibrary.0.1.tar.gz
+3. cd pslibrary.0.1
+4. vim make_ps
+-----
+PWDIR='/mnt/d/QE72-Wannier90/qe-7.2'
+-----
+5. cd pbe
+6. ./../make_ps
+7. cd PSEUDOPOTENTIALS
+8. rename -v "s/.UPF/_psl.0.1.UPF/" *rrkjus.UPF
+9. rename -v "s/paw_kj.UPF/kjpaw_psl.0.1.UPF/" *paw_kj.UPF
+10. ls
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+■ PSlibrary 0.3.1
+- http://theossrv1.epfl.ch/Main/Pseudopotentials
+------------------------------------------------------------------------------

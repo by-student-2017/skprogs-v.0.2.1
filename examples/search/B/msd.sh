@@ -2,8 +2,9 @@
 
 join dftbp_band.dat qe_bands.dat > msd_band.dat
 
-ytop=-2
-ybottom=16
+# These are related with comp_band.png
+ytop=-2    # Binding energy [eV]
+ybottom=16 # Binding energy [eV]
 
 echo "---------------------------------"
 if [ ! "$1" == "" ]; then

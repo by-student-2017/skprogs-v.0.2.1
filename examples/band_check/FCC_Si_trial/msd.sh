@@ -2,8 +2,10 @@
 
 join dftbp_band.dat ./qe/qe_bands.dat > msd_band.dat
 
-ytop=-6
-ybottom=10
+# These are related with comp_band.png
+ytop=-6    # Binding energy [eV], unoccupied range (conduction band)
+           # Fermi Energy, EF = 0
+ybottom=10 # Binding energy [eV],   occupied range (valence band)
 
 echo "---------------------------------"
 if [ ! "$1" == "" ]; then
