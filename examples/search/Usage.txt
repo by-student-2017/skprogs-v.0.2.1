@@ -1,0 +1,15 @@
+Usage
+
+1. Set "r0" and "sigma" from "parameters_Ref1.txt". If the calculation does not converge, set "simga" to a value close to it.
+2. Find stable basis function parameters with a good fit using the following steps.
+  python3 seq_sto_v1.py
+  Click "plot_map.gpl" to output the graph.
+3. Search for "r0" and "simga". If it is working with values close to "parameters_Ref1.txt", just check to see if the trend is similar to the paper.
+  python3 seq_r0_v1.py
+  Click "plot_map.gpl" to output the graph.
+4. Search for "r0" and "simga" in density. It's a good idea to do the calculations by hand a few times first to clarify the bare minimum and minimum fit range.
+  python3 seq_denr0_v1.py
+  Click "plot_map.gpl" to output the graph.
+  
+Note 1: Let us clarify above the "r0" and "sigma" at which the evaluation value begins to saturate. Doing so helps define the scope of the search in terms of crystal structure and combinations with other atoms.
+Note 2: The area around the Fermi level is important. Unless you are evaluating infrared or light absorption, it is best to set the range in "msd.dat" to give priority to fitting occupied levels over unoccupied levels.
