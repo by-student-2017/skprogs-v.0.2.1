@@ -209,7 +209,6 @@ Note 1 (Importance of basis functions)
 =======
 - As pointed out in literature [1], basis functions are important (especially in the s-band). [1]
 - Hence, to reproduce the KS matrix elements with Slater-type orbitals, special basis sets would need to be constructed to handle steep confinement potentials. [1]
-- I'm not quite sure what to do with the parameters regarding "SlaterAtom". Even if MaxPowers is increased, Nb etc. (especially the s band) will differ greatly from the QE (DFT) results.
 - In "STO-nG" used in Gaussian etc., s and p orbitals are treated as SP. Therefore, here again, s and p are fitted using parameters other than Hubbard as SP.
 - First, we will use the already known reference value for the "slateratom" parameter. The parameter of the reference atom is multiplied by "fitting atomic number/reference atomic number" to obtain the initial value of the search for the parameter of the fitting atom.
 - Although some conditions are different from the paper [1], r0 of "QUASINANO" gives good results.
@@ -218,8 +217,6 @@ Note 1 (Importance of basis functions)
 
 Future plans
 =======
-- I plan to automate the fitting. However, since I don't fully understand the skprogs code, I'm confused about how to automate it to fit physically. This is because if you use scipy's Nelder–Mead method to fit without thinking, there is a possibility that the fit may not be physically correct. Nelder-Mead and other methods failed because there were many parameters that did not change.
-- I plan to automate the fit only after extensive manual exploration.
 - Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-factor. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. In my environment, I would not create training data with VASP.
 
 
