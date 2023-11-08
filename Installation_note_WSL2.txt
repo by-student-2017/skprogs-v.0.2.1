@@ -89,8 +89,8 @@ Generating SK-files (Au, S)
 2. python3 /mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py -o slateratom -t sktwocnt sktable -d Au,S Au,S
 
 Help
-1. /mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py -h
-2. /mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py sktable -h
+1. python3 /mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py -h
+2. python3 /mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py sktable -h
 (Note: -d = --dummy-repulsive = add dummy repulsive spline to the sk tables)
 
 python3 version
