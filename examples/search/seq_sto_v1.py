@@ -16,6 +16,8 @@ sub_num_core = subprocess.run("grep 'core id' /proc/cpuinfo | sort -u | wc -l", 
 print("CPU: ",str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
 num_core = int(str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
 dftbp_adress = "mpirun -np "+str(num_core)+" dftb+"
+#skprogs_adress = "/home/ubuntu/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux
+skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # WSL2
 #pwscf_adress = "mpirun -np "+str(num_core)+" pw.x"
 
 subprocess.run("echo \"#No.: ETA value [eV], spt, dt\" > Evalute.txt", shell=True)
@@ -35,6 +37,7 @@ print("initial parameters, D : "+str(stod))
 
 subprocess.run("cd ./"+str(element)+" ; rm -f -r results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; mkdir results ; cd ../", shell=True)
+subprocess.run("cd ./"+str(element)+" ; chmod +x *.sh ; cd ../", shell=True)
 
 count = 0
 #----------------------------------------------------------------------
@@ -52,7 +55,9 @@ def f(stosp,stod):
   subprocess.call("sed -i s/stosp/\""+str(stos_all)+"\"/g "+str(file_inp), shell=True)
   subprocess.call("sed -i s/stod/\""+str(stop_all)+"\"/g "+str(file_inp), shell=True)
   
-  skgen = subprocess.run("/mnt/d/skprogs/sktools/src/sktools/scripts/skgen.py -o slateratom -t sktwocnt sktable -d "+str(element)+" "+str(element), shell=True, stdout=subprocess.PIPE)
+  subprocess.run("export OMP_NUM_THREADS="+str(num_core), shell=True)
+  skgen = subprocess.run("python3 "+str(skprogs_adress)+" -o slateratom -t sktwocnt sktable -d "+str(element)+" "+str(element), shell=True, stdout=subprocess.PIPE)
+  subprocess.run("export OMP_NUM_THREADS=1", shell=True)
   
   if os.path.exists(str(element)+"-"+str(element)+".skf"):
     subprocess.run("cd ./"+str(element)+" ; ./run.sh ; cd ../", shell=True)
