@@ -204,3 +204,32 @@ PWDIR='/usr/local'
 5. ./../make_ps
 6. ./../make_test
 ------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+SSH (Memo: remote (direct LAN connect))
+
+# Settings
+sudo ufw allow 22
+sudo apt -y install openssh-server
+systemctl start sshd
+ps -ef | grep sshd
+ssh xxxx@192.168.2.XXX
+----------------
+Wired
+IPv4, Manual
+192.168.2.XXX
+255.255.255.0
+192.168.2.1
+DNS: 192.168.2.1
+----------------
+
+# Usage
+ssh xxxx@192.168.2.XXX
+cd ~/skprogs-v.0.2.1/examples/search
+gnuplot < plot_map.gpl
+scp map.gpl user@192.168.2.XXX
+
+#from server to remote
+scp user@192.168.2.XXX:/home/user/skprogs-v.0.2.1/examples/search/map.png ./Desktop
+------------------------------------------------------------------------------
