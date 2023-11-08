@@ -13,3 +13,23 @@ Usage
   
 Note 1: As the saying goes, don't rush, it's a good idea to draw diagrams that are easy to understand and also check visually.
 Note 2: It is better to do a rough review using a map and visually, and then manually search for a place to search in earnest using GA, etc., which will deepen your understanding and reduce the chance of making mistakes.
+
+
+Memo: remote (direct LAN connect)
+-----------------------------------
+sudo ufw allow 22
+sudo apt -y install openssh-server
+systemctl start sshd
+ps -ef | grep sshd
+ssh xxxx@192.168.2.XXX
+
+#from server to remote
+scp user@192.168.2.XXX:/home/user/skprogs-v.0.2.1/examples/search/map.png ./Desktop
+
+Wired
+IPv4, Manual
+192.168.2.XXX
+255.255.255.0
+192.168.2.1
+DNS: 192.168.2.1
+-----------------------------------

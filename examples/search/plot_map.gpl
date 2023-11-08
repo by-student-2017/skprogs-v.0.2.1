@@ -8,7 +8,7 @@ set output "map.png"
 set xlabel "Radii, r0 / bohr"
 set ylabel "Power (= sigma)"
 set zlabel "Evaluate value [eV]"
-set zrange[*:1.4]
+set zrange[*:*]
 set mxtics 5
 set  ytics 1
 set mytics 2

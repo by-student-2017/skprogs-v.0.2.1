@@ -23,14 +23,14 @@ Prerequisites
 
 * CMake (>= 3.16)
 
-* Python3 (>= 3.2)
+* Python3 (>= 3.2), (scipy, pip, setuptools, numpy)
 
 * LAPACK/BLAS libraries (or compatible equivalents)
 
 * libXC library with f03 interface (version >=6.0.0)
 
 
-Obtaining via Conda
+Obtaining via Conda (ver.0.2)
 -------------------
 
 The preferred way of obtaining SkProgs is to install it via the conda package
@@ -56,7 +56,7 @@ components)::
   mamba install skprogs skprogs-python
 
 
-Building from source
+Building from source (ver.0.2.1)
 --------------------
 
 Follow the usual CMake build workflow:
