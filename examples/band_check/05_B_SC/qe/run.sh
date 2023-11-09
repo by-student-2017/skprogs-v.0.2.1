@@ -1,7 +1,9 @@
 #!/bin/bash
 
 export OMP_NUM_THREADS=1
-MPI_PREFIX="mpirun -np 1"
+NCPU=`grep 'core id' /proc/cpuinfo | sort -u | wc -l`
+echo ${NCPU}
+MPI_PREFIX="mpirun -np ${NCPU}"
 
 #cif2cell -p pwscf --pwscf-pseudo-PSLibrary-libdr='./../../../pseudo/psl100_PBE' --setup-all --k-resolution=0.20 --pwscf-spin=no --pwscf-run-type=scf -f *.cif
 ${MPI_PREFIX} pw.x < POSCAR.scf.in | tee POSCAR.scf.out
