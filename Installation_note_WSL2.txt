@@ -13,10 +13,8 @@ libXC (ver.6.2.2)
 5. mkdir _build
 6. FC=gfortran CC=gcc cmake -DENABLE_FORTRAN=True -DCMAKE_INSTALL_PREFIX="/mnt/d/libxc" -B _build ./
 7. cmake --build _build -- -j
-8. pushd _build
-9. ctest -j
-10. popd
-11. cmake --install _build
+8. pushd _build; ctest -j; popd
+9. cmake --install _build
 (you can get "/mnt/d/libxc/lib/libxc.a")
 
 Environment settings (this is not necessary.)
@@ -52,10 +50,8 @@ Installation (maybe, similar to skprogs-0.2.tar.gz)
 4. mkdir _build
 5. CMAKE_PREFIX_PATH="/mnt/d/libxc" FC=gfortran cmake -DCMAKE_INSTALL_PREFIX="/mnt/d/skprogs-v.0.2.1" -B _build ./
 6. cmake --build _build -- -j
-7. pushd _build
-8. ctest -j
-9. popd
-10. cmake --install _build
+7. pushd _build; ctest -j; popd
+8. cmake --install _build
 
 Environment settings
 1. echo 'export PATH=$PATH:/mnt/d/skprogs-v.0.2.1/bin' >> ~/.bashrc

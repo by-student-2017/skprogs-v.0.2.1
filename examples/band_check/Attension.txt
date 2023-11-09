@@ -1,0 +1,5 @@
+This is to check if skprogs works.
+
+It is mainly used to manually refine parameters.
+
+The qe (DFT) data for comparison has been set to a level that is safe to publish in papers, etc.
