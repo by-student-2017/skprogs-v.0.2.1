@@ -7,7 +7,7 @@ Usage
   DensityCompression = PowerCompression{ Power = 6; Radius = 14.0 }
   or
   ShellResolved = No
-  DensityCompression = PowerCompression{ Power = 8; Radius = 12.0 } (large sigma case in QUASINANO 2013 set)
+  DensityCompression = PowerCompression{ Power = 8; Radius = 12.0 }
 2. Search for "r0" and "simga" in density. It's a good idea to do the calculations by hand a few times first to clarify the bare minimum and minimum fit range.
   python3 seq_denr0_v1.py
   Click "plot_map.gpl" to output the graph.
