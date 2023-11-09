@@ -419,6 +419,31 @@ AtomParameters {
     }
   }
 
+  Re {
+    AtomConfig {
+      AtomicNumber = 75
+      Mass = 186.21
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 3.0 2.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 8; Radius = 12.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 13.0; Radius = 4.2 }
+	P = PowerCompression { Power = 13.0; Radius = 4.2 }
+	D = PowerCompression { Power = 13.0; Radius = 4.2 }
+	F = PowerCompression { Power = 13.0; Radius = 4.2 }
+      }
+    }
+  }
+
   Ir {
     AtomConfig {
       AtomicNumber = 77
@@ -714,6 +739,25 @@ OnecenterParameters {
     }
   }
 
+  
+  Re {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.98 8.89 26.5 79.0 235.5
+	P = 1.00 2.98 8.89 26.5 79.0 235.5
+	D = 1.00 2.98 8.89 26.5 79.0 235.5
+	F = 1.00 2.98 8.89 26.5 79.0 235.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
   Ir {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
@@ -827,12 +871,14 @@ TwoCenterParameters {
   Ti-Ti { Grid = $EqGridCutoff12; Calculator = $SkTwocnt_400_200 }
   Ti-Au { Grid = $EqGrid; Calculator = $SkTwocnt_400_200 }
   Au-Au { Grid = $EqGrid; Calculator = $SkTwocnt_400_200 }
-  Rh-Rh { Grid = $EqGridCutoff12; Calculator = $SkTwocnt_400_200 }
-  Fe-Fe { Grid = $EqGridCutoff12; Calculator = $SkTwocnt_400_200 }
   Li-Li { Grid = $EqGridCutoff10; Calculator = $SkTwocnt_300_150 }
+  Si-Si { Grid = $EqGridCutoff10; Calculator = $SkTwocnt_300_150 }
+  Fe-Fe { Grid = $EqGridCutoff12; Calculator = $SkTwocnt_400_200 }
   Co-Co { Grid = $EqGridCutoff12; Calculator = $SkTwocnt_400_200 }
   Nb-Nb { Grid = $EqGridCutoff12; Calculator = $SkTwocnt_400_200 }
-  Si-Si { Grid = $EqGridCutoff10; Calculator = $SkTwocnt_300_150 }
+  Rh-Rh { Grid = $EqGridCutoff12; Calculator = $SkTwocnt_400_200 }
+  Re-Re { Grid = $EqGridCutoff12; Calculator = $SkTwocnt_400_200 }
+  Ir-Ir { Grid = $EqGrid; Calculator = $SkTwocnt_400_200 }
 }
 
 # skgen -o slateratom -t sktwocnt sktable H,O H,O |& tee -a output
