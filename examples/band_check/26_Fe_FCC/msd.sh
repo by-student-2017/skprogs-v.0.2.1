@@ -1,17 +1,31 @@
 #!/bin/bash
 
-join dftbp_band.dat ./qe/qe_bands.dat > msd_band.dat
+# These are related with comp_band.png
+ytop=-2    # Binding energy [eV], conduction band (unoccupied states)
+           # Fermi energy, EF = 0 [eV]
+ybottom=16 # Binding energy [eV], valence band (occupied states)
 
-ytop=-6
-ybottom=10
+echo "---------------------------------"
+if [ ! -e qe_bands.dat ]; then
+  cp ./qe/qe_bands.dat ./
+  echo "Reference DFT data get from ./qe/qe_bands.da"
+fi
+
+ubnd=`awk -v ytop=${ytop} 'BEGIN{ubnd=0}{if($1>ubnd && $2>ytop){ubnd=$1}}END{printf "%d",ubnd}' ./qe_bands.dat`
+echo "Cut upper bands: (>=${ubnd}) for ytop=${ytop} [eV] setting in msd.sh file"
+awk -v ubnd=${ubnd} '{if($1<ubnd || $2=""){print $0}}' qe_bands.dat > qe_bands_cut.dat
+awk -v ubnd=${ubnd} '{if($1<ubnd || $2=""){print $0}}' dftbp_band.dat > dftbp_band_cut.dat
+echo "---------------------------------"
+join dftbp_band_cut.dat qe_bands_cut.dat > msd_band.dat
+rm -f dftbp_band_cut.dat qe_bands_cut.dat
 
 echo "---------------------------------"
 if [ ! "$1" == "" ]; then
   Temp=$1
 else
   echo "---------------------------------"
-  echo "Auto set 300 K"
-  Temp=300.0 # [K]
+  echo "Auto set 10000 K"
+  Temp=10000.0 # [K]
 fi
 kbT=`echo ${Temp} | awk '{printf "%f",(8.6173e-5*$1)}'`
 echo "kbT = "${kbT}" [eV] at ${Temp} [K]"
@@ -42,14 +56,14 @@ BEGIN{n=0;VD=0.0;VDT=0.0;eta=0.0}
   printf "ETA = %f [eV]\n",(ETA/n)
   printf "ETA = sum(|E(DFT)-E(DFTB)|)/n \n"
   printf "---------------------------------\n"
-}' msd_band.dat
+}' msd_band.dat | tee msd.dat
 
-echo "gnuplot"
-echo "set yrange[${ybottom}:${ytop}]"
-echo "set xzeroaxis"
-echo "set arrow 1 nohead from 1,${kbT3} to 81,${kbT3} lt 2 lc \"red\""
-echo "set arrow 2 nohead from 1,-${kbT3} to 81,-${kbT3} lt 2 lc \"blue\""
-echo "plot \"msd_band.dat\" u 1:2 w l t \"DFTB\", \"msd_band.dat\" u 1:3 w l t \"QE(DFT)\""
-echo "quit"
-echo "---------------------------------"
+#echo "gnuplot"
+#echo "set yrange[${ybottom}:${ytop}]"
+#echo "set xzeroaxis"
+#echo "set arrow 1 nohead from 1,${kbT3} to 81,${kbT3} lt 2 lc \"red\""
+#echo "set arrow 2 nohead from 1,-${kbT3} to 81,-${kbT3} lt 2 lc \"blue\""
+#echo "plot \"msd_band.dat\" u 1:2 w l t \"DFTB\", \"msd_band.dat\" u 1:3 w l t \"QE(DFT)\""
+#echo "quit"
+#echo "---------------------------------"
 
