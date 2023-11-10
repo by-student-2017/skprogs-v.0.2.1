@@ -11,7 +11,7 @@ awk -v EF=${EF} -v ytop=${ytop} -v ybottom=${ybottom} '
   {
     if( $2=="" ){ nL=NR }
     if( $2=="" && flag==1 ){ print $0 }
-    if( (EF-$2)<ybottom && (EF-$2)>ytop ){
+    if( (EF-$2)<ybottom && (EF-$2)>ytop && (NR-nL)>=1){
       printf "%d %f \n",(NR-nL),(EF-$2)
       flag=1
     }
