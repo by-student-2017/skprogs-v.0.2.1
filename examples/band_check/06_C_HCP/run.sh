@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sym=HCP # e.g., FCC, BCC, HCP, SC
+
 export OMP_NUM_THREADS=1
 
 echo "---------- SCF calculation ----------"
@@ -16,9 +18,12 @@ mpirun -np 1 dftb+ < dftb_in.hsd > dftb_out_band.hsd
 
 echo "---------- plot (gnuplot) ----------"
 grep -v "KPT" band.out > band.dat
-gnuplot band_HCP.gp
+#gnuplot band_${sym}.gp
 ./conv_dftbp_band.sh
-gnuplot comp_band_HCP.gpl
+gnuplot < comp_band_${sym}.gpl
+
+echo "---------- Evaluate DS ----------"
+./msd.sh
 
 echo "---------- Delete files ----------"
 rm -f dftb_in.hsd
@@ -27,11 +32,12 @@ rm -f dftb_out_band.hsd
 rm -f dftb_pin.hsd
 rm -f charges.bin
 rm -f detailed.out
+#-----------------
+rm -f info.dat
 rm -f band.out
+rm -f band.dat
 rm -f info_gnu.dat
 rm -f band.plot
-
-echo "---------- Evaluate DS ----------"
-./msd.sh
+rm -f msd_band.dat
 
 echo "---------- Ende ----------"
