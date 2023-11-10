@@ -212,6 +212,35 @@ AtomParameters {
     }
   }
 
+  Al {
+    AtomConfig {
+      AtomicNumber = 13
+      Mass = 26.982
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 1.0 0.0
+	3D = 0.0 0.0
+      }
+      ValenceShells = 3s 3p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 7; Radius = 13.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2; Radius = 5.9 }
+	P = PowerCompression { Power = 2; Radius = 5.9 }
+	D = PowerCompression { Power = 2; Radius = 5.9 }
+      }
+      CustomizedHubbards {
+	3D = 0.186573
+	3S = 0.203216
+	3P = 0.261285
+      }
+    }
+  }
+
   Si {
     AtomConfig {
       AtomicNumber = 14
@@ -725,6 +754,22 @@ OnecenterParameters {
     }
   }
 
+  Al {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.50 1.01 2.37  5.55 13.00 # Ref.[2]*13/15
+	P = 0.50 1.01 2.37  5.55 13.00 # Ref.[2]*13/15
+	D = 1.50 2.75 5.81 12.30 26.00 # Ref.[2]*26/30
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
   Si {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
@@ -1083,6 +1128,7 @@ TwoCenterParameters {
   Au-Au { Grid = $EqGrid; Calculator = $SkTwocnt_400_200 }
   Li-Li { Grid = $EqGridCutoff10; Calculator = $SkTwocnt_300_150 }
   B-B { Grid = $EqGridCutoff10; Calculator = $SkTwocnt_300_150 }
+  Al-Al { Grid = $EqGridCutoff10; Calculator = $SkTwocnt_300_150 }
   Si-Si { Grid = $EqGridCutoff10; Calculator = $SkTwocnt_300_150 }
   Mn-Mn { Grid = $EqGridCutoff12; Calculator = $SkTwocnt_400_200 }
   Fe-Fe { Grid = $EqGridCutoff12; Calculator = $SkTwocnt_400_200 }
