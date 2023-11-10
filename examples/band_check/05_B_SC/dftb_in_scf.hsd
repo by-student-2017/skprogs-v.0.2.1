@@ -7,7 +7,7 @@ Hamiltonian = DFTB {
   Scc = Yes
   SccTolerance = 1e-5
   SlaterKosterFiles = Type2FileNames {
-    Prefix = "./../"
+    Prefix = "./"
     Separator = "-"
     Suffix = ".skf"
   }
