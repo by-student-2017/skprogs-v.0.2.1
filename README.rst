@@ -251,7 +251,7 @@ Note 2 (fitting)
 1. Match S, P, and D with the same parameters.
 2. Fit the s band by reducing only r0 of S.
 3. Decrease r0 of density and increase r0 of P and D with the same parameter.
-4. Fine tune r0 of P and D.
+4. Fine tune r0 of P and D. For example, decrease r0 of P and increase r0 of D.
 
 
 Future plans
