@@ -247,6 +247,7 @@ Note 2 (fitting)
 - In many cases, "r0" tends to be saturated, with "simga" of 6 or more providing a good fit. 
 - The fact that "simga" is around 7 in literature [2] (around 7 or 8, where it is fully saturated, rather than 6 where it starts to saturate) may be a result of supporting the above trend.
 - When fitting without dividing the trajectories, a good fit tends to decrease "r0" as "simga" increases. This trend also agrees with the literature [2].
+- As reported in references [1] and [2], the electronic structure is good even in other structures (we investigated the most stable structure possible). SC cannot reproduce it as well as Ref. [1]. In practical terms, it is sufficient to have high accuracy near a stable structure, so we do not think this result is bad.
 
 
 Future plans
