@@ -250,7 +250,8 @@ Note 2 (fitting)
 - As reported in references [1] and [2], the electronic structure is good even in other structures (we investigated the most stable structure possible). SC cannot reproduce it as well as Ref. [1]. In practical terms, it is sufficient to have high accuracy near a stable structure, so we do not think this result is bad.
 1. Match S, P, and D with the same parameters.
 2. Fit the s band by reducing only r0 of S.
-3. 
+3. Decrease r0 of density and increase r0 of P and D with the same parameter.
+4. Fine tune r0 of P and D.
 
 
 Future plans
