@@ -242,6 +242,12 @@ Note 1 (Importance of basis functions)
 - Although the conditions are different from paper [1], good r0 results are obtained for "QUASINANO". There is a similar trend for simga parameters. When increasing simga from 2.0, the s-band approaches the DFT result.
 
 
+Note 2 (fitting)
+=======
+- In many cases, "r0" tends to be saturated, with "simga" of 6 or more providing a good fit.
+- When fitting without dividing the trajectories, a good fit tends to decrease "r0" as "simga" increases.
+
+
 Future plans
 =======
 - Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-factor. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. In my environment, I would not create training data with VASP.
