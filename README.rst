@@ -244,8 +244,9 @@ Note 1 (Importance of basis functions)
 
 Note 2 (fitting)
 =======
-- In many cases, "r0" tends to be saturated, with "simga" of 6 or more providing a good fit.
-- When fitting without dividing the trajectories, a good fit tends to decrease "r0" as "simga" increases.
+- In many cases, "r0" tends to be saturated, with "simga" of 6 or more providing a good fit. 
+- The fact that "simga" is around 7 in literature [2] (around 7 or 8, where it is fully saturated, rather than 6 where it starts to saturate) may be a result of supporting the above trend.
+- When fitting without dividing the trajectories, a good fit tends to decrease "r0" as "simga" increases. This trend also agrees with the literature [2].
 
 
 Future plans
