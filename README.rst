@@ -248,10 +248,12 @@ Note 2 (fitting)
 - The fact that "simga" is around 7 in literature [2] (around 7 or 8, where it is fully saturated, rather than 6 where it starts to saturate) may be a result of supporting the above trend.
 - When fitting without dividing the trajectories, a good fit tends to decrease "r0" as "simga" increases. This trend also agrees with the literature [2].
 - As reported in references [1] and [2], the electronic structure is good even in other structures (we investigated the most stable structure possible). SC cannot reproduce it as well as Ref. [1]. In practical terms, it is sufficient to have high accuracy near a stable structure, so we do not think this result is bad.
+- In the initial search, the density simga and r0 can be varied by 1.0 and 2.0, respectively.
+- At the beginning of the search, the trajectory (S, P or D) can be searched in increments of 0.2. If you use the results before and after, you can search as if you were searching with 0.1 (remember that accurate central difference uses only the values before and after, not at that point)
 1. Match S, P, and D with the same parameters.
 2. Fit the s band by reducing only r0 of S.
-3. Decrease r0 of density and increase r0 of P and D with the same parameter.
-4. Fine tune r0 of P and D. For example, decrease r0 of P and increase r0 of D.
+3. Decrease the density r0 and increase the r0 of the orbitals occupied by electrons relative to the P or D orbitals.
+4. Fine-tune parameters.
 
 
 Future plans
