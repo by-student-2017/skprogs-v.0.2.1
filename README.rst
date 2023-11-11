@@ -253,7 +253,7 @@ Note 2 (fitting)
 1. Match S, P, and D with the same parameters.
 2. Fit the s band by reducing only r0 of S.
 3. Decrease the density r0 and increase the r0 of the orbitals occupied by electrons relative to the P or D orbitals. (This is often not very effective)
-4. Fine-tune parameters.
+4. Fine-tune parameters. (Change r0 by 0.1.)
 
 
 Future plans
