@@ -12,7 +12,7 @@ Hamiltonian = DFTB {
     Suffix = ".skf"
   }
   MaxAngularMomentum {
-    Hf = "d"
+    Sc = "d"
   }
   KPointsAndWeights = Klines {
      1  0.333 0.333 0.5 #H

@@ -11,20 +11,20 @@ Hamiltonian = DFTB {
     Suffix = ".skf"
   }
   MaxAngularMomentum {
-    Hf = "d"
+    Cr = "d"
   }
   KPointsAndWeights = SupercellFolding {
     8 0 0
     0 8 0
-    0 0 4
-    0.0 0.0 0.5
+    0 0 8
+    0.0 0.0 0.0
   }
 }
 
 Analysis {
   #ProjectStates {
   #  Region {
-  #    Atoms = Co
+  #    Atoms = Nb
   #    ShellResolved = Yes
   #    Label = "dos_au"
   #  }
