@@ -252,7 +252,7 @@ Note 2 (fitting)
 - At the beginning of the search, the trajectory (S, P or D) can be searched in increments of 0.2. If you use the results before and after, you can search as if you were searching with 0.1 (remember that accurate central difference uses only the values before and after, not at that point)
 1. Match S, P, and D with the same parameters.
 2. Fit the s band by reducing only r0 of S.
-3. Decrease the density r0 and increase the r0 of the orbitals occupied by electrons relative to the P or D orbitals.
+3. Decrease the density r0 and increase the r0 of the orbitals occupied by electrons relative to the P or D orbitals. (This is often not very effective)
 4. Fine-tune parameters.
 
 
