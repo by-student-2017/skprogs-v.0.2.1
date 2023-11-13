@@ -250,10 +250,12 @@ Note 2 (fitting)
 - As reported in references [1] and [2], the electronic structure is good even in other structures (we investigated the most stable structure possible). SC cannot reproduce it as well as Ref. [1]. In practical terms, it is sufficient to have high accuracy near a stable structure, so we do not think this result is bad.
 - In the initial search, the density simga and r0 can be varied by 1.0 and 2.0, respectively.
 - At the beginning of the search, the trajectory (S, P or D) can be searched in increments of 0.2. If you use the results before and after, you can search as if you were searching with 0.1 (remember that accurate central difference uses only the values before and after, not at that point)
+- By increasing the value of "Power(=simga)" from 2, the bands between representative points in the reciprocal lattice space can be brought closer to the DFT results.
 1. Match S, P, and D with the same parameters.
 2. Fit the s band by reducing only r0 of S.
 3. Decrease the density r0 and increase the r0 of the orbitals occupied by electrons relative to the P or D orbitals. (This is often not very effective)
 4. Fine-tune parameters. (Change r0 by 0.1. And basis functions)
+- "v2" of "Nb" was a two-day manual test to see how well it could fit. The fit suggests that there may be better parameters. We are eager to hear from our readers.
 
 
 Future plans
