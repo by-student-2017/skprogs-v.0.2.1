@@ -1,0 +1,37 @@
+#!/usr/local/bin/gnuplot -persist
+#------------------------------------------------
+set terminal pngcairo color enhanced font "Arial" fontscale 1.0
+set output "comp_band.png"
+#------------------------------------------------
+set key opaque box lc rgb "white" height 1
+#------------------------------------------------
+xmin = 1
+xmax = 121
+#------------------------------------------------
+ytop = -10
+ybottom = 8
+#------------------------------------------------
+set xrange [xmin:xmax]
+#unset xtics
+set title "HCP: H-A-G-K-M-G-L"
+x1=21; x2=41; x3=61; x4=81; x5=101
+set xtics ("H" xmin, "A" x1, "{/Symbol G}" x2, "K" x3, "M" x4, "{/Symbol G}" x5, "L" xmax)
+set arrow 1 nohead from x1,ybottom to x1,ytop lt 2 lc "gray"
+set arrow 2 nohead from x2,ybottom to x2,ytop lt 2 lc "gray"
+set arrow 3 nohead from x3,ybottom to x3,ytop lt 2 lc "gray"
+set arrow 4 nohead from x4,ybottom to x4,ytop lt 2 lc "gray"
+set arrow 5 nohead from x5,ybottom to x5,ytop lt 2 lc "gray"
+#------------------------------------------------
+set ylabel "Binding Energy / eV"
+set yrange [ybottom:ytop]
+set ytics 2
+set grid y
+#set xzeroaxis
+set arrow 10 nohead from xmin,0 to xmax,0 lt 2 lc "gray" lw 2
+#------------------------------------------------
+set parametric
+set trange [ybottom:ytop]
+#------------------------------------------------
+plot "dftbp_band.dat" u 1:2 w l t "DFTB" , \
+  "./qe/qe_bands.dat" u 1:2 w l t "QE(DFT)"
+#------------------------------------------------
