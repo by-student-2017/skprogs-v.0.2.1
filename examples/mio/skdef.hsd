@@ -135,8 +135,10 @@ AtomParameters {
       WaveCompressions = SingleAtomCompressions {
 	#P = PowerCompression { Power = 8.2; Radius = 5.0 } # v1
 	#S = PowerCompression { Power = 8.2; Radius = 5.0 } # v1
-	P = PowerCompression { Power = 3; Radius = 5.2 } # v2, 3;5.2
-	S = PowerCompression { Power = 3; Radius = 4.6 } # v2, 3;4.7
+	#-------------------------------------------------------
+	P = PowerCompression { Power = 4.0; Radius = 4.2 } # v2, 3;5.2, 4;4.2, 4;4.2,      4.0;4.2
+	S = PowerCompression { Power = 4.6; Radius = 3.9 } # v2  3;4.7, 4;3.9, 5;3.9,  4.6-5.0;3.9
+	# The power of the s-band mainly changes at the s-band in FCC.
       }
       CustomizedHubbards {
 	2P = 0.131681
