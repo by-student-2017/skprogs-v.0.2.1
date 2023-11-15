@@ -1,0 +1,34 @@
+&CONTROL
+  calculation  = 'scf' ,
+  prefix  = 'POSCAR' ,
+  outdir  = './work/' ,
+  pseudo_dir = './../../../pseudo/psl100_PBE' ,
+/
+&SYSTEM
+  ibrav = 0
+  A =    5.26212
+  nat = 1
+  ntyp = 1
+  ecutwfc  =  41.0 ,
+  ecutrho  = 277.0 ,
+  occupations = 'smearing' ,
+  degauss  = 0.02 ,
+  smearing = 'mp',
+  exxdiv_treatment = 'gygi-baldereschi' ,
+  x_gamma_extrapolation = .true. ,
+/
+&ELECTRONS
+  conv_thr = 7.3e-05 ,
+  mixing_beta = 0.7 ,
+/
+CELL_PARAMETERS {alat}
+  1.000000000000000   0.000000000000000   0.000000000000000 
+ -0.333333333333333   0.942809033637852   0.000000000000000 
+ -0.333333333333333  -0.471404564484194   0.816496546528280 
+ATOMIC_SPECIES
+   K   39.09830  K.pbe-spn-kjpaw_psl.1.0.0.UPF 
+ATOMIC_POSITIONS {crystal}
+  K   0.000000000000000   0.000000000000000   0.000000000000000 
+K_POINTS automatic
+  7 7 7  0 0 0
+
