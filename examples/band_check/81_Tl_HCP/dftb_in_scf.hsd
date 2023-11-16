@@ -1,0 +1,36 @@
+Geometry = VaspFormat {
+  <<< "POSCAR"
+}
+
+Hamiltonian = DFTB {
+  Scc = Yes
+  SccTolerance = 1e-5
+  SlaterKosterFiles = Type2FileNames {
+    Prefix = "./../"
+    Separator = "-"
+    Suffix = ".skf"
+  }
+  MaxAngularMomentum {
+    Tl = "d"
+  }
+  KPointsAndWeights = SupercellFolding {
+    8 0 0
+    0 8 0
+    0 0 4
+    0.0 0.0 0.5
+  }
+}
+
+Analysis {
+  #ProjectStates {
+  #  Region {
+  #    Atoms = Co
+  #    ShellResolved = Yes
+  #    Label = "dos_au"
+  #  }
+  #}
+}
+
+ParserOptions {
+  ParserVersion = 12
+}
