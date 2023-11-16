@@ -6,7 +6,7 @@
 /
 &SYSTEM
   ibrav = 0
-  A =    1.90000
+  A =    1.99700
   nat = 1
   ntyp = 1
   ecutwfc  =  43.0 ,

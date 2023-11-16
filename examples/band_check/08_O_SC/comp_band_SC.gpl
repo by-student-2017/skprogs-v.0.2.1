@@ -8,8 +8,8 @@ set key opaque box lc rgb "white" height 1
 xmin = 1
 xmax = 91
 #------------------------------------------------
-ytop = -7
-ybottom = 25
+ytop = -10
+ybottom = 16
 #------------------------------------------------
 set xrange [xmin:xmax]
 #unset xtics
@@ -25,6 +25,7 @@ set arrow 5 nohead from x5,ybottom to x5,ytop lt 2 lc "gray"
 set ylabel "Binding Energy / eV"
 set yrange [ybottom:ytop]
 set ytics 2
+set mytics 2
 set grid y
 #set xzeroaxis
 set arrow 10 nohead from xmin,0 to xmax,0 lt 2 lc "gray" lw 2
