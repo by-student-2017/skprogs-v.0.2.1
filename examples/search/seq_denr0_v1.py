@@ -53,9 +53,12 @@ def f(r0,sigma):
     subprocess.run("cd ./"+str(element)+" ; ./run.sh ; cd ../", shell=True)
     evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+str(element)+"/"+str(file_msd), shell=True, stdout=subprocess.PIPE)
     if evaluate.returncode == 0:
-      y = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
-      subprocess.run("mv "+str(file_inp)+" ./"+str(element)+"/results/"+str(file_inp)+"_No"+str(count), shell=True)
-      subprocess.run("cp ./"+str(element)+"/comp_band.png ./"+str(element)+"/results/comp_band_No"+str(count)+".png", shell=True)
+      try:
+        y = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
+        subprocess.run("mv "+str(file_inp)+" ./"+str(element)+"/results/"+str(file_inp)+"_No"+str(count), shell=True)
+        subprocess.run("cp ./"+str(element)+"/comp_band.png ./"+str(element)+"/results/comp_band_No"+str(count)+".png", shell=True)
+      except ValueError as error:
+        y = 99999.999
     else:
       y = 99999.999
   else:

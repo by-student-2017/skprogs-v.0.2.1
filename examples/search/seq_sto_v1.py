@@ -29,8 +29,8 @@ element = "B"
 stospt = np.array([1.0,1.03,1.06,1.09])
 stodt  = np.array([1.0,1.03,1.06,1.09])
 #------------------------
-stosp  = np.array([0.5,0.8,1.6,3.2])
-stod   = np.array([0.5,0.8,1.6,3.2])
+stosp  = np.array([0.5,0.6,0.7,0.8])
+stod   = np.array([0.5,0.6,0.7,0.8])
 #------------------------
 print("initial parameters, SP: "+str(stosp))
 print("initial parameters, D : "+str(stod))
@@ -63,9 +63,12 @@ def f(stosp,stod):
     subprocess.run("cd ./"+str(element)+" ; ./run.sh ; cd ../", shell=True)
     evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+str(element)+"/"+str(file_msd), shell=True, stdout=subprocess.PIPE)
     if evaluate.returncode == 0:
-      y = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
-      subprocess.run("mv "+str(file_inp)+" ./"+str(element)+"/results/"+str(file_inp)+"_No"+str(count), shell=True)
-      subprocess.run("cp ./"+str(element)+"/comp_band.png ./"+str(element)+"/results/comp_band_No"+str(count)+".png", shell=True)
+      try:
+        y = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
+        subprocess.run("mv "+str(file_inp)+" ./"+str(element)+"/results/"+str(file_inp)+"_No"+str(count), shell=True)
+        subprocess.run("cp ./"+str(element)+"/comp_band.png ./"+str(element)+"/results/comp_band_No"+str(count)+".png", shell=True)
+      except ValueError as error:
+        y = 99999.999
     else:
       y = 99999.999
   else:
@@ -78,8 +81,8 @@ def f(stosp,stod):
   return y
 #----------------------------------------------------------------------
 # fitting parameters
-for dt in np.arange(0.7,1.5,0.1):
-  for spt in np.arange(0.7,1.5,0.05):
+for dt in np.arange(1.0,60.0,0.1):
+  for spt in np.arange(1.0,60.0,0.1):
     new_stosp = stosp * stospt ** spt
     new_stod  = stod * stodt ** dt
     res = f(new_stosp,new_stod)
