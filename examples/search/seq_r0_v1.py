@@ -29,6 +29,11 @@ subprocess.run("cd ./"+str(element)+" ; rm -f -r results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; mkdir results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; chmod +x *.sh ; cd ../", shell=True)
 
+if os.path.exists(str(element)+"-"+str(element)+".skf"):
+  rint("------------------------")
+  print("Delete old "+str(element)+"-"+str(element)+".skf file")
+  subprocess.run("rm -f "+str(element)+"-"+str(element)+".skf", shell=True)
+
 count = 0
 #----------------------------------------------------------------------
 def f(r0,sigma):
@@ -70,8 +75,8 @@ def f(r0,sigma):
   return y
 #----------------------------------------------------------------------
 # fitting parameters
-for sigma in np.arange(2.0,12.0,1.0):
-  for r0 in np.arange(3.0,8.0,0.1): # [bohr] unit
+for sigma in np.arange(12.0,18.0,0.2):
+  for r0 in np.arange(2.0,9.0,0.1): # [bohr] unit
     print("initial parameters, r0: "+str(r0))
     print("initial parameters, sigma: "+str(sigma))
     res = f(r0,sigma)

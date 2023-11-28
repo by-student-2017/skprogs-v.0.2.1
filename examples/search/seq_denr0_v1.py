@@ -29,6 +29,11 @@ subprocess.run("cd ./"+str(element)+" ; rm -f -r results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; mkdir results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; chmod +x *.sh ; cd ../", shell=True)
 
+if os.path.exists(str(element)+"-"+str(element)+".skf"):
+  print("------------------------")
+  print("Delete old "+str(element)+"-"+str(element)+".skf file")
+  subprocess.run("rm -f "+str(element)+"-"+str(element)+".skf", shell=True)
+
 count = 0
 #----------------------------------------------------------------------
 def f(r0,sigma):

@@ -28,8 +28,8 @@ element = "Mg"
 atomic_number = 12.0 # = y4
 base = 0.5          # = y0
 #------------------------
-dt = 0.1            # t=[-(4/dt):(2/dt)]
-t = -(4.0/dt)
+dt = 0.2            # t=[-(4/dt):(2/dt)]
+t = -(2.0/dt)
 y0 = base
 y1 = (atomic_number - base)*(1/4)**((1.0/(1.0-dt))**t) + base # x=1/4, t=-40
 y2 = (atomic_number - base)*(2/4)**((1.0/(1.0-dt))**t) + base # x=2/4, t=-40
@@ -48,6 +48,11 @@ print("initial parameters, D : "+str(new_stod))
 subprocess.run("cd ./"+str(element)+" ; rm -f -r results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; mkdir results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; chmod +x *.sh ; cd ../", shell=True)
+
+if os.path.exists(str(element)+"-"+str(element)+".skf"):
+  print("------------------------")
+  print("Delete old "+str(element)+"-"+str(element)+".skf file")
+  subprocess.run("rm -f "+str(element)+"-"+str(element)+".skf", shell=True)
 
 count = 0
 #----------------------------------------------------------------------
@@ -91,14 +96,14 @@ def f(stosp,stod,spt,dot):
   return y
 #----------------------------------------------------------------------
 # fitting parameters
-for dot in np.arange(-(4.0/dt),(2.0/dt),dt): # d orbital
+for dot in np.arange(-(2.0/dt),(1.0/dt),dt): # d orbital
   y1 = (atomic_number - base)*(1/4)**((1.0/(1.0-dt))**dot) + base # x=1/4
   y2 = (atomic_number - base)*(2/4)**((1.0/(1.0-dt))**dot) + base # x=2/4
   y3 = (atomic_number - base)*(3/4)**((1.0/(1.0-dt))**dot) + base # x=3/4
   new_stod[1]  = y1
   new_stod[2]  = y2
   new_stod[3]  = y3
-  for spt in np.arange(-(4.0/dt),(2.0/dt),dt): # sp orbitals
+  for spt in np.arange(-(2.0/dt),(1.0/dt),dt): # sp orbitals
     y1 = (atomic_number - base)*(1/4)**((1.0/(1.0-dt))**spt) + base # x=1/4
     y2 = (atomic_number - base)*(2/4)**((1.0/(1.0-dt))**spt) + base # x=2/4
     y3 = (atomic_number - base)*(3/4)**((1.0/(1.0-dt))**spt) + base # x=3/4
