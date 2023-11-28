@@ -67,9 +67,9 @@ def f(stosp,stod,spt,dot):
   subprocess.run("cp "+" "+str(file_tmp)+" "+str(file_inp), shell=True)
 
   stos_all = str(stosp[0])+" "+str(stosp[1])+" "+str(stosp[2])+" "+str(stosp[3])+" "+str(stosp[4])
-  stop_all = str(stod[0])+" "+str(stod[1])+" "+str(stod[2])+" "+str(stod[3])+" "+str(stod[4])
+  stod_all = str(stod[0])+" "+str(stod[1])+" "+str(stod[2])+" "+str(stod[3])+" "+str(stod[4])
   subprocess.call("sed -i s/stosp/\""+str(stos_all)+"\"/g "+str(file_inp), shell=True)
-  subprocess.call("sed -i s/stod/\""+str(stop_all)+"\"/g "+str(file_inp), shell=True)
+  subprocess.call("sed -i s/stod/\""+str(stod_all)+"\"/g "+str(file_inp), shell=True)
   
   subprocess.run("export OMP_NUM_THREADS="+str(num_core), shell=True)
   skgen = subprocess.run("python3 "+str(skprogs_adress)+" -o slateratom -t sktwocnt sktable -d "+str(element)+" "+str(element), shell=True, stdout=subprocess.PIPE)
