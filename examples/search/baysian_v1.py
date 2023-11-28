@@ -35,11 +35,12 @@ y0d = 1.5
 #--------
 ylasts = atomic_number
 ylastp = atomic_number
-ylastd = atomic_number
+ylastd = atomic_number*2.0
 #---------------------------
 
 #------------------------------------------------
-hw  =  0.3 # search range [-x*hw:+x*hw]
+hwb  =  0.3 # search range [-x*hwb:+x*hwt]
+hwt  =  0.6 # search range [-x*hwb:+x*hwt]
 #---------------------------
 x0  =  2.0 # sigma of density
 x1  = 17.0 # r0 of density
@@ -75,40 +76,56 @@ n_gene = 17 # number of parameters, number of individual +1
 min_ind = np.ones(n_gene) * -1.0
 max_ind = np.ones(n_gene) *  1.0
 #---------------------------
-min_ind[0] = float(x0) - float(x0)*hw
-max_ind[0] = float(x0) + float(x0)*hw
-min_ind[1] = float(x1) - float(x1)*hw
-max_ind[1] = float(x1) + float(x1)*hw
-min_ind[2] = float(x2) - float(x2)*hw
-max_ind[2] = float(x2) + float(x2)*hw
-min_ind[3] = float(x3) - float(x3)*hw
-max_ind[3] = float(x3) + float(x3)*hw
-min_ind[4] = float(x4) - float(x4)*hw
-max_ind[4] = float(x4) + float(x4)*hw
-min_ind[5] = float(x5) - float(x5)*hw
-max_ind[5] = float(x5) + float(x5)*hw
-min_ind[6] = float(x6) - float(x6)*hw
-max_ind[6] = float(x6) + float(x6)*hw
-min_ind[7] = float(x7) - float(x7)*hw
-max_ind[7] = float(x7) + float(x7)*hw
-min_ind[8] = float(x8) - float(x8)*hw
-max_ind[8] = float(x8) + float(x8)*hw
-min_ind[9] = float(x9) - float(x9)*hw
-max_ind[9] = float(x9) + float(x9)*hw
-min_ind[10] = float(x10) - float(x10)*hw
-max_ind[10] = float(x10) + float(x10)*hw
-min_ind[11] = float(x11) - float(x11)*hw
-max_ind[11] = float(x11) + float(x11)*hw
-min_ind[12] = float(x12) - float(x12)*hw
-max_ind[12] = float(x12) + float(x12)*hw
-min_ind[13] = float(x13) - float(x13)*hw
-max_ind[13] = float(x13) + float(x13)*hw
-min_ind[14] = float(x14) - float(x14)*hw
-max_ind[14] = float(x14) + float(x14)*hw
-min_ind[15] = float(x15) - float(x15)*hw
-max_ind[15] = float(x15) + float(x15)*hw
-min_ind[16] = float(x16) - float(x16)*hw
-max_ind[16] = float(x16) + float(x16)*hw
+min_ind[0] = float(x0) - float(x0)*hwb
+max_ind[0] = float(x0) + float(x0)*hwt
+#---------------------------
+min_ind[1] = float(x1) - float(x1)*hwb
+max_ind[1] = float(x1) + float(x1)*hwt
+#---------------------------
+min_ind[2] = float(x2) - float(x2)*hwb
+max_ind[2] = float(x2) + float(x2)*hwt
+#---------------------------
+min_ind[3] = float(x3) - float(x3)*hwb
+max_ind[3] = float(x3) + float(x3)*hwt
+#---------------------------
+min_ind[4] = float(x4) - float(x4)*hwb
+max_ind[4] = float(x4) + float(x4)*hwt
+#---------------------------
+min_ind[5] = float(x5) - float(x5)*hwb
+max_ind[5] = float(x5) + float(x5)*hwt
+#---------------------------
+min_ind[6] = float(x6) - float(x6)*hwb
+max_ind[6] = float(x6) + float(x6)*hwt
+#---------------------------
+min_ind[7] = float(x7) - float(x7)*hwb
+max_ind[7] = float(x7) + float(x7)*hwt
+#---------------------------
+min_ind[8] = float(x8) - float(x8)*hwb
+max_ind[8] = float(x8) + float(x8)*hwt
+#---------------------------
+min_ind[9] = float(x9) - float(x9)*hwb
+max_ind[9] = float(x9) + float(x9)*hwt
+#---------------------------
+min_ind[10] = float(x10) - float(x10)*hwb
+max_ind[10] = float(x10) + float(x10)*hwt
+#---------------------------
+min_ind[11] = float(x11) - float(x11)*hwb
+max_ind[11] = float(x11) + float(x11)*hwt
+#---------------------------
+min_ind[12] = float(x12) - float(x12)*hwb
+max_ind[12] = float(x12) + float(x12)*hwt
+#---------------------------
+min_ind[13] = float(x13) - float(x13)*hwb
+max_ind[13] = float(x13) + float(x13)*hwt
+#---------------------------
+min_ind[14] = float(x14) - float(x14)*hwb
+max_ind[14] = float(x14) + float(x14)*hwt
+#---------------------------
+min_ind[15] = float(x15) - float(x15)*hwb
+max_ind[15] = float(x15) + float(x15)*hwt
+#---------------------------
+min_ind[16] = float(x16) - float(x16)*hwb
+max_ind[16] = float(x16) + float(x16)*hwt
 #---------------------------
 pbounds = {
    'x0': (float(min_ind[0]),float(max_ind[0])),
@@ -138,7 +155,7 @@ subprocess.run("cd ./"+str(element)+" ; mkdir results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; chmod +x *.sh ; cd ../", shell=True)
 
 if os.path.exists(str(element)+"-"+str(element)+".skf"):
-  rint("------------------------")
+  print("------------------------")
   print("Delete old "+str(element)+"-"+str(element)+".skf file")
   subprocess.run("rm -f "+str(element)+"-"+str(element)+".skf", shell=True)
 
