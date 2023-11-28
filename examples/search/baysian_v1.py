@@ -45,6 +45,16 @@ ylastd = atomic_number*2.0  # D orbitals
 hwb  =  0.3 # search range [-x*hwb:+x*hwt]
 hwt  =  0.3 # search range [-x*hwb:+x*hwt]
 #---------------------------
+# Note
+# 1. A value around sigma = 7.0 is often good.
+# 2. It is often good for r0 for the S orbit to be slightly (about 1?) smaller than for the P or D orbits.
+# 3. In the radial wave function, calculations can be converged over a fairly wide range for the S orbit, 
+#   but of course the P orbit is more limited than the S orbit. When increasing the value, 
+#   start from the value at which the P orbit begins to converge. Conversely, when decreasing the value, 
+#   start from the value at which the P orbit begins to converge.
+# 4. In transition metals, it is often sufficient to adjust the P orbital last.
+# 5. The radial wave function only slightly moves the position of each orbit. 
+#---------------------------
 x0  =  2.0 # sigma of density
 x1  = 17.0 # r0 of density
 #---------------------------
