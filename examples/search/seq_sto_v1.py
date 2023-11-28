@@ -24,8 +24,8 @@ subprocess.run("echo \"#No.: ETA value [eV], spt, dt\" > Evalute.txt", shell=Tru
 
 #----------------------------------------------------------------------
 # fitting parameters
-element = "B"
-atomic_number = 5.0 # = y4
+element = "Mg"
+atomic_number = 12.0 # = y4
 base = 0.5          # = y0
 #------------------------
 dt = 0.1            # t=[-(4/dt):(2/dt)]
@@ -51,7 +51,7 @@ subprocess.run("cd ./"+str(element)+" ; chmod +x *.sh ; cd ../", shell=True)
 
 count = 0
 #----------------------------------------------------------------------
-def f(stosp,stod):
+def f(stosp,stod,spt,dot):
   
   print("------------------------")
   global count
@@ -86,25 +86,25 @@ def f(stosp,stod):
   
   print("Evaluate: ",str(y))
   print("------------------------")
-  subprocess.run("echo No."+str(count)+": "+str(y)+", "+str(spt)+", "+str(dt)+" >> Evalute.txt", shell=True)
+  subprocess.run("echo No."+str(count)+": "+str(y)+", "+str(spt)+", "+str(dot)+" >> Evalute.txt", shell=True)
 
   return y
 #----------------------------------------------------------------------
 # fitting parameters
-for t2 in np.arange(-(4.0/dt),(2.0/dt),dt): # d orbital
-  y1 = (atomic_number - base)*(1/4)**((1.0/(1.0-dt))**t2) + base # x=1/4
-  y2 = (atomic_number - base)*(2/4)**((1.0/(1.0-dt))**t2) + base # x=2/4
-  y2 = (atomic_number - base)*(3/4)**((1.0/(1.0-dt))**t2) + base # x=3/4
+for dot in np.arange(-(4.0/dt),(2.0/dt),dt): # d orbital
+  y1 = (atomic_number - base)*(1/4)**((1.0/(1.0-dt))**dot) + base # x=1/4
+  y2 = (atomic_number - base)*(2/4)**((1.0/(1.0-dt))**dot) + base # x=2/4
+  y2 = (atomic_number - base)*(3/4)**((1.0/(1.0-dt))**dot) + base # x=3/4
   new_stod[1]  = y1
   new_stod[2]  = y2
   new_stod[3]  = y3
-  for t1 in np.arange(-(4.0/dt),(2.0/dt),dt): # sp orbitals
-    y1 = (atomic_number - base)*(1/4)**((1.0/(1.0-dt))**t1) + base # x=1/4
-    y2 = (atomic_number - base)*(2/4)**((1.0/(1.0-dt))**t1) + base # x=2/4
-    y2 = (atomic_number - base)*(3/4)**((1.0/(1.0-dt))**t1) + base # x=3/4
+  for spt in np.arange(-(4.0/dt),(2.0/dt),dt): # sp orbitals
+    y1 = (atomic_number - base)*(1/4)**((1.0/(1.0-dt))**spt) + base # x=1/4
+    y2 = (atomic_number - base)*(2/4)**((1.0/(1.0-dt))**spt) + base # x=2/4
+    y2 = (atomic_number - base)*(3/4)**((1.0/(1.0-dt))**spt) + base # x=3/4
     new_stosp[1] = y1
     new_stosp[2] = y2
     new_stosp[3] = y3
-    res = f(new_stosp,new_stod)
+    res = f(new_stosp,new_stod,spt,dot)
   subprocess.run("echo \"\" >> Evalute.txt", shell=True)
 #----------------------------------------------------------------------
