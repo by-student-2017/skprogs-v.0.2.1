@@ -25,15 +25,25 @@ subprocess.run("echo \"#No.: ETA value [eV], spt, dt\" > Evalute.txt", shell=Tru
 #----------------------------------------------------------------------
 # fitting parameters
 element = "B"
+atomic_number = 5.0 # = y4
+base = 0.5          # = y0
 #------------------------
-stospt = np.array([1.0,1.03,1.06,1.09])
-stodt  = np.array([1.0,1.03,1.06,1.09])
+dt = 0.1            # t=[-(4/dt):(2/dt)]
+t = -(4.0/dt)
+y0 = base
+y1 = (atomic_number - base)*(1/4)**((1.0/(1.0-dt))**t) + base # x=1/4, t=-40
+y2 = (atomic_number - base)*(2/4)**((1.0/(1.0-dt))**t) + base # x=2/4, t=-40
+y3 = (atomic_number - base)*(3/4)**((1.0/(1.0-dt))**t) + base # x=3/4, t=-40
+y4 = atomic_number
+stosp  = np.array([y0,y1,y2,y3,y4])
+stod   = np.array([y0,y1,y2,y3,y4])
 #------------------------
-stosp  = np.array([0.5,0.6,0.7,0.8])
-stod   = np.array([0.5,0.6,0.7,0.8])
+new_stosp = stosp
+new_stod = stod
 #------------------------
-print("initial parameters, SP: "+str(stosp))
-print("initial parameters, D : "+str(stod))
+print("initial parameters, SP: "+str(new_stosp))
+print("initial parameters, D : "+str(new_stod))
+#------------------------
 
 subprocess.run("cd ./"+str(element)+" ; rm -f -r results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; mkdir results ; cd ../", shell=True)
@@ -81,10 +91,20 @@ def f(stosp,stod):
   return y
 #----------------------------------------------------------------------
 # fitting parameters
-for dt in np.arange(1.0,60.0,0.1):
-  for spt in np.arange(1.0,60.0,0.1):
-    new_stosp = stosp * stospt ** spt
-    new_stod  = stod * stodt ** dt
+for t2 in np.arange(-(4.0/dt),(2.0/dt),dt): # d orbital
+  y1 = (atomic_number - base)*(1/4)**((1.0/(1.0-dt))**t2) + base # x=1/4
+  y2 = (atomic_number - base)*(2/4)**((1.0/(1.0-dt))**t2) + base # x=2/4
+  y2 = (atomic_number - base)*(3/4)**((1.0/(1.0-dt))**t2) + base # x=3/4
+  new_stod[1]  = y1
+  new_stod[2]  = y2
+  new_stod[3]  = y3
+  for t1 in np.arange(-(4.0/dt),(2.0/dt),dt): # sp orbitals
+    y1 = (atomic_number - base)*(1/4)**((1.0/(1.0-dt))**t1) + base # x=1/4
+    y2 = (atomic_number - base)*(2/4)**((1.0/(1.0-dt))**t1) + base # x=2/4
+    y2 = (atomic_number - base)*(3/4)**((1.0/(1.0-dt))**t1) + base # x=3/4
+    new_stosp[1] = y1
+    new_stosp[2] = y2
+    new_stosp[3] = y3
     res = f(new_stosp,new_stod)
   subprocess.run("echo \"\" >> Evalute.txt", shell=True)
 #----------------------------------------------------------------------
