@@ -186,11 +186,6 @@ subprocess.run("cd ./"+str(element)+" ; rm -f -r results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; mkdir results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; chmod +x *.sh ; cd ../", shell=True)
 
-if os.path.exists(str(element)+"-"+str(element)+".skf"):
-  print("------------------------")
-  print("Delete old "+str(element)+"-"+str(element)+".skf file")
-  subprocess.run("rm -f "+str(element)+"-"+str(element)+".skf", shell=True)
-
 count = 0
 #----------------------------------------------------------------------
 def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
@@ -199,6 +194,11 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   global count
   count += 1
   print(count)
+  
+  if os.path.exists(str(element)+"-"+str(element)+".skf"):
+    print("------------------------")
+    print("Delete old "+str(element)+"-"+str(element)+".skf file")
+    subprocess.run("rm -f "+str(element)+"-"+str(element)+".skf", shell=True)
   
   subprocess.run("cp "+" "+str(file_tmp)+" "+str(file_inp), shell=True)
   

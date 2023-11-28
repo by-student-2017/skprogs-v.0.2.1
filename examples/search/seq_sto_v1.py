@@ -48,11 +48,6 @@ subprocess.run("cd ./"+str(element)+" ; rm -f -r results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; mkdir results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; chmod +x *.sh ; cd ../", shell=True)
 
-if os.path.exists(str(element)+"-"+str(element)+".skf"):
-  print("------------------------")
-  print("Delete old "+str(element)+"-"+str(element)+".skf file")
-  subprocess.run("rm -f "+str(element)+"-"+str(element)+".skf", shell=True)
-
 count = 0
 #----------------------------------------------------------------------
 def f(stosp,stod,spt,dot):
@@ -63,6 +58,11 @@ def f(stosp,stod,spt,dot):
   print(count)
   print("set parameters, SP: "+str(stosp))
   print("set parameters, D : "+str(stod))
+  
+  if os.path.exists(str(element)+"-"+str(element)+".skf"):
+    print("------------------------")
+    print("Delete old "+str(element)+"-"+str(element)+".skf file")
+    subprocess.run("rm -f "+str(element)+"-"+str(element)+".skf", shell=True)
   
   subprocess.run("cp "+" "+str(file_tmp)+" "+str(file_inp), shell=True)
 
