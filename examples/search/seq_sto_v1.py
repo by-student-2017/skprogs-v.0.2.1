@@ -60,8 +60,8 @@ def f(stosp,stod,spt,dot):
   
   subprocess.run("cp "+" "+str(file_tmp)+" "+str(file_inp), shell=True)
 
-  stos_all = str(stosp[0])+" "+str(stosp[1])+" "+str(stosp[2])+" "+str(stosp[3])
-  stop_all = str(stod[0])+" "+str(stod[1])+" "+str(stod[2])+" "+str(stod[3])  
+  stos_all = str(stosp[0])+" "+str(stosp[1])+" "+str(stosp[2])+" "+str(stosp[3])+" "+str(stosp[4])
+  stop_all = str(stod[0])+" "+str(stod[1])+" "+str(stod[2])+" "+str(stod[3])+" "+str(stod[4])
   subprocess.call("sed -i s/stosp/\""+str(stos_all)+"\"/g "+str(file_inp), shell=True)
   subprocess.call("sed -i s/stod/\""+str(stop_all)+"\"/g "+str(file_inp), shell=True)
   
@@ -94,14 +94,14 @@ def f(stosp,stod,spt,dot):
 for dot in np.arange(-(4.0/dt),(2.0/dt),dt): # d orbital
   y1 = (atomic_number - base)*(1/4)**((1.0/(1.0-dt))**dot) + base # x=1/4
   y2 = (atomic_number - base)*(2/4)**((1.0/(1.0-dt))**dot) + base # x=2/4
-  y2 = (atomic_number - base)*(3/4)**((1.0/(1.0-dt))**dot) + base # x=3/4
+  y3 = (atomic_number - base)*(3/4)**((1.0/(1.0-dt))**dot) + base # x=3/4
   new_stod[1]  = y1
   new_stod[2]  = y2
   new_stod[3]  = y3
   for spt in np.arange(-(4.0/dt),(2.0/dt),dt): # sp orbitals
     y1 = (atomic_number - base)*(1/4)**((1.0/(1.0-dt))**spt) + base # x=1/4
     y2 = (atomic_number - base)*(2/4)**((1.0/(1.0-dt))**spt) + base # x=2/4
-    y2 = (atomic_number - base)*(3/4)**((1.0/(1.0-dt))**spt) + base # x=3/4
+    y3 = (atomic_number - base)*(3/4)**((1.0/(1.0-dt))**spt) + base # x=3/4
     new_stosp[1] = y1
     new_stosp[2] = y2
     new_stosp[3] = y3
