@@ -40,7 +40,7 @@ ylastd = atomic_number*2.0
 
 #------------------------------------------------
 hwb  =  0.3 # search range [-x*hwb:+x*hwt]
-hwt  =  0.6 # search range [-x*hwb:+x*hwt]
+hwt  =  0.4 # search range [-x*hwb:+x*hwt]
 #---------------------------
 x0  =  2.0 # sigma of density
 x1  = 17.0 # r0 of density
