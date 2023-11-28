@@ -42,6 +42,8 @@ def f(r0,sigma):
   global count
   count += 1
   print(count)
+  print("set parameters, sigma: "+str(sigma))
+  print("set parameters, r0: "+str(r0))
   
   subprocess.run("cp "+" "+str(file_tmp)+" "+str(file_inp), shell=True)
   
@@ -77,8 +79,6 @@ def f(r0,sigma):
 # fitting parameters
 for sigma in np.arange(12.0,18.0,0.2):
   for r0 in np.arange(2.0,9.0,0.1): # [bohr] unit
-    print("initial parameters, r0: "+str(r0))
-    print("initial parameters, sigma: "+str(sigma))
     res = f(r0,sigma)
   subprocess.run("echo \"\" >> Evalute.txt", shell=True)
 #----------------------------------------------------------------------
