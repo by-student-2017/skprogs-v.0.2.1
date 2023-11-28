@@ -1,4 +1,5 @@
 from bayes_opt import BayesianOptimization
+#from bayes_opt import UtilityFunction # for ucb
 import numpy as np
 import subprocess
 import sys
@@ -27,15 +28,17 @@ subprocess.run("echo \"#No.: ETA value [eV], r0, sigma\" > Evalute.txt", shell=T
 
 #----------------------------------------------------------------------
 element = "Mg"
-atomic_number = 12.0
+atomic_number = 12.0 # In this code, this value is used as a parameter of the radial wave function.
 #---------------------------
-y0s = 0.5
-y0p = 0.5
-y0d = 1.5
+# The parameters of the radial wave function.
+y0s = 0.5 # S orbitals
+y0p = 0.5 # P orbitals
+y0d = 1.5 # D orbitals
 #--------
-ylasts = atomic_number
-ylastp = atomic_number
-ylastd = atomic_number*2.0
+# The parameters of the radial wave function.
+ylasts = atomic_number      # S orbitals
+ylastp = atomic_number      # P orbitals
+ylastd = atomic_number*2.0  # D orbitals
 #---------------------------
 
 #------------------------------------------------
@@ -266,9 +269,19 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   return y
 #----------------------------------------------------------------------
 # fitting parameters
-optimizer = BayesianOptimization(f=descripter, pbounds=pbounds)
-optimizer.set_gp_params(alpha=1e-3)
-optimizer.maximize()
+#-------------------
+optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=1,)
+optimizer.maximize(init_points=3, n_iter=4000)
+optimizer.set_gp_params(alpha=1e-3) # The greater the whitenoise, the greater alpha value.
+#------------------ for ucb -----------------------------
+#utility = UtilityFunction(kind="ucb", kappa=2.5, xi=0.0)
+#next_point = optimizer.suggest(utility)
+#print("Next point to probe is:", next_point)
+#target = descripter(**next_point)
+#print("Found the target value to be:", target)
+#optimizer.register(params=next_point, target=target)
+#---------------------------------------------------------
+# old version 1.1.0
 #optimizer.maximize(init_points=3, n_iter=2000, acq="ucb")
 #acq = ucb, ei, poi, (default: ubc)
 #----------------------------------------------------------------------
