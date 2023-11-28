@@ -48,14 +48,14 @@ hwt  =  0.3 # search range [-x*hwb:+x*hwt]
 x0  =  2.0 # sigma of density
 x1  = 17.0 # r0 of density
 #---------------------------
-x2  =  6.2 # simga of S
-x3  =  5.0 # r0 of S
+x2  =  7.0 # simga of S
+x3  =  4.5 # r0 of S
 #---------------------------
-x4  =  6.2 # simga of P
-x5  =  5.0 # r0 of P
+x4  =  7.0 # simga of P
+x5  =  5.6 # r0 of P
 #---------------------------
-x6  =  6.2 # simga of D
-x7  =  5.0 # r0 of D
+x6  =  7.0 # simga of D
+x7  =  5.6 # r0 of D
 #---------------------------
 x8  =  0.93 # y1 of S
 x9  =  2.18 # y2 of S
@@ -79,54 +79,73 @@ n_gene = 17 # number of parameters, number of individual +1
 min_ind = np.ones(n_gene) * -1.0
 max_ind = np.ones(n_gene) *  1.0
 #---------------------------
-min_ind[0] = float(x0) - float(x0)*hwb
-max_ind[0] = float(x0) + float(x0)*hwt
+# sigma of density
+#min_ind[0] = float(x0) - float(x0)*hwb
+#max_ind[0] = float(x0) + float(x0)*hwt
+min_ind[0] =  2.0; max_ind[0] = 17.0
 #---------------------------
-min_ind[1] = float(x1) - float(x1)*hwb
-max_ind[1] = float(x1) + float(x1)*hwt
+# r0 of density
+#min_ind[1] = float(x1) - float(x1)*hwb
+#max_ind[1] = float(x1) + float(x1)*hwt
+min_ind[1] =  4.0; max_ind[1] = 27.0
 #---------------------------
+# sigma of S orbitals
 min_ind[2] = float(x2) - float(x2)*hwb
 max_ind[2] = float(x2) + float(x2)*hwt
 #---------------------------
+# r0 of S orbitals
 min_ind[3] = float(x3) - float(x3)*hwb
 max_ind[3] = float(x3) + float(x3)*hwt
 #---------------------------
+# sigma of P orbitals
 min_ind[4] = float(x4) - float(x4)*hwb
 max_ind[4] = float(x4) + float(x4)*hwt
 #---------------------------
+# r0 of P orbitals
 min_ind[5] = float(x5) - float(x5)*hwb
 max_ind[5] = float(x5) + float(x5)*hwt
 #---------------------------
+# sigma of D orbitals
 min_ind[6] = float(x6) - float(x6)*hwb
 max_ind[6] = float(x6) + float(x6)*hwt
 #---------------------------
+# r0 of D orbitals
 min_ind[7] = float(x7) - float(x7)*hwb
 max_ind[7] = float(x7) + float(x7)*hwt
 #---------------------------
+# Slater-Type Orbitals of S: y1
 min_ind[8] = float(x8) - float(x8)*hwb
 max_ind[8] = float(x8) + float(x8)*hwt
 #---------------------------
+# Slater-Type Orbitals of S: y2
 min_ind[9] = float(x9) - float(x9)*hwb
 max_ind[9] = float(x9) + float(x9)*hwt
 #---------------------------
+# Slater-Type Orbitals of S: y3
 min_ind[10] = float(x10) - float(x10)*hwb
 max_ind[10] = float(x10) + float(x10)*hwt
 #---------------------------
+# Slater-Type Orbitals of P: y1
 min_ind[11] = float(x11) - float(x11)*hwb
 max_ind[11] = float(x11) + float(x11)*hwt
 #---------------------------
+# Slater-Type Orbitals of P: y2
 min_ind[12] = float(x12) - float(x12)*hwb
 max_ind[12] = float(x12) + float(x12)*hwt
 #---------------------------
+# Slater-Type Orbitals of P: y3
 min_ind[13] = float(x13) - float(x13)*hwb
 max_ind[13] = float(x13) + float(x13)*hwt
 #---------------------------
+# Slater-Type Orbitals of D: y1
 min_ind[14] = float(x14) - float(x14)*hwb
 max_ind[14] = float(x14) + float(x14)*hwt
 #---------------------------
+# Slater-Type Orbitals of D: y2
 min_ind[15] = float(x15) - float(x15)*hwb
 max_ind[15] = float(x15) + float(x15)*hwt
 #---------------------------
+# Slater-Type Orbitals of D: y3
 min_ind[16] = float(x16) - float(x16)*hwb
 max_ind[16] = float(x16) + float(x16)*hwt
 #---------------------------
