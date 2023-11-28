@@ -29,6 +29,13 @@ Note 1: As the saying goes, don't rush, it's a good idea to draw diagrams that a
 Note 2: It is better to do a rough review using a map and visually, and then manually search for a place to search in earnest using GA, etc., which will deepen your understanding and reduce the chance of making mistakes.
 ------------------------------------------------------------------------------
 
+------------------------------------------------------------------------------
+Note 3: After finding a good value to some extent, set the search range based on it and check it with Bayesian inference.
+1. pip3 install bayesian-optimization==1.4.3
+2. (rewrite skdef.hsd.tmp_baysian file)
+3. python3 baysian_v1.py
+------------------------------------------------------------------------------
+
 
 Memo: remote (direct LAN connect)
 ------------------------------------------------------------------------------
