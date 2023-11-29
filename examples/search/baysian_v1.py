@@ -396,7 +396,7 @@ bounds_transformer = SequentialDomainReductionTransformer(gamma_osc=0.7, gamma_p
 if os.path.exists("./logs.json"):
   print("# New optimizer is loaded with previously seen points")
   print("If you want to search without using past data, please delete logs.json.")
-  new_optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=7, allow_duplicate_points=True, bounds_transformer=bounds_transformer)
+  new_optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=7, bounds_transformer=bounds_transformer, allow_duplicate_points=True)
   load_logs(new_optimizer, logs=["./logs.json"]);
   logger = JSONLogger(path="./logs", reset=False) # Results will be saved in ./logs.json
   new_optimizer.subscribe(Events.OPTIMIZATION_STEP, logger)
