@@ -38,12 +38,6 @@ dftbp_adress = "mpirun -np "+str(num_core)+" dftb+"
 skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # WSL2
 #pwscf_adress = "mpirun -np "+str(num_core)+" pw.x"
 
-subprocess.run("echo \"#No.: ETA [eV], sigma_den, r0_den, simga_s, r0_s, sigma_p, r0_p, sigma_d, r0_d,"
-  +" stos(y1s), stos(y2s), stos(y3s), stop(y1p), stop(y2p), stop(y3p), stod(y1d), stod(y2d), stod(y3d), sdt, sdt3kbt"
-  +" \" > Evalute.txt", shell=True)
-subprocess.run("echo \"#| iter | 1/target | x0 | x1 | x2 | x3 | x4 | x5 | x6 | x7 | x8 |"
-  +" x9 | x10 | x11 | x12 | x13 | x14 | x15 | x16 | SDT | SDT(3kbT) |\" >> Evalute.txt", shell=True)
-
 #----------------------------------------------------------------------
 # set initial parameters and boundaries
 #----------------------------------------------------------------------
@@ -206,12 +200,18 @@ print("------------------------")
 
 #------------------------------------------------
 if os.path.exists("./Evalute.txt"):
-  subprocess.run("cd ./"+element+" ; mv ./../Evalute.txt ./results/Evalute.txt ; cd ../", shell=True)
+  subprocess.run("cd ./"+element+" ; cp ./../Evalute.txt ./results/Evalute.txt ; cd ../", shell=True)
   subprocess.run("cd ./"+element+" ; cp ./../logs.json ./results/logs.json ; cd ../", shell=True)
   now = datetime.datetime.now()
   subprocess.run("cd ./"+element+" ; mv results results_{0:%Y%m%d-%H%M%S}".format(now)+" ; cd ../", shell=True)
 subprocess.run("cd ./"+element+" ; mkdir results ; cd ../", shell=True)
 subprocess.run("cd ./"+element+" ; chmod +x *.sh ; cd ../", shell=True)
+#-------------------------------
+subprocess.run("echo \"#No.: ETA [eV], sigma_den, r0_den, simga_s, r0_s, sigma_p, r0_p, sigma_d, r0_d,"
+  +" stos(y1s), stos(y2s), stos(y3s), stop(y1p), stop(y2p), stop(y3p), stod(y1d), stod(y2d), stod(y3d), sdt, sdt3kbt"
+  +" \" > Evalute.txt", shell=True)
+subprocess.run("echo \"#| iter | 1/target | x0 | x1 | x2 | x3 | x4 | x5 | x6 | x7 | x8 |"
+  +" x9 | x10 | x11 | x12 | x13 | x14 | x15 | x16 | SDT | SDT(3kbT) |\" >> Evalute.txt", shell=True)
 #------------------------------------------------
 
 #------------------------------------------------
@@ -396,7 +396,7 @@ bounds_transformer = SequentialDomainReductionTransformer(gamma_osc=0.7, gamma_p
 if os.path.exists("./logs.json"):
   print("# New optimizer is loaded with previously seen points")
   print("If you want to search without using past data, please delete logs.json.")
-  new_optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=7, bounds_transformer=bounds_transformer)
+  new_optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=7, allow_duplicate_points=True, bounds_transformer=bounds_transformer)
   load_logs(new_optimizer, logs=["./logs.json"]);
   logger = JSONLogger(path="./logs", reset=False) # Results will be saved in ./logs.json
   new_optimizer.subscribe(Events.OPTIMIZATION_STEP, logger)
