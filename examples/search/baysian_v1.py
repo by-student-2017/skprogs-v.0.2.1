@@ -1,13 +1,24 @@
+#----------------------------------------------------------------------
 from bayes_opt import BayesianOptimization
 #from bayes_opt import UtilityFunction # for ucb
+#-----------------------------------------------
+# Saving progress
+from bayes_opt.logger import JSONLogger
+from bayes_opt.event import Events
+# Loading progress
+from bayes_opt.util import load_logs
+#-----------------------------------------------
 import numpy as np
 import subprocess
 import sys
 import os
+import datetime # for results folder
 #----------------------------------------------------------------------
-# command:
+# Usage: command:
 # 1. pip3 install bayesian-optimization==1.4.3
-# 2. python3 baysian_v1.py
+# 2. rewrite skdef.hsd.tmp_baysian and prepare band_check folder (e.g., see Mg folder)
+# 3. rewrite initial parameters and boundaries in this file
+# 4. python3 baysian_v1.py
 #----------------------------------------------------------------------
 file_tmp = 'skdef.hsd.tmp_baysian'
 file_inp = 'skdef.hsd'
@@ -30,6 +41,8 @@ subprocess.run("echo \"#No.: ETA [eV], sigma_den, r0_den, simga_s, r0_s, sigma_p
 subprocess.run("echo \"#| iter | 1/target | x0 | x1 | x2 | x3 | x4 | x5 | x6 | x7 | x8 |"
   +" x9 | x10 | x11 | x12 | x13 | x14 | x15 | x16 | SDT | SDT(3kbT) |\" >> Evalute.txt", shell=True)
 
+#----------------------------------------------------------------------
+# set initial parameters and boundaries
 #----------------------------------------------------------------------
 element = "Mg"
 atomic_number = 12.0 # In this code, this value is used as a parameter of the radial wave function.
@@ -84,6 +97,8 @@ x15 =  5.81 # y2 of D or D
 x16 = 12.30 # y3 of D or D
 #---------------------------
 print("------------------------")
+print("initial parameters:   x0  x1  x2  x3  x4  x5  x6  x7   x8   x9"
+  +"  x10  x11  x12  x13  x14  x15  x16")
 print("initial parameters: ",x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16)
 x = [x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16]
 #------------------------------------------------
@@ -186,16 +201,22 @@ print("boundary of parameters: ",pbounds)
 print("------------------------")
 #------------------------------------------------
 
-subprocess.run("cd ./"+element+" ; rm -f -r results ; cd ../", shell=True)
+#------------------------------------------------
+if os.path.exists("./Evalute.txt"):
+  subprocess.run("cd ./"+element+" ; mv ./../Evalute.txt ./results/Evalute.txt ; cd ../", shell=True)
+  subprocess.run("cd ./"+element+" ; mv ./../logs.json ./results/logs.json ; cd ../", shell=True)
+  now = datetime.datetime.now()
+  subprocess.run("cd ./"+element+" ; mv results results_{0:%Y%m%d-%H%M%S}".format(now)+" ; cd ../", shell=True)
 subprocess.run("cd ./"+element+" ; mkdir results ; cd ../", shell=True)
 subprocess.run("cd ./"+element+" ; chmod +x *.sh ; cd ../", shell=True)
+#------------------------------------------------
 
-#--------------
+#------------------------------------------------
 # set initial values
 eta = 0.0
 std = 0.0
 std3kbt = 0.0
-#--------------
+#------------------------------------------------
 
 count = 0
 #----------------------------------------------------------------------
@@ -231,19 +252,19 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   sx7  = "{:.1f}".format(x7)
   #-------------------------------
   # Slater-Type Orbitals of S
-  sx8  = "{:.3f}".format(x8)
-  sx9  = "{:.3f}".format(x9)
-  sx10 = "{:.3f}".format(x10)
+  sx8  = "{:.2f}".format(x8)
+  sx9  = "{:.2f}".format(x9)
+  sx10 = "{:.2f}".format(x10)
   #-------------------------------
   # Slater-Type Orbitals of P
-  sx11 = "{:.3f}".format(x11)
-  sx12 = "{:.3f}".format(x12)
-  sx13 = "{:.3f}".format(x13)
+  sx11 = "{:.2f}".format(x11)
+  sx12 = "{:.2f}".format(x12)
+  sx13 = "{:.2f}".format(x13)
   #-------------------------------
   # Slater-Type Orbitals of D
-  sx14 = "{:.3f}".format(x14)
-  sx15 = "{:.3f}".format(x15)
-  sx16 = "{:.3f}".format(x16)
+  sx14 = "{:.2f}".format(x14)
+  sx15 = "{:.2f}".format(x15)
+  sx16 = "{:.2f}".format(x16)
   #-------------------------------
   
   #-------------------------------
@@ -348,23 +369,35 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   print("Next values")
   print("| iter | target | x0 | x1 | x10 | x11 | ... ")
   subprocess.run("echo No."+str(count)+": "+str(eta)
-    +", "+sx0+", "+sx1
-    +", "+sx2+", "+sx3
-    +", "+sx4+", "+sx5
-    +", "+sx6+", "+sx7
-    +", "+sx8+", "+sx9+", "+sx10
-    +", "+sx11+", "+sx12+", "+sx13
-    +", "+sx14+", "+sx15+", "+sx16
-    +", "+str(sdt)+", "+str(sdt3kbt)
+    +", "+sx0+", "+sx1 # Density
+    +", "+sx2+", "+sx3 # S orbital
+    +", "+sx4+", "+sx5 # P orbital
+    +", "+sx6+", "+sx7 # D orbital
+    +", "+sx8+", "+sx9+", "+sx10   # Slater-Type Orbitals of S
+    +", "+sx11+", "+sx12+", "+sx13 # Slater-Type Orbitals of P
+    +", "+sx14+", "+sx15+", "+sx16 # Slater-Type Orbitals of D
+    +", "+str(sdt)+", "+str(sdt3kbt) # Evaluate values
     +" >> Evalute.txt", shell=True)
 
   return y
 #----------------------------------------------------------------------
 # fitting parameters
 #-------------------
-optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=1,)
-optimizer.maximize(init_points=3, n_iter=4000)
-optimizer.set_gp_params(alpha=1e-3) # The greater the whitenoise, the greater alpha value.
+if os.path.exists("./logs.json"):
+  print("# New optimizer is loaded with previously seen points")
+  new_optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=7,)
+  load_logs(new_optimizer, logs=["./logs.json"]);
+  logger = JSONLogger(path="./logs", reset=False)
+  new_optimizer.subscribe(Events.OPTIMIZATION_STEP, logger)
+  new_optimizer.maximize(init_points=2, n_iter=500)
+  new_optimizer.set_gp_params(alpha=1e-3) # The greater the whitenoise, the greater alpha value.
+else:
+  optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=1,)
+  logger = JSONLogger(path="./logs")
+  optimizer.subscribe(Events.OPTIMIZATION_STEP, logger)
+  optimizer.maximize(init_points=2, n_iter=500)
+  optimizer.set_gp_params(alpha=1e-3) # The greater the whitenoise, the greater alpha value.
+#--------------------------------------------------------
 #------------------ for ucb -----------------------------
 #utility = UtilityFunction(kind="ucb", kappa=2.5, xi=0.0)
 #next_point = optimizer.suggest(utility)
@@ -372,7 +405,6 @@ optimizer.set_gp_params(alpha=1e-3) # The greater the whitenoise, the greater al
 #target = descripter(**next_point)
 #print("Found the target value to be:", target)
 #optimizer.register(params=next_point, target=target)
-#---------------------------------------------------------
 # old version 1.1.0
 #optimizer.maximize(init_points=3, n_iter=2000, acq="ucb")
 #acq = ucb, ei, poi, (default: ubc)
