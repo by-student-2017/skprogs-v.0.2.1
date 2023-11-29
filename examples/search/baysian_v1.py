@@ -238,36 +238,40 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   subprocess.run("cp "+" "+file_tmp+" "+file_inp, shell=True)
   
   #-------------------------------
+  # Additional additions are due to rounding.
+  R1 = 0.05
+  R2 = 0.005
+  #-------------------------------
   # Density
-  sx0  = "{:.1f}".format(x0)
-  sx1  = "{:.1f}".format(x1)
+  sx0  = "{:.1f}".format(x0+R1)
+  sx1  = "{:.1f}".format(x1+R1)
   #-------------------------------
   # S orbital
-  sx2  = "{:.1f}".format(x2)
-  sx3  = "{:.1f}".format(x3)
+  sx2  = "{:.1f}".format(x2+R1)
+  sx3  = "{:.1f}".format(x3+R1)
   #-------------------------------
   # P orbital
-  sx4  = "{:.1f}".format(x4)
-  sx5  = "{:.1f}".format(x5)
+  sx4  = "{:.1f}".format(x4+R1)
+  sx5  = "{:.1f}".format(x5+R1)
   #-------------------------------
   # D orbital
-  sx6  = "{:.1f}".format(x6)
-  sx7  = "{:.1f}".format(x7)
+  sx6  = "{:.1f}".format(x6+R1)
+  sx7  = "{:.1f}".format(x7+R1)
   #-------------------------------
   # Slater-Type Orbitals of S
-  sx8  = "{:.2f}".format(x8)
-  sx9  = "{:.2f}".format(x9)
-  sx10 = "{:.2f}".format(x10)
+  sx8  = "{:.2f}".format(x8+R2)
+  sx9  = "{:.2f}".format(x9+R2)
+  sx10 = "{:.2f}".format(x10+R2)
   #-------------------------------
   # Slater-Type Orbitals of P
-  sx11 = "{:.2f}".format(x11)
-  sx12 = "{:.2f}".format(x12)
-  sx13 = "{:.2f}".format(x13)
+  sx11 = "{:.2f}".format(x11+R2)
+  sx12 = "{:.2f}".format(x12+R2)
+  sx13 = "{:.2f}".format(x13+R2)
   #-------------------------------
   # Slater-Type Orbitals of D
-  sx14 = "{:.2f}".format(x14)
-  sx15 = "{:.2f}".format(x15)
-  sx16 = "{:.2f}".format(x16)
+  sx14 = "{:.2f}".format(x14+R2)
+  sx15 = "{:.2f}".format(x15+R2)
+  sx16 = "{:.2f}".format(x16+R2)
   #-------------------------------
   
   #-------------------------------
