@@ -216,9 +216,9 @@ subprocess.run("cd ./"+element+" ; chmod +x *.sh ; cd ../", shell=True)
 
 #------------------------------------------------
 # set initial values
-eta = 0.0
-std = 0.0
-std3kbt = 0.0
+etav = 0.0
+stdv = 0.0
+stdv3kbt = 0.0
 #------------------------------------------------
 
 count = 0
@@ -311,27 +311,27 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
     evaluate_sdt3kbt = subprocess.run("awk '{if(NR==8){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
     if evaluate.returncode == 0:
       try:
-        eta = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
-        sdt = float(str(evaluate_sdt.stdout).lstrip("b'").rstrip("\\n'"))
-        sdt3kbt = float(str(evaluate_sdt3kbt.stdout).lstrip("b'").rstrip("\\n'"))
-        y = 1.0/eta
+        etav = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
+        sdtv = float(str(evaluate_sdt.stdout).lstrip("b'").rstrip("\\n'"))
+        sdtv3kbt = float(str(evaluate_sdt3kbt.stdout).lstrip("b'").rstrip("\\n'"))
+        y = 1.0/etav
         subprocess.run("mv "+file_inp+" ./"+element+"/results/"+file_inp+"_No"+str(count), shell=True)
         subprocess.run("cp ./"+element+"/comp_band.png ./"+element+"/results/comp_band_No"+str(count)+".png", shell=True)
       except ValueError as error:
         y = 0.0
-        eta = 9.999
-        sdt = 9.999
-        sdt3kbt = 9.999
+        etav = 9.999
+        sdtv = 9.999
+        sdtv3kbt = 9.999
     else:
       y = 0.0
-      eta = 9.999
-      sdt = 9.999
-      sdt3kbt = 9.999
+      etav = 9.999
+      sdtv = 9.999
+      sdtv3kbt = 9.999
   else:
     y = 0.0
-    eta = 9.999
-    sdt = 9.999
-    sdt3kbt = 9.999
+    etav = 9.999
+    sdtv = 9.999
+    sdtv3kbt = 9.999
 
   print("------------------------")
   print("iter:",count)
@@ -371,7 +371,7 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   print("------------------------")
   print("Next values")
   print("| iter | target | x0 | x1 | x10 | x11 | ... ")
-  subprocess.run("echo No."+str(count)+": "+str(eta)
+  subprocess.run("echo No."+str(count)+": "+str(etav)
     +", "+sx0+", "+sx1 # Density
     +", "+sx2+", "+sx3 # S orbital
     +", "+sx4+", "+sx5 # P orbital
@@ -379,7 +379,7 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
     +", "+sx8+", "+sx9+", "+sx10   # Slater-Type Orbitals of S
     +", "+sx11+", "+sx12+", "+sx13 # Slater-Type Orbitals of P
     +", "+sx14+", "+sx15+", "+sx16 # Slater-Type Orbitals of D
-    +", "+str(sdt)+", "+str(sdt3kbt) # Evaluate values
+    +", "+str(sdtv)+", "+str(sdtv3kbt) # Evaluate values
     +" >> Evalute.txt", shell=True)
 
   return y
