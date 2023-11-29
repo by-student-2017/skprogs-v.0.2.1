@@ -420,6 +420,7 @@ else:
 #target = descripter(**next_point)
 #print("Found the target value to be:", target)
 #optimizer.register(params=next_point, target=target)
+#--------------------------------------------------------
 # old version 1.1.0
 #optimizer.maximize(init_points=3, n_iter=2000, acq="ucb")
 #acq = ucb, ei, poi, (default: ubc)
