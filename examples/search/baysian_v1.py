@@ -395,7 +395,7 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
 #gamma_pan: panning parameter. Typically 1.0. Default = 1.0
 #eta: zoom parameter. Default = 0.9
 #minimum_window: Default = 0.0
-bounds_transformer = SequentialDomainReductionTransformer(gamma_osc=0.7, gamma_pan=1.0, eta=0.9, minimum_window=0.5)
+bounds_transformer = SequentialDomainReductionTransformer(gamma_osc=0.7, gamma_pan=1.0, eta=0.9, minimum_window=0.0)
 #-------------------
 if os.path.exists("./logs.json"):
   print("# New optimizer is loaded with previously seen points")
@@ -410,7 +410,7 @@ else:
   optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=1, bounds_transformer=bounds_transformer)
   logger = JSONLogger(path="./logs") # Results will be saved in ./logs.json
   optimizer.subscribe(Events.OPTIMIZATION_STEP, logger)
-  optimizer.maximize(init_points=2, n_iter=4000) # 1200 cycles/day
+  optimizer.maximize(init_points=17, n_iter=4000) # 1200 cycles/day
   optimizer.set_gp_params(alpha=1e-3) # The greater the whitenoise, the greater alpha value.
 #--------------------------------------------------------
 #------------------ for ucb -----------------------------
