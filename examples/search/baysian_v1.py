@@ -24,26 +24,30 @@ dftbp_adress = "mpirun -np "+str(num_core)+" dftb+"
 skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # WSL2
 #pwscf_adress = "mpirun -np "+str(num_core)+" pw.x"
 
-subprocess.run("echo \"#No.: ETA value [eV], r0, sigma\" > Evalute.txt", shell=True)
+subprocess.run("echo \"#No.: ETA [eV], sigma_den, r0_den, simga_s, r0_s, sigma_p, r0_p, sigma_d, r0_d,"
+  +" stos(y1s), stos(y2s), stos(y3s), stop(y1p), stop(y2p), stop(y3p), stod(y1d), stod(y2d), stod(y3d), sdt, sdt3kbt"
+  +" \" > Evalute.txt", shell=True)
+subprocess.run("echo \"#| iter | 1/target | x0 | x1 | x2 | x3 | x4 | x5 | x6 | x7 | x8 |"
+  +" x9 | x10 | x11 | x12 | x13 | x14 | x15 | x16 | SDT | SDT(3kbT) |\" >> Evalute.txt", shell=True)
 
 #----------------------------------------------------------------------
 element = "Mg"
 atomic_number = 12.0 # In this code, this value is used as a parameter of the radial wave function.
 #---------------------------
 # The parameters of the radial wave function.
-y0s = 0.5 # S orbitals
-y0p = 0.5 # P orbitals
-y0d = 1.5 # D orbitals
+y0s = 0.5 # S orbitals, TM: 2.0
+y0p = 0.5 # P orbitals, TM: 2.0
+y0d = 1.5 # D orbitals, TM: 2.5
 #--------
 # The parameters of the radial wave function.
-ylasts = atomic_number      # S orbitals
-ylastp = atomic_number      # P orbitals
-ylastd = atomic_number*2.0  # D orbitals
+ylasts = atomic_number      # S orbitals, TM: x2.0
+ylastp = atomic_number      # P orbitals, TM: x2.0
+ylastd = atomic_number*2.0  # D orbitals, TM: x3.0
 #---------------------------
 
 #------------------------------------------------
-hwb  =  0.3 # search range [-x*hwb:+x*hwt]
-hwt  =  0.3 # search range [-x*hwb:+x*hwt]
+hwb  =  0.37 # search range [-x*hwb:+x*hwt]
+hwt  =  0.37 # search range [-x*hwb:+x*hwt]
 #---------------------------
 # Note
 # 1. A value around sigma = 7.0 is often good.
@@ -97,7 +101,7 @@ min_ind[0] =  2.0; max_ind[0] = 17.0
 # r0 of density
 #min_ind[1] = float(x1) - float(x1)*hwb
 #max_ind[1] = float(x1) + float(x1)*hwt
-min_ind[1] =  4.0; max_ind[1] = 27.0
+min_ind[1] =  2.4; max_ind[1] = 29.0
 #---------------------------
 # sigma of S orbitals
 min_ind[2] = float(x2) - float(x2)*hwb
@@ -182,9 +186,16 @@ print("boundary of parameters: ",pbounds)
 print("------------------------")
 #------------------------------------------------
 
-subprocess.run("cd ./"+str(element)+" ; rm -f -r results ; cd ../", shell=True)
-subprocess.run("cd ./"+str(element)+" ; mkdir results ; cd ../", shell=True)
-subprocess.run("cd ./"+str(element)+" ; chmod +x *.sh ; cd ../", shell=True)
+subprocess.run("cd ./"+element+" ; rm -f -r results ; cd ../", shell=True)
+subprocess.run("cd ./"+element+" ; mkdir results ; cd ../", shell=True)
+subprocess.run("cd ./"+element+" ; chmod +x *.sh ; cd ../", shell=True)
+
+#--------------
+# set initial values
+eta = 0.0
+std = 0.0
+std3kbt = 0.0
+#--------------
 
 count = 0
 #----------------------------------------------------------------------
@@ -195,65 +206,108 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   count += 1
   print(count)
   
-  if os.path.exists(str(element)+"-"+str(element)+".skf"):
+  if os.path.exists(element+"-"+element+".skf"):
     print("------------------------")
-    print("Delete old "+str(element)+"-"+str(element)+".skf file")
-    subprocess.run("rm -f "+str(element)+"-"+str(element)+".skf", shell=True)
+    print("Delete old "+element+"-"+element+".skf file")
+    subprocess.run("rm -f "+element+"-"+element+".skf", shell=True)
   
-  subprocess.run("cp "+" "+str(file_tmp)+" "+str(file_inp), shell=True)
+  subprocess.run("cp "+" "+file_tmp+" "+file_inp, shell=True)
   
   #-------------------------------
   # Density
-  subprocess.call("sed -i s/sigma_den/"+str(x0)+"/g "+str(file_inp), shell=True)
-  subprocess.call("sed -i s/r0_den/"+str(x1)+"/g "+str(file_inp), shell=True)
+  sx0  = "{:.1f}".format(x0)
+  sx1  = "{:.1f}".format(x1)
   #-------------------------------
   # S orbital
-  subprocess.call("sed -i s/sigma_s/"+str(x2)+"/g "+str(file_inp), shell=True)
-  subprocess.call("sed -i s/r0_s/"+str(x3)+"/g "+str(file_inp), shell=True)
+  sx2  = "{:.1f}".format(x2)
+  sx3  = "{:.1f}".format(x3)
   #-------------------------------
   # P orbital
-  subprocess.call("sed -i s/sigma_p/"+str(x4)+"/g "+str(file_inp), shell=True)
-  subprocess.call("sed -i s/r0_p/"+str(x5)+"/g "+str(file_inp), shell=True)
+  sx4  = "{:.1f}".format(x4)
+  sx5  = "{:.1f}".format(x5)
   #-------------------------------
   # D orbital
-  subprocess.call("sed -i s/sigma_d/"+str(x6)+"/g "+str(file_inp), shell=True)
-  subprocess.call("sed -i s/r0_d/"+str(x7)+"/g "+str(file_inp), shell=True)
+  sx6  = "{:.1f}".format(x6)
+  sx7  = "{:.1f}".format(x7)
   #-------------------------------
   # Slater-Type Orbitals of S
-  stos_all = str(y0s)+" "+str(x8)+" "+str(x9)+" "+str(x10)+" "+str(ylasts)
-  subprocess.call("sed -i s/stos/\""+str(stos_all)+"\"/g "+str(file_inp), shell=True)
+  sx8  = "{:.3f}".format(x8)
+  sx9  = "{:.3f}".format(x9)
+  sx10 = "{:.3f}".format(x10)
   #-------------------------------
   # Slater-Type Orbitals of P
-  stop_all = str(y0p)+" "+str(x11)+" "+str(x12)+" "+str(x13)+" "+str(ylastp)
-  subprocess.call("sed -i s/stop/\""+str(stop_all)+"\"/g "+str(file_inp), shell=True)
+  sx11 = "{:.3f}".format(x11)
+  sx12 = "{:.3f}".format(x12)
+  sx13 = "{:.3f}".format(x13)
   #-------------------------------
   # Slater-Type Orbitals of D
-  stod_all = str(y0d)+" "+str(x14)+" "+str(x15)+" "+str(x16)+" "+str(ylastd)
-  subprocess.call("sed -i s/stod/\""+str(stod_all)+"\"/g "+str(file_inp), shell=True)
+  sx14 = "{:.3f}".format(x14)
+  sx15 = "{:.3f}".format(x15)
+  sx16 = "{:.3f}".format(x16)
+  #-------------------------------
+  
+  #-------------------------------
+  # Density
+  subprocess.call("sed -i s/sigma_den/"+sx0+"/g "+file_inp, shell=True)
+  subprocess.call("sed -i s/r0_den/"+sx1+"/g "+file_inp, shell=True)
+  #-------------------------------
+  # S orbital
+  subprocess.call("sed -i s/sigma_s/"+sx2+"/g "+file_inp, shell=True)
+  subprocess.call("sed -i s/r0_s/"+sx3+"/g "+file_inp, shell=True)
+  #-------------------------------
+  # P orbital
+  subprocess.call("sed -i s/sigma_p/"+sx4+"/g "+file_inp, shell=True)
+  subprocess.call("sed -i s/r0_p/"+sx5+"/g "+file_inp, shell=True)
+  #-------------------------------
+  # D orbital
+  subprocess.call("sed -i s/sigma_d/"+sx6+"/g "+file_inp, shell=True)
+  subprocess.call("sed -i s/r0_d/"+sx7+"/g "+file_inp, shell=True)
+  #-------------------------------
+  # Slater-Type Orbitals of S
+  stos_all = str(y0s)+" "+sx8+" "+sx9+" "+sx10+" "+str(ylasts)
+  subprocess.call("sed -i s/stos/\""+stos_all+"\"/g "+file_inp, shell=True)
+  #-------------------------------
+  # Slater-Type Orbitals of P
+  stop_all = str(y0p)+" "+sx11+" "+sx12+" "+sx13+" "+str(ylastp)
+  subprocess.call("sed -i s/stop/\""+stop_all+"\"/g "+file_inp, shell=True)
+  #-------------------------------
+  # Slater-Type Orbitals of D
+  stod_all = str(y0d)+" "+sx14+" "+sx15+" "+sx16+" "+str(ylastd)
+  subprocess.call("sed -i s/stod/\""+stod_all+"\"/g "+file_inp, shell=True)
   #-------------------------------
   
   subprocess.run("export OMP_NUM_THREADS="+str(num_core), shell=True)
-  skgen = subprocess.run("python3 "+str(skprogs_adress)+" -o slateratom -t sktwocnt sktable -d "+str(element)+" "+str(element), shell=True, stdout=subprocess.PIPE)
+  skgen = subprocess.run("python3 "+str(skprogs_adress)+" -o slateratom -t sktwocnt sktable -d "+element+" "+element, shell=True, stdout=subprocess.PIPE)
   subprocess.run("export OMP_NUM_THREADS=1", shell=True)
   
-  if os.path.exists(str(element)+"-"+str(element)+".skf"):
-    subprocess.run("cd ./"+str(element)+" ; ./run.sh ; cd ../", shell=True)
-    evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+str(element)+"/"+str(file_msd), shell=True, stdout=subprocess.PIPE)
+  if os.path.exists(element+"-"+element+".skf"):
+    subprocess.run("cd ./"+element+" ; ./run.sh ; cd ../", shell=True)
+    evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
+    evaluate_sdt = subprocess.run("awk '{if(NR==4){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
+    evaluate_sdt3kbt = subprocess.run("awk '{if(NR==8){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
     if evaluate.returncode == 0:
       try:
         eta = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
+        sdt = float(str(evaluate_sdt.stdout).lstrip("b'").rstrip("\\n'"))
+        sdt3kbt = float(str(evaluate_sdt3kbt.stdout).lstrip("b'").rstrip("\\n'"))
         y = 1.0/eta
-        subprocess.run("mv "+str(file_inp)+" ./"+str(element)+"/results/"+str(file_inp)+"_No"+str(count), shell=True)
-        subprocess.run("cp ./"+str(element)+"/comp_band.png ./"+str(element)+"/results/comp_band_No"+str(count)+".png", shell=True)
+        subprocess.run("mv "+file_inp+" ./"+element+"/results/"+file_inp+"_No"+str(count), shell=True)
+        subprocess.run("cp ./"+element+"/comp_band.png ./"+element+"/results/comp_band_No"+str(count)+".png", shell=True)
       except ValueError as error:
         y = 0.0
-        eta = 99999.999
+        eta = 9.999
+        sdt = 9.999
+        sdt3kbt = 9.999
     else:
       y = 0.0
-      eta = 99999.999
+      eta = 9.999
+      sdt = 9.999
+      sdt3kbt = 9.999
   else:
     y = 0.0
-    eta = 99999.999
+    eta = 9.999
+    sdt = 9.999
+    sdt3kbt = 9.999
 
   print("------------------------")
   print("iter:",count)
@@ -261,39 +315,48 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   print("target:",str(y))
   print("------------------------")
   print("Density")
-  print("set parameters, sigma_den = x0: "+str(x0))
-  print("set parameters, r0_den = x1: "+str(x1))
+  print("set parameters, sigma_den = x0: "+sx0)
+  print("set parameters, r0_den = x1: "+sx1)
   print("------------------------")
   print("S orbital")
-  print("set parameters, sigma_s = x2: "+str(x2))
-  print("set parameters, r0_s = x3: "+str(x3))
+  print("set parameters, sigma_s = x2: "+sx2)
+  print("set parameters, r0_s = x3: "+sx3)
   print("------------------------")
   print("P orbital")
-  print("set parameters, sigma_p = x4: "+str(x4))
-  print("set parameters, r0_p = x5: "+str(x5))
+  print("set parameters, sigma_p = x4: "+sx4)
+  print("set parameters, r0_p = x5: "+sx5)
   print("------------------------")
   print("D orbital")
-  print("set parameters, sigma_d = x6: "+str(x6))
-  print("set parameters, r0_d = x7: "+str(x7))
+  print("set parameters, sigma_d = x6: "+sx6)
+  print("set parameters, r0_d = x7: "+sx7)
   print("------------------------")
   print("Slater-Type Orbitals of S")
-  print("set parameters, y1s = x8: "+str(x8))
-  print("set parameters, y2s = x9: "+str(x9))
-  print("set parameters, y3s = x10: "+str(x10))
+  print("set parameters, y1s = x8: "+sx8)
+  print("set parameters, y2s = x9: "+sx9)
+  print("set parameters, y3s = x10: "+sx10)
   print("------------------------")
   print("Slater-Type Orbitals of P")
-  print("set parameters, y1p = x11: "+str(x11))
-  print("set parameters, y2p = x12: "+str(x12))
-  print("set parameters, y3p = x13: "+str(x13))
+  print("set parameters, y1p = x11: "+sx11)
+  print("set parameters, y2p = x12: "+sx12)
+  print("set parameters, y3p = x13: "+sx13)
   print("------------------------")
   print("Slater-Type Orbitals of D")
-  print("set parameters, y1d = x14: "+str(x14))
-  print("set parameters, y2d = x15: "+str(x15))
-  print("set parameters, y3d = x16: "+str(x16))
+  print("set parameters, y1d = x14: "+sx14)
+  print("set parameters, y2d = x15: "+sx15)
+  print("set parameters, y3d = x16: "+sx16)
   print("------------------------")
   print("Next values")
-  print("| iter | target | x0 | x1 | ... ")
-  subprocess.run("echo No."+str(count)+": "+str(eta)+", "+str(x0)+", "+str(x1)+" >> Evalute.txt", shell=True)
+  print("| iter | target | x0 | x1 | x10 | x11 | ... ")
+  subprocess.run("echo No."+str(count)+": "+str(eta)
+    +", "+sx0+", "+sx1
+    +", "+sx2+", "+sx3
+    +", "+sx4+", "+sx5
+    +", "+sx6+", "+sx7
+    +", "+sx8+", "+sx9+", "+sx10
+    +", "+sx11+", "+sx12+", "+sx13
+    +", "+sx14+", "+sx15+", "+sx16
+    +", "+str(sdt)+", "+str(sdt3kbt)
+    +" >> Evalute.txt", shell=True)
 
   return y
 #----------------------------------------------------------------------
