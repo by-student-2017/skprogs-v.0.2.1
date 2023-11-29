@@ -8,6 +8,9 @@ from bayes_opt.event import Events
 # Loading progress
 from bayes_opt.util import load_logs
 #-----------------------------------------------
+# Sequential Domain Reduction
+from bayes_opt import SequentialDomainReductionTransformer
+#-----------------------------------------------
 import numpy as np
 import subprocess
 import sys
@@ -383,17 +386,24 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
 #----------------------------------------------------------------------
 # fitting parameters
 #-------------------
+# Note
+#gamma_osc: 0.5-0.7: shrinkage parameter for oscillation. Typically [0.5-0.7]. Default = 0.7
+#gamma_pan: panning parameter. Typically 1.0. Default = 1.0
+#eta: zoom parameter. Default = 0.9
+#inimum_window: Default = 0.0
+bounds_transformer = SequentialDomainReductionTransformer(gamma_osc=0.7, gamma_pan=1.0, eta=0.9, minimum_window=0.5)
+#-------------------
 if os.path.exists("./logs.json"):
   print("# New optimizer is loaded with previously seen points")
-  new_optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=7,)
+  new_optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=7, bounds_transformer=bounds_transformer)
   load_logs(new_optimizer, logs=["./logs.json"]);
-  logger = JSONLogger(path="./logs", reset=False)
+  logger = JSONLogger(path="./logs", reset=False) # Results will be saved in ./logs.json
   new_optimizer.subscribe(Events.OPTIMIZATION_STEP, logger)
   new_optimizer.maximize(init_points=2, n_iter=500)
   new_optimizer.set_gp_params(alpha=1e-3) # The greater the whitenoise, the greater alpha value.
 else:
-  optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=1,)
-  logger = JSONLogger(path="./logs")
+  optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=1, bounds_transformer=bounds_transformer)
+  logger = JSONLogger(path="./logs") # Results will be saved in ./logs.json
   optimizer.subscribe(Events.OPTIMIZATION_STEP, logger)
   optimizer.maximize(init_points=2, n_iter=500)
   optimizer.set_gp_params(alpha=1e-3) # The greater the whitenoise, the greater alpha value.
