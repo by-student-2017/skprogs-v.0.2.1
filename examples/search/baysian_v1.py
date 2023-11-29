@@ -407,7 +407,7 @@ if os.path.exists("./logs.json"):
   new_optimizer.maximize(init_points=0, n_iter=(1200*3))
   new_optimizer.set_gp_params(alpha=1e-3) # The greater the whitenoise, the greater alpha value.
 else:
-  optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=1, bounds_transformer=bounds_transformer)
+  optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=1, bounds_transformer=bounds_transformer, allow_duplicate_points=True)
   logger = JSONLogger(path="./logs") # Results will be saved in ./logs.json
   optimizer.subscribe(Events.OPTIMIZATION_STEP, logger)
   optimizer.maximize(init_points=(n_gene*5), n_iter=(1200*3)) # 1200 cycles/day
