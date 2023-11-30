@@ -205,6 +205,15 @@ Reference
 - [2] [Self-Consistent-Charge Density-Functional Tight-Binding Parameters for Modeling an All-Solid-State Lithium Battery](https://doi.org/10.1021/acs.jctc.2c01115)
 
 
+Search method using Bayesian optimization
+=======
+1. pip3 install bayesian-optimization==1.4.3
+2. rewrite skdef.hsd.tmp_baysian and prepare band_check folder (e.g., see Mg folder)
+3. rewrite initial parameters and boundaries in baysian_v1.py
+4. python3 baysian_v1.py
+5. sort -k 2 Evalute.txt >> Evalute_sort.txt
+
+
 Information of skprogs code
 =======
 - sktools/src/sktools/compressions.py
