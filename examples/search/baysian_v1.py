@@ -201,6 +201,7 @@ print("------------------------")
 #------------------------------------------------
 if os.path.exists("./Evalute.txt"):
   subprocess.run("cd ./"+element+" ; cp ./../Evalute.txt ./results/Evalute.txt ; cd ../", shell=True)
+  subprocess.run("cd ./"+element+" ; cp ./../Evalute_sort.txt ./results/Evalute_sort.txt ; cd ../", shell=True)
   subprocess.run("cd ./"+element+" ; cp ./../logs.json ./results/logs.json ; cd ../", shell=True)
   now = datetime.datetime.now()
   subprocess.run("cd ./"+element+" ; mv results results_{0:%Y%m%d-%H%M%S}".format(now)+" ; cd ../", shell=True)
@@ -410,7 +411,7 @@ else:
   optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=1, bounds_transformer=bounds_transformer, allow_duplicate_points=True)
   logger = JSONLogger(path="./logs") # Results will be saved in ./logs.json
   optimizer.subscribe(Events.OPTIMIZATION_STEP, logger)
-  optimizer.maximize(init_points=(n_gene*5), n_iter=(1200*3)) # 1200 cycles/day
+  optimizer.maximize(init_points=(n_gene*5), n_iter=(400)) # 1200 cycles/day
   optimizer.set_gp_params(alpha=1e-3) # The greater the whitenoise, the greater alpha value.
 #--------------------------------------------------------
 #------------------ for ucb -----------------------------
@@ -425,3 +426,4 @@ else:
 #optimizer.maximize(init_points=3, n_iter=2000, acq="ucb")
 #acq = ucb, ei, poi, (default: ubc)
 #----------------------------------------------------------------------
+subprocess.run("sort -k 2 Evalute.txt > Evalute_sort.txt", shell=True)
