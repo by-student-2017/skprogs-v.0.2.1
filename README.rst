@@ -207,11 +207,11 @@ Reference
 
 Search method using Bayesian optimization
 =======
-1. pip3 install bayesian-optimization==1.4.3
-2. rewrite skdef.hsd.tmp_baysian and prepare band_check folder (e.g., see Mg folder)
-3. rewrite initial parameters and boundaries in baysian_v1.py
-4. python3 baysian_v1.py
-5. sort -k 2 Evalute.txt >> Evalute_sort.txt
+0. pip3 install bayesian-optimization==1.4.3
+1. rewrite skdef.hsd.tmp_baysian and prepare band_check folder (e.g., see Mg folder)
+2. rewrite initial parameters and boundaries in baysian_v1.py
+3. python3 baysian_v1.py
+4. sort -k 2 Evalute.txt >> Evalute_sort.txt
 
 
 Information of skprogs code
