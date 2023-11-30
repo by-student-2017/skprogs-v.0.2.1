@@ -41,24 +41,18 @@ skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" #
 #----------------------------------------------------------------------
 # set initial parameters and boundaries
 #----------------------------------------------------------------------
-element = "Mn"
-atomic_number = 25.0 # In this code, this value is used as a parameter of the radial wave function.
+element = "Mg"
+atomic_number = 12.0 # In this code, this value is used as a parameter of the radial wave function.
 #---------------------------
 # The parameters of the radial wave function.
-#y0s = 0.5 # S orbitals, TM: 2.0
-#y0p = 0.5 # P orbitals, TM: 2.0
-#y0d = 1.5 # D orbitals, TM: 2.5
-y0s = 2.0
-y0p = 2.0
-y0d = 2.5
+y0s = 0.5 # S orbitals, TM: 2.0
+y0p = 0.5 # P orbitals, TM: 2.0
+y0d = 1.5 # D orbitals, TM: 2.5
 #--------
 # The parameters of the radial wave function.
-#ylasts = atomic_number      # S orbitals, TM: x2.0
-#ylastp = atomic_number      # P orbitals, TM: x2.0
-#ylastd = atomic_number*2.0  # D orbitals, TM: x3.0
-ylasts = atomic_number*2.0
-ylastp = atomic_number*2.0
-ylastd = atomic_number*3.0
+ylasts = atomic_number      # S orbitals, TM: x2.0
+ylastp = atomic_number      # P orbitals, TM: x2.0
+ylastd = atomic_number*2.0  # D orbitals, TM: x3.0
 #---------------------------
 
 #------------------------------------------------
@@ -75,29 +69,29 @@ hwt  =  0.37 # search range [-x*hwb:+x*hwt]
 # 4. In transition metals, it is often sufficient to adjust the P orbital last.
 # 5. The radial wave function only slightly moves the position of each orbit. 
 #---------------------------
-x0  =  7.0 # sigma of density
-x1  = 14.0 # r0 of density
+x0  =  2.0 # sigma of density
+x1  = 17.0 # r0 of density
 #---------------------------
 x2  =  7.0 # simga of S
-x3  =  6.3 # r0 of S
+x3  =  4.5 # r0 of S
 #---------------------------
 x4  =  7.0 # simga of P
-x5  =  7.2 # r0 of P
+x5  =  5.6 # r0 of P
 #---------------------------
 x6  =  7.0 # simga of D
-x7  =  7.2 # r0 of D
+x7  =  5.6 # r0 of D
 #---------------------------
-x8  =  4.56 # y1 of S
-x9  = 10.39 # y2 of S
-x10 = 23.69 # y3 of S
+x8  =  0.93 # y1 of S
+x9  =  2.18 # y2 of S
+x10 =  5.12 # y3 of S
 #---------------------------
-x11 =  4.56 # y1 of P
-x12 = 10.39 # y2 of P
-x13 = 23.69 # y3 of P
+x11 =  0.93 # y1 of P
+x12 =  2.18 # y2 of P
+x13 =  5.12 # y3 of P
 #---------------------------
-x14 =  6.22 # y1 of D or D
-x15 = 14.69 # y2 of D or D
-x16 = 35.09 # y3 of D or D
+x14 =  2.75 # y1 of D or D
+x15 =  5.81 # y2 of D or D
+x16 = 12.30 # y3 of D or D
 #---------------------------
 print("------------------------")
 print("initial parameters:   x0  x1  x2  x3  x4  x5  x6  x7   x8   x9"
@@ -248,10 +242,6 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   # Additional additions are due to rounding.
   R1 = 0.05
   R2 = 0.005
-  # The number of valid digits is limited based on literature and preliminary grid search results.
-  # It is more important to expand the search range than to search in more detailed steps.
-  # Rather than searching in even smaller steps, it is important to widen the search range or 
-  #   change the initial values to make sure that the solution does not fall into a locally optimal solution.
   #-------------------------------
   # Density
   sx0  = "{:.1f}".format(x0+R1)
@@ -421,13 +411,8 @@ else:
   optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=1, bounds_transformer=bounds_transformer, allow_duplicate_points=True)
   logger = JSONLogger(path="./logs") # Results will be saved in ./logs.json
   optimizer.subscribe(Events.OPTIMIZATION_STEP, logger)
-  optimizer.maximize(init_points=(n_gene*5), n_iter=(600*1)) # 600 cycles / 12 h (Note: It depends on the number of parameters and search range, but usually around 150 times is a good value. I set it to 600 just in case (from after I got home until the next morning).)
+  optimizer.maximize(init_points=(n_gene*5), n_iter=(600*1)) # 600 cycles / 12 h
   optimizer.set_gp_params(alpha=1e-3) # The greater the whitenoise, the greater alpha value.
-  # Note: Since "bounds_transformer" is used to narrow the search area, 
-  #  in order to initially search as wide a range as possible, 
-  #  the initial random number search (init_points) is set to the number of parameters * 5 (= n_gene * 5). 
-  #  It will take more time, but if you want to be more elaborate, increase the value from 5 to a higher value such as 7 or 9.
-  #  Of course, it is also a good idea to expand the initial search range.
 #--------------------------------------------------------
 #------------------ for ucb -----------------------------
 #utility = UtilityFunction(kind="ucb", kappa=2.5, xi=0.0)
