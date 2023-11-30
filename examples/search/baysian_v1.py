@@ -45,23 +45,24 @@ element = "Mn"
 atomic_number = 25.0 # In this code, this value is used as a parameter of the radial wave function.
 #---------------------------
 # The parameters of the radial wave function.
-#y0s = 0.5 # S orbitals, TM: 2.0
-#y0p = 0.5 # P orbitals, TM: 2.0
-#y0d = 1.5 # D orbitals, TM: 2.5
-y0s = 2.0
-y0p = 2.0
-y0d = 2.5
+#y0s = 0.5 # S orbitals
+#y0p = 0.5 # P orbitals
+#y0d = 1.5 # D orbitals
+y0s = 2.0 # S orbitals, TM: 2.0
+y0p = 2.0 # P orbitals, TM: 2.0
+y0d = 2.5 # D orbitals, TM: 2.5
 #--------
 # The parameters of the radial wave function.
-#ylasts = atomic_number      # S orbitals, TM: x2.0
-#ylastp = atomic_number      # P orbitals, TM: x2.0
-#ylastd = atomic_number*2.0  # D orbitals, TM: x3.0
-ylasts = atomic_number*2.0
-ylastp = atomic_number*2.0
-ylastd = atomic_number*3.0
+#ylasts = atomic_number      # S orbitals
+#ylastp = atomic_number      # P orbitals
+#ylastd = atomic_number*2.0  # D orbitals
+ylasts = atomic_number*2.0  # S orbitals, TM: x2.0
+ylastp = atomic_number*2.0  # P orbitals, TM: x2.0
+ylastd = atomic_number*3.0  # D orbitals, TM: x2.0
 #---------------------------
 
 #------------------------------------------------
+# Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
 hwb  =  0.37 # search range [-x*hwb:+x*hwt]
 hwt  =  0.37 # search range [-x*hwb:+x*hwt]
 #---------------------------
@@ -421,7 +422,7 @@ else:
   optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=1, bounds_transformer=bounds_transformer, allow_duplicate_points=True)
   logger = JSONLogger(path="./logs") # Results will be saved in ./logs.json
   optimizer.subscribe(Events.OPTIMIZATION_STEP, logger)
-  optimizer.maximize(init_points=(n_gene*5), n_iter=(600*1)) # 600 cycles / 12 h (Note: It depends on the number of parameters and search range, but usually around 150 times is a good value. I set it to 600 just in case (from after I got home until the next morning).)
+  optimizer.maximize(init_points=(n_gene*11), n_iter=(600*1)) # 600 cycles / 12 h (Note: It depends on the number of parameters and search range, but usually around 150 times is a good value (in n_gene*5 case). I set it to 600 just in case (from after I got home until the next morning).)
   optimizer.set_gp_params(alpha=1e-3) # The greater the whitenoise, the greater alpha value.
   # Note: Since "bounds_transformer" is used to narrow the search area, 
   #  in order to initially search as wide a range as possible, 
