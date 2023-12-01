@@ -415,18 +415,19 @@ def descripter_pso(x):
 #----------------------------------------------------------------------
 random_search="no"
 #----------------------------------------------------------------------
+Nop=24 # n_particles (= nop)
 if random_search=="yes" :
   #-------------------------------
   # Random search case
   print("Random search: ", random_search)
   # Set-up choices for the parameters
-  options = { 'c1': (2.5,0.5), 'c2': (0.5,2.5), 'w': (0.4,0.9), 'k': (int(24/3-2),int(24/3+2)), 'p': (1,2) }
+  options = { 'c1': (2.5,0.5), 'c2': (0.5,2.5), 'w': (0.4,0.9), 'k': (int(Nop/3-2),int(Nop/3+2)), 'p': (1,2) }
   # c1=2.5-0.5, c2=0.5-2.5, w=0.4-0.8 # https://doi.org/10.1371/journal.pone.0188746
   #-------------------------------
   # Create a RandomSearch object
   # n_selection_iters is the number of iterations to run the searcher
   # iters is the number of iterations to run the optimizer
-  g = RandomSearch(ps.single.LocalBestPSO, n_particles=24,
+  g = RandomSearch(ps.single.LocalBestPSO, n_particles=(Nop),
     dimensions=(n_gene), options=options, objective_func=descripter_pso,bounds=pbounds,
     iters=10, n_selection_iters=100)
   best_score, best_options = g.search()
@@ -442,7 +443,7 @@ if random_search=="yes" :
 else:
   #-------------------------------
   # Initialize swarm
-  options = {'c1': 2.0, 'c2': 2.0, 'w':0.8, 'k': int(24/3), 'p': 2}
+  options = {'c1': 2.0, 'c2': 2.0, 'w':0.8, 'k': int(Nop/3), 'p': 2}
   #--------------------------------------------------------
   # https://pyswarms.readthedocs.io/en/latest/api/pyswarms.discrete.html
   # c1: Cognitive parameter (weight of local)
