@@ -2,6 +2,9 @@
 # Import PySwarms
 import pyswarms as ps
 #-----------------------------------------------
+# Random search case
+from pyswarms.utils.search import RandomSearch
+#-----------------------------------------------
 # Grid search case
 #from pyswarms.utils.search import GridSearch
 #-----------------------------------------------
@@ -417,13 +420,46 @@ options = {'c1': 0.5, 'c2': 0.3, 'w':0.9, 'k': 2, 'p': 2}
 optimizer = ps.single.GlobalBestPSO(n_particles=24,dimensions=(n_gene),options=options,bounds=pbounds)
 
 # Perform optimization
-cost, pos = optimizer.optimize(descripter_pso, iters=600)
+cost, pos = optimizer.optimize(objective_func=descripter_pso, iters=600)
+
+#-------------------------------
+# Obtain the cost history
+optimizer.cost_history
+# Obtain the position history
+optimizer.pos_history
+# Obtain the velocity history
+optimizer.velocity_history
+#-------------------------------
+optimizer.mean_pbest_history
+optimizer.mean_neighbor_history
+#-------------------------------
 
 # Show optimized values
-print(cost)
+print("cost: ", cost)
 
 # Show optimized coordinaties
-print(pos)
+print("position:", pos)
+
+#----------------------------------------------------------------------
+# Random search case
+# Set-up choices for the parameters
+#options = { 'c1': (0.1,1.0), 'c2': (0.1,1.0), 'w': (0.1,1.0), 'k': (1,3), 'p': (1,3) }
+
+# Create a RandomSearch object
+# n_selection_iters is the number of iterations to run the searcher
+# iters is the number of iterations to run the optimizer
+#g = RandomSearch(ps.single.LocalBestPSO, n_particles=24,
+#            dimensions=(n_gene), options=options, objective_func=descripter_pso,
+#            iters=10, n_selection_iters=100)
+#best_score, best_options = g.search()
+
+# Show optimized values
+#print("best score: ", best_score)
+#print("c1 = ", best_options['c1'])
+#print("c2 = ", best_options['c2'])
+#print(" w = ", best_options['w'])
+#print(" k = ", best_options['k'])
+#print(" p = ", best_options['p'])
 #----------------------------------------------------------------------
 # Grid search case
 #options = {"c1": [0.3, 0.5, 0.8], "c2": [0.3, 0.5, 0.8], "w": [0.2, 0.3, 0.5]}
