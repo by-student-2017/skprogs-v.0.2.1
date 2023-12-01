@@ -420,7 +420,7 @@ if random_search=="yes" :
   # Random search case
   print("Random search: ", random_search)
   # Set-up choices for the parameters
-  options = { 'c1': (0.3,0.8), 'c2': (0.3,0.8), 'w': (0.3,0.9), 'k': (1,3), 'p': 1 }
+  options = { 'c1': (0.2,0.8), 'c2': (0.3,0.6), 'w': (0.5,1.0), 'k': (1,3), 'p': (1,3) }
   #-------------------------------
   # Create a RandomSearch object
   # n_selection_iters is the number of iterations to run the searcher
@@ -443,6 +443,13 @@ else:
   # Initialize swarm
   options = {'c1': 0.5, 'c2': 0.3, 'w':0.9, 'k': 2, 'p': 2}
   # c1=weight of local, c2=weight of global, w=inertia term (0.0-1.0)
+  #------------------------------------------------------------------
+  # The PySwarms hyperparameters is a parameter in the Particle Swarm Optimization (PSO) algorithm that 
+  #   is a factor by which the difference between the current velocity and the global best position is multiplied when 
+  #   updating the particle velocity1. The larger this value, the more the particle velocity changes and 
+  #   the wider the search range. On the other hand, if you set it to a small value,
+  #   the search range becomes narrower and you are more likely to fall into a local solution.
+  #------------------------------------------------------------------
   
   # Call instance of PSO with bounds argument
   optimizer = ps.single.GlobalBestPSO(n_particles=24,
