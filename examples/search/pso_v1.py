@@ -57,8 +57,8 @@ ylastd = atomic_number*3.0  # D orbitals, TM: x2.0
 
 #------------------------------------------------
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
-hwb  =  0.49 # search range [-x*hwb:+x*hwt]
-hwt  =  0.49 # search range [-x*hwb:+x*hwt]
+hwb  =  0.37 # search range [-x*hwb:+x*hwt]
+hwt  =  0.37 # search range [-x*hwb:+x*hwt]
 #---------------------------
 # Note
 # 1. A value around sigma = 7.0 is often good.
@@ -106,44 +106,44 @@ min_ind = np.ones(n_gene) * -1.0
 max_ind = np.ones(n_gene) *  1.0
 #---------------------------
 # sigma of density
-#min_ind[0] = float(x0c) - float(x0c)*hwb
-#max_ind[0] = float(x0c) + float(x0c)*hwt
-min_ind[0] =  2.0; max_ind[0] = 17.0
+min_ind[0] = float(x0c) - float(x0c)*hwb
+max_ind[0] = float(x0c) + float(x0c)*hwt
+#min_ind[0] =  2.0; max_ind[0] = 17.0
 #---------------------------
 # r0 of density
-#min_ind[1] = float(x1c) - float(x1c)*hwb
-#max_ind[1] = float(x1c) + float(x1c)*hwt
-min_ind[1] =  2.4; max_ind[1] = 29.0
+min_ind[1] = float(x1c) - float(x1c)*hwb
+max_ind[1] = float(x1c) + float(x1c)*hwt
+#min_ind[1] =  2.4; max_ind[1] = 29.0
 #---------------------------
 # sigma of S orbitals
-#min_ind[2] = float(x2c) - float(x2c)*hwb
-#max_ind[2] = float(x2c) + float(x2c)*hwt
-min_ind[2] =  2.0; max_ind[2] = 17.0
+min_ind[2] = float(x2c) - float(x2c)*hwb
+max_ind[2] = float(x2c) + float(x2c)*hwt
+#min_ind[2] =  2.0; max_ind[2] = 17.0
 #---------------------------
 # r0 of S orbitals
-#min_ind[3] = float(x3c) - float(x3c)*hwb
-#max_ind[3] = float(x3c) + float(x3c)*hwt
-min_ind[3] =  2.4; max_ind[3] = 29.0
+min_ind[3] = float(x3c) - float(x3c)*hwb
+max_ind[3] = float(x3c) + float(x3c)*hwt
+#min_ind[3] =  2.4; max_ind[3] = 29.0
 #---------------------------
 # sigma of P orbitals
-#min_ind[4] = float(x4c) - float(x4c)*hwb
-#max_ind[4] = float(x4c) + float(x4c)*hwt
-min_ind[4] =  2.0; max_ind[4] = 17.0
+min_ind[4] = float(x4c) - float(x4c)*hwb
+max_ind[4] = float(x4c) + float(x4c)*hwt
+#min_ind[4] =  2.0; max_ind[4] = 17.0
 #---------------------------
 # r0 of P orbitals
-#min_ind[5] = float(x5c) - float(x5c)*hwb
-#max_ind[5] = float(x5c) + float(x5c)*hwt
-min_ind[5] =  2.4; max_ind[5] = 29.0
+min_ind[5] = float(x5c) - float(x5c)*hwb
+max_ind[5] = float(x5c) + float(x5c)*hwt
+#min_ind[5] =  2.4; max_ind[5] = 29.0
 #---------------------------
 # sigma of D orbitals
-#min_ind[6] = float(x6c) - float(x6c)*hwb
-#max_ind[6] = float(x6c) + float(x6c)*hwt
-min_ind[6] =  2.0; max_ind[6] = 17.0
+min_ind[6] = float(x6c) - float(x6c)*hwb
+max_ind[6] = float(x6c) + float(x6c)*hwt
+#min_ind[6] =  2.0; max_ind[6] = 17.0
 #---------------------------
 # r0 of D orbitals
-#min_ind[7] = float(x7c) - float(x7c)*hwb
-#max_ind[7] = float(x7c) + float(x7c)*hwt
-min_ind[7] =  2.4; max_ind[7] = 29.0
+min_ind[7] = float(x7c) - float(x7c)*hwb
+max_ind[7] = float(x7c) + float(x7c)*hwt
+#min_ind[7] =  2.4; max_ind[7] = 29.0
 #---------------------------
 # Slater-Type Orbitals of S: y1
 min_ind[8] = float(x8c) - float(x8c)*hwb
@@ -413,7 +413,7 @@ def descripter_pso(x):
 #np.random.seed(0) # Fix random value for test
 
 # Initialize swarm
-options = {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+options = {'c1': 0.5, 'c2': 0.3, 'w':0.9, 'k': 2, 'p': 2}
 # c1=weight of local, c2=weight of global, w=inertia term (0.0-1.0)
 
 # Call instance of PSO with bounds argument
