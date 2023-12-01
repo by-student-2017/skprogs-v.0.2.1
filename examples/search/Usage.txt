@@ -38,6 +38,14 @@ Note 3: After finding a good value to some extent, set the search range based on
 5. sort -k 2 Evalute.txt >> Evalute_sort.txt
 ------------------------------------------------------------------------------
 
+------------------------------------------------------------------------------
+Note 4: When you want to check the results of Bayesian optimization using PSO.
+1. pip3 install pyswarms==1.3.0
+2. rewrite skdef.hsd.tmp_pso and prepare band_check folder (e.g., see Mg folder)
+3. rewrite initial parameters and boundaries in this file
+4. python3 pso_v1.py
+5. sort -k 2 Evalute.txt >> Evalute_sort.txt
+------------------------------------------------------------------------------
 
 Memo: remote (direct LAN connect)
 ------------------------------------------------------------------------------
