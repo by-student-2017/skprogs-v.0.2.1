@@ -420,14 +420,14 @@ if random_search=="yes" :
   # Random search case
   print("Random search: ", random_search)
   # Set-up choices for the parameters
-  options = { 'c1': (0.3,0.8), 'c2': (0.3,0.8), 'w': (0.3,0.9), 'k': (1,3), 'p': (1,3) }
+  options = { 'c1': (0.3,0.8), 'c2': (0.3,0.8), 'w': (0.3,0.9), 'k': (1,3), 'p': 1 }
   #-------------------------------
   # Create a RandomSearch object
   # n_selection_iters is the number of iterations to run the searcher
   # iters is the number of iterations to run the optimizer
   g = RandomSearch(ps.single.LocalBestPSO, n_particles=24,
-            dimensions=(n_gene), options=options, objective_func=descripter_pso,
-            iters=10, n_selection_iters=100)
+    dimensions=(n_gene), options=options, objective_func=descripter_pso,bounds=pbounds,
+    iters=10, n_selection_iters=100)
   best_score, best_options = g.search()
   #-------------------------------
   # Show optimized values
@@ -445,7 +445,8 @@ else:
   # c1=weight of local, c2=weight of global, w=inertia term (0.0-1.0)
   
   # Call instance of PSO with bounds argument
-  optimizer = ps.single.GlobalBestPSO(n_particles=24,dimensions=(n_gene),options=options,bounds=pbounds)
+  optimizer = ps.single.GlobalBestPSO(n_particles=24,
+    dimensions=(n_gene),options=options,bounds=pbounds)
   
   # Perform optimization
   cost, pos = optimizer.optimize(objective_func=descripter_pso, iters=600)
