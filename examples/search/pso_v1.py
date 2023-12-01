@@ -208,7 +208,6 @@ print("------------------------")
 if os.path.exists("./Evalute.txt"):
   subprocess.run("cd ./"+element+" ; cp ./../Evalute.txt ./results/Evalute.txt ; cd ../", shell=True)
   subprocess.run("cd ./"+element+" ; cp ./../Evalute_sort.txt ./results/Evalute_sort.txt ; cd ../", shell=True)
-  subprocess.run("cd ./"+element+" ; cp ./../logs.json ./results/logs.json ; cd ../", shell=True)
   now = datetime.datetime.now()
   subprocess.run("cd ./"+element+" ; mv results results_{0:%Y%m%d-%H%M%S}".format(now)+" ; cd ../", shell=True)
 subprocess.run("cd ./"+element+" ; mkdir results ; cd ../", shell=True)
