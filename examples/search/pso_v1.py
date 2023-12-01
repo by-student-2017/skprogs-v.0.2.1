@@ -413,7 +413,7 @@ def descripter_pso(x):
 # Fix random value for test
 #np.random.seed(0)
 #----------------------------------------------------------------------
-random_search="No"
+random_search="no"
 #----------------------------------------------------------------------
 if random_search=="yes" :
   #-------------------------------
@@ -442,7 +442,7 @@ if random_search=="yes" :
 else:
   #-------------------------------
   # Initialize swarm
-  options = {'c1': 2.0, 'c2': 2.0, 'w':0.9, 'k': int(24/3), 'p': 2}
+  options = {'c1': 2.0, 'c2': 2.0, 'w':0.8, 'k': int(24/3), 'p': 2}
   #--------------------------------------------------------
   # https://pyswarms.readthedocs.io/en/latest/api/pyswarms.discrete.html
   # c1: Cognitive parameter (weight of local)
@@ -452,14 +452,25 @@ else:
   # p: The Minkowski p-norm to use. 1 is the sum-of-absolute values (or L1 distance) while 2 is the Euclidean (or L2) distance.
   #------------------------------------------------------------------
   # c1=2.5-0.5, c2=0.5-2.5, w=0.4-0.8 # https://doi.org/10.1371/journal.pone.0188746
-  # c1=0-4,  c2=0-4, w=0-1 # (usually c1=c2=2) https://doi.org/10.3390/math10163019
+  # c1=0-4,  c2=0-4, w=0-1 # (usually c1=c2=2.0) https://doi.org/10.3390/math10163019
+  # c1=2.00, c2=2.0, w=0.8-1.2 # https://doi.org/10.3390/w14132018
   # c1=2.00, c2=2.0, w=1.0 # https://doi.org/10.1016/j.jksuci.2021.12.018
   # c1=2.00, c2=2.0, w=0.9 # doi:10.4304/jcp.5.8.1160-1168
+  # c1=2.00, c2=2.0, w=0.8 # (Np=40,Ndim=10) DOI: 10.2478/cait-2023-0020 , https://intapi.sciendo.com/pdf/10.2478/cait-2023-0020
+  # c1=2.00, c2=2.0, w=0.4-0.9 # https://doi.org/10.1063/5.0140105
+  # c1=2.00, c2=2.0, w=0.3-0.9 # https://doi.org/10.1155/2017/2090783
   # c1=2.00, c2=2.0, w=0.4-0.6 # https://doi.org/10.1049/cit2.12106
+  # c1=2.00, c2=2.0 # https://doi.org/10.1038/s41598-022-09947-7
   # c1=1.85, c2=2.0, w=0.8 # https://arxiv.org/pdf/2011.11944.pdf
+  # c1=1.50, c2=2.0, # https://doi.org/10.3390/en13020391
+  # c1=c2=1.49618, w=0.7298 # https://doi.org/10.1016/j.scs.2022.103667
   # c1=0.80, c2=0.5, w=0.9=(beta) # https://arxiv.org/pdf/2202.01943.pdf
   # c1=0.50, c2=0.3, w=0.9 # github (pyswarms)
+  # c1=0.50, c2=3.0, w=0.2 # https://link.springer.com/chapter/10.1007/978-3-030-78743-1_20
   # c1=0.10= c2=0.1, w=0.8 # https://machinelearningmastery.com/a-gentle-introduction-to-particle-swarm-optimization/
+  # c1=c2=0.5+ln(2) w=0.4-0.9 # https://www.sciencedirect.com/science/article/pii/S0925231223005374
+  # w=0.4-0.9 # https://doi.org/10.1049/iet-its.2018.5127
+  # w=0.3-0.9 # https://doi.org/10.3390/atmos14111696
   #------------------------------------------------------------------
   # The PySwarms hyperparameters is a parameter in the Particle Swarm Optimization (PSO) algorithm that 
   #   is a factor by which the difference between the current velocity and the global best position is multiplied when 
