@@ -57,8 +57,8 @@ ylastd = atomic_number*3.0  # D orbitals, TM: x2.0
 
 #------------------------------------------------
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
-hwb  =  0.05 # search range [-x*hwb:+x*hwt]
-hwt  =  0.05 # search range [-x*hwb:+x*hwt]
+hwb  =  0.37 # search range [-x*hwb:+x*hwt]
+hwt  =  0.37 # search range [-x*hwb:+x*hwt]
 #---------------------------
 # Note
 # 1. A value around sigma = 7.0 is often good.
@@ -236,11 +236,11 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   count += 1
   print(count)
   
-  np = len(x0)
-  print("n_particles =",np)
-  y = [0.0] * np
+  nop = len(x0)
+  print("n_particles =",nop)
+  y = np.zeros(nop)
   
-  for i in range(np):
+  for i in range(nop):
     print("------------------------")
     print("now_particles = ",i)
   
@@ -336,7 +336,6 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
           etav = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
           sdtv = float(str(evaluate_sdt.stdout).lstrip("b'").rstrip("\\n'"))
           sdtv3kbt = float(str(evaluate_sdt3kbt.stdout).lstrip("b'").rstrip("\\n'"))
-          y = etav
           subprocess.run("mv "+file_inp+" ./"+element+"/results/"+file_inp+"_No"+str(count)+"-"+str(i), shell=True)
           subprocess.run("cp ./"+element+"/comp_band.png ./"+element+"/results/comp_band_No"+str(count)+"-"+str(i)+".png", shell=True)
         except ValueError as error:
@@ -398,7 +397,7 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
       +", "+sx14+", "+sx15+", "+sx16 # Slater-Type Orbitals of D
       +", "+str(sdtv)+", "+str(sdtv3kbt) # Evaluate values
       +" >> Evalute.txt", shell=True)
-    y[i:i] = [etav]
+    y[i] = etav
 
   return y
 #----------------------------------------------------------------------
@@ -415,7 +414,7 @@ options = {'c1': 0.5, 'c2': 0.3, 'w':0.9, 'k': 2, 'p': 2}
 # c1=weight of local, c2=weight of global, w=inertia term (0.0-1.0)
 
 # Call instance of PSO with bounds argument
-optimizer = ps.single.GlobalBestPSO(n_particles=2,dimensions=(n_gene),options=options,bounds=pbounds)
+optimizer = ps.single.GlobalBestPSO(n_particles=24,dimensions=(n_gene),options=options,bounds=pbounds)
 
 # Perform optimization
 cost, pos = optimizer.optimize(descripter_pso, iters=600)
