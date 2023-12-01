@@ -442,7 +442,7 @@ if random_search=="yes" :
 else:
   #-------------------------------
   # Initialize swarm
-  options = {'c1': 2.0, 'c2': 2.0, 'w':0.8, 'k': int(24/3), 'p': 2}
+  options = {'c1': 1.85, 'c2': 2.0, 'w':0.8, 'k': int(24/3), 'p': 2}
   #--------------------------------------------------------
   # https://pyswarms.readthedocs.io/en/latest/api/pyswarms.discrete.html
   # c1: Cognitive parameter (weight of local)
