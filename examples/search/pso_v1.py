@@ -420,7 +420,8 @@ if random_search=="yes" :
   # Random search case
   print("Random search: ", random_search)
   # Set-up choices for the parameters
-  options = { 'c1': (0.2,0.8), 'c2': (0.3,0.6), 'w': (0.5,1.0), 'k': (1,3), 'p': (1,3) }
+  options = { 'c1': (2.5,0.5), 'c2': (0.5,2.5), 'w': (0.4,0.9), 'k': (int(24/3-2),int(24/3+2)), 'p': (1,2) }
+  # c1=2.5-0.5, c2=0.5-2.5, w=0.4-0.8 # https://doi.org/10.1371/journal.pone.0188746
   #-------------------------------
   # Create a RandomSearch object
   # n_selection_iters is the number of iterations to run the searcher
@@ -441,8 +442,21 @@ if random_search=="yes" :
 else:
   #-------------------------------
   # Initialize swarm
-  options = {'c1': 0.5, 'c2': 0.3, 'w':0.9, 'k': 2, 'p': 2}
-  # c1=weight of local, c2=weight of global, w=inertia term (0.0-1.0)
+  options = {'c1': 2.0, 'c2': 2.0, 'w':0.8, 'k': int(24/3), 'p': 2}
+  #--------------------------------------------------------
+  # https://pyswarms.readthedocs.io/en/latest/api/pyswarms.discrete.html
+  # c1: Cognitive parameter (weight of local)
+  # c2: Social parameter (weight of global)
+  # w: Inertia parameter (0.0-1.0)
+  # k: Number of neighbors to be considered. Must be a positive integer less than n_particles.
+  # p: The Minkowski p-norm to use. 1 is the sum-of-absolute values (or L1 distance) while 2 is the Euclidean (or L2) distance.
+  #------------------------------------------------------------------
+  # c1=2.5-0.5, c2=0.5-2.5, w=0.4-0.8 # https://doi.org/10.1371/journal.pone.0188746
+  # c1=2.00, c2=2.0, w=0.9 # doi:10.4304/jcp.5.8.1160-1168
+  # c1=2.00, c2=2.0, w=0.4-0.6 # https://doi.org/10.1049/cit2.12106
+  # c1=1.85, c2=2.0, w=0.8 # https://arxiv.org/pdf/2011.11944.pdf
+  # c1=0.10= c2=0.1, w=0.8 # https://machinelearningmastery.com/a-gentle-introduction-to-particle-swarm-optimization/
+  # c1=0.50, c2=0.3, w=0.9 # github (pyswarms)
   #------------------------------------------------------------------
   # The PySwarms hyperparameters is a parameter in the Particle Swarm Optimization (PSO) algorithm that 
   #   is a factor by which the difference between the current velocity and the global best position is multiplied when 
