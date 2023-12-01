@@ -413,7 +413,7 @@ def descripter_pso(x):
 # Fix random value for test
 #np.random.seed(0)
 #----------------------------------------------------------------------
-random_search="yes"
+random_search="No"
 #----------------------------------------------------------------------
 if random_search=="yes" :
   #-------------------------------
