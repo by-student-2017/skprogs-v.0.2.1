@@ -410,8 +410,7 @@ def descripter_pso(x):
   return descripter(x[:,0], x[:,1], x[:,2], x[:,3], x[:,4], x[:,5], x[:,6], x[:,7], x[:,8], x[:,9], 
     x[:,10], x[:,11], x[:,12], x[:,13], x[:,14], x[:,15], x[:,16])
 #-------------------
-# Fix random
-np.random.seed(0)
+#np.random.seed(0) # Fix random value for test
 
 # Initialize swarm
 options = {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
