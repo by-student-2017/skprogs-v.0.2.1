@@ -421,7 +421,7 @@ if random_search=="yes" :
   # Random search case
   print("Random search: ", random_search)
   # Set-up choices for the parameters
-  options = { 'c1': (2.5,0.5), 'c2': (0.5,2.5), 'w': (0.4,0.9), 'k': (int(Nop/3-2),int(Nop/3+2)), 'p': (1,2) }
+  options = { 'c1': (2.5,0.5), 'c2': (0.5,2.5), 'w': (0.4,0.9), 'k': (int(Nop/3-2),int(Nop/3+2)), 'p': 2 }
   # c1=2.5-0.5, c2=0.5-2.5, w=0.4-0.8 # https://doi.org/10.1371/journal.pone.0188746
   #-------------------------------
   # Create a RandomSearch object

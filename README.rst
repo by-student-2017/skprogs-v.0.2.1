@@ -226,6 +226,11 @@ Search method using the particle swarm optimization (PSO)
 - "ReaxFF" uses PSO to fit parameters, so I also prepared it with PSO.
 
 
+Search method using the evolutionary algorithm (EA)
+=======
+0. pip3 install -U deap --user
+
+
 Information of skprogs code
 =======
 - sktools/src/sktools/compressions.py
