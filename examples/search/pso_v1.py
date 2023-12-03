@@ -451,6 +451,7 @@ else:
   # w: Inertia parameter (0.0-1.0)
   # k: Number of neighbors to be considered. Must be a positive integer less than n_particles.
   # p: The Minkowski p-norm to use. 1 is the sum-of-absolute values (or L1 distance) while 2 is the Euclidean (or L2) distance.
+  #   L1 = LASSO ?, L2 = Ridge (or Gauss)
   #------------------------------------------------------------------
   # c1=2.5-0.5, c2=0.5-2.5, w=0.4-0.8 # https://doi.org/10.1371/journal.pone.0188746
   # c1=0-4,  c2=0-4, w=0-1 # (usually c1=c2=2.0) https://doi.org/10.3390/math10163019
