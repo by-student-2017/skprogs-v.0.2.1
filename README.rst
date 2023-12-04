@@ -229,10 +229,13 @@ Search method using the particle swarm optimization (PSO)
 Search method using the evolutionary algorithm (EA)
 =======
 0. pip3 install -U deap==1.4.1 --user
-1. rewrite skdef.hsd.tmp_pso and prepare band_check folder (e.g., see Mn folder)
-2. rewrite initial parameters and boundaries in pso_v1.py
-3. python3 pso_v1.py
+1. rewrite skdef.hsd.tmp_ea and prepare band_check folder (e.g., see Mn folder)
+2. rewrite initial parameters and boundaries in ea_v1.py
+3. python3 ea_v1.py
 4. sort -k 2 Evalute.txt >> Evalute_sort.txt
+
+
+- Since paper [2] uses GA, we made it possible to use EA, which is a type of GA.
 
 
 Information of skprogs code
