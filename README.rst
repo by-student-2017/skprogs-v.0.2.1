@@ -274,6 +274,8 @@ Note 1 (Importance of basis functions)
 - First, we will use the already known reference value for the "slateratom" parameter. The parameter of the reference atom is multiplied by "fitting atomic number/reference atomic number" to obtain the initial value of the search for the parameter of the fitting atom.
 - Although the conditions are different from paper [1], good r0 results are obtained for "QUASINANO". There is a similar trend for simga parameters. When increasing simga from 2.0, the s-band approaches the DFT result.
 - The lattice constants of the crystal structures used in QUASINANO can be found in "4 Crystal structures information". I regret that I should have found it sooner.
+- When examining the S orbit of boron, there is a tendency that when the coefficient of the S orbit is expressed in log (coefficient), it is better to divide it into approximately equal intervals between (maximum value - minimum value). When the minimum is 0.5, the maximum must be 7 or more.
+- Examining the P orbital in boron shows a similar tendency to the S orbital. If the minimum is 0.5, the maximum must be 2.5 or higher.
 
 
 Note 2 (fitting)
