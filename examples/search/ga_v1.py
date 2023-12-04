@@ -361,7 +361,7 @@ toolbox.register("evaluate", evalOneMax)
 toolbox.register("mate", tools.cxTwoPoint)
 #-------------------------------
 # Setting up the mutation function. indpb is the probability that each gene will mutate. 
-# mu and sigma are the mean and standard deviation of the mutations. (e.g., 0.01)
+# mu and sigma are the mean and standard deviation of the mutations. (e.g., 0.01, 0.05)
 toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
 #-------------------------------
 # Select parents who will leave children to the next generation using a tournament method
@@ -379,8 +379,8 @@ def main():
   stats.register("max", np.max)
   # Adopting the simplest evolution strategy called Simple GA
   algorithms.eaSimple(pop, toolbox, 
-    cxpb=0.5,    # crossover probability (e.g, 0.6, 0.9)
-    mutpb=0.005, # probability that an individual will mutate (e.g, 0.1)
+    cxpb=0.6,    # crossover probability (e.g, 0.6, 0.5-0.9)
+    mutpb=0.005, # probability that an individual will mutate (e.g, 0.005, 0.1-0.2)
     ngen=500,    # Number of generations
     stats=stats, halloffame=hof)
   return pop, stats, hof
