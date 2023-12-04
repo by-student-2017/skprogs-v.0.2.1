@@ -1,0 +1,22 @@
+#!/usr/local/bin/gnuplot -persist
+#------------------------------------------------
+set terminal pngcairo color enhanced font "Arial" fontscale 1.0
+set output "map.png"
+#------------------------------------------------
+#set key opaque box lc rgb "white" height 1
+#------------------------------------------------
+set xlabel "Radii, r0 / bohr"
+set ylabel "Power (= sigma)"
+set yrange[1:18]
+set zlabel "Evaluate value [eV]"
+set zrange[*:1.4]
+set mxtics 5
+set  ytics 1
+set mytics 2
+set grid x mx
+set grid y my
+set pm3d map
+set pm3d interpolate 3, 3
+#set palette cubehelix start 1 cycles 5 saturation 3 negative
+splot "Evalute_v1.txt" u 3:4:2 t ""
+#------------------------------------------------
