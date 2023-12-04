@@ -123,13 +123,17 @@ stdv3kbt = 0.0
 
 count = 0
 #----------------------------------------------------------------------
+# Set as a minimization problem (-1.0 minimizes, 1.0 maximizes)
 creator.create("FitnessMax", base.Fitness, weights=(-1.0,))
+#---------------------------
+# Definition of individual (just specify the list type, the contents of the genes will be added later)
 creator.create("Individual", list, fitness=creator.FitnessMax)
-
+#---------------------------
+# Use functions in the DEAP Toolbox for crossover, selection, mutation, etc.
 toolbox = base.Toolbox()
 
 #------------------------------------------------
-n_gene = 17 # number of parameters, number of individual +1
+n_gene = 17 # number of parameters
 min_ind = np.ones(n_gene) * -1.0
 max_ind = np.ones(n_gene) *  1.0
 #---------------------------
@@ -140,19 +144,25 @@ for i in range(n_gene):
   max_ind[i] = float(x[i]) + float(x[i])*hwt
   print("search area of paramter "+str(i)+": "+str(min_ind[i])+" | "+str(max_ind[i]))
 #----------------------------------------------------------------------
+# Create a create_ind_uniform function to define boundaries (minimum, maximum) for later use.
 def create_ind_uniform(min_ind, max_ind):
   ind = []
   for min, max in zip(min_ind, max_ind):
     ind.append(random.uniform(min, max))
   return ind
 #----------------------------------------------------------------------
+# Set the alias of "create_ind_uniform" as "create_ind". 
+# The genetic content of each individual is determined within the boundaries (minimum, maximum).
 toolbox.register("create_ind", create_ind_uniform, min_ind, max_ind)
+#---------------------------
+# Set a function called "individual". The genes included in each individual are determined using "create_ind."
 toolbox.register("individual", tools.initIterate, creator.Individual, toolbox.create_ind)
+#---------------------------
+# Prepare a function to set the number of individuals in the population
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 #----------------------------------------------------------------------
-#def evalOneMax(individual):
-#  return sum(individual),
-#----------------------------------------------------------------------
+# Definition of objective function. Be sure to add a , after return.
+#---------------------------
 def evalOneMax(individual):
   
   print("------------------------")
@@ -343,21 +353,34 @@ def mutUniformDbl(individual, min_ind, max_ind, indpb):
       individual[i] = random.uniform(min, max)
   return indivisual,
 #----------------------------------------------------------------------
+# Setting the function you want to evaluate (objective function)
 toolbox.register("evaluate", evalOneMax)
+#-------------------------------
+# Crossover function settings. Adopts a method called blend crossover
 toolbox.register("mate", tools.cxTwoPoint)
+#-------------------------------
+# Setting up the mutation function. indpb is the probability that each gene will mutate. 
+# mu and sigma are the mean and standard deviation of the mutations
 toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
+#-------------------------------
+# Select parents who will leave children to the next generation using a tournament method
+# (tornsize is the number of individuals participating in each tournament)
 toolbox.register("select", tools.selTournament, tournsize=3)
 #----------------------------------------------------------------------
 def main():
-  random.seed(64)
-  pop = toolbox.population(n=50)
+  random.seed(64) # Setting random numbers (fixing random numbers)
+  pop = toolbox.population(n=50) # Number of individuals in the population
   hof = tools.HallOfFame(1, similar=np.array_equal)
   stats = tools.Statistics(lambda ind: ind.fitness.values)
   stats.register("avg", np.mean)
   stats.register("std", np.std)
   stats.register("min", np.min)
   stats.register("max", np.max)
-  algorithms.eaSimple(pop, toolbox, cxpb=0.5, mutpb=0.2, ngen=500, stats=stats, halloffame=hof)
+  algorithms.eaSimple(pop, toolbox, 
+    cxpb=0.5,  # crossover probability
+    mutpb=0.2, # probability that an individual will mutate
+    ngen=500,  # Number of generations
+    stats=stats, halloffame=hof)
   return pop, stats, hof
 #----------------------------------------------------------------------
 if (__name__ == "__main__"):
