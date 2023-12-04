@@ -235,7 +235,7 @@ Search method using the genetic algorithm (GA)
 4. sort -k 2 Evalute.txt >> Evalute_sort.txt
 
 
-- Since paper [2] uses GA, we made it possible to use EA, which is a type of GA.
+- Since paper [2] uses GA, I made it possible to use EA, which is a type of GA.
 
 
 Information of skprogs code
