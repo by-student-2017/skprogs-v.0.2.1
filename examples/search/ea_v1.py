@@ -124,7 +124,7 @@ stdv3kbt = 0.0
 count = 0
 #----------------------------------------------------------------------
 creator.create("FitnessMax", base.Fitness, weights=(-1.0,))
-creator.create("Individual", np.ndarray, fitness=creator.FitnessMax)
+creator.create("Individual", list, fitness=creator.FitnessMax)
 
 toolbox = base.Toolbox()
 
@@ -318,7 +318,8 @@ def evalOneMax(individual):
     +", "+str(sdtv)+", "+str(sdtv3kbt) # Evaluate values
     +" >> Evalute.txt", shell=True)
 
-  return y
+  # Be sure to add "," after return.
+  return y,
 #----------------------------------------------------------------------
 # fitting parameters
 #----------------------------------------------------------------------
@@ -349,7 +350,7 @@ toolbox.register("select", tools.selTournament, tournsize=3)
 #----------------------------------------------------------------------
 def main():
   random.seed(64)
-  pop = toolbox.population(n=300)
+  pop = toolbox.population(n=50)
   hof = tools.HallOfFame(1, similar=np.array_equal)
   stats = tools.Statistics(lambda ind: ind.fitness.values)
   stats.register("avg", np.mean)
