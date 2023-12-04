@@ -9,12 +9,13 @@ import os
 import datetime # for results folder
 #----------------------------------------------------------------------
 # Usage: command:
-# 1. pip3 install pyswarms==1.3.0
-# 2. rewrite skdef.hsd.tmp_pso and prepare band_check folder (e.g., see Mg folder)
-# 3. rewrite initial parameters and boundaries in this file
-# 4. python3 pso_v1.py
+# 0. pip3 install -U deap==1.4.1 --user
+# 1. rewrite skdef.hsd.tmp_ga and prepare band_check folder (e.g., see Mn folder)
+# 2. rewrite initial parameters and boundaries in ga_v1.py
+# 3. python3 ga_v1.py
+# 4. sort -k 2 Evalute.txt >> Evalute_sort.txt
 #----------------------------------------------------------------------
-file_tmp = 'skdef.hsd.tmp_ea'
+file_tmp = 'skdef.hsd.tmp_ga'
 file_inp = 'skdef.hsd'
 file_msd = 'msd.dat'
 
@@ -263,8 +264,8 @@ def evalOneMax(individual):
         sdtv = float(str(evaluate_sdt.stdout).lstrip("b'").rstrip("\\n'"))
         sdtv3kbt = float(str(evaluate_sdt3kbt.stdout).lstrip("b'").rstrip("\\n'"))
         y = etav
-        subprocess.run("mv "+file_inp+" ./"+element+"/results/"+file_inp+"_No"+str(count)+"-"+str(i), shell=True)
-        subprocess.run("cp ./"+element+"/comp_band.png ./"+element+"/results/comp_band_No"+str(count)+"-"+str(i)+".png", shell=True)
+        subprocess.run("mv "+file_inp+" ./"+element+"/results/"+file_inp+"_No"+str(count), shell=True)
+        subprocess.run("cp ./"+element+"/comp_band.png ./"+element+"/results/comp_band_No"+str(count)+".png", shell=True)
       except ValueError as error:
         y = 9.999
         etav = 9.999
@@ -360,7 +361,7 @@ toolbox.register("evaluate", evalOneMax)
 toolbox.register("mate", tools.cxTwoPoint)
 #-------------------------------
 # Setting up the mutation function. indpb is the probability that each gene will mutate. 
-# mu and sigma are the mean and standard deviation of the mutations
+# mu and sigma are the mean and standard deviation of the mutations. (e.g., 0.01)
 toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
 #-------------------------------
 # Select parents who will leave children to the next generation using a tournament method
@@ -376,14 +377,22 @@ def main():
   stats.register("std", np.std)
   stats.register("min", np.min)
   stats.register("max", np.max)
+  # Adopting the simplest evolution strategy called Simple GA
   algorithms.eaSimple(pop, toolbox, 
-    cxpb=0.5,  # crossover probability
-    mutpb=0.2, # probability that an individual will mutate
-    ngen=500,  # Number of generations
+    cxpb=0.5,    # crossover probability (e.g, 0.6, 0.9)
+    mutpb=0.005, # probability that an individual will mutate (e.g, 0.1)
+    ngen=500,    # Number of generations
     stats=stats, halloffame=hof)
   return pop, stats, hof
 #----------------------------------------------------------------------
 if (__name__ == "__main__"):
   main()
+#----------------------------------------------------------------------
+
+# Select the best individual from the final population (pop)
+best_ind = tools.selBest(pop, 1)[0]
+
+# Show results
+print("The best individual is %s, the value of the objective function at that time is %s" % (best_ind, best_ind.fitness.values))
 #----------------------------------------------------------------------
 subprocess.run("sort -k 2 Evalute.txt > Evalute_sort.txt", shell=True)
