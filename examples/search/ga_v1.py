@@ -55,8 +55,11 @@ ylastd = atomic_number*3.0  # D orbitals, TM: x2.0
 
 #------------------------------------------------
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
-hwb  =  0.2 # search range [-x*hwb:+x*hwt]
-hwt  =  0.2 # search range [-x*hwb:+x*hwt]
+hwb  =  0.5 # search range [-x*hwb:+x*hwt]
+hwt  =  1.0 # search range [-x*hwb:+x*hwt]
+#---------------------------
+hwb_sto = 0.07 # search range [-x*hwb:+x*hwt]
+hwt_sto = 0.07 # search range [-x*hwb:+x*hwt]
 #---------------------------
 # Note
 # 1. A value around sigma = 7.0 is often good.
@@ -134,15 +137,18 @@ creator.create("Individual", list, fitness=creator.FitnessMax)
 toolbox = base.Toolbox()
 
 #------------------------------------------------
+print("------------------------")
 n_gene = 17 # number of parameters
 min_ind = np.ones(n_gene) * -1.0
 max_ind = np.ones(n_gene) *  1.0
 #---------------------------
-for i in range(n_gene):
-  #min_ind[i] = b1[i][0]
-  #max_ind[i] = b1[i][1]
+for i in range(0,8):
   min_ind[i] = float(x[i]) - float(x[i])*hwb
   max_ind[i] = float(x[i]) + float(x[i])*hwt
+  print("search area of paramter "+str(i)+": "+str(min_ind[i])+" | "+str(max_ind[i]))
+for i in range(8,n_gene):
+  min_ind[i] = float(x[i]) - float(x[i])*hwb_sto
+  max_ind[i] = float(x[i]) + float(x[i])*hwt_sto
   print("search area of paramter "+str(i)+": "+str(min_ind[i])+" | "+str(max_ind[i]))
 #----------------------------------------------------------------------
 # Create a create_ind_uniform function to define boundaries (minimum, maximum) for later use.
