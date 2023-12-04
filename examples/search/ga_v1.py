@@ -55,8 +55,8 @@ ylastd = atomic_number*3.0  # D orbitals, TM: x2.0
 
 #------------------------------------------------
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
-hwb  =  0.3 # search range [-x*hwb:+x*hwt]
-hwt  =  0.3 # search range [-x*hwb:+x*hwt]
+hwb  =  0.2 # search range [-x*hwb:+x*hwt]
+hwt  =  0.2 # search range [-x*hwb:+x*hwt]
 #---------------------------
 # Note
 # 1. A value around sigma = 7.0 is often good.
@@ -318,7 +318,7 @@ def evalOneMax(individual):
   print("set parameters, y2d = x15: "+sx15)
   print("set parameters, y3d = x16: "+sx16)
   print("------------------------")
-  subprocess.run("echo No."+str(count)+"-"+str(i)+": "+str(etav)
+  subprocess.run("echo No."+str(count)+": "+str(etav)
     +", "+sx0+", "+sx1 # Density
     +", "+sx2+", "+sx3 # S orbital
     +", "+sx4+", "+sx5 # P orbital
