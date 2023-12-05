@@ -394,7 +394,7 @@ def main():
   # Adopting the simplest evolution strategy called Simple GA
   algorithms.eaSimple(pop, toolbox, 
     cxpb=0.9,    # crossover probability (0.6 (Simple GA), 0.6-1.0 (SPEA2, NSGA2, etc))
-    mutpb=0.1, # probability that an individual will mutate (e.g, 0.1-0.2) (mutpb*indpb=0.1*0.05=0.005=5% ?)
+    mutpb=0.1,   # probability that an individual will mutate (e.g, 0.1-0.4) (mutpb*indpb=0.1*0.05=0.005=5% ?)
     ngen=500,    # Number of generations
     stats=stats, halloffame=hof)
   return pop, stats, hof
@@ -448,36 +448,36 @@ def main():
 #   Recombination of two individuals is performed by one-point crossover. 
 #   Point mutations are used where each bit is flipped with a probability of 0.006, 
 #   this value is taken using the guidelines derived in (Laumanns, Zitzler, and Thiele 2001).
-# [14] https://doi.org/10.3390/app9142944
-#   Population size = 30
-#   Archive size = 30
-#   Crossover Rate = 0.6
-#   Mutation rate = 0.4
-# [15] https://doi.org/10.1155/2016/8010346
-#   population size is 100 and the size of external archive is 100.
-#   Cross probability = 0.8
-#   Mutation probability = 1/m
-# [16] https://doi.org/10.1038/s41598-022-07917-7
+# [14] doi:10.1016/j.procs.2011.08.082
+#   The number of populations = 500
+#   The crossover rate = 1.0
+#   The mulation rate = 0.01
+#   The number of generations = 1000
+# [15] https://doi.org/10.1038/s41598-022-07917-7
 #   The evolution algebra was 100, 200, and 300
 #   The crossover factor was 0.90
 #   The mutation probability was 0.3
+# [16] https://doi.org/10.1155/2016/8010346
+#   The population size is 100 and the size of external archive is 100.
+#   The cross probability = 0.8
+#   The mutation probability = 1/m
 # [17] https://www.sba.org.br/Proceedings/SBAI/SBAI2017/SBAI17/papers/paper_36.pdf
 #   GA: pc=0.8, pm=0.2
 # [18] G. L.-Garzon et al., "A Multi-Objective Routing Protocol for a Wireless Sensor Network using a SPEA2 approach"
 #   The crossover rate = 0.75
 #   The mulation rate = 0.15
 #   The number of generations = 500
-# [19] doi:10.1016/j.procs.2011.08.082
-#   The number of populations = 500
-#   The crossover rate = 1.0
-#   The mulation rate = 0.01
-#   The number of generations = 1000
-# [20] E. Cholodowics et al., "Comparison of SPEA2 and NSGA-II Applied to Automatic Inventory Control System Using Hypervolume Indicator"
+# [19] E. Cholodowics et al., "Comparison of SPEA2 and NSGA-II Applied to Automatic Inventory Control System Using Hypervolume Indicator"
 #   The number of populations = 5,10,20,40,80
 #   The crossover rate = 0.7
 #   The mutation rate = 0.02
 #   The mutation probability = 0.4
 #   The number of generations = 1-400
+# [20] https://doi.org/10.3390/app9142944
+#   Population size = 30
+#   Archive size = 30
+#   Crossover Rate = 0.6
+#   Mutation rate = 0.4
 # [21] https://doi.org/10.3390/app9081675
 #   The number of populations = 60
 #   The crossover probability = 0.6
