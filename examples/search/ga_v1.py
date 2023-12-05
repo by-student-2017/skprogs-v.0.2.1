@@ -394,7 +394,7 @@ def main():
   # Adopting the simplest evolution strategy called Simple GA
   algorithms.eaSimple(pop, toolbox, 
     cxpb=0.9,    # crossover probability (0.6 (Simple GA), 0.6-1.0 (SPEA2, NSGA2, etc))
-    mutpb=0.1, # probability that an individual will mutate (e.g, 0.1-0.2) (mutpb*indpb=0.005=5% ?)
+    mutpb=0.1, # probability that an individual will mutate (e.g, 0.1-0.2) (mutpb*indpb=0.1*0.05=0.005=5% ?)
     ngen=500,    # Number of generations
     stats=stats, halloffame=hof)
   return pop, stats, hof
