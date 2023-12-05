@@ -372,7 +372,14 @@ toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
 #-------------------------------
 # Select parents who will leave children to the next generation using a tournament method
 # (tornsize is the number of individuals participating in each tournament)
-toolbox.register("select", tools.selTournament, tournsize=3)
+#toolbox.register("select", tools.selTournament, tournsize=10) # Tournament case
+toolbox.register("select", tools.selSPEA2, tournsize=10) # SPEA2 case
+#toolbox.register("select", tools.selNSGA2, tournsize=10) # NSGA2 case
+#toolbox.register("select", tools.selNSGA3, tournsize=10) # NSGA3 case (large system)
+#-------------------------------
+# tournsize = 2-10 (Tournament)
+# tournsize = n/5 - n/2 (SPEA2)
+# tournsize = 0.1*n - 0.3*n (NSGA2)
 #----------------------------------------------------------------------
 def main():
   random.seed(64) # Setting random numbers (fixing random numbers)
@@ -385,8 +392,8 @@ def main():
   stats.register("max", np.max)
   # Adopting the simplest evolution strategy called Simple GA
   algorithms.eaSimple(pop, toolbox, 
-    cxpb=0.6,    # crossover probability (e.g, 0.6, 0.5-0.9)
-    mutpb=0.005, # probability that an individual will mutate (e.g, 0.005, 0.1-0.2)
+    cxpb=0.9,    # crossover probability (0.6 (Simple GA), 0.8-0.9 (SPEA2, NSGA2, etc))
+    mutpb=0.005, # probability that an individual will mutate (e.g, 0.005 or 0.1-0.2)
     ngen=500,    # Number of generations
     stats=stats, halloffame=hof)
   return pop, stats, hof
@@ -428,10 +435,27 @@ def main():
 # [10] https://wpmedia.wolfram.com/uploads/sites/13/2018/02/09-3-2.pdf
 #   (Personal opinion) Looking at the diagram, the values converge when the number of generations is 100.
 #-------------------------------
-# Note 2
+# Note 2 (Non-dominated Sorting Genetic Algorithm (NSGA) and Strength Pareto Evolutionary Aproach (SPEA))
 # NSGA-II or SPEA2: NSGA-II and SPEA2 are often found to be the most effective.
 # NSGA-III: High convergence can be achieved even if there are many objective variables and the dimensions are high. 
 #   However, it has been reported that the execution time of NSGA-III is more than twice that of NSGA-II.
+# [11] https://sys.ci.ritsumei.ac.jp/~sin/Paper/file/2002_riko_sako.pdf (Japanese)
+#   NSGA-II is an algorithm that emphasizes maintaining diversity (it has a wider solution distribution), 
+#   and SPEA2 is an algorithm that emphasizes accuracy.
+# [12] https://sys.ci.ritsumei.ac.jp/~sin/Paper/file/doctor_watanabe20021206.pdf (Japanese)
+# [13] https://doi.org/10.3929/ethz-a-004284029
+#   Recombination of two individuals is performed by one-point crossover. 
+#   Point mutations are used where each bit is flipped with a probability of 0.006, 
+#   this value is taken using the guidelines derived in (Laumanns, Zitzler, and Thiele 2001).
+# [14] https://doi.org/10.3390/app9142944
+#   Population size = 30
+#   Archive size = 30
+#   Crossover Rate = 0.6
+#   Mutation rate = 0.4
+# [15] https://doi.org/10.1155/2016/8010346
+#   population size is 100 and the size of external archive is 100.
+#   Cross probability = 0.8
+#   Mutation probability = 1/m
 #-------------------------------
 #----------------------------------------------------------------------
 if (__name__ == "__main__"):
