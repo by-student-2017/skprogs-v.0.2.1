@@ -365,6 +365,7 @@ toolbox.register("evaluate", evalOneMax)
 #-------------------------------
 # Crossover function settings. Adopts a method called blend crossover
 toolbox.register("mate", tools.cxTwoPoint)
+#toolbox.register("mate", tools.cxOnePoint)
 #-------------------------------
 # Setting up the mutation function. indpb is the probability that each gene will mutate. 
 # mu and sigma are the mean and standard deviation of the mutations. (e.g., 0.01, 0.05)
@@ -374,8 +375,8 @@ toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
 # (tornsize is the number of individuals participating in each tournament)
 #toolbox.register("select", tools.selTournament, tournsize=10) # Tournament case
 toolbox.register("select", tools.selSPEA2) # SPEA2 case
-#toolbox.register("select", tools.selNSGA2) # NSGA2 case
-#toolbox.register("select", tools.selNSGA3) # NSGA3 case (large system)
+#toolbox.register("select", tools.selNSGA2, k=10) # NSGA2 case
+#toolbox.register("select", tools.selNSGA3, k=10) # NSGA3 case (large system)
 #-------------------------------
 # e.g., tournsize = 2-10 (Tournament)
 # k = n/5 - n/2 (SPEA2)
@@ -393,7 +394,7 @@ def main():
   # Adopting the simplest evolution strategy called Simple GA
   algorithms.eaSimple(pop, toolbox, 
     cxpb=0.9,    # crossover probability (0.6 (Simple GA), 0.6-1.0 (SPEA2, NSGA2, etc))
-    mutpb=0.005, # probability that an individual will mutate (e.g, 0.005 or 0.1-0.2)
+    mutpb=0.1, # probability that an individual will mutate (e.g, 0.1-0.2) (mutpb*indpb=0.005=5% ?)
     ngen=500,    # Number of generations
     stats=stats, halloffame=hof)
   return pop, stats, hof
