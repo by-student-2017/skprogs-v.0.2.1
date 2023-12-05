@@ -457,6 +457,7 @@ else:
   # c1=0-4,  c2=0-4, w=0-1 # (usually c1=c2=2.0) https://doi.org/10.3390/math10163019
   # c1=2.00, c2=2.0, w=0.8-1.2 # https://doi.org/10.3390/w14132018
   # c1=2.00, c2=2.0, w=1.0 # https://doi.org/10.1016/j.jksuci.2021.12.018
+  # c1=2.00, c2=2.0, w=0.9 # https://www.sba.org.br/Proceedings/SBAI/SBAI2017/SBAI17/papers/paper_36.pdf
   # c1=2.00, c2=2.0, w=0.9 # doi:10.4304/jcp.5.8.1160-1168
   # c1=2.00, c2=2.0, w=0.8 # (Np=40,Ndim=10) DOI: 10.2478/cait-2023-0020 , https://intapi.sciendo.com/pdf/10.2478/cait-2023-0020
   # c1=2.00, c2=2.0, w=0.4-0.9 # https://doi.org/10.1063/5.0140105

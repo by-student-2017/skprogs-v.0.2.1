@@ -373,13 +373,13 @@ toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
 # Select parents who will leave children to the next generation using a tournament method
 # (tornsize is the number of individuals participating in each tournament)
 #toolbox.register("select", tools.selTournament, tournsize=10) # Tournament case
-toolbox.register("select", tools.selSPEA2, tournsize=10) # SPEA2 case
-#toolbox.register("select", tools.selNSGA2, tournsize=10) # NSGA2 case
-#toolbox.register("select", tools.selNSGA3, tournsize=10) # NSGA3 case (large system)
+toolbox.register("select", tools.selSPEA2) # SPEA2 case
+#toolbox.register("select", tools.selNSGA2) # NSGA2 case
+#toolbox.register("select", tools.selNSGA3) # NSGA3 case (large system)
 #-------------------------------
-# tournsize = 2-10 (Tournament)
-# tournsize = n/5 - n/2 (SPEA2)
-# tournsize = 0.1*n - 0.3*n (NSGA2)
+# e.g., tournsize = 2-10 (Tournament)
+# k = n/5 - n/2 (SPEA2)
+# k = 0.1*n - 0.3*n (NSGA2)
 #----------------------------------------------------------------------
 def main():
   random.seed(64) # Setting random numbers (fixing random numbers)
@@ -392,7 +392,7 @@ def main():
   stats.register("max", np.max)
   # Adopting the simplest evolution strategy called Simple GA
   algorithms.eaSimple(pop, toolbox, 
-    cxpb=0.9,    # crossover probability (0.6 (Simple GA), 0.8-0.9 (SPEA2, NSGA2, etc))
+    cxpb=0.9,    # crossover probability (0.6 (Simple GA), 0.6-1.0 (SPEA2, NSGA2, etc))
     mutpb=0.005, # probability that an individual will mutate (e.g, 0.005 or 0.1-0.2)
     ngen=500,    # Number of generations
     stats=stats, halloffame=hof)
@@ -456,6 +456,32 @@ def main():
 #   population size is 100 and the size of external archive is 100.
 #   Cross probability = 0.8
 #   Mutation probability = 1/m
+# [16] https://doi.org/10.1038/s41598-022-07917-7
+#   The evolution algebra was 100, 200, and 300
+#   The crossover factor was 0.90
+#   The mutation probability was 0.3
+# [17] https://www.sba.org.br/Proceedings/SBAI/SBAI2017/SBAI17/papers/paper_36.pdf
+#   GA: pc=0.8, pm=0.2
+# [18] G. L.-Garzon et al., "A Multi-Objective Routing Protocol for a Wireless Sensor Network using a SPEA2 approach"
+#   The crossover rate = 0.75
+#   The mulation rate = 0.15
+#   The number of generations = 500
+# [19] doi:10.1016/j.procs.2011.08.082
+#   The number of populations = 500
+#   The crossover rate = 1.0
+#   The mulation rate = 0.01
+#   The number of generations = 1000
+# [20] E. Cholodowics et al., "Comparison of SPEA2 and NSGA-II Applied to Automatic Inventory Control System Using Hypervolume Indicator"
+#   The number of populations = 5,10,20,40,80
+#   The crossover rate = 0.7
+#   The mutation rate = 0.02
+#   The mutation probability = 0.4
+#   The number of generations = 1-400
+# [21] https://doi.org/10.3390/app9081675
+#   The number of populations = 60
+#   The crossover probability = 0.6
+#   The mutation probability = 0.3
+#   All the experimental selection strategies are based on the binary tournament selection method. 
 #-------------------------------
 #----------------------------------------------------------------------
 if (__name__ == "__main__"):
