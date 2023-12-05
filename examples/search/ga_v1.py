@@ -390,6 +390,31 @@ def main():
     ngen=500,    # Number of generations
     stats=stats, halloffame=hof)
   return pop, stats, hof
+#-------------------------------
+# Note 1
+# [1] https://doi.org/10.1021/acs.jctc.2c01115
+#   In the optimization process, we used an initial population of 50 and a mutation probability of 0.5% 
+#   to vary the confinement radii r0 and exponents p of Li, P, O, N, and Co.
+# [2] https://link.springer.com/content/pdf/10.1007/BF00113894.pdf
+#   As discussed in the previous section on parameter modification, 
+#   this can result in premature convergence when population sizes are typically 50-100. 
+# [3] DOI: 10.1093/bioinformatics/btg027
+#   Mutation is realized by adding a normal distribution random number with the average of 0 and the distribution of d. 
+# [4] https://doi.org/10.1190/1.1442992
+#   The crossover probability (approximately 0.6)
+#   The mutation probability (approximately 0.01 = 1%)
+#   The update probability (approximately 0.9)
+# [5] https://doi.org/10.1016/j.mcm.2006.01.002
+#   The population size is 100
+#   Crossover and mutation rates of 0.6 and 0.001 (respectively)
+#   (i.e., mutation rate is 0.1%)
+# 
+#-------------------------------
+# Note 2
+# NSGA-II or SPEA2: NSGA-II and SPEA2 are often found to be the most effective.
+# NSGA-III: High convergence can be achieved even if there are many objective variables and the dimensions are high. 
+#   However, it has been reported that the execution time of NSGA-III is more than twice that of NSGA-II.
+#-------------------------------
 #----------------------------------------------------------------------
 if (__name__ == "__main__"):
   main()
