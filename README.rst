@@ -276,6 +276,7 @@ Note 1 (Importance of basis functions)
 - The lattice constants of the crystal structures used in QUASINANO can be found in "4 Crystal structures information". I regret that I should have found it sooner.
 - When examining the S orbit of boron, there is a tendency that when the coefficient of the S orbit is expressed in log (coefficient), it is better to divide it into approximately equal intervals between (maximum value - minimum value). When the minimum is 0.5, the maximum must be 7 or more. The maximum value is preferably 140 or less in this case.
 - Examining the P orbital in boron shows a similar tendency to the S orbital. If the minimum is 0.5, the maximum must be 2.5 or higher.
+- If you change the environment such as the OS (PC?), only the coefficients of the radial wave function will not be reproducible. sigma and r0 are relatively easy to obtain reproducibility.
 
 
 Note 2 (fitting)
