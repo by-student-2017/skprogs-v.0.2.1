@@ -296,7 +296,7 @@ def evalOneMax(individual):
       sx16 = "{:.2f}".format(individual[16]+0.01)
     #-------------------------------
   else: # 0.1 and 0.01 step
-    print("0.1 and 0.01 step")
+    print("sigma and r0: 0.1 step, sto: 0.01 step")
     #-------------------------------
     # Density
     sx0  = "{:.1f}".format(individual[0]+R1) # 0.1 step

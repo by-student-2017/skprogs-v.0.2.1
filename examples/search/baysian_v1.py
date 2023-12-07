@@ -262,7 +262,7 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   #-------------------------------
   # I realized later that {:.f} rounds it up. On the other hand, int() is truncated.
   #-------------------------------
-  fine_step = "no"
+  fine_step = "yes"
   if fine_step == "no": # 0.2 and 0.02 step for sigma and sto, respectively.
     print("0.2 and 0.02 step for sigma and sto, respectively.")
     #-------------------------------
@@ -360,7 +360,7 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
       sx16 = "{:.2f}".format(x16+0.01)
     #-------------------------------
   else:
-    print("0.1 and 0.01 step")
+    print("sigma and r0: 0.1 step, sto: 0.01 step")
     #-------------------------------
     # Density
     sx0  = "{:.1f}".format(x0+R1)
