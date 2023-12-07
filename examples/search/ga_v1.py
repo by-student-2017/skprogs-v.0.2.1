@@ -55,8 +55,12 @@ ylastd = atomic_number*3.0  # D orbitals, TM: x2.0
 
 #------------------------------------------------
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
-hwb  =  0.5 # search range [-x*hwb:+x*hwt]
-hwt  =  1.0 # search range [-x*hwb:+x*hwt]
+#---------------------------
+hwb_den = 0.05 # search range [-x*hwb:+x*hwt]
+hwt_den = 0.05 # search range [-x*hwb:+x*hwt]
+#---------------------------
+hwb_wav = 0.37 # search range [-x*hwb:+x*hwt]
+hwt_wav = 0.37 # search range [-x*hwb:+x*hwt]
 #---------------------------
 hwb_sto = 0.07 # search range [-x*hwb:+x*hwt]
 hwt_sto = 0.07 # search range [-x*hwb:+x*hwt]
@@ -72,7 +76,7 @@ hwt_sto = 0.07 # search range [-x*hwb:+x*hwt]
 # 5. The radial wave function only slightly moves the position of each orbit. 
 #---------------------------
 x0  =  7.0 # sigma of density
-x1  = 14.0 # r0 of density
+x1  = 13.0 # r0 of density
 #---------------------------
 x2  =  7.0 # simga of S
 x3  =  6.3 # r0 of S
@@ -83,17 +87,38 @@ x5  =  7.2 # r0 of P
 x6  =  7.0 # simga of D
 x7  =  7.2 # r0 of D
 #---------------------------
-x8  =  4.56 # y1 of S
-x9  = 10.39 # y2 of S
-x10 = 23.69 # y3 of S
-#---------------------------
-x11 =  4.56 # y1 of P
-x12 = 10.39 # y2 of P
-x13 = 23.69 # y3 of P
-#---------------------------
-x14 =  6.22 # y1 of D or D
-x15 = 14.69 # y2 of D or D
-x16 = 35.09 # y3 of D or D
+sto_auto_preset = "yes"
+if sto_auto_preset == "no":
+  #---------------------------
+  x8  =  5.01 # y1 of S
+  x9  = 11.52 # y2 of S
+  x10 = 27.18 # y3 of S
+  #---------------------------
+  x11 =  3.93 # y1 of P
+  x12 = 13.88 # y2 of P
+  x13 = 25.76 # y3 of P
+  #---------------------------
+  x14 =  3.95 # y1 of D or D
+  x15 = 17.95 # y2 of D or D
+  x16 = 33.55 # y3 of D or D
+  #---------------------------
+else:
+  print("Auto set coefficients of Slater-type orbitals.")
+  # In the results for boron, it was better to equalize the log (coefficient), 
+  #   so we made it possible to select it as the initial value.
+  #---------------------------
+  x8  = np.exp( (np.log(ylasts)-np.log(y0s))*1/4 + np.log(y0s) )
+  x9  = np.exp( (np.log(ylasts)-np.log(y0s))*2/4 + np.log(y0s) )
+  x10 = np.exp( (np.log(ylasts)-np.log(y0s))*3/4 + np.log(y0s) )
+  #---------------------------
+  x11 = np.exp( (np.log(ylastp)-np.log(y0p))*1/4 + np.log(y0p) )
+  x12 = np.exp( (np.log(ylastp)-np.log(y0p))*2/4 + np.log(y0p) )
+  x13 = np.exp( (np.log(ylastp)-np.log(y0p))*3/4 + np.log(y0p) )
+  #---------------------------
+  x14 = np.exp( (np.log(ylastd)-np.log(y0d))*1/4 + np.log(y0d) )
+  x15 = np.exp( (np.log(ylastd)-np.log(y0d))*2/4 + np.log(y0d) )
+  x16 = np.exp( (np.log(ylastd)-np.log(y0d))*3/4 + np.log(y0d) )
+  #---------------------------
 #---------------------------
 print("------------------------")
 print("initial parameters:   x0  x1  x2  x3  x4  x5  x6  x7   x8   x9"
@@ -142,11 +167,15 @@ n_gene = 17 # number of parameters
 min_ind = np.ones(n_gene) * -1.0
 max_ind = np.ones(n_gene) *  1.0
 #---------------------------
-for i in range(0,8):
-  min_ind[i] = float(x[i]) - float(x[i])*hwb
-  max_ind[i] = float(x[i]) + float(x[i])*hwt
+for i in range(0,2): # 0-1
+  min_ind[i] = float(x[i]) - float(x[i])*hwb_den
+  max_ind[i] = float(x[i]) + float(x[i])*hwt_den
   print("search area of paramter "+str(i)+": "+str(min_ind[i])+" | "+str(max_ind[i]))
-for i in range(8,n_gene):
+for i in range(2,8): # 2-7
+  min_ind[i] = float(x[i]) - float(x[i])*hwb_wav
+  max_ind[i] = float(x[i]) + float(x[i])*hwt_wav
+  print("search area of paramter "+str(i)+": "+str(min_ind[i])+" | "+str(max_ind[i]))
+for i in range(8,n_gene): # 8-16
   min_ind[i] = float(x[i]) - float(x[i])*hwb_sto
   max_ind[i] = float(x[i]) + float(x[i])*hwt_sto
   print("search area of paramter "+str(i)+": "+str(min_ind[i])+" | "+str(max_ind[i]))
