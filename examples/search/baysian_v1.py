@@ -63,8 +63,8 @@ ylastd = atomic_number*3.0  # D orbitals, TM: x2.0
 
 #------------------------------------------------
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
-hwb  =  0.37 # search range [-x*hwb:+x*hwt]
-hwt  =  0.37 # search range [-x*hwb:+x*hwt]
+hwb  =  0.9 # search range [-x*hwb:+x*hwt]
+hwt  =  0.9 # search range [-x*hwb:+x*hwt]
 #---------------------------
 # Note
 # 1. A value around sigma = 7.0 is often good.
@@ -123,28 +123,34 @@ min_ind[0] =  2.0; max_ind[0] = 17.0
 min_ind[1] =  2.4; max_ind[1] = 29.0
 #---------------------------
 # sigma of S orbitals
-min_ind[2] = float(x2) - float(x2)*hwb
-max_ind[2] = float(x2) + float(x2)*hwt
+#min_ind[2] = float(x2) - float(x2)*hwb
+#max_ind[2] = float(x2) + float(x2)*hwt
+min_ind[2] =  2.0; max_ind[2] = 17.0
 #---------------------------
 # r0 of S orbitals
-min_ind[3] = float(x3) - float(x3)*hwb
-max_ind[3] = float(x3) + float(x3)*hwt
+#min_ind[3] = float(x3) - float(x3)*hwb
+#max_ind[3] = float(x3) + float(x3)*hwt
+min_ind[3] =  2.4; max_ind[3] = 29.0
 #---------------------------
 # sigma of P orbitals
-min_ind[4] = float(x4) - float(x4)*hwb
-max_ind[4] = float(x4) + float(x4)*hwt
+#min_ind[4] = float(x4) - float(x4)*hwb
+#max_ind[4] = float(x4) + float(x4)*hwt
+min_ind[4] =  2.0; max_ind[4] = 17.0
 #---------------------------
 # r0 of P orbitals
-min_ind[5] = float(x5) - float(x5)*hwb
-max_ind[5] = float(x5) + float(x5)*hwt
+#min_ind[5] = float(x5) - float(x5)*hwb
+#max_ind[5] = float(x5) + float(x5)*hwt
+min_ind[5] =  2.4; max_ind[5] = 29.0
 #---------------------------
 # sigma of D orbitals
-min_ind[6] = float(x6) - float(x6)*hwb
-max_ind[6] = float(x6) + float(x6)*hwt
+#min_ind[6] = float(x6) - float(x6)*hwb
+#max_ind[6] = float(x6) + float(x6)*hwt
+min_ind[6] =  2.0; max_ind[6] = 17.0
 #---------------------------
 # r0 of D orbitals
-min_ind[7] = float(x7) - float(x7)*hwb
-max_ind[7] = float(x7) + float(x7)*hwt
+#min_ind[7] = float(x7) - float(x7)*hwb
+#max_ind[7] = float(x7) + float(x7)*hwt
+min_ind[7] =  2.4; max_ind[7] = 29.0
 #---------------------------
 # Slater-Type Orbitals of S: y1
 min_ind[8] = float(x8) - float(x8)*hwb
@@ -254,36 +260,139 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   # Rather than searching in even smaller steps, it is important to widen the search range or 
   #   change the initial values to make sure that the solution does not fall into a locally optimal solution.
   #-------------------------------
-  # Density
-  sx0  = "{:.1f}".format(x0+R1)
-  sx1  = "{:.1f}".format(x1+R1)
+  # I realized later that {:.f} rounds it up. On the other hand, int() is truncated.
   #-------------------------------
-  # S orbital
-  sx2  = "{:.1f}".format(x2+R1)
-  sx3  = "{:.1f}".format(x3+R1)
-  #-------------------------------
-  # P orbital
-  sx4  = "{:.1f}".format(x4+R1)
-  sx5  = "{:.1f}".format(x5+R1)
-  #-------------------------------
-  # D orbital
-  sx6  = "{:.1f}".format(x6+R1)
-  sx7  = "{:.1f}".format(x7+R1)
-  #-------------------------------
-  # Slater-Type Orbitals of S
-  sx8  = "{:.2f}".format(x8+R2)
-  sx9  = "{:.2f}".format(x9+R2)
-  sx10 = "{:.2f}".format(x10+R2)
-  #-------------------------------
-  # Slater-Type Orbitals of P
-  sx11 = "{:.2f}".format(x11+R2)
-  sx12 = "{:.2f}".format(x12+R2)
-  sx13 = "{:.2f}".format(x13+R2)
-  #-------------------------------
-  # Slater-Type Orbitals of D
-  sx14 = "{:.2f}".format(x14+R2)
-  sx15 = "{:.2f}".format(x15+R2)
-  sx16 = "{:.2f}".format(x16+R2)
+  fine_step = "no"
+  if fine_step == "no": # 0.2 and 0.02 step for sigma and sto, respectively.
+    print("0.2 and 0.02 step for sigma and sto, respectively.")
+    #-------------------------------
+    # Density
+    #--------- 0.2 step
+    if int(x0*10+0.5) % 2 == 0:
+      sx0 = "{:.1f}".format(x0)
+    else:
+      sx0 = "{:.1f}".format(x0+0.1)
+    #--------- 0.1 step
+    sx1  = "{:.1f}".format(x1+R1)
+    #-------------------------------
+    #-------------------------------
+    # S orbital
+    #--------- 0.2 step
+    if int(x2*10+0.5) % 2 == 0:
+      sx2 = "{:.1f}".format(x2)
+    else:
+      sx2 = "{:.1f}".format(x2+0.1)
+    #--------- 0.1 step
+    sx3  = "{:.1f}".format(x3+R1)
+    #-------------------------------
+    #-------------------------------
+    # P orbital
+    #--------- 0.2 step
+    if int(x4*10+0.5) % 2 == 0:
+      sx4 = "{:.1f}".format(x4)
+    else:
+      sx4 = "{:.1f}".format(x4+0.1)
+    #--------- 0.1 step
+    sx5  = "{:.1f}".format(x5+R1)
+    #-------------------------------
+    #-------------------------------
+    # D orbital
+    #--------- 0.2 step
+    if int(x6*10+0.5) % 2 == 0:
+      sx6 = "{:.1f}".format(x6)
+    else:
+      sx6 = "{:.1f}".format(x6+0.1)
+    #--------- 0.1 step
+    sx7  = "{:.1f}".format(x7+R1)
+    #-------------------------------
+    #-------------------------------
+    # Slater-Type Orbitals of S
+    #--------- 0.02 step
+    if int(x8*100+0.5) % 2 == 0:
+      sx8 = "{:.2f}".format(x8)
+    else:
+      sx8 = "{:.2f}".format(x8+0.01)
+    #--------- 0.02 step
+    if int(x9*100+0.5) % 2 == 0:
+      sx9 = "{:.2f}".format(x9)
+    else:
+      sx9 = "{:.2f}".format(x9+0.01)
+    #--------- 0.02 step
+    if int(x10*100+0.5) % 2 == 0:
+      sx10 = "{:.2f}".format(x10)
+    else:
+      sx10 = "{:.2f}".format(x10+0.01)
+    #-------------------------------
+    #-------------------------------
+    # Slater-Type Orbitals of P
+    #--------- 0.02 step
+    if int(x11*100+0.5) % 2 == 0:
+      sx11 = "{:.2f}".format(x11)
+    else:
+      sx11 = "{:.2f}".format(x11+0.01)
+    #--------- 0.02 step
+    if int(x12*100+0.5) % 2 == 0:
+      sx12 = "{:.2f}".format(x12)
+    else:
+      sx12 = "{:.2f}".format(x12+0.01)
+    #--------- 0.02 step
+    if int(x13*100+0.5) % 2 == 0:
+      sx13 = "{:.2f}".format(x13)
+    else:
+      sx13 = "{:.2f}".format(x13+0.01)
+    #-------------------------------
+    #-------------------------------
+    # Slater-Type Orbitals of D
+    #--------- 0.02 step
+    if int(x14*100+0.5) % 2 == 0:
+      sx14 = "{:.2f}".format(x14)
+    else:
+      sx14 = "{:.2f}".format(x14+0.01)
+    #--------- 0.02 step
+    if int(x15*100+0.5) % 2 == 0:
+      sx15 = "{:.2f}".format(x15)
+    else:
+      sx15 = "{:.2f}".format(x15+0.01)
+    #--------- 0.02 step
+    if int(x16*100+0.5) % 2 == 0:
+      sx16 = "{:.2f}".format(x16)
+    else:
+      sx16 = "{:.2f}".format(x16+0.01)
+    #-------------------------------
+  else:
+    print("0.1 and 0.01 step")
+    #-------------------------------
+    # Density
+    sx0  = "{:.1f}".format(x0+R1)
+    sx1  = "{:.1f}".format(x1+R1)
+    #-------------------------------
+    # S orbital
+    sx2  = "{:.1f}".format(x2+R1)
+    sx3  = "{:.1f}".format(x3+R1)
+    #-------------------------------
+    # P orbital
+    sx4  = "{:.1f}".format(x4+R1)
+    sx5  = "{:.1f}".format(x5+R1)
+    #-------------------------------
+    # D orbital
+    sx6  = "{:.1f}".format(x6+R1)
+    sx7  = "{:.1f}".format(x7+R1)
+    #-------------------------------
+    # Slater-Type Orbitals of S
+    sx8  = "{:.2f}".format(x8+R2)
+    sx9  = "{:.2f}".format(x9+R2)
+    sx10 = "{:.2f}".format(x10+R2)
+    #-------------------------------
+    # Slater-Type Orbitals of P
+    sx11 = "{:.2f}".format(x11+R2)
+    sx12 = "{:.2f}".format(x12+R2)
+    sx13 = "{:.2f}".format(x13+R2)
+    #-------------------------------
+    # Slater-Type Orbitals of D
+    sx14 = "{:.2f}".format(x14+R2)
+    sx15 = "{:.2f}".format(x15+R2)
+    sx16 = "{:.2f}".format(x16+R2)
+    #-------------------------------
   #-------------------------------
   
   #-------------------------------
@@ -416,7 +525,7 @@ if os.path.exists("./logs.json"):
   load_logs(new_optimizer, logs=["./logs.json"]);
   logger = JSONLogger(path="./logs", reset=False) # Results will be saved in ./logs.json
   new_optimizer.subscribe(Events.OPTIMIZATION_STEP, logger)
-  new_optimizer.maximize(init_points=0, n_iter=(1200*3))
+  new_optimizer.maximize(init_points=11, n_iter=(1200*3))
   new_optimizer.set_gp_params(alpha=1e-3) # The greater the whitenoise, the greater alpha value.
 else:
   optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=1, bounds_transformer=bounds_transformer, allow_duplicate_points=True)
