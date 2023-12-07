@@ -63,12 +63,19 @@ ylastd = atomic_number*3.0  # D orbitals, TM: x2.0
 
 #------------------------------------------------
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
-hwb  =  0.37 # search range [-x*hwb:+x*hwt]
-hwt  =  0.37 # search range [-x*hwb:+x*hwt]
+#---------------------------
+hwb_den = 0.05 # search range [-x*hwb:+x*hwt]
+hwt_den = 0.05 # search range [-x*hwb:+x*hwt]
+#---------------------------
+hwb_wav = 0.37 # search range [-x*hwb:+x*hwt]
+hwt_wav = 0.37 # search range [-x*hwb:+x*hwt]
+#---------------------------
+hwb_sto = 0.07 # search range [-x*hwb:+x*hwt]
+hwt_sto = 0.07 # search range [-x*hwb:+x*hwt]
 #---------------------------
 # Note
-# 1. A value around sigma = 7.0 is often good.
-# 2. It is often good for r0 for the S orbit to be slightly (about 0.7 ?) smaller than for the P or D orbits.
+# 1. A value around sigma = 7.0 is often good. (r0 >= 12.0 in this case)
+# 2. It is often good for r0 for the S orbit to be slightly (about 1.0 ?) smaller than for the P or D orbits.
 # 3. In the radial wave function, calculations can be converged over a fairly wide range for the S orbit, 
 #   but of course the P orbit is more limited than the S orbit. When increasing the value, 
 #   start from the value at which the P orbit begins to converge. Conversely, when decreasing the value, 
@@ -77,7 +84,7 @@ hwt  =  0.37 # search range [-x*hwb:+x*hwt]
 # 5. The radial wave function only slightly moves the position of each orbit. 
 #---------------------------
 x0  =  7.0 # sigma of density
-x1  = 14.0 # r0 of density
+x1  = 13.0 # r0 of density
 #---------------------------
 x2  =  7.0 # simga of S
 x3  =  6.3 # r0 of S
@@ -88,17 +95,37 @@ x5  =  7.2 # r0 of P
 x6  =  7.0 # simga of D
 x7  =  7.2 # r0 of D
 #---------------------------
-x8  =  4.56 # y1 of S
-x9  = 10.39 # y2 of S
-x10 = 23.69 # y3 of S
-#---------------------------
-x11 =  4.56 # y1 of P
-x12 = 10.39 # y2 of P
-x13 = 23.69 # y3 of P
-#---------------------------
-x14 =  6.22 # y1 of D or D
-x15 = 14.69 # y2 of D or D
-x16 = 35.09 # y3 of D or D
+sto_auto_preset = "yes"
+if sto_auto_preset == "no":
+  x8  =  4.56 # y1 of S
+  x9  = 10.39 # y2 of S
+  x10 = 23.69 # y3 of S
+  #---------------------------
+  x11 =  4.56 # y1 of P
+  x12 = 10.39 # y2 of P
+  x13 = 23.69 # y3 of P
+  #---------------------------
+  x14 =  6.22 # y1 of D or D
+  x15 = 14.69 # y2 of D or D
+  x16 = 35.09 # y3 of D or D
+  #---------------------------
+else:
+  print("Auto set coefficients of Slater-type orbitals.")
+  # In the results for boron, it was better to equalize the log (coefficient), 
+  #   so we made it possible to select it as the initial value.
+  #---------------------------
+  x8  = np.exp( (np.log(ylasts)-np.log(y0s))*1/4 + np.log(y0s) )
+  x9  = np.exp( (np.log(ylasts)-np.log(y0s))*2/4 + np.log(y0s) )
+  x10 = np.exp( (np.log(ylasts)-np.log(y0s))*3/4 + np.log(y0s) )
+  #---------------------------
+  x11 = np.exp( (np.log(ylastp)-np.log(y0p))*1/4 + np.log(y0p) )
+  x12 = np.exp( (np.log(ylastp)-np.log(y0p))*2/4 + np.log(y0p) )
+  x13 = np.exp( (np.log(ylastp)-np.log(y0p))*3/4 + np.log(y0p) )
+  #---------------------------
+  x14 = np.exp( (np.log(ylastd)-np.log(y0d))*1/4 + np.log(y0d) )
+  x15 = np.exp( (np.log(ylastd)-np.log(y0d))*2/4 + np.log(y0d) )
+  x16 = np.exp( (np.log(ylastd)-np.log(y0d))*3/4 + np.log(y0d) )
+  #---------------------------
 #---------------------------
 print("------------------------")
 print("initial parameters:   x0  x1  x2  x3  x4  x5  x6  x7   x8   x9"
@@ -113,80 +140,80 @@ min_ind = np.ones(n_gene) * -1.0
 max_ind = np.ones(n_gene) *  1.0
 #---------------------------
 # sigma of density
-#min_ind[0] = float(x0) - float(x0)*hwb
-#max_ind[0] = float(x0) + float(x0)*hwt
-min_ind[0] =  2.0; max_ind[0] = 17.0
+min_ind[0] = float(x0) - float(x0)*hwb_den
+max_ind[0] = float(x0) + float(x0)*hwt_den
+#min_ind[0] =  2.0; max_ind[0] = 17.0
 #---------------------------
 # r0 of density
-#min_ind[1] = float(x1) - float(x1)*hwb
-#max_ind[1] = float(x1) + float(x1)*hwt
-min_ind[1] =  2.4; max_ind[1] = 29.0
+min_ind[1] = float(x1) - float(x1)*hwb_wav
+max_ind[1] = float(x1) + float(x1)*hwt_wav
+#min_ind[1] =  2.4; max_ind[1] = 29.0
 #---------------------------
 # sigma of S orbitals
-#min_ind[2] = float(x2) - float(x2)*hwb
-#max_ind[2] = float(x2) + float(x2)*hwt
-min_ind[2] =  2.0; max_ind[2] = 17.0
+min_ind[2] = float(x2) - float(x2)*hwb_wav
+max_ind[2] = float(x2) + float(x2)*hwt_wav
+#min_ind[2] =  2.0; max_ind[2] = 17.0
 #---------------------------
 # r0 of S orbitals
-#min_ind[3] = float(x3) - float(x3)*hwb
-#max_ind[3] = float(x3) + float(x3)*hwt
-min_ind[3] =  2.4; max_ind[3] = 29.0
+min_ind[3] = float(x3) - float(x3)*hwb_wav
+max_ind[3] = float(x3) + float(x3)*hwt_wav
+#min_ind[3] =  2.4; max_ind[3] = 29.0
 #---------------------------
 # sigma of P orbitals
-#min_ind[4] = float(x4) - float(x4)*hwb
-#max_ind[4] = float(x4) + float(x4)*hwt
-min_ind[4] =  2.0; max_ind[4] = 17.0
+min_ind[4] = float(x4) - float(x4)*hwb_wav
+max_ind[4] = float(x4) + float(x4)*hwt_wav
+#min_ind[4] =  2.0; max_ind[4] = 17.0
 #---------------------------
 # r0 of P orbitals
-#min_ind[5] = float(x5) - float(x5)*hwb
-#max_ind[5] = float(x5) + float(x5)*hwt
-min_ind[5] =  2.4; max_ind[5] = 29.0
+min_ind[5] = float(x5) - float(x5)*hwb_wav
+max_ind[5] = float(x5) + float(x5)*hwt_wav
+#min_ind[5] =  2.4; max_ind[5] = 29.0
 #---------------------------
 # sigma of D orbitals
-#min_ind[6] = float(x6) - float(x6)*hwb
-#max_ind[6] = float(x6) + float(x6)*hwt
-min_ind[6] =  2.0; max_ind[6] = 17.0
+min_ind[6] = float(x6) - float(x6)*hwb_wav
+max_ind[6] = float(x6) + float(x6)*hwt_wav
+#min_ind[6] =  2.0; max_ind[6] = 17.0
 #---------------------------
 # r0 of D orbitals
-#min_ind[7] = float(x7) - float(x7)*hwb
-#max_ind[7] = float(x7) + float(x7)*hwt
-min_ind[7] =  2.4; max_ind[7] = 29.0
+min_ind[7] = float(x7) - float(x7)*hwb_wav
+max_ind[7] = float(x7) + float(x7)*hwt_wav
+#min_ind[7] =  2.4; max_ind[7] = 29.0
 #---------------------------
 # Slater-Type Orbitals of S: y1
-min_ind[8] = float(x8) - float(x8)*hwb
-max_ind[8] = float(x8) + float(x8)*hwt
+min_ind[8] = float(x8) - float(x8)*hwb_sto
+max_ind[8] = float(x8) + float(x8)*hwt_sto
 #---------------------------
 # Slater-Type Orbitals of S: y2
-min_ind[9] = float(x9) - float(x9)*hwb
-max_ind[9] = float(x9) + float(x9)*hwt
+min_ind[9] = float(x9) - float(x9)*hwb_sto
+max_ind[9] = float(x9) + float(x9)*hwt_sto
 #---------------------------
 # Slater-Type Orbitals of S: y3
-min_ind[10] = float(x10) - float(x10)*hwb
-max_ind[10] = float(x10) + float(x10)*hwt
+min_ind[10] = float(x10) - float(x10)*hwb_sto
+max_ind[10] = float(x10) + float(x10)*hwt_sto
 #---------------------------
 # Slater-Type Orbitals of P: y1
-min_ind[11] = float(x11) - float(x11)*hwb
-max_ind[11] = float(x11) + float(x11)*hwt
+min_ind[11] = float(x11) - float(x11)*hwb_sto
+max_ind[11] = float(x11) + float(x11)*hwt_sto
 #---------------------------
 # Slater-Type Orbitals of P: y2
-min_ind[12] = float(x12) - float(x12)*hwb
-max_ind[12] = float(x12) + float(x12)*hwt
+min_ind[12] = float(x12) - float(x12)*hwb_sto
+max_ind[12] = float(x12) + float(x12)*hwt_sto
 #---------------------------
 # Slater-Type Orbitals of P: y3
-min_ind[13] = float(x13) - float(x13)*hwb
-max_ind[13] = float(x13) + float(x13)*hwt
+min_ind[13] = float(x13) - float(x13)*hwb_sto
+max_ind[13] = float(x13) + float(x13)*hwt_sto
 #---------------------------
 # Slater-Type Orbitals of D: y1
-min_ind[14] = float(x14) - float(x14)*hwb
-max_ind[14] = float(x14) + float(x14)*hwt
+min_ind[14] = float(x14) - float(x14)*hwb_sto
+max_ind[14] = float(x14) + float(x14)*hwt_sto
 #---------------------------
 # Slater-Type Orbitals of D: y2
-min_ind[15] = float(x15) - float(x15)*hwb
-max_ind[15] = float(x15) + float(x15)*hwt
+min_ind[15] = float(x15) - float(x15)*hwb_sto
+max_ind[15] = float(x15) + float(x15)*hwt_sto
 #---------------------------
 # Slater-Type Orbitals of D: y3
-min_ind[16] = float(x16) - float(x16)*hwb
-max_ind[16] = float(x16) + float(x16)*hwt
+min_ind[16] = float(x16) - float(x16)*hwb_sto
+max_ind[16] = float(x16) + float(x16)*hwt_sto
 #---------------------------
 pbounds = {
    'x0': (float(min_ind[0]),float(max_ind[0])),
