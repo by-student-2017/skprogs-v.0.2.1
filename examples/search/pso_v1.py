@@ -263,36 +263,139 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
     # Rather than searching in even smaller steps, it is important to widen the search range or 
     #   change the initial values to make sure that the solution does not fall into a locally optimal solution.
     #-------------------------------
-    # Density
-    sx0  = "{:.1f}".format(x0[i]+R1)
-    sx1  = "{:.1f}".format(x1[i]+R1)
+    # I realized later that {:.f} rounds it up. On the other hand, int() is truncated.
     #-------------------------------
-    # S orbital
-    sx2  = "{:.1f}".format(x2[i]+R1)
-    sx3  = "{:.1f}".format(x3[i]+R1)
-    #-------------------------------
-    # P orbital
-    sx4  = "{:.1f}".format(x4[i]+R1)
-    sx5  = "{:.1f}".format(x5[i]+R1)
-    #-------------------------------
-    # D orbital
-    sx6  = "{:.1f}".format(x6[i]+R1)
-    sx7  = "{:.1f}".format(x7[i]+R1)
-    #-------------------------------
-    # Slater-Type Orbitals of S
-    sx8  = "{:.2f}".format(x8[i]+R2)
-    sx9  = "{:.2f}".format(x9[i]+R2)
-    sx10 = "{:.2f}".format(x10[i]+R2)
-    #-------------------------------
-    # Slater-Type Orbitals of P
-    sx11 = "{:.2f}".format(x11[i]+R2)
-    sx12 = "{:.2f}".format(x12[i]+R2)
-    sx13 = "{:.2f}".format(x13[i]+R2)
-    #-------------------------------
-    # Slater-Type Orbitals of D
-    sx14 = "{:.2f}".format(x14[i]+R2)
-    sx15 = "{:.2f}".format(x15[i]+R2)
-    sx16 = "{:.2f}".format(x16[i]+R2)
+    fine_step = "no"
+    if fine_step == "no": # 0.2 and 0.02 step for sigma and sto, respectively.
+      print("0.2 and 0.02 step for sigma and sto, respectively.")
+      #-------------------------------
+      # Density
+      #--------- 0.2 step
+      if int(x0[i]*10+0.5) % 2 == 0:
+        sx0 = "{:.1f}".format(x0[i])
+      else:
+        sx0 = "{:.1f}".format(x0[i]+0.1)
+      #--------- 0.1 step
+      sx1  = "{:.1f}".format(x1[i]+R1)
+      #-------------------------------
+      #-------------------------------
+      # S orbital
+      #--------- 0.2 step
+      if int(x2[i]*10+0.5) % 2 == 0:
+        sx2 = "{:.1f}".format(x2[i])
+      else:
+        sx2 = "{:.1f}".format(x2[i]+0.1)
+      #--------- 0.1 step
+      sx3  = "{:.1f}".format(x3[i]+R1)
+      #-------------------------------
+      #-------------------------------
+      # P orbital
+      #--------- 0.2 step
+      if int(x4[i]*10+0.5) % 2 == 0:
+        sx4 = "{:.1f}".format(x4[i])
+      else:
+        sx4 = "{:.1f}".format(x4[i]+0.1)
+      #--------- 0.1 step
+      sx5  = "{:.1f}".format(x5[i]+R1)
+      #-------------------------------
+      #-------------------------------
+      # D orbital
+      #--------- 0.2 step
+      if int(x6[i]*10+0.5) % 2 == 0:
+        sx6 = "{:.1f}".format(x6[i])
+      else:
+        sx6 = "{:.1f}".format(x6[i]+0.1)
+      #--------- 0.1 step
+      sx7  = "{:.1f}".format(x7[i]+R1)
+      #-------------------------------
+      #-------------------------------
+      # Slater-Type Orbitals of S
+      #--------- 0.02 step
+      if int(x8[i]*100+0.5) % 2 == 0:
+        sx8 = "{:.2f}".format(x8[i])
+      else:
+        sx8 = "{:.2f}".format(x8[i]+0.01)
+      #--------- 0.02 step
+      if int(x9[i]*100+0.5) % 2 == 0:
+        sx9 = "{:.2f}".format(x9[i])
+      else:
+        sx9 = "{:.2f}".format(x9[i]+0.01)
+      #--------- 0.02 step
+      if int(x10[i]*100+0.5) % 2 == 0:
+        sx10 = "{:.2f}".format(x10[i])
+      else:
+        sx10 = "{:.2f}".format(x10[i]+0.01)
+      #-------------------------------
+      #-------------------------------
+      # Slater-Type Orbitals of P
+      #--------- 0.02 step
+      if int(x11[i]*100+0.5) % 2 == 0:
+        sx11 = "{:.2f}".format(x11[i])
+      else:
+        sx11 = "{:.2f}".format(x11[i]+0.01)
+      #--------- 0.02 step
+      if int(x12[i]*100+0.5) % 2 == 0:
+        sx12 = "{:.2f}".format(x12[i])
+      else:
+        sx12 = "{:.2f}".format(x12[i]+0.01)
+      #--------- 0.02 step
+      if int(x13[i]*100+0.5) % 2 == 0:
+        sx13 = "{:.2f}".format(x13[i])
+      else:
+        sx13 = "{:.2f}".format(x13[i]+0.01)
+      #-------------------------------
+      #-------------------------------
+      # Slater-Type Orbitals of D
+      #--------- 0.02 step
+      if int(x14[i]*100+0.5) % 2 == 0:
+        sx14 = "{:.2f}".format(x14[i])
+      else:
+        sx14 = "{:.2f}".format(x14[i]+0.01)
+      #--------- 0.02 step
+      if int(x15[i]*100+0.5) % 2 == 0:
+        sx15 = "{:.2f}".format(x15[i])
+      else:
+        sx15 = "{:.2f}".format(x15[i]+0.01)
+      #--------- 0.02 step
+      if int(x16[i]*100+0.5) % 2 == 0:
+        sx16 = "{:.2f}".format(x16[i])
+      else:
+        sx16 = "{:.2f}".format(x16[i]+0.01)
+      #-------------------------------
+    else:
+      print("0.1 and 0.01 step")
+      #-------------------------------
+      # Density
+      sx0  = "{:.1f}".format(x0[i]+R1)
+      sx1  = "{:.1f}".format(x1[i]+R1)
+      #-------------------------------
+      # S orbital
+      sx2  = "{:.1f}".format(x2[i]+R1)
+      sx3  = "{:.1f}".format(x3[i]+R1)
+      #-------------------------------
+      # P orbital
+      sx4  = "{:.1f}".format(x4[i]+R1)
+      sx5  = "{:.1f}".format(x5[i]+R1)
+      #-------------------------------
+      # D orbital
+      sx6  = "{:.1f}".format(x6[i]+R1)
+      sx7  = "{:.1f}".format(x7[i]+R1)
+      #-------------------------------
+      # Slater-Type Orbitals of S
+      sx8  = "{:.2f}".format(x8[i]+R2)
+      sx9  = "{:.2f}".format(x9[i]+R2)
+      sx10 = "{:.2f}".format(x10[i]+R2)
+      #-------------------------------
+      # Slater-Type Orbitals of P
+      sx11 = "{:.2f}".format(x11[i]+R2)
+      sx12 = "{:.2f}".format(x12[i]+R2)
+      sx13 = "{:.2f}".format(x13[i]+R2)
+      #-------------------------------
+      # Slater-Type Orbitals of D
+      sx14 = "{:.2f}".format(x14[i]+R2)
+      sx15 = "{:.2f}".format(x15[i]+R2)
+      sx16 = "{:.2f}".format(x16[i]+R2)
+      #-------------------------------
     #-------------------------------
     
     #-------------------------------
