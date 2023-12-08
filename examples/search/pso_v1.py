@@ -112,17 +112,26 @@ else:
   # In the results for boron, it was better to equalize the log (coefficient), 
   #   so we made it possible to select it as the initial value.
   #---------------------------
-  x8c  = np.exp( (np.log(ylasts)-np.log(y0s))*1/4 + np.log(y0s) )
-  x9c  = np.exp( (np.log(ylasts)-np.log(y0s))*2/4 + np.log(y0s) )
-  x10c = np.exp( (np.log(ylasts)-np.log(y0s))*3/4 + np.log(y0s) )
+  #x8c  = np.exp( (np.log(ylasts)-np.log(y0s))*1/4 + np.log(y0s) )
+  #x9c  = np.exp( (np.log(ylasts)-np.log(y0s))*2/4 + np.log(y0s) )
+  #x10c = np.exp( (np.log(ylasts)-np.log(y0s))*3/4 + np.log(y0s) )
+  x8c  = 10.0**( (np.log10(ylasts)-np.log10(y0s))*1/4 + np.log10(y0s) )
+  x9c  = 10.0**( (np.log10(ylasts)-np.log10(y0s))*2/4 + np.log10(y0s) )
+  x10c = 10.0**( (np.log10(ylasts)-np.log10(y0s))*3/4 + np.log10(y0s) )
   #---------------------------
-  x11c = np.exp( (np.log(ylastp)-np.log(y0p))*1/4 + np.log(y0p) )
-  x12c = np.exp( (np.log(ylastp)-np.log(y0p))*2/4 + np.log(y0p) )
-  x13c = np.exp( (np.log(ylastp)-np.log(y0p))*3/4 + np.log(y0p) )
+  #x11c = np.exp( (np.log(ylastp)-np.log(y0p))*1/4 + np.log(y0p) )
+  #x12c = np.exp( (np.log(ylastp)-np.log(y0p))*2/4 + np.log(y0p) )
+  #x13c = np.exp( (np.log(ylastp)-np.log(y0p))*3/4 + np.log(y0p) )
+  x11c = 10.0**( (np.log10(ylastp)-np.log10(y0p))*1/4 + np.log10(y0p) )
+  x12c = 10.0**( (np.log10(ylastp)-np.log10(y0p))*2/4 + np.log10(y0p) )
+  x13c = 10.0**( (np.log10(ylastp)-np.log10(y0p))*3/4 + np.log10(y0p) )
   #---------------------------
-  x14c = np.exp( (np.log(ylastd)-np.log(y0d))*1/4 + np.log(y0d) )
-  x15c = np.exp( (np.log(ylastd)-np.log(y0d))*2/4 + np.log(y0d) )
-  x16c = np.exp( (np.log(ylastd)-np.log(y0d))*3/4 + np.log(y0d) )
+  #x14c = np.exp( (np.log(ylastd)-np.log(y0d))*1/4 + np.log(y0d) )
+  #x15c = np.exp( (np.log(ylastd)-np.log(y0d))*2/4 + np.log(y0d) )
+  #x16c = np.exp( (np.log(ylastd)-np.log(y0d))*3/4 + np.log(y0d) )
+  x14c = 10.0**( (np.log10(ylastd)-np.log10(y0d))*1/4 + np.log10(y0d) )
+  x15c = 10.0**( (np.log10(ylastd)-np.log10(y0d))*2/4 + np.log10(y0d) )
+  x16c = 10.0**( (np.log10(ylastd)-np.log10(y0d))*3/4 + np.log10(y0d) )
   #---------------------------
 print("------------------------")
 print("initial parameters:   x0c  x1c  x2c  x3c  x4c  x5c  x6c  x7c   x8c   x9c"

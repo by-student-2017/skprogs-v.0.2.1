@@ -107,17 +107,26 @@ else:
   # In the results for boron, it was better to equalize the log (coefficient), 
   #   so we made it possible to select it as the initial value.
   #---------------------------
-  x8  = np.exp( (np.log(ylasts)-np.log(y0s))*1/4 + np.log(y0s) )
-  x9  = np.exp( (np.log(ylasts)-np.log(y0s))*2/4 + np.log(y0s) )
-  x10 = np.exp( (np.log(ylasts)-np.log(y0s))*3/4 + np.log(y0s) )
+  #x8  = np.exp( (np.log(ylasts)-np.log(y0s))*1/4 + np.log(y0s) )
+  #x9  = np.exp( (np.log(ylasts)-np.log(y0s))*2/4 + np.log(y0s) )
+  #x10 = np.exp( (np.log(ylasts)-np.log(y0s))*3/4 + np.log(y0s) )
+  x8  = 10.0**( (np.log10(ylasts)-np.log10(y0s))*1/4 + np.log10(y0s) )
+  x9  = 10.0**( (np.log10(ylasts)-np.log10(y0s))*2/4 + np.log10(y0s) )
+  x10 = 10.0**( (np.log10(ylasts)-np.log10(y0s))*3/4 + np.log10(y0s) )
   #---------------------------
-  x11 = np.exp( (np.log(ylastp)-np.log(y0p))*1/4 + np.log(y0p) )
-  x12 = np.exp( (np.log(ylastp)-np.log(y0p))*2/4 + np.log(y0p) )
-  x13 = np.exp( (np.log(ylastp)-np.log(y0p))*3/4 + np.log(y0p) )
+  #x11 = np.exp( (np.log(ylastp)-np.log(y0p))*1/4 + np.log(y0p) )
+  #x12 = np.exp( (np.log(ylastp)-np.log(y0p))*2/4 + np.log(y0p) )
+  #x13 = np.exp( (np.log(ylastp)-np.log(y0p))*3/4 + np.log(y0p) )
+  x11 = 10.0**( (np.log10(ylastp)-np.log10(y0p))*1/4 + np.log10(y0p) )
+  x12 = 10.0**( (np.log10(ylastp)-np.log10(y0p))*2/4 + np.log10(y0p) )
+  x13 = 10.0**( (np.log10(ylastp)-np.log10(y0p))*3/4 + np.log10(y0p) )
   #---------------------------
-  x14 = np.exp( (np.log(ylastd)-np.log(y0d))*1/4 + np.log(y0d) )
-  x15 = np.exp( (np.log(ylastd)-np.log(y0d))*2/4 + np.log(y0d) )
-  x16 = np.exp( (np.log(ylastd)-np.log(y0d))*3/4 + np.log(y0d) )
+  #x14 = np.exp( (np.log(ylastd)-np.log(y0d))*1/4 + np.log(y0d) )
+  #x15 = np.exp( (np.log(ylastd)-np.log(y0d))*2/4 + np.log(y0d) )
+  #x16 = np.exp( (np.log(ylastd)-np.log(y0d))*3/4 + np.log(y0d) )
+  x14 = 10.0**( (np.log10(ylastd)-np.log10(y0d))*1/4 + np.log10(y0d) )
+  x15 = 10.0**( (np.log10(ylastd)-np.log10(y0d))*2/4 + np.log10(y0d) )
+  x16 = 10.0**( (np.log10(ylastd)-np.log10(y0d))*3/4 + np.log10(y0d) )
   #---------------------------
 #---------------------------
 print("------------------------")
@@ -499,8 +508,10 @@ def mutUniformDbl(individual, min_ind, max_ind, indpb):
 toolbox.register("evaluate", evalOneMax)
 #-------------------------------
 # Crossover function settings. Adopts a method called blend crossover
-toolbox.register("mate", tools.cxTwoPoint)
-#toolbox.register("mate", tools.cxOnePoint)
+toolbox.register("mate", tools.cxOnePoint)
+## There is a report on the web that says, ``The following has a low accuracy rate and 
+##   the number of features does not decrease.'' (I have the same opinion.)
+#toolbox.register("mate", tools.cxTwoPoint)
 #-------------------------------
 # Setting up the mutation function. indpb is the probability that each gene will mutate. 
 # mu and sigma are the mean and standard deviation of the mutations. (e.g., 0.01, 0.05)
@@ -508,10 +519,12 @@ toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
 #-------------------------------
 # Select parents who will leave children to the next generation using a tournament method
 # (tornsize is the number of individuals participating in each tournament)
-#toolbox.register("select", tools.selTournament, tournsize=10) # Tournament case
-toolbox.register("select", tools.selSPEA2) # SPEA2 case
-#toolbox.register("select", tools.selNSGA2) # NSGA2 case
-#toolbox.register("select", tools.selNSGA3) # NSGA3 case (large system)
+toolbox.register("select", tools.selTournament, tournsize=3) # Tournament case
+## There is a report on the web that says, ``The following has a low accuracy rate and 
+##   the number of features does not decrease.'' (I have the same opinion.)
+#toolbox.register("select", tools.selSPEA2) # SPEA2 case (not recommend)
+#toolbox.register("select", tools.selNSGA2) # NSGA2 case (not recommend)
+#toolbox.register("select", tools.selNSGA3) # NSGA3 case (large system) (not recommend)
 #-------------------------------
 # e.g., tournsize = 2-10 (Tournament)
 # k = n/5 - n/2 (SPEA2)
@@ -529,7 +542,7 @@ def main():
   # Adopting the simplest evolution strategy called Simple GA
   algorithms.eaSimple(pop, toolbox, 
     cxpb=0.9,    # crossover probability (0.6 (Simple GA), 0.6-1.0 (SPEA2, NSGA2, etc))
-    mutpb=0.005,   # probability that an individual will mutate (e.g, 0.1-0.4)
+    mutpb=0.1,  # probability that an individual will mutate (e.g, 0.1-0.4)
     ngen=500,    # Number of generations
     stats=stats, halloffame=hof)
   return pop, stats, hof

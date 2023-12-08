@@ -115,17 +115,26 @@ else:
   # In the results for boron, it was better to equalize the log (coefficient), 
   #   so we made it possible to select it as the initial value.
   #---------------------------
-  x8  = np.exp( (np.log(ylasts)-np.log(y0s))*1/4 + np.log(y0s) )
-  x9  = np.exp( (np.log(ylasts)-np.log(y0s))*2/4 + np.log(y0s) )
-  x10 = np.exp( (np.log(ylasts)-np.log(y0s))*3/4 + np.log(y0s) )
+  #x8  = np.exp( (np.log(ylasts)-np.log(y0s))*1/4 + np.log(y0s) )
+  #x9  = np.exp( (np.log(ylasts)-np.log(y0s))*2/4 + np.log(y0s) )
+  #x10 = np.exp( (np.log(ylasts)-np.log(y0s))*3/4 + np.log(y0s) )
+  x8  = 10.0**( (np.log10(ylasts)-np.log10(y0s))*1/4 + np.log10(y0s) )
+  x9  = 10.0**( (np.log10(ylasts)-np.log10(y0s))*2/4 + np.log10(y0s) )
+  x10 = 10.0**( (np.log10(ylasts)-np.log10(y0s))*3/4 + np.log10(y0s) )
   #---------------------------
-  x11 = np.exp( (np.log(ylastp)-np.log(y0p))*1/4 + np.log(y0p) )
-  x12 = np.exp( (np.log(ylastp)-np.log(y0p))*2/4 + np.log(y0p) )
-  x13 = np.exp( (np.log(ylastp)-np.log(y0p))*3/4 + np.log(y0p) )
+  #x11 = np.exp( (np.log(ylastp)-np.log(y0p))*1/4 + np.log(y0p) )
+  #x12 = np.exp( (np.log(ylastp)-np.log(y0p))*2/4 + np.log(y0p) )
+  #x13 = np.exp( (np.log(ylastp)-np.log(y0p))*3/4 + np.log(y0p) )
+  x11 = 10.0**( (np.log10(ylastp)-np.log10(y0p))*1/4 + np.log10(y0p) )
+  x12 = 10.0**( (np.log10(ylastp)-np.log10(y0p))*2/4 + np.log10(y0p) )
+  x13 = 10.0**( (np.log10(ylastp)-np.log10(y0p))*3/4 + np.log10(y0p) )
   #---------------------------
-  x14 = np.exp( (np.log(ylastd)-np.log(y0d))*1/4 + np.log(y0d) )
-  x15 = np.exp( (np.log(ylastd)-np.log(y0d))*2/4 + np.log(y0d) )
-  x16 = np.exp( (np.log(ylastd)-np.log(y0d))*3/4 + np.log(y0d) )
+  #x14 = np.exp( (np.log(ylastd)-np.log(y0d))*1/4 + np.log(y0d) )
+  #x15 = np.exp( (np.log(ylastd)-np.log(y0d))*2/4 + np.log(y0d) )
+  #x16 = np.exp( (np.log(ylastd)-np.log(y0d))*3/4 + np.log(y0d) )
+  x14 = 10.0**( (np.log10(ylastd)-np.log10(y0d))*1/4 + np.log10(y0d) )
+  x15 = 10.0**( (np.log10(ylastd)-np.log10(y0d))*2/4 + np.log10(y0d) )
+  x16 = 10.0**( (np.log10(ylastd)-np.log10(y0d))*3/4 + np.log10(y0d) )
   #---------------------------
 #---------------------------
 print("------------------------")
