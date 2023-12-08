@@ -554,7 +554,7 @@ def descripter_pso(x):
 #----------------------------------------------------------------------
 random_search="no"
 #----------------------------------------------------------------------
-Nop=24 # n_particles (= nop)
+Nop=40 # n_particles (= nop)
 if random_search=="yes" :
   #-------------------------------
   # Random search case
@@ -622,7 +622,7 @@ else:
   #------------------------------------------------------------------
   
   # Call instance of PSO with bounds argument
-  optimizer = ps.single.GlobalBestPSO(n_particles=24,
+  optimizer = ps.single.GlobalBestPSO(n_particles=Nop,
     dimensions=(n_gene),options=options,bounds=pbounds)
   
   # Perform optimization
