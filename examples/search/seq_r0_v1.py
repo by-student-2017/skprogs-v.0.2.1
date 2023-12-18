@@ -73,13 +73,15 @@ def f(r0,sigma):
   print("Evaluate: ",str(y))
   print("Parameters: "+"[ "+str(r0)+","+str(sigma)+" ]")
   print("------------------------")
-  subprocess.run("echo No."+str(count)+": "+str(y)+", "+str(r0)+", "+str(sigma)+" >> Evalute.txt", shell=True)
+  subprocess.run("echo No."+str(count)+": "+str(y)+", "+str(sigma)+", "+str(r0)+" >> Evalute.txt", shell=True)
 
   return y
 #----------------------------------------------------------------------
 # fitting parameters
 for sigma in np.arange(12.0,18.0,0.2):
   for r0 in np.arange(2.0,9.0,0.1): # [bohr] unit
+    print("initial parameters, sigma: "+str(sigma))
+    print("initial parameters, r0: "+str(r0))
     res = f(r0,sigma)
   subprocess.run("echo \"\" >> Evalute.txt", shell=True)
 #----------------------------------------------------------------------
