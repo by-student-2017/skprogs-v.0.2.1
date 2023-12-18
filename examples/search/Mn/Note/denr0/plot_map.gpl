@@ -8,15 +8,15 @@ set output "map.png"
 set xlabel "Radii, r0 / bohr"
 set ylabel "Power (= sigma)"
 set zlabel "Evaluate value [eV]"
-set zrange[0.15:0.165]
+set zrange[*:0.125]
 set mxtics 5
 set  ytics 1
 set mytics 2
 set grid x mx
 set grid y my
-set title "DensityCompression = PowerCompression{ Power = sigma; Radius = r0 }"
+set title "DensityCompression = PowerCompression{ Power = 2; Radius = 17.0 }"
 set pm3d map
 set pm3d interpolate 3, 3
-set palette cubehelix start 1 cycles 5 saturation 3 negative
+#set palette cubehelix start 1 cycles 5 saturation 3 negative
 splot "Evalute.txt" u 3:4:2 t ""
 #------------------------------------------------

@@ -16,8 +16,8 @@ sub_num_core = subprocess.run("grep 'core id' /proc/cpuinfo | sort -u | wc -l", 
 print("CPU: ",str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
 num_core = int(str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
 dftbp_adress = "mpirun -np "+str(num_core)+" dftb+"
-skprogs_adress = "/home/ubuntu/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux
-#skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # WSL2
+#skprogs_adress = "/home/ubuntu/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux
+skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # WSL2
 #pwscf_adress = "mpirun -np "+str(num_core)+" pw.x"
 
 subprocess.run("echo \"#No.: ETA value [eV], r0, sigma\" > Evalute.txt", shell=True)
@@ -38,7 +38,13 @@ def f(r0,sigma):
   count += 1
   print(count)
   
-  subprocess.run("rm *-*.skf", shell=True)
+  if os.path.exists(str(element)+"-"+str(element)+".skf"):
+    print("------------------------")
+    print("Delete old "+str(element)+"-"+str(element)+".skf file")
+    subprocess.run("rm -f "+str(element)+"-"+str(element)+".skf", shell=True)
+  
+  print("set parameters, sigma: "+str(sigma))
+  print("set parameters, r0: "+str(r0))
   
   subprocess.run("cp "+" "+str(file_tmp)+" "+str(file_inp), shell=True)
   
@@ -53,9 +59,12 @@ def f(r0,sigma):
     subprocess.run("cd ./"+str(element)+" ; ./run.sh ; cd ../", shell=True)
     evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+str(element)+"/"+str(file_msd), shell=True, stdout=subprocess.PIPE)
     if evaluate.returncode == 0:
-      y = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
-      subprocess.run("mv "+str(file_inp)+" ./"+str(element)+"/results/"+str(file_inp)+"_No"+str(count), shell=True)
-      subprocess.run("cp ./"+str(element)+"/comp_band.png ./"+str(element)+"/results/comp_band_No"+str(count)+".png", shell=True)
+      try:
+        y = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
+        subprocess.run("mv "+str(file_inp)+" ./"+str(element)+"/results/"+str(file_inp)+"_No"+str(count), shell=True)
+        subprocess.run("cp ./"+str(element)+"/comp_band.png ./"+str(element)+"/results/comp_band_No"+str(count)+".png", shell=True)
+      except ValueError as error:
+        y = 99999.999
     else:
       y = 99999.999
   else:
@@ -70,7 +79,7 @@ def f(r0,sigma):
 #----------------------------------------------------------------------
 # fitting parameters
 for sigma in np.arange(2.0,20.0,1.0):
-  for r0 in np.arange(5.0,40.0,1.0): # [bohr] unit
+  for r0 in np.arange(4.0,40.0,1.0): # [bohr] unit
     print("initial parameters, r0: "+str(r0))
     print("initial parameters, sigma: "+str(sigma))
     res = f(r0,sigma)

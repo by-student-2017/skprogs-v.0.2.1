@@ -23,7 +23,7 @@ skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" #
 subprocess.run("echo \"#No.: ETA value [eV], r0, sigma\" > Evalute.txt", shell=True)
 
 #----------------------------------------------------------------------
-element = "B"
+element = "Mn"
 
 subprocess.run("cd ./"+str(element)+" ; rm -f -r results ; cd ../", shell=True)
 subprocess.run("cd ./"+str(element)+" ; mkdir results ; cd ../", shell=True)
@@ -73,13 +73,15 @@ def f(r0,sigma):
   print("Evaluate: ",str(y))
   print("Parameters: "+"[ "+str(r0)+","+str(sigma)+" ]")
   print("------------------------")
-  subprocess.run("echo No."+str(count)+": "+str(y)+", "+str(r0)+", "+str(sigma)+" >> Evalute.txt", shell=True)
+  subprocess.run("echo No."+str(count)+": "+str(y)+", "+str(sigma)+", "+str(r0)+" >> Evalute.txt", shell=True)
 
   return y
 #----------------------------------------------------------------------
 # fitting parameters
 for sigma in np.arange(2.0,20.0,1.0):
-  for r0 in np.arange(6.0,40.0,1.0): # [bohr] unit
+  for r0 in np.arange(4.0,40.0,1.0): # [bohr] unit
+    print("initial parameters, sigma: "+str(sigma))
+    print("initial parameters, r0: "+str(r0))
     res = f(r0,sigma)
   subprocess.run("echo \"\" >> Evalute.txt", shell=True)
 #----------------------------------------------------------------------
