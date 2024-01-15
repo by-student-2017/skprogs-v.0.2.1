@@ -1,0 +1,25 @@
+#!/usr/local/bin/gnuplot -persist
+#------------------------------------------------
+set terminal pngcairo color enhanced font "Arial" fontscale 1.0
+set output "map.png"
+#------------------------------------------------
+#set key opaque box lc rgb "white" height 1
+#------------------------------------------------
+set title "The parameter dependece of Slater-Orbital Type"
+#set xlabel "Radii, r0 / bohr"
+#set ylabel "Power (= sigma)"
+set xlabel "sp of [2.0,2.5,3.5,5.0,7.0] [1.0^{sp},1.03^{sp},1.06^{sp},1.09^{sp},1.11^{sp}]^t"
+set ylabel "d of [2.5,3.5,5.0,7.0,9.5] [2.0^{d},2.5^{d},3.5^{d},5.0^{d},7.0^{d}]^t"
+set yrange[*:*]
+set zlabel "Evaluate value [eV]"
+set zrange[*:1.4]
+set mxtics 5
+set  ytics 2
+#set mytics 2
+set grid x mx
+set grid y my
+set pm3d map
+set pm3d interpolate 3, 3
+#set palette cubehelix start 1 cycles 5 saturation 3 negative
+splot "Evalute.txt" u 3:4:2 t ""
+#------------------------------------------------
