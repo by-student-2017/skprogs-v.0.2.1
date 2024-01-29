@@ -31,7 +31,8 @@ sub_num_core = subprocess.run("grep 'core id' /proc/cpuinfo | sort -u | wc -l", 
 print("CPU: ",str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
 num_core = int(str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
 dftbp_adress = "mpirun -np "+str(num_core)+" dftb+"
-#skprogs_adress = "/home/ubuntu/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux
+#skprogs_adress = "/home/user/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux (ubuntu 22.04 LTS)
+#skprogs_adress = "/home/ubuntu/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux (ubuntu 20.04 LTS)
 skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # WSL2
 #pwscf_adress = "mpirun -np "+str(num_core)+" pw.x"
 
