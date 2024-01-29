@@ -212,6 +212,9 @@ Search method using the Bayesian optimization
 2. rewrite initial parameters and boundaries in baysian_v1.py
 3. python3 baysian_v1.py
 4. sort -k 2 Evalute.txt >> Evalute_sort.txt
+- For Ubuntu 22.04 LTS: pip3 install scipy==1.5.4
+- For Ubuntu 20.04 LTS: sudo apt install -y pytyon3-pip
+- For Ubuntu 20.04 LTS: pip3 install scipy==1.5.4
 
 
 Search method using the particle swarm optimization (PSO) 
