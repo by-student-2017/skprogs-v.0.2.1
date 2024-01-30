@@ -34,9 +34,9 @@ sub_num_core = subprocess.run("grep 'core id' /proc/cpuinfo | sort -u | wc -l", 
 print("CPU: ",str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
 num_core = int(str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
 dftbp_adress = "mpirun -np "+str(num_core)+" dftb+"
-#skprogs_adress = "/home/user/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux (ubuntu 22.04 LTS)
-#skprogs_adress = "/home/ubuntu/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux (ubuntu 20.04 LTS)
-skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # WSL2
+skprogs_adress = "/home/user/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux
+#skprogs_adress = "/home/ubuntu/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux
+#skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # WSL2
 #pwscf_adress = "mpirun -np "+str(num_core)+" pw.x"
 
 #----------------------------------------------------------------------
@@ -65,14 +65,14 @@ ylastd = atomic_number*3.0  # D orbitals, TM: x2.0
 #------------------------------------------------
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
 #---------------------------
-hwb_den = 0.05 # search range [-x*hwb:+x*hwt]
-hwt_den = 0.05 # search range [-x*hwb:+x*hwt]
+hwb_den = 0.10 # search range [-x*hwb:+x*hwt]
+hwt_den = 0.10 # search range [-x*hwb:+x*hwt]
 #---------------------------
 hwb_wav = 0.37 # search range [-x*hwb:+x*hwt]
 hwt_wav = 0.37 # search range [-x*hwb:+x*hwt]
 #---------------------------
-hwb_sto = 0.17 # search range [-x*hwb:+x*hwt]
-hwt_sto = 0.17 # search range [-x*hwb:+x*hwt]
+hwb_sto = 0.27 # search range [-x*hwb:+x*hwt]
+hwt_sto = 0.27 # search range [-x*hwb:+x*hwt]
 #---------------------------
 # Note
 # 1. A value around sigma = 7.0 is often good. (r0 >= 12.0 in this case)
@@ -100,7 +100,7 @@ sto_auto_preset = "yes"
 if sto_auto_preset == "no":
   #---------------------------
   x8  =  5.01 # y1 of S
-  x9  = 11.52 # y2 of S
+  x9  = 11.52 # y2 of Ss
   x10 = 27.18 # y3 of S
   #---------------------------
   x11 =  3.93 # y1 of P
@@ -300,7 +300,7 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   #-------------------------------
   # I realized later that {:.f} rounds it up. On the other hand, int() is truncated.
   #-------------------------------
-  fine_step = "no"
+  fine_step = "yes"
   if fine_step == "no": # 0.2 and 0.02 step for sigma and sto, respectively.
     print("0.2 and 0.02 step for sigma and sto, respectively.")
     #-------------------------------
