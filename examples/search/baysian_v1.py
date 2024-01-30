@@ -65,8 +65,8 @@ ylastd = atomic_number*3.0  # D orbitals, TM: x2.0
 #------------------------------------------------
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
 #---------------------------
-hwb_den = 0.01 # search range [-x*hwb:+x*hwt]
-hwt_den = 0.01 # search range [-x*hwb:+x*hwt]
+hwb_den = 0.10 # search range [-x*hwb:+x*hwt]
+hwt_den = 0.10 # search range [-x*hwb:+x*hwt]
 #---------------------------
 hwb_wav = 0.37 # search range [-x*hwb:+x*hwt]
 hwt_wav = 0.37 # search range [-x*hwb:+x*hwt]
