@@ -65,8 +65,8 @@ ylastd = atomic_number*3.0  # D orbitals, TM: x2.0
 #------------------------------------------------
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
 #---------------------------
-hwb_den = 0.10 # search range [-x*hwb:+x*hwt]
-hwt_den = 0.10 # search range [-x*hwb:+x*hwt]
+hwb_den = 0.01 # search range [-x*hwb:+x*hwt]
+hwt_den = 0.01 # search range [-x*hwb:+x*hwt]
 #---------------------------
 hwb_wav = 0.37 # search range [-x*hwb:+x*hwt]
 hwt_wav = 0.37 # search range [-x*hwb:+x*hwt]
@@ -156,8 +156,8 @@ max_ind[0] = float(x0) + float(x0)*hwt_den
 #min_ind[0] =  2.0; max_ind[0] = 17.0
 #---------------------------
 # r0 of density
-min_ind[1] = float(x1) - float(x1)*hwb_wav
-max_ind[1] = float(x1) + float(x1)*hwt_wav
+min_ind[1] = float(x1) - float(x1)*hwb_den
+max_ind[1] = float(x1) + float(x1)*hwt_den
 #min_ind[1] =  2.4; max_ind[1] = 29.0
 #---------------------------
 # sigma of S orbitals
