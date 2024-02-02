@@ -8,7 +8,7 @@ set key opaque box lc rgb "white" height 1
 xmin = 1
 xmax = 91
 #------------------------------------------------
-ytop = -10
+ytop = -5
 ybottom = 25
 #------------------------------------------------
 set xrange [xmin:xmax]
