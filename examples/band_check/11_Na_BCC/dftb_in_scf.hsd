@@ -11,7 +11,7 @@ Hamiltonian = DFTB {
     Suffix = ".skf"
   }
   MaxAngularMomentum {
-    Na = "d"
+    Na = "p"
   }
   KPointsAndWeights = SupercellFolding {
     8 0 0
