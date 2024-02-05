@@ -23,6 +23,10 @@ Hamiltonian = DFTB {
     10  0.0  0.0  0.0  #G
     10  0.0  0.0  0.5  #N
   }
+  #Filling = MethfesselPaxton {
+  #  Order = 2
+  #  Temperature [eV] = 0.02
+  #}
 }
 
 ParserOptions {
