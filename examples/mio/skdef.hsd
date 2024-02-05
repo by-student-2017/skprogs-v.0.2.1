@@ -613,17 +613,17 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = No
-      DensityCompression = PowerCompression{ Power = 2; Radius = 14.0 }
+      DensityCompression = PowerCompression{ Power = 7; Radius = 14.0 }
       WaveCompressions = SingleAtomCompressions {
-	S = PowerCompression { Power = 13; Radius = 5.1 }
-	P = PowerCompression { Power = 13; Radius = 5.1 }
-	D = PowerCompression { Power = 13; Radius = 5.1 }
+	S = PowerCompression { Power =  2; Radius =  8.2 }
+	P = PowerCompression { Power =  2; Radius = 10.2 }
+	D = PowerCompression { Power =  2; Radius =  6.3 }
       }
-      CustomizedHubbards {
-	3D = 0.322610
-	4S = 0.137969
-	4P = 0.189558
-      }
+    #  CustomizedHubbards {
+	#3D = 0.322610
+	#4P = 0.137969
+	#4S = 0.189558
+    #  }
     }
   }
 
@@ -650,8 +650,8 @@ AtomParameters {
       }
       CustomizedHubbards {
 	3D = 0.20006
-	4S = 0.20006
 	4P = 0.20006
+	4S = 0.20006
       }
     }
   }
