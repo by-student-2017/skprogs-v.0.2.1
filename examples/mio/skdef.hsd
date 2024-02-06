@@ -937,11 +937,11 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = No
-      DensityCompression = PowerCompression{ Power = 2; Radius = 9.0 }
+      DensityCompression = PowerCompression{ Power = 2; Radius = 6.0 }
       WaveCompressions = SingleAtomCompressions {
-	D = PowerCompression { Power = 2; Radius = 4.4 }
-	P = PowerCompression { Power = 2; Radius = 4.4 }
-	S = PowerCompression { Power = 2; Radius = 4.4 }
+	D = PowerCompression { Power = 2; Radius = 4.5 }
+	P = PowerCompression { Power = 2; Radius = 4.5 }
+	S = PowerCompression { Power = 2; Radius = 4.5 }
       }
     }
   }
