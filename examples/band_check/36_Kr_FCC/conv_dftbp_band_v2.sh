@@ -6,6 +6,10 @@ echo "Fermi energy = ${EF} [eV] from info.dat"
 nband=`awk -v max=0 '{if($1>max){max=$1}}END{print max} ' band.dat`
 echo "Number of band = ${nband}"
 
+#----------------------------------------------------
+EF=`awk 'BEGIN{EF=-999.9}{if($3==2.0 && $2>=EF){EF=$2}}END{printf "%f",EF}' band.dat`
+#----------------------------------------------------
+
 echo -n > dftbp_band.dat 
 
 for i in `seq ${nband}`
