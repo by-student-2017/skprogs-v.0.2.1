@@ -1063,9 +1063,9 @@ AtomParameters {
       ShellResolved = No
       DensityCompression = PowerCompression{ Power = 7; Radius = 14.0 }
       WaveCompressions = SingleAtomCompressions {
-	S = PowerCompression { Power = 12; Radius = 10.0 }
+	S = PowerCompression { Power = 12; Radius = 12.0 }
 	P = PowerCompression { Power = 12; Radius = 12.0 }
-	D = PowerCompression { Power = 12; Radius = 10.0 }
+	D = PowerCompression { Power = 12; Radius = 12.0 }
       }
     }
   }
@@ -2178,7 +2178,7 @@ OnecenterParameters {
     Calculator = SlaterAtom {
       Exponents {
 	S = 1.50 2.90  9.90 22.90 54.00
-	P = 1.50 2.90  9.90 22.90 54.00 # 1.50 2.90  9.90 22.90 54.00
+	P = 1.50 2.90  9.90 22.90 54.00
 	D = 1.70 3.50 10.70 23.80 54.00 # 1.50 2.90  9.90 22.90 54.00
       }
       MaxPowers {
