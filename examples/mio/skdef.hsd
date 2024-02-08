@@ -557,9 +557,9 @@ AtomParameters {
       ShellResolved = No
       DensityCompression = PowerCompression{ Power = 7; Radius = 14.0 }
       WaveCompressions = SingleAtomCompressions {
-	S = PowerCompression { Power = 13; Radius =  7.0 }
-	P = PowerCompression { Power = 13; Radius =  7.0 }
-	D = PowerCompression { Power = 13; Radius =  7.0 }
+	S = PowerCompression { Power = 7; Radius = 14.0 }
+	P = PowerCompression { Power = 7; Radius = 14.0 }
+	D = PowerCompression { Power = 7; Radius = 14.0 }
       }
       CustomizedOnsites {
 	#3D =  0.030121
@@ -1853,9 +1853,12 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.44 3.76  9.03 21.07 48.49 # Ref.[2]*19/21
-	P = 1.44 3.76  9.03 21.07 48.49 # Ref.[2]*19/21
-	D = 2.17 5.26 12.02 31.38 75.81 # Ref.[2]*19/21
+	#S = 1.44 3.76  9.03 21.07 48.49 # Ref.[2]*19/21
+	#P = 1.44 3.76  9.03 21.07 48.49 # Ref.[2]*19/21
+	#D = 2.17 5.26 12.02 31.38 75.81 # Ref.[2]*19/21
+	S = 1.50 2.90  9.90 22.90 54.00
+	P = 1.50 2.90  9.90 22.90 54.00
+	D = 1.70 3.50 10.70 23.80 54.00
       }
       MaxPowers {
 	S = 3
