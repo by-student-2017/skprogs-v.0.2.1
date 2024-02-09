@@ -65,8 +65,8 @@ ylastd = atomic_number*3.0  # D orbitals, TM: x2.0
 #------------------------------------------------
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
 #---------------------------
-hwb_den = 0.10 # search range [-x*hwb:+x*hwt]
-hwt_den = 0.10 # search range [-x*hwb:+x*hwt]
+hwb_den = 0.15 # search range [-x*hwb:+x*hwt]
+hwt_den = 0.15 # search range [-x*hwb:+x*hwt]
 #---------------------------
 hwb_wav = 0.37 # search range [-x*hwb:+x*hwt]
 hwt_wav = 0.37 # search range [-x*hwb:+x*hwt]
@@ -225,6 +225,15 @@ max_ind[15] = float(x15) + float(x15)*hwt_sto
 # Slater-Type Orbitals of D: y3
 min_ind[16] = float(x16) - float(x16)*hwb_sto
 max_ind[16] = float(x16) + float(x16)*hwt_sto
+#---------------------------
+if min_ind[0] < 2.0:
+  min_ind[0] = 2.0
+if min_ind[2] < 2.0:
+  min_ind[2] = 2.0
+if min_ind[4] < 2.0:
+  min_ind[4] = 2.0
+if min_ind[6] < 2.0:
+  min_ind[6] = 2.0
 #---------------------------
 pbounds = {
    'x0': (float(min_ind[0]),float(max_ind[0])),
