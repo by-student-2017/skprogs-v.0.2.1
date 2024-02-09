@@ -1109,17 +1109,17 @@ AtomParameters {
     }
     DftbAtom {
        ShellResolved = No
-       DensityCompression = PowerCompression{ Power = 2; Radius = 14.0 }
+       DensityCompression = PowerCompression{ Power = 7; Radius = 14.0 }
       WaveCompressions = SingleAtomCompressions {
-	D = PowerCompression { Power = 2; Radius = 5.7 } 
-	P = PowerCompression { Power = 2; Radius = 5.7 } 
-	S = PowerCompression { Power = 2; Radius = 5.7 } 
+	D = PowerCompression { Power = 13.6; Radius = 5.7 }
+	P = PowerCompression { Power = 13.6; Radius = 5.7 }
+	S = PowerCompression { Power = 13.6; Radius = 5.7 }
       }
-      CustomizedHubbards {
-	4D = 0.239393
-	5P = 0.127903
-	5S = 0.176814
-      }
+    #  CustomizedHubbards {
+	#4D = 0.239393
+	#5P = 0.127903
+	#5S = 0.176814
+    #  }
     }
   }
 
@@ -1235,17 +1235,17 @@ AtomParameters {
     }
     DftbAtom {
        ShellResolved = No
-       DensityCompression = PowerCompression{ Power = 2; Radius = 14.0 }
+       DensityCompression = PowerCompression{ Power = 7; Radius = 14.0 } # 2, 14
       WaveCompressions = SingleAtomCompressions {
-	D = PowerCompression { Power = 2; Radius = 4.1 } 
-	P = PowerCompression { Power = 2; Radius = 4.1 } 
-	S = PowerCompression { Power = 2; Radius = 4.1 } 
+	D = PowerCompression { Power = 16.5; Radius = 4.1 } # 2, 4.1
+	P = PowerCompression { Power = 16.5; Radius = 4.5 } 
+	S = PowerCompression { Power = 16.5; Radius = 4.0 } 
       }
-      CustomizedHubbards {
-	4D = 0.338742
-	5P = 0.148561
-	5S = 0.218221
-      }
+    #  CustomizedHubbards {
+	#4D = 0.338742
+	#5P = 0.148561
+	#5S = 0.218221
+    #  }
     }
   }
   
@@ -2237,9 +2237,13 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.80 4.36 10.19 23.49 53.80
-	P = 1.80 4.36 10.19 23.49 53.80
-	D = 2.50 6.02 14.49 34.89 84.00
+	#S = 1.80 4.36 10.19 23.49 53.80
+	#P = 1.80 4.36 10.19 23.49 53.80
+	#D = 2.50 6.02 14.49 34.89 84.00
+	#-------------------------------
+	S = 1.50 2.90  9.90 22.90 54.00
+	P = 1.50 2.90  9.90 22.90 54.00
+	D = 2.00 4.56 10.39 23.69 54.00
       }
       MaxPowers {
 	D = 3
