@@ -1089,7 +1089,7 @@ AtomParameters {
       WaveCompressions = SingleAtomCompressions {
 	D = PowerCompression { Power = 14.8; Radius = 6.9 }
 	P = PowerCompression { Power = 14.8; Radius = 6.9 }
-	S = PowerCompression { Power = 14.8; Radius = 6.9 }
+	S = PowerCompression { Power = 19.8; Radius = 6.9 }
       }
     }
   }
