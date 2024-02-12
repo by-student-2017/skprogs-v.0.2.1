@@ -113,17 +113,17 @@ x7  = x7_Zz # r0 of D
 sto_auto_preset = "yes"
 if sto_auto_preset == "no":
   #---------------------------
-  x8  =  5.01 # y1 of S
-  x9  = 11.52 # y2 of Ss
-  x10 = 27.18 # y3 of S
+  x8  =  x8_Nn # y1 of S
+  x9  =  x9_Nn # y2 of Ss
+  x10 = x10_Nn # y3 of S
   #---------------------------
-  x11 =  3.93 # y1 of P
-  x12 = 13.88 # y2 of P
-  x13 = 25.76 # y3 of P
+  x11 = x11_Nn # y1 of P
+  x12 = x12_Nn # y2 of P
+  x13 = x13_Nn # y3 of P
   #---------------------------
-  x14 =  3.95 # y1 of D or D
-  x15 = 17.95 # y2 of D or D
-  x16 = 33.55 # y3 of D or D
+  x14 = x14_Nn # y1 of D or D
+  x15 = x15_Nn # y2 of D or D
+  x16 = x16_Nn # y3 of D or D
   #---------------------------
 else:
   print("Auto set coefficients of Slater-type orbitals.")
