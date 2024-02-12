@@ -31,5 +31,5 @@ ndata=${#elements[@]}
 #for((i=19;i<${ndata};i++)); do
 for((i=38;i<39;i++)); do
   echo $i", "${nelement[$i]}", "${elements[$i]}", "${lattices[$i]}
-  ./mkinp_baysian.sh ${elements[$i]} ${lattices[$i]}
+  ./mkinp_pso.sh ${elements[$i]} ${lattices[$i]}
 done
