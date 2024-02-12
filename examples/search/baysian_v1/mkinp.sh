@@ -2,10 +2,11 @@
 
 # Usage
 # 1. chmod +x mkinp.sh
-# 2. ./mkinp.sh Sr
+# 2. ./mkinp.sh Sr FCC
 
 if [ ! -e $1 ]; then
-  cp -f -r ./../../band_check/*$1* ./$1
+  cp -f -r ./../../band_check/*_$1_$2 ./$1
+  cp baysian_v1_msd.sh ./$1/msd.sh
 fi
 
 filename="skdef.hsd"
