@@ -30,6 +30,17 @@ Note 2: It is better to do a rough review using a map and visually, and then man
 ------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------
+Note 6: 
+0. pip3 install bayesian-optimization==1.4.3
+1. cd baysian_v1
+2. chmod +x mkinp_baysian.sh
+3. ./mkinp_baysian.sh Sr FCC
+4. python3 baysian_v1_Sr.py
+5. sort -k 2 Evalute.txt >> Evalute_sort.txt
+------------------------------------------------------------------------------
+
+old version
+------------------------------------------------------------------------------
 Note 3: After finding a good value to some extent, set the search range based on it and check it with Bayesian inference.
 0. pip3 install bayesian-optimization==1.4.3
 1. rewrite skdef.hsd.tmp_baysian and prepare band_check folder (e.g., see Mg folder)
@@ -54,16 +65,6 @@ Note 5: When you want to check the results of Bayesian optimization using geneti
 2. rewrite initial parameters and boundaries in ga_v1.py
 3. python3 ga_v1.py
 4. sort -k 2 Evalute.txt >> Evalute_sort.txt
-------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------
-Note 6: 
-0. pip3 install bayesian-optimization==1.4.3
-1. cd baysian_v1
-2. chmod +x mkinp_baysian.sh
-3. ./mkinp_baysian.sh Sr FCC
-4. python3 baysian_v1_Sr.py
-5. sort -k 2 Evalute.txt >> Evalute_sort.txt
 ------------------------------------------------------------------------------
 
 Memo: remote (direct LAN connect)

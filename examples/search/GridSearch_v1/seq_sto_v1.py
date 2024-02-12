@@ -77,6 +77,7 @@ def f(stosp,stod,spt,dot):
   subprocess.run("export OMP_NUM_THREADS=1", shell=True)
   
   if os.path.exists(str(element)+"-"+str(element)+".skf"):
+    subprocess.run("mv ./"+element+"-"+element+".skf ./"+element+"/"+element+"-"+element+".skf", shell=True)
     subprocess.run("cd ./"+str(element)+" ; ./run.sh ; cd ../", shell=True)
     evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+str(element)+"/"+str(file_msd), shell=True, stdout=subprocess.PIPE)
     if evaluate.returncode == 0:
