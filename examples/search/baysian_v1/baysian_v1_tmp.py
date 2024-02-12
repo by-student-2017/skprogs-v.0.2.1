@@ -35,8 +35,8 @@ print("CPU: ",str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
 num_core = int(str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
 dftbp_adress = "mpirun -np "+str(num_core)+" dftb+"
 #skprogs_adress = "/home/user/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux
-#skprogs_adress = "/home/ubuntu/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux
-skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # WSL2
+skprogs_adress = "/home/ubuntu/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux
+#skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # WSL2
 #pwscf_adress = "mpirun -np "+str(num_core)+" pw.x"
 
 #----------------------------------------------------------------------
@@ -491,6 +491,7 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   subprocess.run("export OMP_NUM_THREADS=1", shell=True)
   
   if os.path.exists(element+"-"+element+".skf"):
+    subprocess.run("mv ./"+element+"-"+element+".skf ./"+element+"/"+element+"-"+element+".skf", shell=True)
     subprocess.run("cd ./"+element+" ; ./run.sh ; cd ../", shell=True)
     evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
     evaluate_sdt = subprocess.run("awk '{if(NR==4){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
