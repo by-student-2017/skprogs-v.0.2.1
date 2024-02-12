@@ -34,24 +34,46 @@ skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" #
 #----------------------------------------------------------------------
 # set initial parameters and boundaries
 #----------------------------------------------------------------------
-element = "Mn"
-atomic_number = 25.0 # In this code, this value is used as a parameter of the radial wave function.
+element = "element_Xx"
+atomic_number = atomic_number_Yy # In this code, this value is used as a parameter of the radial wave function.
 #---------------------------
 # The parameters of the radial wave function.
 #y0s = 0.5 # S orbitals
 #y0p = 0.5 # P orbitals
 #y0d = 1.5 # D orbitals
-y0s = 2.0 # S orbitals, TM: 2.0
-y0p = 2.0 # P orbitals, TM: 2.0
-y0d = 2.5 # D orbitals, TM: 2.5
+#----------
+#y0s = 1.0 # S orbitals
+#y0p = 1.0 # P orbitals
+#y0d = 1.5 # D orbitals
+#----------
+#y0s = 1.5 # S orbitals
+#y0p = 1.5 # P orbitals
+#y0d = 2.0 # D orbitals
+#----------
+#y0s = 2.0 # S orbitals, TM: 2.0
+#y0p = 2.0 # P orbitals, TM: 2.0
+#y0d = 2.5 # D orbitals, TM: 2.5
+#----------
+y0s = y0s_Nn # S orbitals
+y0p = y0p_Nn # P orbitals
+y0d = y0d_Nn # D orbitals
 #--------
 # The parameters of the radial wave function.
 #ylasts = atomic_number      # S orbitals
 #ylastp = atomic_number      # P orbitals
 #ylastd = atomic_number*2.0  # D orbitals
-ylasts = atomic_number*2.0  # S orbitals, TM: x2.0
-ylastp = atomic_number*2.0  # P orbitals, TM: x2.0
-ylastd = atomic_number*3.0  # D orbitals, TM: x2.0
+#----------
+#ylasts = atomic_number*1.5   # S orbitals
+#ylastp = atomic_number*1.5   # P orbitals
+#ylastd = atomic_number*2.0   # D orbitals
+#----------
+#ylasts = atomic_number*2.0  # S orbitals, TM: x2.0
+#ylastp = atomic_number*2.0  # P orbitals, TM: x2.0
+#ylastd = atomic_number*3.0  # D orbitals, TM: x2.0
+#----------
+ylasts = ylasts_Nn   # S orbitals
+ylastp = ylastp_Nn   # P orbitals
+ylastd = ylastd_Nn   # D orbitals
 #---------------------------
 
 #------------------------------------------------
@@ -76,32 +98,32 @@ hwt_sto = 0.07 # search range [-x*hwb:+x*hwt]
 # 4. In transition metals, it is often sufficient to adjust the P orbital last.
 # 5. The radial wave function only slightly moves the position of each orbit. 
 #---------------------------
-x0  =  7.0 # sigma of density
-x1  = 13.0 # r0 of density
+x0  = x0_Zz # sigma of density
+x1  = x1_Zz # r0 of density
 #---------------------------
-x2  =  7.0 # simga of S
-x3  =  6.3 # r0 of S
+x2  = x2_Zz # simga of S
+x3  = x3_Zz # r0 of S
 #---------------------------
-x4  =  7.0 # simga of P
-x5  =  7.2 # r0 of P
+x4  = x4_Zz # simga of P
+x5  = x5_Zz # r0 of P
 #---------------------------
-x6  =  7.0 # simga of D
-x7  =  7.2 # r0 of D
+x6  = x6_Zz # simga of D
+x7  = x7_Zz # r0 of D
 #---------------------------
 sto_auto_preset = "yes"
 if sto_auto_preset == "no":
   #---------------------------
-  x8  =  5.01 # y1 of S
-  x9  = 11.52 # y2 of S
-  x10 = 27.18 # y3 of S
+  x8  =  x8_Nn # y1 of S
+  x9  =  x9_Nn # y2 of Ss
+  x10 = x10_Nn # y3 of S
   #---------------------------
-  x11 =  3.93 # y1 of P
-  x12 = 13.88 # y2 of P
-  x13 = 25.76 # y3 of P
+  x11 = x11_Nn # y1 of P
+  x12 = x12_Nn # y2 of P
+  x13 = x13_Nn # y3 of P
   #---------------------------
-  x14 =  3.95 # y1 of D or D
-  x15 = 17.95 # y2 of D or D
-  x16 = 33.55 # y3 of D or D
+  x14 = x14_Nn # y1 of D or D
+  x15 = x15_Nn # y2 of D or D
+  x16 = x16_Nn # y3 of D or D
   #---------------------------
 else:
   print("Auto set coefficients of Slater-type orbitals.")
@@ -405,6 +427,7 @@ def evalOneMax(individual):
   subprocess.run("export OMP_NUM_THREADS=1", shell=True)
   
   if os.path.exists(element+"-"+element+".skf"):
+    subprocess.run("mv ./"+element+"-"+element+".skf ./"+element+"/"+element+"-"+element+".skf", shell=True)
     subprocess.run("cd ./"+element+" ; ./run.sh ; cd ../", shell=True)
     evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
     evaluate_sdt = subprocess.run("awk '{if(NR==4){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
