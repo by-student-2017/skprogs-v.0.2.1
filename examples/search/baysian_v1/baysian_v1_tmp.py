@@ -47,7 +47,7 @@ atomic_number = atomic_number_Yy # In this code, this value is used as a paramet
 #---------------------------
 # The parameters of the radial wave function.
 sto_read = "no"
-if 1 <= atomic_number && atomic_number <= 10:
+if 1 <= atomic_number and atomic_number <= 10:
   #----------
   # H-Ne
   y0s = 0.5 # S orbitals
@@ -56,7 +56,7 @@ if 1 <= atomic_number && atomic_number <= 10:
   ylasts = atomic_number      # S orbitals
   ylastp = atomic_number      # P orbitals
   #----------
-else if 11 <= atomic_number && atomic_number <= 18:
+elif 11 <= atomic_number and atomic_number <= 18:
   #----------
   # Na-Ar
   y0s = 0.5 # S orbitals
@@ -67,7 +67,7 @@ else if 11 <= atomic_number && atomic_number <= 18:
   ylastp = atomic_number      # P orbitals
   ylastd = atomic_number*2.0  # D orbitals
   #----------
-else if 19 <= atomic_number && atomic_number <= 56:
+elif 19 <= atomic_number and atomic_number <= 56:
   #----------
   # K-Ba
   y0s = 2.0 # S orbitals
@@ -105,18 +105,6 @@ if sto_read == "yes":
   ylasts = ylasts_Nn   # S orbitals
   ylastp = ylastp_Nn   # P orbitals
   ylastd = ylastd_Nn   # D orbitals
-
-#---------------------------
-# test
-# Sr
-#y0s = 1.5 # S orbitals
-#y0p = 1.5 # P orbitals
-#y0d = 1.5 # D orbitals
-# Assumption
-#ylasts = atomic_number*y0s   # S orbitals
-#ylastp = atomic_number*y0p   # P orbitals
-#ylastd = atomic_number*y0d   # D orbitals
-#---------------------------
 
 #---------------------------
 
