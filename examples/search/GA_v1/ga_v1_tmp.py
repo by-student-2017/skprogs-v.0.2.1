@@ -71,6 +71,10 @@ y0d = y0d_Nn # D orbitals
 #ylastp = atomic_number*2.0  # P orbitals, TM: x2.0
 #ylastd = atomic_number*3.0  # D orbitals, TM: x2.0
 #----------
+#ylasts = atomic_number*y0s   # S orbitals
+#ylastp = atomic_number*y0p   # P orbitals
+#ylastd = atomic_number*y0d   # D orbitals
+#----------
 ylasts = ylasts_Nn   # S orbitals
 ylastp = ylastp_Nn   # P orbitals
 ylastd = ylastd_Nn   # D orbitals
