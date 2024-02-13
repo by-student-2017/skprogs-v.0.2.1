@@ -56,14 +56,20 @@ atomic_number = atomic_number_Yy # In this code, this value is used as a paramet
 #y0p = 0.5 # P orbitals
 #y0d = 1.5 # D orbitals
 #----------
-# K-Rn
-y0s = 2.0 # S orbitals
-y0p = 2.0 # P orbitals
-y0d = 2.5 # D orbitals
+# K-Ba
+#y0s = 2.0 # S orbitals
+#y0p = 2.0 # P orbitals
+#y0d = 2.5 # D orbitals
 #----------
-#y0s = y0s_Nn # S orbitals
-#y0p = y0p_Nn # P orbitals
-#y0d = y0d_Nn # D orbitals
+# La-Bi
+#y0s = 1.0 # S orbitals
+#y0p = 1.0 # P orbitals
+#y0d = 1.0 # D orbitals
+#y0f = 1.0 # F orbitals
+#----------
+y0s = y0s_Nn # S orbitals
+y0p = y0p_Nn # P orbitals
+y0d = y0d_Nn # D orbitals
 #--------
 # The parameters of the radial wave function.
 #----------
@@ -76,19 +82,30 @@ y0d = 2.5 # D orbitals
 #ylastp = atomic_number      # P orbitals
 #ylastd = atomic_number*2.0  # D orbitals
 #----------
-# K-Rn
-ylasts = atomic_number*2.0  # S orbitals
-ylastp = atomic_number*2.0  # P orbitals
-ylastd = atomic_number*3.0  # D orbitals
+# K-Ba
+#ylasts = atomic_number*2.0  # S orbitals
+#ylastp = atomic_number*2.0  # P orbitals
+#ylastd = atomic_number*3.0  # D orbitals
+#----------
+# La-Bi
+#ylasts = atomic_number  # S orbitals
+#ylastp = atomic_number  # P orbitals
+#ylastd = atomic_number  # D orbitals
+#ylastf = atomic_number  # F orbitals
+#----
+#ylasts_add = atomic_number*3.0  # S orbitals
+#ylastp_add = atomic_number*3.0  # P orbitals
+#ylastd_add = atomic_number*3.0  # D orbitals
+#ylastf_add = atomic_number*3.0  # F orbitals
 #----------
 # Assumption
 #ylasts = atomic_number*y0s   # S orbitals
 #ylastp = atomic_number*y0p   # P orbitals
 #ylastd = atomic_number*y0d   # D orbitals
 #----------
-#ylasts = ylasts_Nn   # S orbitals
-#ylastp = ylastp_Nn   # P orbitals
-#ylastd = ylastd_Nn   # D orbitals
+ylasts = ylasts_Nn   # S orbitals
+ylastp = ylastp_Nn   # P orbitals
+ylastd = ylastd_Nn   # D orbitals
 #---------------------------
 
 #------------------------------------------------
