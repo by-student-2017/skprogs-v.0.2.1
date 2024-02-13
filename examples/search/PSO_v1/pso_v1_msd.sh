@@ -12,7 +12,7 @@ if [ ! -e qe_bands.dat ]; then
 fi
 
 cp qe_bands.dat pre_qe_bands.dat
-cut_start=`awk -v ybottom=${ybottom} 'BEGIN{n=0}{if($2>=ybottom && NR>=n){n=NR}}END{print n}' ./pre_qe_bands.dat`
+cut_start=`awk -v ybottom=${ybottom} 'BEGIN{n=-1}{if($2>=ybottom && NR>=n){n=NR}}END{print n}' ./pre_qe_bands.dat`
 awk -v cut_start=${cut_start} '{if(NR>cut_start+1){print $0}}' ./pre_qe_bands.dat > ./qe_bands.dat
 rm -f pre_qe_bands.dat
 
