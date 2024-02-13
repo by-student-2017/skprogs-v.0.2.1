@@ -1,5 +1,12 @@
 #!/bin/bash
 
+filename="skdef.hsd"
+if [ -f ${filename}_backup_run_seq ]; then
+  cp ${filename}_backup_run_seq ${filename}
+else
+  cp ${filename} ${filename}_backup_run_seq
+fi
+
 #-------------------------------------------------------------------------
 elements=(Xx
   H                                                                   He
@@ -31,14 +38,58 @@ ndata=${#elements[@]}
 #for((i=1;i<${ndata};i++)); do
 #for((i=19;i<${ndata};i++)); do
 #for((i=37;i<39;i++)); do
-for i in 38 47; do # Sr, Ag
+#for i in 38 47; do # Sr, Ag
+for i in 38; do # Sr
+  #--------------------------------------------------------------
   echo $i", "${nelement[$i]}", "${elements[$i]}", "${lattices[$i]}
-  ./mkinp_pso.sh ${elements[$i]} ${lattices[$i]}
+  #echo $(($i+1))", "${nelement[$(($i+1))]}", "${elements[$(($i+1))]}", "${lattices[$(($i+1))]}
+  #---------------------------------------------------------------
+  # minimal input file
+  #----- -----
+  nOCC_Rn=`grep OCCUPATIONS_Rn -n ${filename}_backup_run_seq | sed "s/:.*//g"`
+  #----- -----
+  n1st_start=`grep " ${elements[$i]} " -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "1p"`
+  n1st_end=`grep " ${elements[$(($i+1))]} " -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "1p"`
+  #----- -----
+  nOne=`grep OnecenterParameters -n ${filename}_backup_run_seq | sed "s/:.*//g"`
+  #----- -----
+  n2nd_start=`grep " ${elements[$i]} " -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "2p"`
+  n2nd_end=`grep " ${elements[$(($i+1))]} " -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "2p"`
+  #----- -----
+  nTwo_start=`grep TwoCenterParameters -n ${filename}_backup_run_seq | sed "s/:.*//g"`
+  nTwo_end=`grep SkTwocnt_400_200 -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "1p"`
+  #----- -----
+  npair=`grep ${elements[$i]}-${elements[$i]} -n ${filename}_backup_run_seq  | sed "s/:.*//g"`
+  #----- -----
+  echo "nOCC_Rn   : "${nOCC_Rn}
+  echo "n1st_start: "${n1st_start}
+  echo "n1st_end  : "${n1st_end}
+  echo "nOne      : "${nOne}
+  echo "n2nd_start: "${n2nd_start}
+  echo "n2nd_end  : "${n2nd_end}
+  echo "nTwo_start: "${nTwo_start}
+  echo "nTwo_end  : "${nTwo_end}
+  echo "npair     : "${npair}
+  #----- -----
+  awk -v nOCC_Rn=${nOCC_Rn} '{if(NR<=(nOCC_Rn+4)){print $0}}' ${filename}_backup_run_seq > ${filename}
+  awk -v n1st_start=${n1st_start} -v n1st_end=${n1st_end} '{if(n1st_start<=NR && NR<=(n1st_end-1)){print $0}}' ${filename}_backup_run_seq >> ${filename}
+  echo } >> ${filename}
+  echo "" >> ${filename}
+  awk -v nOne=${nOne} '{if(nOne<=NR && NR<=(nOne+5)){print $0}}' ${filename}_backup_run_seq >> ${filename}
+  awk -v n2nd_start=${n2nd_start} -v n2nd_end=${n2nd_end} '{if(n2nd_start<=NR && NR<=(n2nd_end-1)){print $0}}' ${filename}_backup_run_seq >> ${filename}
+  echo } >> ${filename}
+  echo "" >> ${filename}
+  awk -v nTwo_start=${nTwo_start} -v nTwo_end=${nTwo_end} '{if(nTwo_start<=NR && NR<=(nTwo_end+3)){print $0}}' ${filename}_backup_run_seq >> ${filename}
+  awk -v npair=${npair} '{if(NR==npair){print $0}}' ${filename}_backup_run_seq >> ${filename}
+  echo } >> ${filename}
+  #----- -----
+  #---------------------------------------------------------------
+  ./mkinp_baysian.sh ${elements[$i]} ${lattices[$i]}
   #---------------------------------------------------------------
   mv Evalute.txt ./${elements[$i]}/Evalute.txt
   mv logs.json   ./${elements[$i]}/logs.json
-  mv skdef.hsd.tmp_pso_${elements[$i]} ./${elements[$i]}/skdef.hsd.tmp_pso_${elements[$i]}
-  mv pso_v1_${elements[$i]}.py ./${elements[$i]}/pso_v1_${elements[$i]}.py
+  mv skdef.hsd.tmp_baysian_${elements[$i]} ./${elements[$i]}/skdef.hsd.tmp_baysian_${elements[$i]}
+  mv baysian_v1_${elements[$i]}.py ./${elements[$i]}/baysian_v1_${elements[$i]}.py
   #---------------------------------------------------------------
 done
 #-------------------------------------------------------------------------
