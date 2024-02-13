@@ -36,7 +36,8 @@ awk -v ybottom=${ybottom} -v ytop=${ytop} -v kbT=${kbT} '
 BEGIN{n=0;VD=0.0;VDT=0.0;eta=0.0}
 {
   #if( (ybottom>$3 && $3>ytop) || (0>$2 && $2>ytop) ){
-  if(ybottom>$3 && $3>ytop){
+  #if(ybottom>$3 && $3>ytop){
+  if(0>$2 && $2>ytop){
     VD=VD+($3-$2)^2
     n=n+1
     VDT=VDT+($3-$2)^2*exp(-((($2)^2)^0.5)/(3.0*kbT))
