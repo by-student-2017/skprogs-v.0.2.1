@@ -1442,9 +1442,9 @@ AtomParameters {
       ShellResolved = No
       DensityCompression = PowerCompression{ Power = 2; Radius = 6.0 }
       WaveCompressions = SingleAtomCompressions {
-	D = PowerCompression { Power = 2; Radius = 4.9 }
-	P = PowerCompression { Power = 2; Radius = 4.9 }
-	S = PowerCompression { Power = 2; Radius = 4.9 }
+	D = PowerCompression { Power = 5; Radius = 4.9 }
+	P = PowerCompression { Power = 5; Radius = 4.9 }
+	S = PowerCompression { Power = 5; Radius = 4.9 }
       }
     #  CustomizedHubbards {
 	#4D = 0.171708
@@ -2517,7 +2517,9 @@ OnecenterParameters {
       Exponents {
 	S = 2.27 5.29 12.10 27.97 62.96 # Ga/31*32
 	P = 2.27 5.29 12.10 27.97 62.96 # Ga/31*32
-	D = 2.85 7.02 17.07 41.24 98.51 # Ga/31*32
+	D = 2.50 5.92 14.59 34.09 84.00 # Ref.[2]
+	#D = 2.85 7.02 17.07 41.24 62.96
+	#D = 2.85 7.02 17.07 41.24 98.51 # Ga/31*32
       }
       MaxPowers {
 	D = 3
