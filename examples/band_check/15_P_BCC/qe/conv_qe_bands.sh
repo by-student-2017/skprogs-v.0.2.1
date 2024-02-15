@@ -3,7 +3,7 @@
 EF=`awk '{printf "%f",$5}' info.dat`
 echo "Fermi energy = ${EF} [eV] from info.dat"
 
-ytop=-12
+ytop=-25
 ybottom=25
 
 awk -v EF=${EF} -v ytop=${ytop} -v ybottom=${ybottom} '

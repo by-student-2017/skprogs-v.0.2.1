@@ -6,12 +6,11 @@
 /
 &SYSTEM
   ibrav = 0
-  A =    4.17262
+  A =    3.71611
   nat = 1
   ntyp = 1
   ecutwfc  =  66.0 ,
   ecutrho  = 323.0 ,
-  nbnd = 16 ,
   occupations = 'smearing' ,
   degauss  = 0.02 ,
   smearing = 'mp',

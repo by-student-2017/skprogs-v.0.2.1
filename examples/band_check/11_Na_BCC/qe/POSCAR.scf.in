@@ -6,7 +6,7 @@
 /
 &SYSTEM
   ibrav = 0
-  A =    4.17262
+  A =    3.71611
   nat = 1
   ntyp = 1
   ecutwfc  =  66.0 ,
@@ -30,5 +30,5 @@ ATOMIC_SPECIES
 ATOMIC_POSITIONS {crystal}
   Na   0.000000000000000   0.000000000000000   0.000000000000000 
 K_POINTS automatic
-  9 9 9  0 0 0
+  10 10 10  0 0 0
 
