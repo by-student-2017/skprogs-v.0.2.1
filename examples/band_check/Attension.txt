@@ -12,3 +12,10 @@ Of course, I would be more than happy if you could provide the parameters that f
 Unbranded (v1): S, P, and D are fitted with the same values for r0 and sigma.
 v2: Mainly, the r0 of S is decreased to better reproduce the S band.
 ------------------------------------------------------------------------------------------------
+Conventional cell => Primitive cell
+BCC: 1.0 => sqrt(3)/2 = 0.8660 
+FCC: 1.0 => 1/sqrt(2) = 0.7071
+FCC (diamond): 1.0 => 0.7071067
+HCP: 1.0 => 1.0
+SC:  1.0 => 1.0
+------------------------------------------------------------------------------------------------
