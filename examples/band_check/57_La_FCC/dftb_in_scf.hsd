@@ -11,13 +11,17 @@ Hamiltonian = DFTB {
     Suffix = ".skf"
   }
   MaxAngularMomentum {
-    Nb = "d"
+    La = "d"
   }
   KPointsAndWeights = SupercellFolding {
-    8 0 0
-    0 8 0
-    0 0 8
+   12  0  0
+    0 12  0
+    0  0 12
     0.5 0.5 0.5
+  }
+  Filling = MethfesselPaxton {
+    Order = 2
+    Temperature [eV] = 0.02
   }
 }
 
