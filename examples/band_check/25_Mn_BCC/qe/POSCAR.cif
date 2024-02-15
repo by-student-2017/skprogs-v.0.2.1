@@ -5,9 +5,9 @@
 data_VESTA_phase_1
 
 _chemical_name_common                  'BCC, Primitive cell'
-_cell_length_a                         2.799440
-_cell_length_b                         2.799440
-_cell_length_c                         2.799440
+_cell_length_a                         2.41
+_cell_length_b                         2.41
+_cell_length_c                         2.41
 _cell_angle_alpha                      109.471222
 _cell_angle_beta                       109.471222
 _cell_angle_gamma                      109.471222
