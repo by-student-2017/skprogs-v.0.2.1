@@ -6,16 +6,15 @@
 /
 &SYSTEM
   ibrav = 0
-  A =    5.64416
+  A =    4.83675
   nat = 1
   ntyp = 1
+  nbnd = 28
   ecutwfc  =  35.0 ,
   ecutrho  = 259.0 ,
   occupations = 'smearing' ,
   degauss  = 0.02 ,
   smearing = 'mp',
-  exxdiv_treatment = 'gygi-baldereschi' ,
-  x_gamma_extrapolation = .true. ,
 /
 &ELECTRONS
   conv_thr = 7.3e-05 ,
@@ -30,5 +29,5 @@ ATOMIC_SPECIES
 ATOMIC_POSITIONS {crystal}
   Rb   0.000000000000000   0.000000000000000   0.000000000000000 
 K_POINTS automatic
-  7 7 7  0 0 0
+  8 8 8  0 0 0
 
