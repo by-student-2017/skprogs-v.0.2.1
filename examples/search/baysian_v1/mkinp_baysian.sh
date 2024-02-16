@@ -23,7 +23,7 @@ grep -v '^\s*#' ${filename} > new_${filename}
 filename=new_${filename}
 
 #-----------------------------------------------------------------------------------
-n1st=`grep $1 -n ${filename} | sed "s/:.*//g" | sed -n "1p"`
+n1st=`grep "$1 " -n ${filename} | sed "s/:.*//g" | sed -n "1p"`
 #echo ${n1st}
 
 sed   "s/element_Xx/$1/g" ${python_filename} > baysian_v1_$1.py
@@ -52,6 +52,7 @@ x0=`awk -v n1st_dftbatom=${n1st_dftbatom} '{
 x1=`awk -v n1st_dftbatom=${n1st_dftbatom} '{
   if(NR==n1st_dftbatom+2 && $8=="="){printf "%4.1f",$9}
   else if(NR==n1st_dftbatom+2 && $9=="="){printf "%4.1f",$10}
+  else if(NR==n1st_dftbatom+2 && $10=="="){printf "%4.1f",$11}
 }' ${filename}`
 #----------
 x2=`awk -v n1st_dftbatom=${n1st_dftbatom} '{
@@ -115,7 +116,7 @@ sed -i "s/x6_Zz/${x6}/g" baysian_v1_$1.py
 sed -i "s/x7_Zz/${x7}/g" baysian_v1_$1.py
 #----------
 #-----------------------------------------------------------------------------------
-n2nd=`grep $1 -n skdef.hsd.tmp_baysian_1st | sed "s/:.*//g" | sed -n "2p"`
+n2nd=`grep "$1 " -n skdef.hsd.tmp_baysian_1st | sed "s/:.*//g" | sed -n "2p"`
 #echo ${n2nd}
 
 awk -v n2nd=${n2nd} '{

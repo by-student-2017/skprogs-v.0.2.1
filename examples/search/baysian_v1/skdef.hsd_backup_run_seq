@@ -561,11 +561,11 @@ AtomParameters {
 	P = PowerCompression { Power = 7 ; Radius = 14.0 }
 	D = PowerCompression { Power = 7 ; Radius = 14.0 }
       }
-      CustomizedOnsites {
+    #  CustomizedOnsites {
 	#3D =  0.030121
 	#4P = -0.029573
 	#4S = -0.085219
-      }
+    #  }
     #  CustomizedHubbards {
 	#3D = 0.171297
 	#4P = 0.081938

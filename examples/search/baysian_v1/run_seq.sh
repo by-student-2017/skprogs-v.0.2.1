@@ -42,7 +42,7 @@ ndata=${#elements[@]}
 #for((i=19;i<${ndata};i++)); do
 #for((i=37;i<39;i++)); do
 #for i in 38 47; do # Sr, Ag
-for i in 38; do # Sr
+for i in 19 38 40 42 44 46 48 50 52 33 31 21 23; do # K, Sr, Zr, Mo, Ru, Pd, Cd, Sn, Te, As, Ga, Sc, V
   #--------------------------------------------------------------
   echo $i", "${nelement[$i]}", "${elements[$i]}", "${lattices[$i]}
   #echo $(($i+1))", "${nelement[$(($i+1))]}", "${elements[$(($i+1))]}", "${lattices[$(($i+1))]}
