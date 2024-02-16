@@ -1939,12 +1939,12 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.4 }
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
       WaveCompressions = SingleAtomCompressions {
-	S = PowerCompression { Power = 2 ; Radius = 6.7 }
-	P = PowerCompression { Power = 2 ; Radius = 6.7 }
-	D = PowerCompression { Power = 2 ; Radius = 6.7 }
-	F = PowerCompression { Power = 2 ; Radius = 6.7 }
+	S = PowerCompression { Power = 2.2 ; Radius = 7.3 }
+	P = PowerCompression { Power = 2.2 ; Radius = 7.3 }
+	D = PowerCompression { Power = 2.2 ; Radius = 7.3 }
+	F = PowerCompression { Power = 2.2 ; Radius = 7.3 }
       }
     }
   }
@@ -3185,10 +3185,10 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.00 2.98 8.89 26.5 79.0 235.5
-	P = 1.00 2.98 8.89 26.5 79.0 235.5
-	D = 1.00 2.98 8.89 26.5 79.0 235.5
-	F = 1.00 2.98 8.89 26.5 79.0 235.5
+	S = 1.00 3.06  9.12 27.17  81.0 241.5
+	P = 1.00 3.06  9.12 27.17  81.0 241.5
+	D = 2.00 6.11 18.23 54.34 162.0 482.9
+	F = 1.00 3.06  9.12 27.17  81.0 241.5
       }
       MaxPowers {
 	S = 4
@@ -3203,10 +3203,10 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.00 3.09 9.22 27.5 82.0 244.4
-	P = 1.00 3.09 9.22 27.5 82.0 244.4
+	S = 1.00 3.09  9.22 27.50  82.0 244.4
+	P = 1.00 3.09  9.22 27.50  82.0 244.4
 	D = 2.00 6.18 18.45 55.01 164.0 488.8
-	F = 1.00 3.09 9.22 27.5 82.0 244.4
+	F = 1.00 3.09  9.22 27.50  82.0 244.4
       }
       MaxPowers {
 	S = 4
@@ -3221,10 +3221,10 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.00 3.13 9.34 27.8 83.0 247.4
-	P = 1.00 3.13 9.34 27.8 83.0 247.4
+	S = 1.00 3.13  9.34 27.80  83.0 247.4
+	P = 1.00 3.13  9.34 27.80  83.0 247.4
 	D = 2.00 6.26 18.68 55.68 166.0 494.8
-	F = 1.00 3.13 9.34 27.8 83.0 247.4
+	F = 1.00 3.13  9.34 27.80  83.0 247.4
       }
       MaxPowers {
 	S = 4
