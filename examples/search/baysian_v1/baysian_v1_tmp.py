@@ -49,27 +49,27 @@ atomic_number = atomic_number_Yy # In this code, this value is used as a paramet
 sto_read = "no"
 if 1 <= atomic_number and atomic_number <= 10:
   #----------
-  # H-Ne
+  # H-Ne (Period:2) (MaxPowers:3)
   y0s = 0.5 # S orbitals
   y0p = 0.5 # P orbitals
   #----------
-  ylasts = atomic_number      # S orbitals
-  ylastp = atomic_number      # P orbitals
+  ylasts = atomic_number*1.0  # S orbitals
+  ylastp = atomic_number*1.0  # P orbitals
   #----------
 elif 11 <= atomic_number and atomic_number <= 18:
   #----------
-  # Na-Ar
+  # Na-Ar (Period:3) (MaxPowers:3)
   y0s = 0.5 # S orbitals
   y0p = 0.5 # P orbitals
   y0d = 1.5 # D orbitals
   #----------
-  ylasts = atomic_number      # S orbitals
-  ylastp = atomic_number      # P orbitals
+  ylasts = atomic_number*1.0  # S orbitals
+  ylastp = atomic_number*1.0  # P orbitals
   ylastd = atomic_number*2.0  # D orbitals
   #----------
-elif 19 <= atomic_number and atomic_number <= 56:
+elif 19 <= atomic_number and atomic_number <= 36:
   #----------
-  # K-Ba
+  # K-Kr (Period:4) (MaxPowers:3)
   y0s = 2.0 # S orbitals
   y0p = 2.0 # P orbitals
   y0d = 2.5 # D orbitals
@@ -78,24 +78,30 @@ elif 19 <= atomic_number and atomic_number <= 56:
   ylastp = atomic_number*2.0  # P orbitals
   ylastd = atomic_number*3.0  # D orbitals
   #----------
+elif 37 <= atomic_number and atomic_number <= 54:
+  #----------
+  # Rb-Xe (Period:5) (MaxPowers:3)
+  y0s = 2.0 # S orbitals
+  y0p = 2.0 # P orbitals
+  y0d = 3.0 # D orbitals
+  #----------
+  ylasts = atomic_number*2.0  # S orbitals
+  ylastp = atomic_number*2.0  # P orbitals
+  ylastd = atomic_number*3.0  # D orbitals
+  #----------
 else:
   pass
   #----------
-  # La-Bi
+  # Hf-Bi (Period:6) (MaxPowers:4)
   y0s = 1.0 # S orbitals
   y0p = 1.0 # P orbitals
-  y0d = 1.0 # D orbitals
+  y0d = 2.0 # D orbitals
   y0f = 1.0 # F orbitals
   #----------
-  ylasts = atomic_number  # S orbitals
-  ylastp = atomic_number  # P orbitals
-  ylastd = atomic_number  # D orbitals
-  ylastf = atomic_number  # F orbitals
-  #----
-  ylasts_add = atomic_number*3.0  # S orbitals
-  ylastp_add = atomic_number*3.0  # P orbitals
-  ylastd_add = atomic_number*3.0  # D orbitals
-  ylastf_add = atomic_number*3.0  # F orbitals
+  ylasts_add = atomic_number*y0s  # S orbitals
+  ylastp_add = atomic_number*y0p  # P orbitals
+  ylastd_add = atomic_number*y0d  # D orbitals
+  ylastf_add = atomic_number*y0f  # F orbitals
 
 if sto_read == "yes":
   y0s = y0s_Nn # S orbitals
@@ -105,6 +111,20 @@ if sto_read == "yes":
   ylasts = ylasts_Nn   # S orbitals
   ylastp = ylastp_Nn   # P orbitals
   ylastd = ylastd_Nn   # D orbitals
+
+#---------------------------
+# test
+# Sr
+y0s = 1.0 # S orbitals
+y0p = 1.0 # P orbitals
+y0d = 2.0 # D orbitals
+# Assumption
+#ylasts = atomic_number*y0s   # S orbitals
+#ylastp = atomic_number*y0p   # P orbitals
+ylasts = atomic_number   # S orbitals
+ylastp = atomic_number   # P orbitals
+ylastd = atomic_number*y0d   # D orbitals
+#---------------------------
 
 #---------------------------
 
