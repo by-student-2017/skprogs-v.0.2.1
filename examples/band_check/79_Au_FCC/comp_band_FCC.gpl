@@ -26,8 +26,7 @@ set ylabel "Binding Energy / eV"
 set yrange [ybottom:ytop]
 set ytics 2
 set grid y
-#set xzeroaxis
-set arrow 10 nohead from xmin,0 to xmax,0 lt 2 lc "gray" lw 2
+set xzeroaxis
 #------------------------------------------------
 set parametric
 set trange [ybottom:ytop]

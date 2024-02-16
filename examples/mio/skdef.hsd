@@ -1887,12 +1887,12 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.41 }
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 } # { Power = 2 ; Radius = 9.41 }
       WaveCompressions = SingleAtomCompressions {
-	S = PowerCompression { Power = 2 ; Radius = 6.50 }
-	P = PowerCompression { Power = 2 ; Radius = 4.51 }
-	D = PowerCompression { Power = 2 ; Radius = 6.50 }
-	F = PowerCompression { Power = 2 ; Radius = 6.50 }
+	S = PowerCompression { Power = 2.0 ; Radius = 4.8 } # { Power = 2 ; Radius = 6.50 }
+	P = PowerCompression { Power = 2.0 ; Radius = 4.8 } # { Power = 2 ; Radius = 4.51 }
+	D = PowerCompression { Power = 2.0 ; Radius = 4.8 } # { Power = 2 ; Radius = 6.50 }
+	F = PowerCompression { Power = 2.0 ; Radius = 4.8 } # { Power = 2 ; Radius = 6.50 }
       }
     }
   }
@@ -3149,10 +3149,10 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.00 2.98 8.89 26.5 79.0 235.5
-	P = 1.00 2.98 8.89 26.5 79.0 235.5
-	D = 1.00 2.98 8.89 26.5 79.0 235.5
-	F = 1.00 2.98 8.89 26.5 79.0 235.5
+	S = 1.00 2.98  8.89 26.5  79.0 235.5
+	P = 1.00 2.98  8.89 26.5  79.0 235.5
+	D = 1.00 5.96 17.78 53.0 158.0 471.0 # D = 1.00 2.98 8.89 26.5 79.0 235.5
+	F = 1.00 2.98  8.89 26.5  79.0 235.5
       }
       MaxPowers {
 	S = 4
