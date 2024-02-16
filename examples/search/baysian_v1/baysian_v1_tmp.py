@@ -49,7 +49,7 @@ atomic_number = atomic_number_Yy # In this code, this value is used as a paramet
 sto_read = "no"
 if 1 <= atomic_number and atomic_number <= 10:
   #----------
-  # H-Ne (Period:2) (MaxPowers:3)
+  # Li-Ne (Period:2) (MaxPowers:3)
   y0s = 0.5 # S orbitals
   y0p = 0.5 # P orbitals
   #----------
@@ -78,18 +78,18 @@ elif 13 <= atomic_number and atomic_number <= 18:
   #----------
 elif 19 <= atomic_number and atomic_number <= 20:
   #----------
-  # K-Kr (Period:4) (MaxPowers:3)
+  # K-Ca (Period:4) (MaxPowers:3)
   y0s = 1.5 # S orbitals
   y0p = 1.5 # P orbitals
   y0d = 2.0 # D orbitals
   #----------
-  ylasts = atomic_number*1.5  # S orbitals
-  ylastp = atomic_number*1.5  # P orbitals
-  ylastd = atomic_number*2.0  # D orbitals
+  ylasts = atomic_number*2.0  # S orbitals
+  ylastp = atomic_number*2.0  # P orbitals
+  ylastd = atomic_number*2.5  # D orbitals
   #----------
 elif 21 <= atomic_number and atomic_number <= 36:
   #----------
-  # K-Kr (Period:4) (MaxPowers:3)
+  # Sc-Kr (Period:4) (MaxPowers:3)
   y0s = 2.0 # S orbitals
   y0p = 2.0 # P orbitals
   y0d = 2.5 # D orbitals
@@ -100,18 +100,18 @@ elif 21 <= atomic_number and atomic_number <= 36:
   #----------
 elif 37 <= atomic_number and atomic_number <= 38:
   #----------
-  # Rb-Xe (Period:5) (MaxPowers:3)
+  # Rb-Sr (Period:5) (MaxPowers:3)
   y0s = 1.5 # S orbitals
   y0p = 1.5 # P orbitals
   y0d = 2.0 # D orbitals
   #----------
-  ylasts = atomic_number*1.5  # S orbitals
-  ylastp = atomic_number*1.5  # P orbitals
-  ylastd = atomic_number*2.0  # D orbitals
+  ylasts = atomic_number*2.0  # S orbitals
+  ylastp = atomic_number*2.0  # P orbitals
+  ylastd = atomic_number*2.5  # D orbitals
   #----------
 elif 39 <= atomic_number and atomic_number <= 54:
   #----------
-  # Rb-Xe (Period:5) (MaxPowers:3)
+  # Y-Xe (Period:5) (MaxPowers:3)
   y0s = 2.0 # S orbitals
   y0p = 2.0 # P orbitals
   y0d = 3.0 # D orbitals
