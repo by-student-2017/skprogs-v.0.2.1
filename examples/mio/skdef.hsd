@@ -1912,12 +1912,12 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.41 }
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
       WaveCompressions = SingleAtomCompressions {
-	S = PowerCompression { Power = 2 ; Radius = 6.7 }
-	P = PowerCompression { Power = 2 ; Radius = 6.7 }
-	D = PowerCompression { Power = 2 ; Radius = 6.7 }
-	F = PowerCompression { Power = 2 ; Radius = 6.7 }
+	S = PowerCompression { Power = 2.0 ; Radius = 6.7 }
+	P = PowerCompression { Power = 2.0 ; Radius = 6.7 }
+	D = PowerCompression { Power = 2.0 ; Radius = 6.7 }
+	F = PowerCompression { Power = 2.0 ; Radius = 6.7 }
       }
     }
   }
@@ -2020,7 +2020,7 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.4 }
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
       WaveCompressions = SingleAtomCompressions {
 	S = PowerCompression { Power = 2.2 ; Radius = 5.5 }
 	P = PowerCompression { Power = 2.2 ; Radius = 5.5 }
@@ -3167,10 +3167,10 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.00 2.98 8.89 26.5 79.0 235.5
-	P = 1.00 2.98 8.89 26.5 79.0 235.5
-	D = 1.00 2.98 8.89 26.5 79.0 235.5
-	F = 1.00 2.98 8.89 26.5 79.0 235.5
+	S = 1.00 3.01  9.00 26.84  80.0 238.5
+	P = 1.00 3.01  9.00 26.84  80.0 238.5
+	D = 2.00 6.04 18.00 53.67 160.0 476.9
+	F = 1.00 3.01  9.00 26.84  80.0 238.5
       }
       MaxPowers {
 	S = 4
@@ -3239,10 +3239,10 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.00 2.98 8.89 26.5 79.0 235.5
-	P = 1.00 2.98 8.89 26.5 79.0 235.5
-	D = 1.00 2.98 8.89 26.5 79.0 235.5
-	F = 1.00 2.98 8.89 26.5 79.0 235.5
+	S = 1.00 3.17  9.45 28.18  84.0 250.4
+	P = 1.00 3.17  9.45 28.18  84.0 250.4
+	D = 2.00 6.34 18.90 56.35 168.0 500.8
+	F = 1.00 3.17  9.45 28.18  84.0 250.4
       }
       MaxPowers {
 	S = 4
@@ -3257,10 +3257,10 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.00 2.98 8.89 26.5 79.0 235.5
-	P = 1.00 2.98 8.89 26.5 79.0 235.5
-	D = 1.00 2.98 8.89 26.5 79.0 235.5
-	F = 1.00 2.98 8.89 26.5 79.0 235.5
+	S = 1.00 3.21  9.57 28.51  85.0 253.4
+	P = 1.00 3.21  9.57 28.51  85.0 253.4
+	D = 2.00 6.41 19.13 57.03 170.0 506.8
+	F = 1.00 3.21  9.57 28.51  85.0 253.4
       }
       MaxPowers {
 	S = 4
