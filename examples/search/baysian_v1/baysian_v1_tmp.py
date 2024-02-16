@@ -115,15 +115,15 @@ if sto_read == "yes":
 #---------------------------
 # test
 # Sr
-y0s = 1.0 # S orbitals
-y0p = 1.0 # P orbitals
-y0d = 2.0 # D orbitals
+#y0s = 1.0 # S orbitals
+#y0p = 1.0 # P orbitals
+#y0d = 2.0 # D orbitals
 # Assumption
 #ylasts = atomic_number*y0s   # S orbitals
 #ylastp = atomic_number*y0p   # P orbitals
-ylasts = atomic_number   # S orbitals
-ylastp = atomic_number   # P orbitals
-ylastd = atomic_number*y0d   # D orbitals
+#ylasts = atomic_number   # S orbitals
+#ylastp = atomic_number   # P orbitals
+#ylastd = atomic_number*y0d   # D orbitals
 #---------------------------
 
 #---------------------------
@@ -131,11 +131,11 @@ ylastd = atomic_number*y0d   # D orbitals
 #------------------------------------------------
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
 #---------------------------
-hwb_den = 0.15 # search range [-x*hwb:+x*hwt]
-hwt_den = 0.15 # search range [-x*hwb:+x*hwt]
+hwb_den = 0.17 # search range [-x*hwb:+x*hwt]
+hwt_den = 0.17 # search range [-x*hwb:+x*hwt]
 #---------------------------
-hwb_wav = 0.37 # search range [-x*hwb:+x*hwt]
-hwt_wav = 0.37 # search range [-x*hwb:+x*hwt]
+hwb_wav = 0.17 # search range [-x*hwb:+x*hwt]
+hwt_wav = 0.17 # search range [-x*hwb:+x*hwt]
 #---------------------------
 hwb_sto = 0.27 # search range [-x*hwb:+x*hwt]
 hwt_sto = 0.27 # search range [-x*hwb:+x*hwt]
@@ -639,7 +639,7 @@ if os.path.exists("./logs.json"):
   load_logs(new_optimizer, logs=["./logs.json"]);
   logger = JSONLogger(path="./logs", reset=False) # Results will be saved in ./logs.json
   new_optimizer.subscribe(Events.OPTIMIZATION_STEP, logger)
-  new_optimizer.maximize(init_points=11, n_iter=(600*2)) # 300 cycle / 6 h
+  new_optimizer.maximize(init_points=11, n_iter=(300*1)) # 300 cycle / 6 h
   new_optimizer.set_gp_params(alpha=1e-3) # The greater the whitenoise, the greater alpha value.
 else:
   optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=1, bounds_transformer=bounds_transformer, allow_duplicate_points=True)
