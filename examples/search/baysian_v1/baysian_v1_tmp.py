@@ -67,7 +67,18 @@ elif 11 <= atomic_number and atomic_number <= 18:
   ylastp = atomic_number*1.0  # P orbitals
   ylastd = atomic_number*2.0  # D orbitals
   #----------
-elif 19 <= atomic_number and atomic_number <= 36:
+elif 19 <= atomic_number and atomic_number <= 20:
+  #----------
+  # K-Kr (Period:4) (MaxPowers:3)
+  y0s = 1.5 # S orbitals
+  y0p = 1.5 # P orbitals
+  y0d = 2.0 # D orbitals
+  #----------
+  ylasts = atomic_number*2.0  # S orbitals
+  ylastp = atomic_number*2.0  # P orbitals
+  ylastd = atomic_number*2.0  # D orbitals
+  #----------
+elif 21 <= atomic_number and atomic_number <= 36:
   #----------
   # K-Kr (Period:4) (MaxPowers:3)
   y0s = 2.0 # S orbitals
