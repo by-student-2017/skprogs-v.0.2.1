@@ -12,7 +12,9 @@ if [ ! -e $1 ]; then
 fi
 
 filename="skdef.hsd"
-if [ -f ${filename}_backup ]; then
+if [ -f ${filename}_backup_run_seq ]; then
+  echo "run_seq.sh program"
+elif [ -f ${filename}_backup ]; then
   cp ${filename}_backup ${filename}
 else
   cp ${filename} ${filename}_backup
