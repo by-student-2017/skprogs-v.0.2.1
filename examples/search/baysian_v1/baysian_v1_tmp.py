@@ -74,18 +74,19 @@ elif 13 <= atomic_number and atomic_number <= 18:
   #----------
   ylasts = atomic_number*1.0  # S orbitals
   ylastp = atomic_number*1.0  # P orbitals
-  ylastd = atomic_number*2.0  # D orbitals
+  #ylastd = atomic_number*2.0  # D orbitals
+  ylastd = atomic_number*3.0  # D orbitals
   #----------
 elif 19 <= atomic_number and atomic_number <= 20:
   #----------
   # K-Ca (Period:4) (MaxPowers:3)
-  y0s = 1.5 # S orbitals
-  y0p = 1.5 # P orbitals
+  y0s = 1.0 # S orbitals
+  y0p = 1.0 # P orbitals
   y0d = 2.0 # D orbitals
   #----------
-  ylasts = atomic_number*2.0  # S orbitals
-  ylastp = atomic_number*2.0  # P orbitals
-  ylastd = atomic_number*2.5  # D orbitals
+  ylasts = atomic_number*1.0  # S orbitals
+  ylastp = atomic_number*1.0  # P orbitals
+  ylastd = atomic_number*2.0  # D orbitals
   #----------
 elif 21 <= atomic_number and atomic_number <= 36:
   #----------
@@ -101,13 +102,15 @@ elif 21 <= atomic_number and atomic_number <= 36:
 elif 37 <= atomic_number and atomic_number <= 38:
   #----------
   # Rb-Sr (Period:5) (MaxPowers:3)
+  # Rb: 1.5 1.5 2.0 : 1.5 1.5 2.0
+  # Sr: 1.0 1.0 1.5 : 1.0 1.0 1.5 or 1.5 1.5 2.0 (soso)
   y0s = 1.5 # S orbitals
   y0p = 1.5 # P orbitals
   y0d = 2.0 # D orbitals
   #----------
-  ylasts = atomic_number*2.0  # S orbitals
-  ylastp = atomic_number*2.0  # P orbitals
-  ylastd = atomic_number*2.5  # D orbitals
+  ylasts = atomic_number*y0s  # S orbitals
+  ylastp = atomic_number*y0p  # P orbitals
+  ylastd = atomic_number*y0d  # D orbitals
   #----------
 elif 39 <= atomic_number and atomic_number <= 54:
   #----------
