@@ -74,8 +74,8 @@ elif 13 <= atomic_number and atomic_number <= 18:
   #----------
   ylasts = atomic_number*1.0  # S orbitals
   ylastp = atomic_number*1.0  # P orbitals
-  #ylastd = atomic_number*2.0  # D orbitals
-  ylastd = atomic_number*3.0  # D orbitals
+  ylastd = atomic_number*2.0  # D orbitals
+  #ylastd = atomic_number*3.0  # D orbitals
   #----------
 elif 19 <= atomic_number and atomic_number <= 20:
   #----------
