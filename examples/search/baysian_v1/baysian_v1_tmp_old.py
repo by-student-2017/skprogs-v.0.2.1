@@ -45,6 +45,157 @@ skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" #
 element = "element_Xx"
 atomic_number = atomic_number_Yy # In this code, this value is used as a parameter of the radial wave function.
 #---------------------------
+# The parameters of the radial wave function.
+sto_read = "no"
+if 1 <= atomic_number and atomic_number <= 10:
+  #----------
+  # Li-Ne (Period:2) (MaxPowers:3)
+  y0s = 0.5 # S orbitals
+  y0p = 0.5 # P orbitals
+  #----------
+  ylasts = atomic_number*1.0  # S orbitals
+  ylastp = atomic_number*1.0  # P orbitals
+  #----------
+elif 11 <= atomic_number and atomic_number <= 12:
+  #----------
+  # Na-Mg (Period:3) (MaxPowers:3)
+  y0s = 0.5 # S orbitals
+  y0p = 0.5 # P orbitals
+  #----------
+  ylasts = atomic_number*1.0  # S orbitals
+  ylastp = atomic_number*1.0  # P orbitals
+  #----------
+elif 13 <= atomic_number and atomic_number <= 18:
+  #----------
+  # Al-Ar (Period:3) (MaxPowers:3)
+  y0s = 0.5 # S orbitals
+  y0p = 0.5 # P orbitals
+  y0d = 1.5 # D orbitals
+  #----------
+  ylasts = atomic_number*1.0  # S orbitals
+  ylastp = atomic_number*1.0  # P orbitals
+  ylastd = atomic_number*2.0  # D orbitals
+  #ylastd = atomic_number*3.0  # D orbitals
+  #----------
+elif atomic_number == 19:
+  #----------
+  # K (Period:4) (MaxPowers:3)
+  y0s = 1.5 # S orbitals
+  y0p = 1.5 # P orbitals
+  y0d = 2.0 # D orbitals
+  #----------
+  ylasts = atomic_number*2.5  # S orbitals
+  ylastp = atomic_number*2.5  # P orbitals
+  ylastd = atomic_number*2.5  # D orbitals
+  #----------
+elif atomic_number == 20:
+  #----------
+  # Ca (Period:4) (MaxPowers:3)
+  y0s = 1.5 # S orbitals
+  y0p = 1.5 # P orbitals
+  y0d = 2.0 # D orbitals
+  #----------
+  ylasts = atomic_number*2.5  # S orbitals
+  ylastp = atomic_number*2.5  # P orbitals
+  ylastd = atomic_number*3.0  # D orbitals
+  #----------
+elif 21 <= atomic_number and atomic_number <= 22:
+  #----------
+  # Sc-Kr (Period:4) (MaxPowers:3)
+  y0s = 1.5 # S orbitals, 2.5, 2.0
+  y0p = 1.5 # P orbitals, 2.5, 2.0
+  y0d = 2.0 # D orbitals, 3.0, 2.5
+  #----------
+  ylasts = atomic_number*2.5  # S orbitals
+  ylastp = atomic_number*2.5  # P orbitals
+  ylastd = atomic_number*3.0  # D orbitals
+  #----------
+elif atomic_number == 23 and atomic_number <= 34:
+  #----------
+  # Sc-Kr (Period:4) (MaxPowers:3)
+  y0s = 1.7 # S orbitals
+  y0p = 1.7 # P orbitals
+  y0d = 2.0 # D orbitals
+  #----------
+  ylasts = atomic_number*2.5  # S orbitals
+  ylastp = atomic_number*2.5  # P orbitals
+  ylastd = atomic_number*2.5  # D orbitals
+  #----------
+elif 35 <= atomic_number and atomic_number <= 36:
+  #----------
+  # Rb-Sr (Period:5) (MaxPowers:3)
+  # Rb: 1.5 1.5 2.0 : 1.5 1.5 2.0
+  # Sr: 1.0 1.0 1.5 : 1.0 1.0 1.5 or 1.5 1.5 2.0 (soso)
+  y0s = 1.5 # S orbitals
+  y0p = 1.5 # P orbitals
+  y0d = 2.0 # D orbitals
+  #----------
+  ylasts = atomic_number*y0s  # S orbitals
+  ylastp = atomic_number*y0p  # P orbitals
+  ylastd = atomic_number*y0d  # D orbitals
+  #----------
+elif 37 <= atomic_number and atomic_number <= 38:
+  #----------
+  # Rb-Sr (Period:5) (MaxPowers:3)
+  # Rb: 1.5 1.5 2.0 : 1.5 1.5 2.0
+  # Sr: 1.0 1.0 1.5 : 1.0 1.0 1.5 or 1.5 1.5 2.0 (soso)
+  y0s = 1.5 # S orbitals
+  y0p = 1.5 # P orbitals
+  y0d = 2.0 # D orbitals
+  #----------
+  ylasts = atomic_number*y0s  # S orbitals
+  ylastp = atomic_number*y0p  # P orbitals
+  ylastd = atomic_number*y0d  # D orbitals
+  #----------
+elif 39 <= atomic_number and atomic_number <= 54:
+  #----------
+  # Y-Xe (Period:5) (MaxPowers:3)
+  y0s = 2.0 # S orbitals
+  y0p = 2.0 # P orbitals
+  y0d = 3.0 # D orbitals
+  #----------
+  ylasts = atomic_number*2.0  # S orbitals
+  ylastp = atomic_number*2.0  # P orbitals
+  ylastd = atomic_number*3.0  # D orbitals
+  #----------
+else:
+  pass
+  #----------
+  # Hf-Bi (Period:6) (MaxPowers:4)
+  y0s = 1.0 # S orbitals
+  y0p = 1.0 # P orbitals
+  y0d = 2.0 # D orbitals
+  y0f = 1.0 # F orbitals
+  #----------
+  ylasts_add = atomic_number*y0s  # S orbitals
+  ylastp_add = atomic_number*y0p  # P orbitals
+  ylastd_add = atomic_number*y0d  # D orbitals
+  ylastf_add = atomic_number*y0f  # F orbitals
+
+if sto_read == "yes":
+  y0s = y0s_Nn # S orbitals
+  y0p = y0p_Nn # P orbitals
+  y0d = y0d_Nn # D orbitals
+  #-----------
+  ylasts = ylasts_Nn   # S orbitals
+  ylastp = ylastp_Nn   # P orbitals
+  ylastd = ylastd_Nn   # D orbitals
+
+#---------------------------
+# test
+# Sr
+#y0s = 1.0 # S orbitals
+#y0p = 1.0 # P orbitals
+#y0d = 2.0 # D orbitals
+# Assumption
+#ylasts = atomic_number*y0s   # S orbitals
+#ylastp = atomic_number*y0p   # P orbitals
+#ylasts = atomic_number   # S orbitals
+#ylastp = atomic_number   # P orbitals
+#ylastd = atomic_number*y0d   # D orbitals
+#---------------------------
+
+#---------------------------
 
 #------------------------------------------------
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
@@ -52,11 +203,11 @@ atomic_number = atomic_number_Yy # In this code, this value is used as a paramet
 hwb_den = 0.17 # search range [-x*hwb:+x*hwt]
 hwt_den = 0.17 # search range [-x*hwb:+x*hwt]
 #---------------------------
-hwb_wav = 0.17 # search range [-x*hwb:+x*hwt]
-hwt_wav = 0.17 # search range [-x*hwb:+x*hwt]
+hwb_wav = 0.27 # search range [-x*hwb:+x*hwt]
+hwt_wav = 0.27 # search range [-x*hwb:+x*hwt]
 #---------------------------
-hwb_sto = 0.17 # search range [-x*hwb:+x*hwt]
-hwt_sto = 0.17 # search range [-x*hwb:+x*hwt]
+hwb_sto = 0.27 # search range [-x*hwb:+x*hwt]
+hwt_sto = 0.27 # search range [-x*hwb:+x*hwt]
 #---------------------------
 # Note
 # 1. A value around sigma = 7.0 is often good. (r0 >= 12.0 in this case)
@@ -80,26 +231,20 @@ x5  = x5_Zz # r0 of P
 x6  = x6_Zz # simga of D
 x7  = x7_Zz # r0 of D
 #---------------------------
-sto_auto_preset = "no"
+sto_auto_preset = "yes"
 if sto_auto_preset == "no":
   #---------------------------
-  x17 = y0s_Nn # S orbitals
   x8  =  x8_Nn # y1 of S
-  x9  =  x9_Nn # y2 of S
+  x9  =  x9_Nn # y2 of Ss
   x10 = x10_Nn # y3 of S
-  x20 = ylasts_Nn # S orbitals
   #---------------------------
-  x18 = y0p_Nn # P orbitals
   x11 = x11_Nn # y1 of P
   x12 = x12_Nn # y2 of P
   x13 = x13_Nn # y3 of P
-  x21 = ylastp_Nn # P orbitals
   #---------------------------
-  x19 = y0d_Nn # D orbitals
   x14 = x14_Nn # y1 of D or D
   x15 = x15_Nn # y2 of D or D
   x16 = x16_Nn # y3 of D or D
-  x22 = ylastd_Nn # D orbitals
   #---------------------------
 else:
   print("Auto set coefficients of Slater-type orbitals.")
@@ -130,13 +275,13 @@ else:
 #---------------------------
 print("------------------------")
 print("initial parameters:   x0  x1  x2  x3  x4  x5  x6  x7   x8   x9"
-  +"  x10  x11  x12  x13  x14  x15  x16  x17  x18  x19  x20  x21  x22")
-print("initial parameters: ",x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22)
-x = [x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22]
+  +"  x10  x11  x12  x13  x14  x15  x16")
+print("initial parameters: ",x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16)
+x = [x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16]
 #------------------------------------------------
 
 #------------------------------------------------
-n_gene = 23 # number of parameters, number of individual +1
+n_gene = 17 # number of parameters, number of individual +1
 min_ind = np.ones(n_gene) * -1.0
 max_ind = np.ones(n_gene) *  1.0
 #---------------------------
@@ -180,10 +325,6 @@ min_ind[7] = float(x7) - float(x7)*hwb_wav
 max_ind[7] = float(x7) + float(x7)*hwt_wav
 #min_ind[7] =  2.4; max_ind[7] = 29.0
 #---------------------------
-# Slater-Type Orbitals of S: y0
-min_ind[17] = float(x17) - float(x17)*hwb_sto
-max_ind[17] = float(x17) + float(x17)*hwt_sto
-#---------------------------
 # Slater-Type Orbitals of S: y1
 min_ind[8] = float(x8) - float(x8)*hwb_sto
 max_ind[8] = float(x8) + float(x8)*hwt_sto
@@ -195,14 +336,6 @@ max_ind[9] = float(x9) + float(x9)*hwt_sto
 # Slater-Type Orbitals of S: y3
 min_ind[10] = float(x10) - float(x10)*hwb_sto
 max_ind[10] = float(x10) + float(x10)*hwt_sto
-#---------------------------
-# Slater-Type Orbitals of S: ylast
-min_ind[20] = float(x20) - float(x20)*hwb_sto
-max_ind[20] = float(x20) + float(x20)*hwt_sto
-#---------------------------
-# Slater-Type Orbitals of P: y0
-min_ind[18] = float(x18) - float(x18)*hwb_sto
-max_ind[18] = float(x18) + float(x18)*hwt_sto
 #---------------------------
 # Slater-Type Orbitals of P: y1
 min_ind[11] = float(x11) - float(x11)*hwb_sto
@@ -216,14 +349,6 @@ max_ind[12] = float(x12) + float(x12)*hwt_sto
 min_ind[13] = float(x13) - float(x13)*hwb_sto
 max_ind[13] = float(x13) + float(x13)*hwt_sto
 #---------------------------
-# Slater-Type Orbitals of P: ylast
-min_ind[21] = float(x21) - float(x21)*hwb_sto
-max_ind[21] = float(x21) + float(x21)*hwt_sto
-#---------------------------
-# Slater-Type Orbitals of D: y0
-min_ind[19] = float(x19) - float(x19)*hwb_sto
-max_ind[19] = float(x19) + float(x19)*hwt_sto
-#---------------------------
 # Slater-Type Orbitals of D: y1
 min_ind[14] = float(x14) - float(x14)*hwb_sto
 max_ind[14] = float(x14) + float(x14)*hwt_sto
@@ -236,10 +361,6 @@ max_ind[15] = float(x15) + float(x15)*hwt_sto
 min_ind[16] = float(x16) - float(x16)*hwb_sto
 max_ind[16] = float(x16) + float(x16)*hwt_sto
 #---------------------------
-# Slater-Type Orbitals of D: ylast
-min_ind[22] = float(x22) - float(x22)*hwb_sto
-max_ind[22] = float(x22) + float(x22)*hwt_sto
-#---------------------------
 if min_ind[0] < 2.0:
   min_ind[0] = 2.0
 if min_ind[2] < 2.0:
@@ -248,13 +369,6 @@ if min_ind[4] < 2.0:
   min_ind[4] = 2.0
 if min_ind[6] < 2.0:
   min_ind[6] = 2.0
-#---------------------------
-if min_ind[17] < 0.5:
-  min_ind[17] = 0.5
-if min_ind[18] < 0.5:
-  min_ind[18] = 0.5
-if min_ind[19] < 0.5:
-  min_ind[19] = 0.5
 #---------------------------
 pbounds = {
    'x0': (float(min_ind[0]),float(max_ind[0])),
@@ -273,13 +387,7 @@ pbounds = {
   'x13': (float(min_ind[13]),float(max_ind[13])),
   'x14': (float(min_ind[14]),float(max_ind[14])),
   'x15': (float(min_ind[15]),float(max_ind[15])),
-  'x16': (float(min_ind[16]),float(max_ind[16])),
-  'x17': (float(min_ind[17]),float(max_ind[17])),
-  'x18': (float(min_ind[18]),float(max_ind[18])),
-  'x19': (float(min_ind[19]),float(max_ind[19])),
-  'x20': (float(min_ind[20]),float(max_ind[20])),
-  'x21': (float(min_ind[21]),float(max_ind[21])),
-  'x22': (float(min_ind[22]),float(max_ind[22]))}# boundary
+  'x16': (float(min_ind[16]),float(max_ind[16]))}# boundary
 print("------------------------")
 print("boundary of parameters: ",pbounds)
 print("------------------------")
@@ -296,11 +404,10 @@ subprocess.run("cd ./"+element+" ; mkdir results ; cd ../", shell=True)
 subprocess.run("cd ./"+element+" ; chmod +x *.sh ; cd ../", shell=True)
 #-------------------------------
 subprocess.run("echo \"#No.: ETA [eV], sigma_den, r0_den, simga_s, r0_s, sigma_p, r0_p, sigma_d, r0_d,"
-  +" stos(y0s), stos(y1s), stos(y2s), stos(y3s), stos(yls), stos(y0p), stop(y1p), stop(y2p), stop(y3p), stos(ylp),"
-  +" stos(y0d), stod(y1d), stod(y2d), stod(y3d), stos(yld), sdt, sdt3kbt"
+  +" stos(y1s), stos(y2s), stos(y3s), stop(y1p), stop(y2p), stop(y3p), stod(y1d), stod(y2d), stod(y3d), sdt, sdt3kbt"
   +" \" > Evalute.txt", shell=True)
 subprocess.run("echo \"#| iter | 1/target | x0 | x1 | x2 | x3 | x4 | x5 | x6 | x7 | x8 |"
-  +" x9 | x10 | x11 | x12 | x13 | x14 | x15 | x16 | x17 | x18 | x19 | x20 | x21 | x22 | SDT | SDT(3kbT) |\" >> Evalute.txt", shell=True)
+  +" x9 | x10 | x11 | x12 | x13 | x14 | x15 | x16 | SDT | SDT(3kbT) |\" >> Evalute.txt", shell=True)
 #------------------------------------------------
 
 #------------------------------------------------
@@ -312,7 +419,7 @@ stdv3kbt = 0.0
 
 count = 0
 #----------------------------------------------------------------------
-def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22):
+def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   
   print("------------------------")
   global count
@@ -383,11 +490,6 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18
     #-------------------------------
     # Slater-Type Orbitals of S
     #--------- 0.02 step
-    if int(x17*100+0.5) % 2 == 0:
-      sx17 = "{:.2f}".format(x17)
-    else:
-      sx17 = "{:.2f}".format(x17+0.01)
-    #--------- 0.02 step
     if int(x8*100+0.5) % 2 == 0:
       sx8 = "{:.2f}".format(x8)
     else:
@@ -402,19 +504,9 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18
       sx10 = "{:.2f}".format(x10)
     else:
       sx10 = "{:.2f}".format(x10+0.01)
-    #--------- 0.02 step
-    if int(x20*100+0.5) % 2 == 0:
-      sx20 = "{:.2f}".format(x20)
-    else:
-      sx20 = "{:.2f}".format(x20+0.01)
     #-------------------------------
     #-------------------------------
     # Slater-Type Orbitals of P
-    #--------- 0.02 step
-    if int(x18*100+0.5) % 2 == 0:
-      sx18 = "{:.2f}".format(x18)
-    else:
-      sx18 = "{:.2f}".format(x18+0.01)
     #--------- 0.02 step
     if int(x11*100+0.5) % 2 == 0:
       sx11 = "{:.2f}".format(x11)
@@ -430,19 +522,9 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18
       sx13 = "{:.2f}".format(x13)
     else:
       sx13 = "{:.2f}".format(x13+0.01)
-    #--------- 0.02 step
-    if int(x21*100+0.5) % 2 == 0:
-      sx21 = "{:.2f}".format(x21)
-    else:
-      sx21 = "{:.2f}".format(x21+0.01)
     #-------------------------------
     #-------------------------------
     # Slater-Type Orbitals of D
-    #--------- 0.02 step
-    if int(x19*100+0.5) % 2 == 0:
-      sx19 = "{:.2f}".format(x19)
-    else:
-      sx19 = "{:.2f}".format(x19+0.01)
     #--------- 0.02 step
     if int(x14*100+0.5) % 2 == 0:
       sx14 = "{:.2f}".format(x14)
@@ -458,11 +540,6 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18
       sx16 = "{:.2f}".format(x16)
     else:
       sx16 = "{:.2f}".format(x16+0.01)
-    #--------- 0.02 step
-    if int(x22*100+0.5) % 2 == 0:
-      sx22 = "{:.2f}".format(x22)
-    else:
-      sx22 = "{:.2f}".format(x22+0.01)
     #-------------------------------
   else:
     print("sigma and r0: 0.1 step, sto: 0.01 step")
@@ -484,25 +561,19 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18
     sx7  = "{:.1f}".format(x7+R1)
     #-------------------------------
     # Slater-Type Orbitals of S
-    sx17 = "{:.2f}".format(x17+R2)
     sx8  = "{:.2f}".format(x8+R2)
     sx9  = "{:.2f}".format(x9+R2)
     sx10 = "{:.2f}".format(x10+R2)
-    sx20 = "{:.2f}".format(x20+R2)
     #-------------------------------
     # Slater-Type Orbitals of P
-    sx18 = "{:.2f}".format(x18+R2)
     sx11 = "{:.2f}".format(x11+R2)
     sx12 = "{:.2f}".format(x12+R2)
     sx13 = "{:.2f}".format(x13+R2)
-    sx21 = "{:.2f}".format(x21+R2)
     #-------------------------------
     # Slater-Type Orbitals of D
-    sx19 = "{:.2f}".format(x19+R2)
     sx14 = "{:.2f}".format(x14+R2)
     sx15 = "{:.2f}".format(x15+R2)
     sx16 = "{:.2f}".format(x16+R2)
-    sx22 = "{:.2f}".format(x22+R2)
     #-------------------------------
   #-------------------------------
   
@@ -524,21 +595,15 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18
   subprocess.call("sed -i s/r0_d/"+sx7+"/g "+file_inp, shell=True)
   #-------------------------------
   # Slater-Type Orbitals of S
-  #y0s = sx17; ylasts = sx20
-  #stos_all = str(y0s)+" "+sx8+" "+sx9+" "+sx10+" "+str(ylasts)
-  stos_all = sx17+" "+sx8+" "+sx9+" "+sx10+" "+sx20
+  stos_all = str(y0s)+" "+sx8+" "+sx9+" "+sx10+" "+str(ylasts)
   subprocess.call("sed -i s/stos/\""+stos_all+"\"/g "+file_inp, shell=True)
   #-------------------------------
   # Slater-Type Orbitals of P
-  #y0p = sx18; ylastp = sx21
-  #stop_all = str(y0p)+" "+sx11+" "+sx12+" "+sx13+" "+str(ylastp)
-  stop_all = sx18+" "+sx11+" "+sx12+" "+sx13+" "+sx21
+  stop_all = str(y0p)+" "+sx11+" "+sx12+" "+sx13+" "+str(ylastp)
   subprocess.call("sed -i s/stop/\""+stop_all+"\"/g "+file_inp, shell=True)
   #-------------------------------
   # Slater-Type Orbitals of D
-  #y0d = sx19; ylastd = sx22
-  #stod_all = str(y0d)+" "+sx14+" "+sx15+" "+sx16+" "+str(ylastd)
-  stod_all = sx19+" "+sx14+" "+sx15+" "+sx16+" "+sx22
+  stod_all = str(y0d)+" "+sx14+" "+sx15+" "+sx16+" "+str(ylastd)
   subprocess.call("sed -i s/stod/\""+stod_all+"\"/g "+file_inp, shell=True)
   #-------------------------------
   
@@ -598,25 +663,19 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18
   print("set parameters, r0_d = x7: "+sx7)
   print("------------------------")
   print("Slater-Type Orbitals of S")
-  print("set parameters, y0s = x17: "+sx17)
   print("set parameters, y1s = x8: "+sx8)
   print("set parameters, y2s = x9: "+sx9)
   print("set parameters, y3s = x10: "+sx10)
-  print("set parameters, yls = x20: "+sx20)
   print("------------------------")
   print("Slater-Type Orbitals of P")
-  print("set parameters, y0p = x18: "+sx18)
   print("set parameters, y1p = x11: "+sx11)
   print("set parameters, y2p = x12: "+sx12)
   print("set parameters, y3p = x13: "+sx13)
-  print("set parameters, ylp = x21: "+sx21)
   print("------------------------")
   print("Slater-Type Orbitals of D")
-  print("set parameters, y0d = x19: "+sx19)
   print("set parameters, y1d = x14: "+sx14)
   print("set parameters, y2d = x15: "+sx15)
   print("set parameters, y3d = x16: "+sx16)
-  print("set parameters, yld = x22: "+sx22)
   print("------------------------")
   print("Next values")
   print("| iter | target | x0 | x1 | x10 | x11 | ... ")
@@ -625,9 +684,9 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18
     +", "+sx2+", "+sx3 # S orbital
     +", "+sx4+", "+sx5 # P orbital
     +", "+sx6+", "+sx7 # D orbital
-    +", "+sx17+", "+sx8+", "+sx9+", "+sx10+", "+sx20   # Slater-Type Orbitals of S
-    +", "+sx18+", "+sx11+", "+sx12+", "+sx13+", "+sx21 # Slater-Type Orbitals of P
-    +", "+sx19+", "+sx14+", "+sx15+", "+sx16+", "+sx22 # Slater-Type Orbitals of D
+    +", "+sx8+", "+sx9+", "+sx10   # Slater-Type Orbitals of S
+    +", "+sx11+", "+sx12+", "+sx13 # Slater-Type Orbitals of P
+    +", "+sx14+", "+sx15+", "+sx16 # Slater-Type Orbitals of D
     +", "+str(sdtv)+", "+str(sdtv3kbt) # Evaluate values
     +" >> Evalute.txt", shell=True)
 
