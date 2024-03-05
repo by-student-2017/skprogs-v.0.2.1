@@ -589,9 +589,9 @@ AtomParameters {
 	P = PowerCompression { Power = 7 ; Radius = 14.0 }
 	D = PowerCompression { Power = 7 ; Radius = 14.0 }
         #----------------------------------------------------------------
-        D = PowerCompression { Power = 13.8; Radius = 7.6 } # byasin No.1
-        P = PowerCompression { Power = 14.3; Radius = 6.1 } # byasin No.1
-        S = PowerCompression { Power = 14.7; Radius = 6.4 } # byasin No.1
+        #D = PowerCompression { Power = 13.8; Radius = 7.6 } # byasin No.1
+        #P = PowerCompression { Power = 14.3; Radius = 6.1 } # byasin No.1
+        #S = PowerCompression { Power = 14.7; Radius = 6.4 } # byasin No.1
         #----------------------------------------------------------------
       }
     #  CustomizedOnsites {
@@ -729,9 +729,9 @@ AtomParameters {
 	P = PowerCompression { Power = 6 ; Radius = 6.8 }
 	S = PowerCompression { Power = 6 ; Radius = 6.8 }
         #------------------------------------------------------------------
-        D = PowerCompression { Power = 6.4; Radius = 6.7 } # baysian No.1
-        P = PowerCompression { Power = 5.7; Radius = 6.3 } # baysian No.1
-        S = PowerCompression { Power = 5.9; Radius = 6.2 } # baysian No.1
+        #D = PowerCompression { Power = 6.4; Radius = 6.7 } # baysian No.1
+        #P = PowerCompression { Power = 5.7; Radius = 6.3 } # baysian No.1
+        #S = PowerCompression { Power = 5.9; Radius = 6.2 } # baysian No.1
         #------------------------------------------------------------------
       }
     #  CustomizedHubbards {
