@@ -1,9 +1,9 @@
+------------------------------------------------------------------------------------------------
 This is to check if skprogs works.
 
 It is mainly used to manually refine parameters.
 
 The qe (DFT) data for comparison has been set to a level that is safe to publish in papers, etc.
-
 ------------------------------------------------------------------------------------------------
 We have not been able to confirm whether the fit is the best, 
 so we recommend using these data as a reference for your exploration. 
@@ -46,4 +46,13 @@ a
         0.0000000000         0.5000000000         0.5000000000
         0.5000000000         0.0000000000         0.5000000000
         0.5000000000         0.5000000000         0.0000000000
+------------------------------------------------------------------------------------------------
+Note
+
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD with errorcode 1.
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes. You may or may not see output from other processes, depending on exactly when Open MPI kills them.
+
+"dftb_in_scf.hsd" and "dftb_in_band.hsd"
+Prefix = "./../"  =>  Prefix = "./"
+
 ------------------------------------------------------------------------------------------------
