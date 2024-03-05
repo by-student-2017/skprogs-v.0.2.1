@@ -49,5 +49,4 @@ rm -f info_gnu.dat
 rm -f band.plot
 rm -f msd_band.dat
 
-
 echo "---------- Ende ----------"
