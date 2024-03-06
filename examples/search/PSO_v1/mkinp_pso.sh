@@ -8,7 +8,7 @@
 
 if [ ! -e $1 ]; then
   cp -f -r ./../../band_check/*_$1_$2 ./$1
-  cp pso_v1_msd.sh ./$1/msd.sh
+  #cp pso_v1_msd.sh ./$1/msd.sh
 fi
 
 filename="skdef.hsd"
