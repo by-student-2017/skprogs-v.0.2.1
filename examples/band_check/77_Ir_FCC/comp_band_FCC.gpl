@@ -31,6 +31,9 @@ set xzeroaxis
 set parametric
 set trange [ybottom:ytop]
 #------------------------------------------------
+#plot "dftbp_band.dat" u 1:2 w l t "DFTB" , \
+#  "./qe/qe_bands.dat" u 1:2 w l t "QE(DFT)"
+#--------------------
 plot "dftbp_band.dat" u 1:2 w l t "DFTB" , \
-  "./qe/qe_bands.dat" u 1:2 w l t "QE(DFT)"
+  "qe_bands.dat" u 1:2 w l t "QE(DFT)"
 #------------------------------------------------

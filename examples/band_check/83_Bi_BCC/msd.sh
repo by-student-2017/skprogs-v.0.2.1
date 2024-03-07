@@ -38,7 +38,7 @@ kbT3=`echo ${kbT} | awk '{printf "%f",(3.0*$1)}'`
 echo "3*kbT = "${kbT3}" [eV] at ${Temp} [K]"
 
 awk -v ybottom=${ybottom} -v ytop=${ytop} -v kbT=${kbT} '
-BEGIN{n=0;VD=0.0;VDT=0.0;eta=0.0}
+BEGIN{n=0;VD=0.0;VDT=0.0;ETA=0.0}
 {
   if( (ybottom>=$3 && $3>=ytop) || (0>=$2 && $2>=ytop) ){
   #if(ybottom>=$3 && $3>=ytop){
