@@ -49,8 +49,8 @@ atomic_number = atomic_number_Yy # In this code, this value is used as a paramet
 #------------------------------------------------
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
 #---------------------------
-hwb_den = 0.17 # search range [-x*hwb:+x*hwt]
-hwt_den = 0.17 # search range [-x*hwb:+x*hwt]
+hwb_den = 0.27 # search range [-x*hwb:+x*hwt]
+hwt_den = 0.27 # search range [-x*hwb:+x*hwt]
 #---------------------------
 hwb_wav = 0.27 # search range [-x*hwb:+x*hwt]
 hwt_wav = 0.27 # search range [-x*hwb:+x*hwt]
@@ -560,24 +560,22 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18
         etav = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
         sdtv = float(str(evaluate_sdt.stdout).lstrip("b'").rstrip("\\n'"))
         sdtv3kbt = float(str(evaluate_sdt3kbt.stdout).lstrip("b'").rstrip("\\n'"))
-        y = 1.0/etav
         subprocess.run("mv "+file_inp+" ./"+element+"/results/"+file_inp+"_No"+str(count), shell=True)
         subprocess.run("cp ./"+element+"/comp_band.png ./"+element+"/results/comp_band_No"+str(count)+".png", shell=True)
       except ValueError as error:
-        y = 0.0
         etav = 9.999
         sdtv = 9.999
         sdtv3kbt = 9.999
     else:
-      y = 0.0
       etav = 9.999
       sdtv = 9.999
       sdtv3kbt = 9.999
   else:
-    y = 0.0
     etav = 9.999
     sdtv = 9.999
     sdtv3kbt = 9.999
+
+  y = 1.0/etav
 
   print("------------------------")
   print("iter:",count)

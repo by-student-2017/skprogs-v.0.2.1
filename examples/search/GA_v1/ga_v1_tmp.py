@@ -459,7 +459,6 @@ def evalOneMax(individual):
         etav = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
         sdtv = float(str(evaluate_sdt.stdout).lstrip("b'").rstrip("\\n'"))
         sdtv3kbt = float(str(evaluate_sdt3kbt.stdout).lstrip("b'").rstrip("\\n'"))
-        y = etav
         subprocess.run("mv "+file_inp+" ./"+element+"/results/"+file_inp+"_No"+str(count), shell=True)
         subprocess.run("cp ./"+element+"/comp_band.png ./"+element+"/results/comp_band_No"+str(count)+".png", shell=True)
       except ValueError as error:
@@ -477,6 +476,8 @@ def evalOneMax(individual):
     etav = 9.999
     sdtv = 9.999
     sdtv3kbt = 9.999
+
+  y = etav
 
   print("------------------------")
   print("iter:",count)

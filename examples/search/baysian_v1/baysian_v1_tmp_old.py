@@ -613,7 +613,10 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
   
   if os.path.exists(element+"-"+element+".skf"):
     subprocess.run("mv ./"+element+"-"+element+".skf ./"+element+"/"+element+"-"+element+".skf", shell=True)
-    subprocess.run("cd ./"+element+" ; ./run.sh ; cd ../", shell=True)
+    if os.path.exists("./"+element+"/run_v2.sh"):
+      subprocess.run("cd ./"+element+" ; ./run_v2.sh ; cd ../", shell=True)
+    else:
+      subprocess.run("cd ./"+element+" ; ./run.sh ; cd ../", shell=True)
     evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
     evaluate_sdt = subprocess.run("awk '{if(NR==4){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
     evaluate_sdt3kbt = subprocess.run("awk '{if(NR==8){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
@@ -622,24 +625,22 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16):
         etav = float(str(evaluate.stdout).lstrip("b'").rstrip("\\n'"))
         sdtv = float(str(evaluate_sdt.stdout).lstrip("b'").rstrip("\\n'"))
         sdtv3kbt = float(str(evaluate_sdt3kbt.stdout).lstrip("b'").rstrip("\\n'"))
-        y = 1.0/etav
         subprocess.run("mv "+file_inp+" ./"+element+"/results/"+file_inp+"_No"+str(count), shell=True)
         subprocess.run("cp ./"+element+"/comp_band.png ./"+element+"/results/comp_band_No"+str(count)+".png", shell=True)
       except ValueError as error:
-        y = 0.0
         etav = 9.999
         sdtv = 9.999
         sdtv3kbt = 9.999
     else:
-      y = 0.0
       etav = 9.999
       sdtv = 9.999
       sdtv3kbt = 9.999
   else:
-    y = 0.0
     etav = 9.999
     sdtv = 9.999
     sdtv3kbt = 9.999
+
+  y = 1.0/etav
 
   print("------------------------")
   print("iter:",count)
