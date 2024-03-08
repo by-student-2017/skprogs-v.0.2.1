@@ -917,16 +917,21 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = No
-      #DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
-      DensityCompression = PowerCompression{ Power = 6.7; Radius = 13.5 } # baysian No.1
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      #DensityCompression = PowerCompression { Power = 2.4; Radius = 9.3 } # baysian No.1
+      #DensityCompression = PowerCompression { Power = 2.4; Radius = 9.3 } # baysian No.2
       WaveCompressions = SingleAtomCompressions {
-	#D = PowerCompression { Power = 2 ; Radius = 3.0 }
-	#P = PowerCompression { Power = 2 ; Radius = 3.0 }
-	#S = PowerCompression { Power = 2 ; Radius = 3.0 }
+	D = PowerCompression { Power = 2 ; Radius = 3.0 }
+	P = PowerCompression { Power = 2 ; Radius = 3.0 }
+	S = PowerCompression { Power = 2 ; Radius = 3.0 }
         #-----------------------------------------------------------------
-        D = PowerCompression { Power = 2.3; Radius = 3.8 } # baysian No.1
-        P = PowerCompression { Power = 2.6; Radius = 3.8 } # baysian No.1
-        S = PowerCompression { Power = 2.5; Radius = 3.4 } # baysian No.1
+        #D = PowerCompression { Power = 2.1; Radius = 3.3 } # baysian No.1
+        #P = PowerCompression { Power = 2.2; Radius = 3.2 } # baysian No.1
+        #S = PowerCompression { Power = 2.5; Radius = 2.8 } # baysian No.1
+        #-----------------------------------------------------------------
+        #D = PowerCompression { Power = 2.3; Radius = 3.2 } # baysian No.2
+        #P = PowerCompression { Power = 2.2; Radius = 3.1 } # baysian No.2
+        #S = PowerCompression { Power = 2.6; Radius = 3.1 } # baysian No.2
         #-----------------------------------------------------------------
       }
     #  CustomizedHubbards {
@@ -2820,13 +2825,17 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	#S = 1.40 3.76  9.49 22.89 53.20 # 1.80 4.36 10.09 23.39 53.70 - 1.00 2.96  8.89 22.39 52.70
-	#P = 1.40 3.76  9.49 22.89 53.20 # P = S
-	#D = 1.80 4.82 13.59 33.49 83.20 # 2.30 5.72 14.19 34.49 83.70 - 1.30 4.32 12.99 32.49 82.70
+	S = 1.40 3.76  9.49 22.89 53.20 # 1.80 4.36 10.09 23.39 53.70 - 1.00 2.96  8.89 22.39 52.70
+	P = 1.40 3.76  9.49 22.89 53.20 # P = S
+	D = 1.80 4.82 13.59 33.49 83.20 # 2.30 5.72 14.19 34.49 83.70 - 1.30 4.32 12.99 32.49 82.70
     #--------------------------------------------
-    S = 2.0 4.91 13.30 28.30 56.0 # baysian No.1
-    P = 2.0 5.31 11.59 22.76 56.0 # baysian No.1
-    D = 2.5 6.73 15.51 34.26 84.0 # baysian No.1
+    #S = 1.39 3.16  9.07 21.53 61.43 # baysian No.1
+    #P = 1.56 2.96 10.58 17.80 43.31 # baysian No.1
+    #D = 1.70 5.78 16.26 37.26 75.02 # baysian No.1
+    #--------------------------------------------
+    #S = 1.03 2.75 8.84 16.71 43.60 # baysian No.2
+    #P = 1.69 3.51 6.93 23.70 62.98 # baysian No.2
+    #D = 1.32 6.13 9.93 31.38 68.98 # baysian No.2
     #--------------------------------------------
       }
       MaxPowers {
