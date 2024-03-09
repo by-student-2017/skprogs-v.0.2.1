@@ -35,8 +35,8 @@ print("CPU: ",str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
 num_core = int(str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
 dftbp_adress = "mpirun -np "+str(num_core)+" dftb+"
 #skprogs_adress = "/home/user/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux
-#skprogs_adress = "/home/ubuntu/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux
-skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # WSL2
+skprogs_adress = "/home/ubuntu/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux
+#skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # WSL2
 #pwscf_adress = "mpirun -np "+str(num_core)+" pw.x"
 
 #----------------------------------------------------------------------
@@ -52,11 +52,11 @@ atomic_number = atomic_number_Yy # In this code, this value is used as a paramet
 hwb_den = 0.17 # search range [-x*hwb:+x*hwt]
 hwt_den = 0.17 # search range [-x*hwb:+x*hwt]
 #---------------------------
-hwb_wav = 0.27 # search range [-x*hwb:+x*hwt]
-hwt_wav = 0.27 # search range [-x*hwb:+x*hwt]
+hwb_wav = 0.17 # search range [-x*hwb:+x*hwt]
+hwt_wav = 0.17 # search range [-x*hwb:+x*hwt]
 #---------------------------
-hwb_sto = 0.27 # search range [-x*hwb:+x*hwt]
-hwt_sto = 0.27 # search range [-x*hwb:+x*hwt]
+hwb_sto = 0.10 # search range [-x*hwb:+x*hwt]
+hwt_sto = 0.10 # search range [-x*hwb:+x*hwt]
 #---------------------------
 # Note
 # 1. A value around sigma = 7.0 is often good. (r0 >= 12.0 in this case)
@@ -91,7 +91,7 @@ if sto_auto_preset == "no":
   x9  =  x9_Nn # y2 of S
   x10 = x10_Nn # y3 of S
   x20 = ylasts_Nn # S orbitals
-  x25 = y25_Nn # y4 of S
+  x25 = x25_Nn # y4 of S
   #---------------------------
   x18 = y0p_Nn # P orbitals
   x11 = x11_Nn # y1 of P
@@ -729,10 +729,7 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18
   
   if os.path.exists(element+"-"+element+".skf"):
     subprocess.run("mv ./"+element+"-"+element+".skf ./"+element+"/"+element+"-"+element+".skf", shell=True)
-    if os.path.exists("./"+element+"/run_v2.sh"):
-      subprocess.run("cd ./"+element+" ; ./run_v2.sh ; cd ../", shell=True)
-    else:
-      subprocess.run("cd ./"+element+" ; ./run.sh ; cd ../", shell=True)
+    subprocess.run("cd ./"+element+" ; ./run.sh ; cd ../", shell=True)
     evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
     evaluate_sdt = subprocess.run("awk '{if(NR==4){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
     evaluate_sdt3kbt = subprocess.run("awk '{if(NR==8){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
