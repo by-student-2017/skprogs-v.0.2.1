@@ -386,9 +386,9 @@ subprocess.run("cd ./"+element+" ; chmod +x *.sh ; cd ../", shell=True)
 subprocess.run("echo \"#No.: ETA [eV], sigma_den, r0_den,"
   +" simga_s, r0_s, sigma_p, r0_p, sigma_d, r0_d, sigma_f, r0_f,"
   +" stos(y0s), stos(y1s), stos(y2s), stos(y3s), stos(yls), stos(y4s),"
-  +" stos(y0p), stop(y1p), stop(y2p), stop(y3p), stos(ylp), stos(y4p),"
-  +" stos(y0d), stod(y1d), stod(y2d), stod(y3d), stos(yld), stos(y4d),"
-  +" stos(y0f), stod(y1f), stod(y2f), stod(y3f), stos(ylf), stos(y4f),"
+  +" stop(y0p), stop(y1p), stop(y2p), stop(y3p), stop(ylp), stop(y4p),"
+  +" stod(y0d), stod(y1d), stod(y2d), stod(y3d), stod(yld), stod(y4d),"
+  +" stof(y0f), stof(y1f), stof(y2f), stof(y3f), stof(ylf), stof(y4f),"
   +" sdt, sdt3kbt \" > Evalute.txt", shell=True)
 subprocess.run("echo \"#| iter | 1/target | x0 | x1 |"
   +" x2 |  x3 |  x4 |  x5 |  x6 |  x7 | x23 | x24 | "
@@ -720,7 +720,7 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18
   #y0f = sx28; ylastf = sx32
   #stof_all = str(y0f)+" "+sx29+" "+sx30+" "+sx31+" "+str(ylastf)+" "+sx33
   stof_all = sx28+" "+sx29+" "+sx30+" "+sx31+" "+sx32+" "+sx33
-  subprocess.call("sed -i s/stof/\""+stod_all+"\"/g "+file_inp, shell=True)
+  subprocess.call("sed -i s/stof/\""+stof_all+"\"/g "+file_inp, shell=True)
   #-------------------------------
   
   subprocess.run("export OMP_NUM_THREADS="+str(num_core), shell=True)

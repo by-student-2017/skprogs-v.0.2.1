@@ -61,7 +61,7 @@ for i in 11 12 ; do # Na Mg
     rm -f ${filename}_backup_mkinp
   fi
   #----- -----
-  nOCC_Rn=`grep OCCUPATIONS_Rn -n ${filename}_backup_run_seq | sed "s/:.*//g"`
+  nOCC_Rn=`grep "OCCUPATIONS_Rn {" -n ${filename}_backup_run_seq | sed "s/:.*//g"`
   #----- -----
   n1st_start=`grep " ${elements[$i]} " -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "1p"`
   n1st_end=`grep " ${elements[$(($i+1))]} " -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "1p"`
