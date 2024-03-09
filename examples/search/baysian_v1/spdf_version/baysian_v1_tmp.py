@@ -55,8 +55,8 @@ hwt_den = 0.17 # search range [-x*hwb:+x*hwt]
 hwb_wav = 0.17 # search range [-x*hwb:+x*hwt]
 hwt_wav = 0.17 # search range [-x*hwb:+x*hwt]
 #---------------------------
-hwb_sto = 0.10 # search range [-x*hwb:+x*hwt]
-hwt_sto = 0.10 # search range [-x*hwb:+x*hwt]
+hwb_sto = 0.17 # search range [-x*hwb:+x*hwt]
+hwt_sto = 0.17 # search range [-x*hwb:+x*hwt]
 #---------------------------
 # Note
 # 1. A value around sigma = 7.0 is often good. (r0 >= 12.0 in this case)
