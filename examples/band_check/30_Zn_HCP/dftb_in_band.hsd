@@ -7,7 +7,7 @@ Hamiltonian = DFTB {
   ReadInitialCharges = Yes
   MaxSccIterations = 1
   SlaterKosterFiles = Type2FileNames {
-    Prefix = "./../"
+    Prefix = "./"
     Separator = "-"
     Suffix = ".skf"
   }
