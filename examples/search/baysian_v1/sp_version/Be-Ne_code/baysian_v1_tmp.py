@@ -429,7 +429,10 @@ def descripter(x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13): # sp
   
   if os.path.exists(element+"-"+element+".skf"):
     subprocess.run("mv ./"+element+"-"+element+".skf ./"+element+"/"+element+"-"+element+".skf", shell=True)
-    subprocess.run("cd ./"+element+" ; ./run.sh ; cd ../", shell=True)
+    if os.path.exists("./"+element+"/run_v2.sh"):
+      subprocess.run("cd ./"+element+" ; ./run_v2.sh ; cd ../", shell=True)
+    else:
+      subprocess.run("cd ./"+element+" ; ./run.sh ; cd ../", shell=True)
     evaluate = subprocess.run("awk '{if(NR==10){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
     evaluate_sdt = subprocess.run("awk '{if(NR==4){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
     evaluate_sdt3kbt = subprocess.run("awk '{if(NR==8){printf \"%s\",$3}}' ./"+element+"/"+file_msd, shell=True, stdout=subprocess.PIPE)
