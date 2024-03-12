@@ -25,8 +25,8 @@ grep -v '^\s*#' ${filename} > new_${filename}
 filename=new_${filename}
 
 #-----------------------------------------------------------------------------------
-n1st=`grep "$1 {" -n ${filename} | sed "s/:.*//g" | sed -n "1p"`
-#echo ${n1st}
+n1st=`grep " $1 {" -n ${filename} | sed "s/:.*//g" | sed -n "1p"`
+#echo "n1st: "${n1st}
 
 sed   "s/element_Xx/$1/g" ${python_filename} > baysian_v1_$1.py
 atomic_number=`awk -v n1st=${n1st} '{if(NR==n1st+2){printf "%4.1f",$3}}' ${filename}`
@@ -118,8 +118,8 @@ sed -i "s/x6_Zz/${x6}/g" baysian_v1_$1.py
 sed -i "s/x7_Zz/${x7}/g" baysian_v1_$1.py
 #----------
 #-----------------------------------------------------------------------------------
-n2nd=`grep "$1 {" -n skdef.hsd.tmp_baysian_1st | sed "s/:.*//g" | sed -n "2p"`
-#echo ${n2nd}
+n2nd=`grep " $1 {" -n skdef.hsd.tmp_baysian_1st | sed "s/:.*//g" | sed -n "2p"`
+#echo "n2nd: "${n2nd}
 
 awk -v n2nd=${n2nd} '{
        if(NR==n2nd+4){printf "    S = stos \n"}

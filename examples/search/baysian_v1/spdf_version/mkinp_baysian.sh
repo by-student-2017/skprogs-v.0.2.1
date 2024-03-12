@@ -25,7 +25,7 @@ grep -v '^\s*#' ${filename} > new_${filename}
 filename=new_${filename}
 
 #-----------------------------------------------------------------------------------
-n1st=`grep "$1 {" -n ${filename} | sed "s/:.*//g" | sed -n "1p"`
+n1st=`grep " $1 {" -n ${filename} | sed "s/:.*//g" | sed -n "1p"`
 #echo ${n1st}
 
 sed   "s/element_Xx/$1/g" ${python_filename} > baysian_v1_$1.py
@@ -154,7 +154,7 @@ sed -i "s/x23_Zz/${x23}/g" baysian_v1_$1.py
 sed -i "s/x24_Zz/${x24}/g" baysian_v1_$1.py
 #----------
 #-----------------------------------------------------------------------------------
-n2nd=`grep "$1 {" -n skdef.hsd.tmp_baysian_1st | sed "s/:.*//g" | sed -n "2p"`
+n2nd=`grep " $1 {" -n skdef.hsd.tmp_baysian_1st | sed "s/:.*//g" | sed -n "2p"`
 #echo ${n2nd}
 
 awk -v n2nd=${n2nd} '{
