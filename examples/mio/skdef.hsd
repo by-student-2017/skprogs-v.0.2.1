@@ -1312,9 +1312,9 @@ AtomParameters {
         #P = PowerCompression { Power = 17.6; Radius = 6.8 } # baysian No.1
         #S = PowerCompression { Power = 14.4; Radius = 6.5 } # baysian No.1
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 15.3; Radius = 8.2 } # baysian No.1
-        #P = PowerCompression { Power =  9.4; Radius = 6.5 } # baysian No.1
-        #S = PowerCompression { Power = 22.0; Radius = 7.0 } # baysian No.1
+        #D = PowerCompression { Power = 15.3; Radius = 8.2 } # baysian No.2
+        #P = PowerCompression { Power =  9.4; Radius = 6.5 } # baysian No.2
+        #S = PowerCompression { Power = 22.0; Radius = 7.0 } # baysian No.2
         #------------------------------------------------------------------
       }
     }
