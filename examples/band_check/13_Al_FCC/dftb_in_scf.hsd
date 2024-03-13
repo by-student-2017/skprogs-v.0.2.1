@@ -25,16 +25,6 @@ Hamiltonian = DFTB {
   }
 }
 
-Analysis {
-  #ProjectStates {
-  #  Region {
-  #    Atoms = Au
-  #    ShellResolved = Yes
-  #    Label = "dos_au"
-  #  }
-  #}
-}
-
 ParserOptions {
   ParserVersion = 12
 }
