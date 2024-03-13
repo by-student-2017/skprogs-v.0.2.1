@@ -40,8 +40,8 @@ ndata=${#elements[@]}
 #-------------------------------------------------------------------------
 #for((i=1;i<${ndata};i++)); do
 #for((i=19;i<${ndata};i++)); do
-for((i=4;i<11;i++)); do # Be-Ne
-#for i in 12 11; do # Mg
+#for((i=4;i<11;i++)); do # Be-Ne
+for i in 8 7 6; do
   #--------------------------------------------------------------
   echo $i", "${nelement[$i]}", "${elements[$i]}", "${lattices[$i]}
   #echo $(($i+1))", "${nelement[$(($i+1))]}", "${elements[$(($i+1))]}", "${lattices[$(($i+1))]}

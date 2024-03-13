@@ -3352,43 +3352,8 @@ TwoCenterParameters {
     IntegrationPoints = 400 200
   }
 
-  #H-H { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #H-C { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #H-N { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #H-O { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #H-S { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #H-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #H-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
-  #H-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
-  #C-C { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #C-N { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #C-O { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #C-S { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #C-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #C-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
-  #C-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
-  #N-N { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #N-O { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #N-S { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #N-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #N-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
-  #N-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
-  #O-O { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #O-S { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #O-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #O-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
-  #O-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
-  #S-S { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #S-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #S-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
-  #S-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
-  #P-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
-  #P-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
-  #P-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
-  #Ti-Ti { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
-  #Ti-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
-  #Au-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
   #----------------------------------------------------------------
+  H-H   { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
   He-He { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
   Li-Li { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
   Be-Be { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
