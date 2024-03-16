@@ -1531,6 +1531,7 @@ AtomParameters {
        ShellResolved = No
        #DensityCompression = PowerCompression { Power = 2 ; Radius = 14.0 } # v1
        DensityCompression = PowerCompression { Power = 7 ; Radius = 5.5 } # v2: 2;10.0, 7;5.5
+       #DensityCompression = PowerCompression { Power = 6.5; Radius = 6.5 } # baysian No.0
        #DensityCompression = PowerCompression { Power = 7.2; Radius = 13.8 } # baysian No.1
       WaveCompressions = SingleAtomCompressions {
 	#-------------------------------------------------------------------- (v1: same as QUASINANO)
@@ -1545,6 +1546,10 @@ AtomParameters {
 	#D = PowerCompression { Power = 7 ; Radius =  5.2 } # v2X: 2;8.0, 7;5.2
 	#P = PowerCompression { Power = 7 ; Radius =  5.5 } # v2X: 2;8.0, 7;5.5
 	#S = PowerCompression { Power = 7 ; Radius =  4.6 } # v2X: 2;4.6, 7;4.6
+        #------------------------------------------------------------------
+        #D = PowerCompression { Power = 7.9; Radius = 4.9 } # baysian No.0
+        #P = PowerCompression { Power = 7.7; Radius = 5.3 } # baysian No.0
+        #S = PowerCompression { Power = 7.2; Radius = 4.8 } # baysian No.0
         #------------------------------------------------------------------
         #D = PowerCompression { Power = 13.6; Radius = 4.4 } # baysian No.1
         #P = PowerCompression { Power = 17.6; Radius = 5.4 } # baysian No.1
@@ -3490,6 +3495,10 @@ OnecenterParameters {
 	#S = 2.00 4.56 10.39 23.69 54.00 # v2X
 	#P = 2.50 5.06 10.89 24.19 54.50 # v2X
 	#D = 3.40 6.82 15.19 35.59 84.70 # v2X: Power=2 (3.20 6.72)
+    #---------------------------------------------
+    #S = 1.64 4.42 10.38 22.83 42.44 # baysian No.0
+    #P = 2.55 4.04 13.65 28.80 52.76 # baysian No.0
+    #D = 3.11 7.05 16.59 45.16 82.94 # baysian No.0
     #---------------------------------------------
     #S = 2.0 5.54 12.24 34.37  82.0 # baysian No.1
     #P = 2.0 5.32 10.46 23.66  82.0 # baysian No.1
