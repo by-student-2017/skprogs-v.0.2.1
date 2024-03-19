@@ -5,13 +5,13 @@
 data_VESTA_phase_1
 
 _chemical_name_common                  'HCP'
-_cell_length_a                         2.960000
-_cell_length_b                         2.960000
-_cell_length_c                         5.890000
+_cell_length_a                         3.007846
+_cell_length_b                         3.007846
+_cell_length_c                         5.941963
 _cell_angle_alpha                      90.000000
 _cell_angle_beta                       90.000000
 _cell_angle_gamma                      120.000000
-_cell_volume                           44.691955
+_cell_volume                           46.555577
 _space_group_name_H-M_alt              'P 1'
 _space_group_IT_number                 1
 
