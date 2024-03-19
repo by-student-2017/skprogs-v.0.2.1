@@ -240,14 +240,23 @@ AtomParameters {
     DftbAtom {
       ShellResolved = No
       DensityCompression = PowerCompression { Power = 7 ; Radius = 13.0 }
+      #DensityCompression = PowerCompression { Power = 6.3; Radius = 14.0 } # baysian No.00_graphit
+      #DensityCompression = PowerCompression { Power = 5.9; Radius = 15.6 } # baysian No.01_graphit
       WaveCompressions = SingleAtomCompressions {
 	S = PowerCompression { Power = 2 ; Radius = 2.9 }
 	P = PowerCompression { Power = 2 ; Radius = 2.9 }
+        #------------------------------------------------------------------
+        #P = PowerCompression { Power = 2.2; Radius = 3.5 } # baysian No.00_graphit
+        #S = PowerCompression { Power = 2.8; Radius = 3.0 } # baysian No.00_graphit
+        #------------------------------------------------------------------
+        #P = PowerCompression { Power = 2.1; Radius = 3.8 } # baysian No.01_graphit
+        #S = PowerCompression { Power = 2.5; Radius = 2.5 } # baysian No.01_graphit
+        #------------------------------------------------------------------
       }
-      CustomizedHubbards {
-	2P = 0.364696
-	2S = 0.399218
-      }
+    #  CustomizedHubbards {
+	#2P = 0.364696
+	#2S = 0.399218
+    #  }
     }
   }
 
@@ -522,12 +531,22 @@ AtomParameters {
     DftbAtom {
       ShellResolved = No
       DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      #DensityCompression = PowerCompression { Power = 7.8; Radius = 7.3 } # baysian No.000
+      #DensityCompression = PowerCompression { Power = 6.1; Radius = 8.4 } # baysian No.001
       #DensityCompression = PowerCompression { Power = 2.5; Radius = 10.8 } # baysian No.00
       #DensityCompression = PowerCompression { Power = 2.4; Radius = 11.4 } # baysian No.11
       WaveCompressions = SingleAtomCompressions {
 	S = PowerCompression { Power = 2 ; Radius = 4.4 }
 	P = PowerCompression { Power = 2 ; Radius = 4.4 }
 	D = PowerCompression { Power = 2 ; Radius = 4.4 }
+        #-----------------------------------------------------------------
+        #D = PowerCompression { Power = 13.5; Radius = 5.3 } # baysian No.000
+        #P = PowerCompression { Power = 12.0; Radius = 5.1 } # baysian No.000
+        #S = PowerCompression { Power = 11.8; Radius = 5.4 } # baysian No.000
+        #-----------------------------------------------------------------
+        #D = PowerCompression { Power = 12.0; Radius = 5.7 } # baysian No.001
+        #P = PowerCompression { Power = 13.0; Radius = 5.1 } # baysian No.001
+        #S = PowerCompression { Power = 13.5; Radius = 5.2 } # baysian No.001
         #-----------------------------------------------------------------
         #D = PowerCompression { Power = 2.7; Radius = 4.9 } # baysian No.00
         #P = PowerCompression { Power = 2.7; Radius = 4.9 } # baysian No.00
@@ -2752,6 +2771,13 @@ OnecenterParameters {
       Exponents {
 	S = 0.5 1.14 2.62 6.0
 	P = 0.5 1.14 2.62 6.0
+    #--------------------------------------
+    #S = 0.32 1.50 2.80 6.44 # baysian No.00_graphit
+    #P = 0.44 1.24 1.77 7.12 # baysian No.00_graphit
+    #--------------------------------------
+    #S = 0.48 1.35 3.49 6.63 # baysian No.01_graphit
+    #P = 0.48 1.40 2.66 4.82 # baysian No.01_graphit
+    #--------------------------------------
       }
       MaxPowers {
 	S = 3
@@ -2929,6 +2955,14 @@ OnecenterParameters {
 	S = 0.50 1.09 2.55  5.98 14.00 # Ref.[2]*14/15
 	P = 0.50 1.09 2.55  5.98 14.00 # Ref.[2]*14/15
 	D = 1.50 2.95 6.26 13.24 28.00 # Ref.[2]*28/30
+    #-----------------------------------------
+    #S = 0.51 1.38 2.68  7.40 14.04 # baysian No.000
+    #P = 0.63 0.95 2.95  5.97 14.44 # baysian No.000
+    #D = 1.62 3.58 5.51  9.78 25.95 # baysian No.000
+    #-----------------------------------------
+    #S = 0.61 1.02 2.61  5.06 17.63 # baysian No.001
+    #P = 0.55 1.24 2.07  4.72 12.32 # baysian No.001
+    #D = 1.79 3.31 6.35 12.84 26.72 # baysian No.001
     #-----------------------------------------
     #S = 0.52 1.31 2.69  6.03 15.74 # baysian No.00
     #P = 0.58 0.83 2.97  4.96 16.16 # baysian No.00
