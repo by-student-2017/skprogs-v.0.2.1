@@ -541,6 +541,8 @@ AtomParameters {
     DftbAtom {
       ShellResolved = No
       DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      #DensityCompression = PowerCompression { Power = 2.6; Radius = 12.9 } # baysian No.0000
+      #DensityCompression = PowerCompression { Power = 2.6; Radius = 12.8 } # baysian No.0001
       #DensityCompression = PowerCompression { Power = 7.8; Radius = 7.3 } # baysian No.000
       #DensityCompression = PowerCompression { Power = 6.1; Radius = 8.4 } # baysian No.001
       #DensityCompression = PowerCompression { Power = 2.5; Radius = 10.8 } # baysian No.00
@@ -549,6 +551,14 @@ AtomParameters {
 	S = PowerCompression { Power = 2 ; Radius = 4.4 }
 	P = PowerCompression { Power = 2 ; Radius = 4.4 }
 	D = PowerCompression { Power = 2 ; Radius = 4.4 }
+        #-----------------------------------------------------------------
+        #D = PowerCompression { Power = 3.8; Radius = 4.7 } # baysian No.0000
+        #P = PowerCompression { Power = 3.4; Radius = 4.7 } # baysian No.0000
+        #S = PowerCompression { Power = 4.2; Radius = 4.0 } # baysian No.0000
+        #-----------------------------------------------------------------
+        #D = PowerCompression { Power = 3.7; Radius = 4.8 } # baysian No.0001
+        #P = PowerCompression { Power = 3.3; Radius = 4.6 } # baysian No.0001
+        #S = PowerCompression { Power = 4.1; Radius = 4.0 } # baysian No.0001
         #-----------------------------------------------------------------
         #D = PowerCompression { Power = 13.5; Radius = 5.3 } # baysian No.000
         #P = PowerCompression { Power = 12.0; Radius = 5.1 } # baysian No.000
@@ -2983,6 +2993,14 @@ OnecenterParameters {
 	S = 0.50 1.09 2.55  5.98 14.00 # Ref.[2]*14/15
 	P = 0.50 1.09 2.55  5.98 14.00 # Ref.[2]*14/15
 	D = 1.50 2.95 6.26 13.24 28.00 # Ref.[2]*28/30
+    #-----------------------------------------
+    #S = 0.77 1.42 2.61  6.65 12.27 # baysian No.0000
+    #P = 0.62 0.94 2.14  5.21 11.69 # baysian No.0000
+    #D = 2.25 3.96 8.23 12.95 25.42 # baysian No.0000
+    #-----------------------------------------
+    #S = 0.77 1.41 2.68  6.65 12.43 # baysian No.0001
+    #P = 0.61 0.93 2.10  5.19 11.93 # baysian No.0001
+    #D = 2.27 3.94 8.22 13.19 25.72 # baysian No.0001
     #-----------------------------------------
     #S = 0.51 1.38 2.68  7.40 14.04 # baysian No.000
     #P = 0.63 0.95 2.95  5.97 14.44 # baysian No.000
