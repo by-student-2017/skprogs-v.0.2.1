@@ -2505,11 +2505,30 @@ AtomParameters {
     DftbAtom {
       ShellResolved = Yes
       DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      #DensityCompression = PowerCompression { Power = 8.0; Radius = 14.3 } # baysian No.1
+      #DensityCompression = PowerCompression { Power = 7.4; Radius = 15.9 } # baysian No.2
+      #DensityCompression = PowerCompression { Power = 7.9; Radius = 14.2 } # baysian No.3
       WaveCompressions = SingleAtomCompressions {
 	S = PowerCompression { Power = 8.0 ; Radius = 4.0 }
 	P = PowerCompression { Power = 8.0 ; Radius = 4.0 }
 	D = PowerCompression { Power = 8.0 ; Radius = 4.0 }
 	F = PowerCompression { Power = 8.0 ; Radius = 4.0 }
+        #-----------------------------------------------------------------
+        #F = PowerCompression { Power = 7.3; Radius = 3.8 } # baysian No.1
+        #D = PowerCompression { Power = 7.3; Radius = 3.8 } # baysian No.1
+        #P = PowerCompression { Power = 7.2; Radius = 4.0 } # baysian No.1
+        #S = PowerCompression { Power = 6.9; Radius = 3.4 } # baysian No.1
+        #-----------------------------------------------------------------
+        #F = PowerCompression { Power = 6.8; Radius = 4.2 } # baysian No.2
+        #D = PowerCompression { Power = 6.8; Radius = 4.2 } # baysian No.2
+        #P = PowerCompression { Power = 8.0; Radius = 4.1 } # baysian No.2
+        #S = PowerCompression { Power = 7.2; Radius = 3.7 } # baysian No.2
+        #-----------------------------------------------------------------
+        #F = PowerCompression { Power = 7.4; Radius = 3.9 } # baysian No.3
+        #D = PowerCompression { Power = 7.4; Radius = 3.9 } # baysian No.3
+        #P = PowerCompression { Power = 7.2; Radius = 4.0 } # baysian No.3
+        #S = PowerCompression { Power = 6.8; Radius = 3.4 } # baysian No.3
+        #-----------------------------------------------------------------
       }
     #  CustomizedHubbards {
 	#5D = 0.331031
@@ -4374,6 +4393,22 @@ OnecenterParameters {
 	P = 1.00 2.86  8.55 25.49  76.0 226.557
 	D = 2.00 5.73 17.10 50.99 152.0 453.1
 	F = 1.00 2.86  8.55 25.49  76.0 226.557
+    #------------------------------------------------------
+    #S = 0.97 2.47  8.33 24.92  84.26 255.26 # baysian No.1
+    #P = 0.92 2.49  8.55 22.29  74.20 246.65 # baysian No.1
+    #D = 2.06 4.84 17.69 56.28 171.27 457.06 # baysian No.1
+    #F = 1.03 2.92  9.97 23.12  77.36 200.01 # baysian No.1
+    #------------------------------------------------------
+    #S = 1.08 2.60  7.72 26.37  73.62 201.25 # baysian No.2
+    #P = 1.06 3.32  9.23 24.76  66.98 255.51 # baysian No.2
+    #D = 1.89 5.89 19.56 53.05 168.87 474.53 # baysian No.2
+    #F = 1.17 2.48  7.34 27.62  67.21 255.96 # baysian No.2
+    #------------------------------------------------------
+    #S = 0.96 2.42  8.24 25.01  84.13 254.14 # baysian No.3
+    #P = 0.93 2.51  8.61 22.39  74.44 247.86 # baysian No.3
+    #D = 2.08 4.80 17.78 55.65 171.03 454.66 # baysian No.3
+    #F = 1.03 2.89 10.00 23.01  77.85 198.43 # baysian No.3
+    #------------------------------------------------------
       }
       MaxPowers {
 	S = 4
