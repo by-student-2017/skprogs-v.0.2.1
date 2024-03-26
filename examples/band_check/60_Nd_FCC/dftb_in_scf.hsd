@@ -14,25 +14,15 @@ Hamiltonian = DFTB {
     Nd = "d"
   }
   KPointsAndWeights = SupercellFolding {
-   13  0  0
-    0 13  0
-    0  0 13
-    0.0 0.0 0.0
+   12  0  0
+    0 12  0
+    0  0 12
+    0.5 0.5 0.5
   }
   Filling = MethfesselPaxton {
     Order = 2
     Temperature [eV] = 0.02
   }
-}
-
-Analysis {
-  #ProjectStates {
-  #  Region {
-  #    Atoms = Au
-  #    ShellResolved = Yes
-  #    Label = "dos_au"
-  #  }
-  #}
 }
 
 ParserOptions {
