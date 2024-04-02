@@ -1,0 +1,3473 @@
+SkdefVersion = 1
+
+Globals {
+  # supported (semi-)local xc-functionals:
+  # XCFunctional = LDA {}
+  # XCFunctional = PBE {}
+  # XCFunctional = BLYP {}
+
+  # supported long-range corrected xc-functionals:
+  # (omega: range-separation parameter)
+  # XCFunctional = LCY-PBE {omega = 0.3}
+  # XCFunctional = LCY-BNL {omega = 0.3}
+
+  # supported global hybrid xc-functionals:
+  # XCFunctional = PBE0 {alpha = 0.25}
+  # XCFunctional = B3LYP {}
+
+  # supported CAMY xc-functionals:
+  # XCFunctional = CAMY-PBEh {
+  #   omega = 0.3
+  #   alpha = 0.25
+  #   beta = 0.75
+  # }
+  # XCFunctional = CAMY-B3LYP {
+  #   omega = 0.3
+  #   alpha = 0.19
+  #   beta = 0.46
+  # }
+
+  XCFunctional = PBE {}
+  Superposition = density
+}
+
+
+AtomParameters {
+
+  $OCCUPATIONS_Ne {
+    1S = 1.0 1.0
+    2S = 1.0 1.0
+    2P = 3.0 3.0
+  }
+
+  $OCCUPATIONS_Ar {
+    $OCCUPATIONS_Ne
+    3S = 1.0 1.0
+    3P = 3.0 3.0
+  }
+
+  $OCCUPATIONS_Kr {
+    $OCCUPATIONS_Ar
+    3D = 5.0 5.0
+    4S = 1.0 1.0
+    4P = 3.0 3.0
+  }
+
+  $OCCUPATIONS_Xe {
+    $OCCUPATIONS_Kr
+    4D = 5.0 5.0
+    5S = 1.0 1.0
+    5P = 3.0 3.0
+  }
+
+  $OCCUPATIONS_Hg {
+    $OCCUPATIONS_Xe
+    4F = 7.0 7.0
+    5D = 5.0 5.0
+    6S = 1.0 1.0
+  }
+
+  $OCCUPATIONS_Rn {
+    $OCCUPATIONS_Hg
+    6P = 3.0 3.0
+  }
+
+  H {
+    AtomConfig {
+      AtomicNumber = 1
+      Mass = 1.008
+      Occupations {
+	1S = 1.0 0.0
+      }
+      ValenceShells = 1s
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 3.9 }
+      }
+      CustomizedHubbards {
+	1S = 0.419731
+      }
+    }
+  }
+  
+  He {
+    AtomConfig {
+      AtomicNumber = 2
+      Mass = 4.0026
+      Occupations {
+	1S = 1.0 1.0
+      }
+      ValenceShells = 1s
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius =14.0 }
+      }
+      CustomizedHubbards {
+	1S = 0.742961
+      }
+    }
+  }
+  
+  Li {
+    AtomConfig {
+      AtomicNumber = 3
+      Mass = 6.94
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 0.0
+	2P = 0.0 0.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      #DensityCompression = PowerCompression { Power = 7 ; Radius = 13.0 } # v1
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 } # v2, 7;14
+      WaveCompressions = SingleAtomCompressions {
+	#P = PowerCompression { Power = 8.2 ; Radius = 5.0 } # v1
+	#S = PowerCompression { Power = 8.2 ; Radius = 5.0 } # v1
+	#-------------------------------------------------------
+	P = PowerCompression { Power = 4.0 ; Radius = 4.2 } # v2, 3;5.2, 4;4.2, 4;4.2,      4.0;4.2
+	S = PowerCompression { Power = 4.6 ; Radius = 3.9 } # v2  3;4.7, 4;3.9, 5;3.9,  4.6-5.0;3.9
+	# The power of the s-band mainly changes at the s-band in FCC.
+      }
+      CustomizedHubbards {
+	2P = 0.131681
+	2S = 0.174131
+      }
+    }
+  }
+
+  Be {
+    AtomConfig {
+      AtomicNumber = 4
+      Mass = 9.0122
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 1.0
+	2P = 0.0 0.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 13.0 } # v1, 7;13
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 10 ; Radius = 3.7 } # v1, 10;3.7
+	P = PowerCompression { Power = 10 ; Radius = 3.7 } # v1, 10;3.7
+      }
+      CustomizedHubbards {
+	2P = 0.224651
+	2S = 0.270796
+      }
+    }
+  }
+
+  B {
+    AtomConfig {
+      AtomicNumber = 5
+      Mass = 10.81
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 1.0
+	2P = 1.0 0.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 13.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 9.4 ; Radius = 3.0 }
+	P = PowerCompression { Power = 9.4 ; Radius = 3.0 }
+      }
+    }
+  }
+
+  C {
+    AtomConfig {
+      AtomicNumber = 6
+      Mass = 12.01
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 1.0
+	2P = 2.0 0.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 13.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 2.9 }
+	P = PowerCompression { Power = 2 ; Radius = 2.9 }
+      }
+      CustomizedHubbards {
+	2P = 0.364696
+	2S = 0.399218
+      }
+    }
+  }
+
+  N {
+    AtomConfig {
+      AtomicNumber = 7
+      Mass = 14.007
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 1.0
+	2P = 2.0 1.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 11.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 2.2 }
+	P = PowerCompression { Power = 2 ; Radius = 2.2 }
+      }
+    #  CustomizedOnsites {
+	##2s = -0.64
+	#2s = -0.682915
+	#2p = -0.260544
+    #  }
+    #  CustomizedHubbards {
+	#2S = 0.464356
+	#2P = 0.430903
+    #  }
+    }
+  }
+
+  O {
+    AtomConfig {
+      AtomicNumber = 8
+      Mass = 16.01
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 1.0
+	2P = 2.0 2.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 2.3 }
+	P = PowerCompression { Power = 2 ; Radius = 2.3 }
+      }
+    }
+  }
+
+  F {
+    AtomConfig {
+      AtomicNumber = 9
+      Mass = 18.9984
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 1.0
+	2P = 3.0 2.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 10.6 ; Radius = 2.7 } # 2.7, 10.6
+	P = PowerCompression { Power = 10.6 ; Radius = 2.7 } # 2.7, 10.6
+      }
+    }
+  }
+
+  Ne {
+    AtomConfig {
+      AtomicNumber = 10
+      Mass = 20.18
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 1.0
+	2P = 3.0 3.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 10.0 ; Radius = 3.2 } # 3.2, 10.0
+	P = PowerCompression { Power = 10.0 ; Radius = 3.2 } # 3.2, 10.0
+      }
+    }
+  }
+
+  Na {
+    AtomConfig {
+      AtomicNumber = 11
+      Mass = 22.99
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 0.0
+	3P = 0.0 0.0
+      }
+      ValenceShells = 3s 3p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 12.6 ; Radius = 6.7 }
+	P = PowerCompression { Power = 12.6 ; Radius = 6.7 }
+      }
+      CustomizedHubbards {
+	3S = 0.165505
+	3P = 0.087777
+      }
+    }
+  }
+
+  Mg {
+    AtomConfig {
+      AtomicNumber = 12
+      Mass = 24.305
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 0.0 0.0
+      }
+      ValenceShells = 3s 3p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 6.2 ; Radius = 5.0 }
+	P = PowerCompression { Power = 6.2 ; Radius = 5.0 }
+      }
+      CustomizedHubbards {
+	3S = 0.150727
+	3P = 0.224983
+      }
+    }
+  }
+
+  Al {
+    AtomConfig {
+      AtomicNumber = 13
+      Mass = 26.982
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 1.0 0.0
+	3D = 0.0 0.0
+      }
+      ValenceShells = 3s 3p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 13.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 5.9 }
+	P = PowerCompression { Power = 2 ; Radius = 5.9 }
+	D = PowerCompression { Power = 2 ; Radius = 5.9 }
+      }
+      CustomizedHubbards {
+	3D = 0.186573
+	3S = 0.203216
+	3P = 0.261285
+      }
+    }
+  }
+
+  Si {
+    AtomConfig {
+      AtomicNumber = 14
+      Mass = 28.0855
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 1.0 1.0
+	3D = 0.0 0.0
+      }
+      ValenceShells = 3s 3p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 4.4 }
+	P = PowerCompression { Power = 2 ; Radius = 4.4 }
+	D = PowerCompression { Power = 2 ; Radius = 4.4 }
+      }
+    }
+  }
+
+  P {
+    AtomConfig {
+      AtomicNumber = 15
+      Mass = 32.065
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 2.0 1.0
+	3D = 0.0 0.0
+      }
+      ValenceShells = 3s 3p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power =  2.0 ; Radius = 3.5 }
+	P = PowerCompression { Power =  2.0 ; Radius = 5.0 }
+	D = PowerCompression { Power =  2.0 ; Radius = 4.2 }
+      }
+    #  CustomizedOnsites {
+	##3D = 0.520437
+	#3D = 0.206304
+	#3P = 0.289262
+	#3S = 0.338175
+    #  }
+    }
+  }
+
+  S {
+    AtomConfig {
+      AtomicNumber = 16
+      Mass = 32.065
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 2.0 2.0
+	3D = 0.0 0.0
+      }
+      ValenceShells = 3s 3p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 4.6 ; Radius = 3.9 }
+	P = PowerCompression { Power = 4.6 ; Radius = 3.9 }
+	D = PowerCompression { Power = 4.6 ; Radius = 3.9 }
+      }
+    #  CustomizedHubbards {
+	#3D = 0.212922
+	#3S = 0.328724
+	#3P = 0.375610
+    #  }
+    }
+  }
+
+  Cl {
+    AtomConfig {
+      AtomicNumber = 17
+      Mass = 35.45
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 3.0 2.0
+	3D = 0.0 0.0
+      }
+      ValenceShells = 3s 3p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 9.0 ; Radius = 3.8 }
+	P = PowerCompression { Power = 9.0 ; Radius = 3.8 }
+	D = PowerCompression { Power = 9.0 ; Radius = 3.8 }
+      }
+    #  CustomizedHubbards {
+	#3D = 0.214242
+	#4P = 0.366885
+	#4S = 0.412418
+    #  }
+    }
+  }
+
+  Ar {
+    AtomConfig {
+      AtomicNumber = 18
+      Mass = 39.95
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 3.0 3.0
+	3D = 0.0 0.0
+      }
+      ValenceShells = 3s 3p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 12.0 ; Radius = 4.4 }
+	P = PowerCompression { Power = 12.0 ; Radius = 4.4 }
+	D = PowerCompression { Power = 12.0 ; Radius = 4.4 }
+      }
+    #  CustomizedHubbards {
+	#3D = 0.207908
+	#4P = 0.404106
+	#4S = 0.448703
+    #  }
+    }
+  }
+
+  K {
+    AtomConfig {
+      AtomicNumber = 19
+      Mass = 39.0983
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 0.0 0.0
+	4S = 1.0 0.0
+	4P = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 15.8 ; Radius = 6.5 }
+	P = PowerCompression { Power = 15.8 ; Radius = 6.5 }
+	D = PowerCompression { Power = 15.8 ; Radius = 6.5 }
+      }
+    #  CustomizedOnsites {
+	#3D =  0.030121
+	#4P = -0.029573
+	#4S = -0.085219
+    #  }
+    #  CustomizedHubbards {
+	#3D = 0.171297
+	#4P = 0.081938
+	#4S = 0.136368
+    #  }
+    }
+  }
+
+  Ca {
+    AtomConfig {
+      AtomicNumber = 20
+      Mass = 40.078
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 0.0 0.0
+	4S = 1.0 1.0
+	4P = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 13.6 ; Radius =  4.9 }
+	P = PowerCompression { Power = 13.6 ; Radius =  4.9 }
+	D = PowerCompression { Power = 13.6 ; Radius =  4.9 }
+      }
+    }
+  }
+
+  Sc {
+    AtomConfig {
+      AtomicNumber = 21
+      Mass = 44.956
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 1.0 1.0
+	4S = 1.0 0.0
+	4P = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 13.6 ; Radius = 5.1 }
+	P = PowerCompression { Power = 13.6 ; Radius = 5.1 }
+	D = PowerCompression { Power = 13.6 ; Radius = 5.1 }
+      }
+    #  CustomizedHubbards {
+	#3D = 0.322610
+	#4P = 0.137969
+	#4S = 0.189558
+    #  }
+    }
+  }
+
+  Ti {
+    AtomConfig {
+      AtomicNumber = 22
+      Mass = 47.867
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 1.0 1.0
+	4S = 1.0 1.0
+	4P = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 12 ; Radius = 4.2 }
+	P = PowerCompression { Power = 12 ; Radius = 4.2 }
+	D = PowerCompression { Power = 12 ; Radius = 4.2 }
+      }
+    #  CustomizedHubbards {
+	#3D = 0.20006
+	#4P = 0.20006
+	#4S = 0.20006
+    #  }
+    }
+  }
+  
+  V {
+    AtomConfig {
+      AtomicNumber = 23
+      Mass = 50.942
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 2.0 2.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 6 ; Radius = 6.8 }
+	P = PowerCompression { Power = 6 ; Radius = 6.8 }
+	S = PowerCompression { Power = 6 ; Radius = 6.8 }
+      }
+    #  CustomizedHubbards {
+	#3D = 0.376535
+	#4P = 0.149029
+	#4S = 0.211913
+    #  }
+    }
+  }
+  
+  Cr {
+    AtomConfig {
+      AtomicNumber = 24
+      Mass = 51.996
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 3.0 2.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 6 ; Radius = 6.8 }
+	P = PowerCompression { Power = 6 ; Radius = 6.8 }
+	S = PowerCompression { Power = 6 ; Radius = 6.8 }
+      }
+    #  CustomizedHubbards {
+	#3D = 0.312190
+	#4P = 0.123012
+	#4S = 0.200284
+    #  }
+    }
+  }
+  
+  Mn {
+    AtomConfig {
+      AtomicNumber = 25
+      Mass = 54.94
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 3.0 3.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 6 ; Radius = 6.8 }
+	P = PowerCompression { Power = 6 ; Radius = 6.8 }
+	S = PowerCompression { Power = 6 ; Radius = 6.8 }
+      }
+    #  CustomizedHubbards {
+	#3D = 0.422038
+	#4P = 0.155087
+	#4S = 0.230740
+    #  }
+    }
+  }
+
+  Fe {
+    AtomConfig {
+      AtomicNumber = 26
+      Mass = 55.85
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 4.0 3.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 11.2 ; Radius = 3.7 }
+	P = PowerCompression { Power = 11.2 ; Radius = 3.7 }
+	S = PowerCompression { Power = 11.2 ; Radius = 3.7 }
+      }
+    #  CustomizedHubbards {
+	#3D = 0.422038
+	#4P = 0.156593
+	#4S = 0.239398
+    #  }
+    }
+  }
+
+  Co {
+    AtomConfig {
+      AtomicNumber = 27
+      Mass = 58.9332
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 4.0 4.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 3.6 }
+	P = PowerCompression { Power = 2 ; Radius = 3.6 }
+	S = PowerCompression { Power = 3 ; Radius = 3.3 }
+      }
+    #  CustomizedHubbards {
+	#3D = 0.462884
+	#4P = 0.157219
+	#4S = 0.247710
+    #  }
+    }
+  }
+  
+  Ni {
+    AtomConfig {
+      AtomicNumber = 28
+      Mass = 58.693
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 4.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 3.0 }
+	P = PowerCompression { Power = 2 ; Radius = 3.0 }
+	S = PowerCompression { Power = 2 ; Radius = 3.0 }
+      }
+    #  CustomizedHubbards {
+	#3D = 0.401436
+	#4P = 0.106180
+	#4S = 0.235429
+    #  }
+    }
+  }
+  
+  Cu {
+    AtomConfig {
+      AtomicNumber = 29
+      Mass = 63.546
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 7.1; Radius = 14.9 }
+      WaveCompressions = SingleAtomCompressions {
+        D = PowerCompression { Power = 2.2; Radius = 4.1 } # baysian No.1
+        P = PowerCompression { Power = 2.0; Radius = 4.2 } # baysian No.1
+        S = PowerCompression { Power = 2.5; Radius = 3.8 } # baysian No.1
+      }
+    #  CustomizedHubbards {
+	#3D = 0.420670
+	#4P = 0.097312
+	#4S = 0.243169
+    #  }
+    }
+  }
+
+  Zn {
+    AtomConfig {
+      AtomicNumber = 30
+      Mass = 65.38
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4P = 0.0 0.0
+	4S = 1.0 1.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 8.8; Radius = 13.1 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2.7; Radius = 4.4 } # baysian No.1
+	P = PowerCompression { Power = 2.4; Radius = 4.4 } # baysian No.1
+	S = PowerCompression { Power = 3.0; Radius = 3.8 } # baysian No.1
+      }
+    #  CustomizedHubbards {
+	#3D = 0.518772
+	#4P = 0.153852
+	#4S = 0.271212
+    #  }
+    }
+  }
+
+  Ga {
+    AtomConfig {
+      AtomicNumber = 31
+      Mass = 69.723
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4S = 1.0 1.0
+	4P = 1.0 0.0
+	4D = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7.4; Radius = 13.1 }
+      WaveCompressions = SingleAtomCompressions {
+        D = PowerCompression { Power = 9.9; Radius = 6.7 }
+        P = PowerCompression { Power = 7.3; Radius = 5.1 }
+        S = PowerCompression { Power = 8.6; Radius = 7.5 }
+      }
+    }
+  }
+
+  Ge {
+    AtomConfig {
+      AtomicNumber = 32
+      Mass = 72.630
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4S = 1.0 1.0
+	4P = 1.0 1.0
+	4D = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 13.4 ; Radius = 4.5 }
+	P = PowerCompression { Power = 13.4 ; Radius = 4.5 }
+	S = PowerCompression { Power = 13.4 ; Radius = 4.5 }
+      }
+    }
+  }
+
+  As {
+    AtomConfig {
+      AtomicNumber = 33
+      Mass = 74.922
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4S = 1.0 1.0
+	4P = 2.0 1.0
+	4D = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 5.6 ; Radius = 4.4 }
+	P = PowerCompression { Power = 5.6 ; Radius = 4.4 }
+	S = PowerCompression { Power = 5.6 ; Radius = 4.4 }
+      }
+    }
+  }
+
+  Se {
+    AtomConfig {
+      AtomicNumber = 34
+      Mass = 78.971
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4S = 1.0 1.0
+	4P = 2.0 2.0
+	4D = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 3.8 ; Radius = 4.5 }
+	P = PowerCompression { Power = 3.8 ; Radius = 4.5 }
+	S = PowerCompression { Power = 3.8 ; Radius = 4.5 }
+      }
+    }
+  }
+
+  Br {
+    AtomConfig {
+      AtomicNumber = 35
+      Mass = 79.904
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4S = 1.0 1.0
+	4P = 3.0 2.0
+	4D = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 6.4 ; Radius = 4.3 }
+	P = PowerCompression { Power = 6.4 ; Radius = 4.3 }
+	S = PowerCompression { Power = 6.4 ; Radius = 4.3 }
+      }
+    }
+  }
+
+  Kr {
+    AtomConfig {
+      AtomicNumber = 36
+      Mass = 83.798
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4S = 1.0 1.0
+	4P = 3.0 3.0
+	4D = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 15.6 ; Radius = 4.8 }
+	P = PowerCompression { Power = 15.6 ; Radius = 4.8 }
+	S = PowerCompression { Power = 15.6 ; Radius = 4.8 }
+      }
+    }
+  }
+
+  Rb {
+    AtomConfig {
+      AtomicNumber = 37
+      Mass = 85.468
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 0.0 0.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 4d 5s 5p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 16.8 ; Radius = 9.1 }
+	P = PowerCompression { Power = 16.8 ; Radius = 9.1 }
+	D = PowerCompression { Power = 16.8 ; Radius = 9.1 }
+      }
+    }
+  }
+
+  Sr {
+    AtomConfig {
+      AtomicNumber = 38
+      Mass = 87.62
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 0.0 0.0
+	5S = 1.0 1.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 4d 5s 5p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 14.8 ; Radius = 6.9 }
+	P = PowerCompression { Power = 14.8 ; Radius = 6.9 }
+	S = PowerCompression { Power = 14.8 ; Radius = 6.9 }
+      }
+    }
+  }
+
+  Y {
+    AtomConfig {
+      AtomicNumber = 39
+      Mass = 88.906
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 1.0 1.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+       ShellResolved = No
+       DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 13.6 ; Radius = 5.7 }
+	P = PowerCompression { Power = 13.6 ; Radius = 5.7 }
+	S = PowerCompression { Power = 13.6 ; Radius = 5.7 }
+      }
+    #  CustomizedHubbards {
+	#4D = 0.239393
+	#5P = 0.127903
+	#5S = 0.176814
+    #  }
+    }
+  }
+
+  Zr {
+    AtomConfig {
+      AtomicNumber = 40
+      Mass = 91.224
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 2.0 1.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+       ShellResolved = No
+       DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 14.0 ; Radius = 5.2 } 
+	P = PowerCompression { Power = 14.0 ; Radius = 5.2 } 
+	S = PowerCompression { Power = 14.0 ; Radius = 5.2 } 
+      }
+    #  CustomizedHubbards {
+	#4D = 0.269067
+	#5P = 0.136205
+	#5S = 0.189428
+    #  }
+    }
+  }
+
+  Nb {
+    AtomConfig {
+      AtomicNumber = 41
+      Mass = 92.91
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 2.0 2.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+       ShellResolved = No
+       DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 15.0 ; Radius =  5.2 }
+	P = PowerCompression { Power = 15.0 ; Radius =  5.2 }
+	S = PowerCompression { Power = 15.0 ; Radius =  5.2 }
+      }
+    #  CustomizedHubbards {
+	#4D = 0.294607
+	#5P = 0.141661
+	#5S = 0.200280
+    #  }
+    }
+  }
+  
+  Mo {
+    AtomConfig {
+      AtomicNumber = 42
+      Mass = 95.95
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 3.0 2.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+       ShellResolved = No
+       DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 11.6 ; Radius = 4.3 } 
+	P = PowerCompression { Power = 11.6 ; Radius = 4.3 } 
+	S = PowerCompression { Power = 11.6 ; Radius = 4.3 } 
+      }
+    #  CustomizedHubbards {
+	#4D = 0.317562
+	#5P = 0.145599
+	#5S = 0.209759
+    #  }
+    }
+  }
+  
+  Tc {
+    AtomConfig {
+      AtomicNumber = 43
+      Mass = 98.00
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 3.0 3.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+       ShellResolved = No
+       DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 12.0 ; Radius = 4.1 }
+	P = PowerCompression { Power = 12.0 ; Radius = 4.1 } 
+	S = PowerCompression { Power = 12.0 ; Radius = 4.1 } 
+      }
+    #  CustomizedHubbards {
+	#4D = 0.338742
+	#5P = 0.148561
+	#5S = 0.218221
+    #  }
+    }
+  }
+  
+  Ru {
+    AtomConfig {
+      AtomicNumber = 44
+      Mass = 101.07
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 4.0 3.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 3.8 ; Radius = 4.1 }
+	P = PowerCompression { Power = 3.8 ; Radius = 4.1 }
+	S = PowerCompression { Power = 3.8 ; Radius = 4.1 }
+      }
+    #  CustomizedHubbards {
+	#4D = 0.329726
+	#5P = 0.117901
+	#5S = 0.212289
+    #  }
+    }
+  }
+  
+  Rh {
+    AtomConfig {
+      AtomicNumber = 45
+      Mass = 107.87
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 4.0 4.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 3.4 ; Radius = 4.0 }
+	P = PowerCompression { Power = 3.4 ; Radius = 4.0 }
+	S = PowerCompression { Power = 3.4 ; Radius = 4.0 }
+      }
+    #  CustomizedHubbards {
+	#4D = 0.329726
+	#5P = 0.117901
+	#5S = 0.212289
+    #  }
+    }
+  }
+
+  Pd {
+    AtomConfig {
+      AtomicNumber = 46
+      Mass = 106.42
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 4.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2.8 ; Radius = 4.4 }
+	P = PowerCompression { Power = 2.8 ; Radius = 4.4 }
+	S = PowerCompression { Power = 2.8 ; Radius = 4.4 }
+      }
+    #  CustomizedHubbards {
+	#4D = 0.369605
+	#5P = 0.107666
+	#5S = 0.225725
+    #  }
+    }
+  }
+
+  Ag {
+    AtomConfig {
+      AtomicNumber = 47
+      Mass = 107.87
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 6.5 }
+	P = PowerCompression { Power = 2 ; Radius = 6.5 }
+	S = PowerCompression { Power = 2 ; Radius = 6.5 }
+      }
+    #  CustomizedHubbards {
+	#4D = 0.388238
+	#5P = 0.099994
+	#5S = 0.231628
+    #  }
+    }
+  }
+
+  Cd {
+    AtomConfig {
+      AtomicNumber = 48
+      Mass = 112.41
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 1.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 5.4 }
+	P = PowerCompression { Power = 2 ; Radius = 5.4 }
+	S = PowerCompression { Power = 2 ; Radius = 5.4 }
+      }
+    #  CustomizedHubbards {
+	#4D = 0.430023
+	#5P = 0.150506
+	#5S = 0.251776
+    #  }
+    }
+  }
+
+  In {
+    AtomConfig {
+      AtomicNumber = 49
+      Mass = 114.82
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 1.0
+	5P = 1.0 0.0
+	5D = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 13.2 ; Radius = 4.8 }
+	P = PowerCompression { Power = 13.2 ; Radius = 4.8 }
+	S = PowerCompression { Power = 13.2 ; Radius = 4.8 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.156519
+	#5P = 0.189913
+	#5S = 0.257192
+    #  }
+    }
+  }
+
+  Sn {
+    AtomConfig {
+      AtomicNumber = 50
+      Mass = 118.71
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 1.0
+	5P = 1.0 1.0
+	5D = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 13.4 ; Radius = 4.7 }
+	P = PowerCompression { Power = 13.4 ; Radius = 4.7 }
+	S = PowerCompression { Power = 13.4 ; Radius = 4.7 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.171708
+	#5P = 0.217398
+	#5S = 0.275163
+    #  }
+    }
+  }
+
+  Sb {
+    AtomConfig {
+      AtomicNumber = 51
+      Mass = 121.76
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 1.0
+	5P = 2.0 1.0
+	5D = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 3 ; Radius = 5.2 }
+	P = PowerCompression { Power = 3 ; Radius = 5.2 }
+	S = PowerCompression { Power = 3 ; Radius = 5.2 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.184848
+	#5P = 0.241589
+	#5S = 0.294185
+    #  }
+    }
+  }
+
+  Te {
+    AtomConfig {
+      AtomicNumber = 52
+      Mass = 127.60
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 1.0
+	5P = 2.0 2.0
+	5D = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 3 ; Radius = 5.2 }
+	P = PowerCompression { Power = 3 ; Radius = 5.2 }
+	S = PowerCompression { Power = 3 ; Radius = 5.2 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.195946
+	#5P = 0.263623
+	#5S = 0.313028
+    #  }
+    }
+  }
+
+  I {
+    AtomConfig {
+      AtomicNumber = 53
+      Mass = 126.90
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 1.0
+	5P = 3.0 2.0
+	5D = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 6.2 }
+	P = PowerCompression { Power = 2 ; Radius = 6.2 }
+	S = PowerCompression { Power = 2 ; Radius = 6.2 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.206534
+	#5P = 0.284168
+	#5S = 0.331460
+    #  }
+    }
+  }
+
+  Xe {
+    AtomConfig {
+      AtomicNumber = 54
+      Mass = 131.29
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 1.0
+	5P = 3.0 3.0
+	5D = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 16.2 ; Radius = 5.2 }
+	P = PowerCompression { Power = 16.2 ; Radius = 5.2 }
+	S = PowerCompression { Power = 16.2 ; Radius = 5.2 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.211949
+	#5P = 0.303641
+	#5S = 0.349484
+    #  }
+    }
+  }
+
+  Cs {
+    AtomConfig {
+      AtomicNumber = 55
+      Mass = 132.91
+      Occupations {
+	$OCCUPATIONS_Xe
+	5D = 0.0 0.0
+	6S = 1.0 0.0
+	6P = 0.0 0.0
+      }
+      ValenceShells = 5d 6s 6p
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 12.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 13.6 ; Radius = 10.6 }
+	P = PowerCompression { Power = 13.6 ; Radius = 10.6 }
+	S = PowerCompression { Power = 13.6 ; Radius = 10.6 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.159261
+	#6P = 0.069450
+	#6S = 0.120590
+    #  }
+    }
+  }
+
+  Ba {
+    AtomConfig {
+      AtomicNumber = 56
+      Mass = 132.91
+      Occupations {
+	$OCCUPATIONS_Xe
+	5D = 0.0 0.0
+	6S = 1.0 1.0
+	6P = 0.0 0.0
+      }
+      ValenceShells = 5d 6s 6p
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 12 ; Radius = 6.7 }
+	P = PowerCompression { Power = 12 ; Radius = 6.7 }
+	S = PowerCompression { Power = 12 ; Radius = 6.7 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.199559
+	#6P = 0.105176
+	#6S = 0.149382
+    #  }
+    }
+  }
+
+  La {
+    AtomConfig {
+      AtomicNumber = 57
+      Mass = 138.91
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 0.0 0.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 8.6 ; Radius = 7.4 }
+	P = PowerCompression { Power = 8.6 ; Radius = 7.4 }
+	D = PowerCompression { Power = 8.6 ; Radius = 7.4 }
+	F = PowerCompression { Power = 8.6 ; Radius = 7.4 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.220941
+	#6P = 0.115479
+	#6S = 0.160718
+    #  }
+    }
+  }
+
+  Hf {
+    AtomConfig {
+      AtomicNumber = 72
+      Mass = 178.49
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 1.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 14.8 ; Radius = 5.2 }
+	P = PowerCompression { Power = 14.8 ; Radius = 5.2 }
+	D = PowerCompression { Power = 14.8 ; Radius = 5.2 }
+	F = PowerCompression { Power = 14.8 ; Radius = 5.2 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.249246
+	#6P = 0.135605
+	#6S = 0.200526
+    #  }
+    }
+  }
+
+  Ta {
+    AtomConfig {
+      AtomicNumber = 73
+      Mass = 180.95
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 2.0 1.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 13.8 ; Radius = 4.8 }
+	P = PowerCompression { Power = 13.8 ; Radius = 4.8 }
+	D = PowerCompression { Power = 13.8 ; Radius = 4.8 }
+	F = PowerCompression { Power = 13.8 ; Radius = 4.8 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.294154
+	#6P = 0.144425
+	#6S = 0.223288
+    #  }
+    }
+  }
+
+  W {
+    AtomConfig {
+      AtomicNumber = 74
+      Mass = 183.84
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 2.0 2.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 8.6 ; Radius = 4.2 }
+	P = PowerCompression { Power = 8.6 ; Radius = 4.2 }
+	D = PowerCompression { Power = 8.6 ; Radius = 4.2 }
+	F = PowerCompression { Power = 8.6 ; Radius = 4.2 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.294154
+	#6P = 0.144425
+	#6S = 0.223288
+    #  }
+    }
+  }
+
+  Re {
+    AtomConfig {
+      AtomicNumber = 75
+      Mass = 186.21
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 3.0 2.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 13.0 ; Radius = 4.2 }
+	P = PowerCompression { Power = 13.0 ; Radius = 4.2 }
+	D = PowerCompression { Power = 13.0 ; Radius = 4.2 }
+	F = PowerCompression { Power = 13.0 ; Radius = 4.2 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.313288
+	#6P = 0.146247
+	#6S = 0.233028
+    #  }
+    }
+  }
+
+  Os {
+    AtomConfig {
+      AtomicNumber = 76
+      Mass = 190.23
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 3.0 3.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 8.0 ; Radius = 4.0 }
+	P = PowerCompression { Power = 8.0 ; Radius = 4.0 }
+	D = PowerCompression { Power = 8.0 ; Radius = 4.0 }
+	F = PowerCompression { Power = 8.0 ; Radius = 4.0 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.331031
+	#6P = 0.146335
+	#6S = 0.241981
+    #  }
+    }
+  }
+
+  Ir {
+    AtomConfig {
+      AtomicNumber = 77
+      Mass = 192.22
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 4.0 3.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 12.6 ; Radius = 3.9 }
+	P = PowerCompression { Power = 12.6 ; Radius = 3.9 }
+	D = PowerCompression { Power = 12.6 ; Radius = 3.9 }
+	F = PowerCompression { Power = 12.6 ; Radius = 3.9 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.347715
+	#6P = 0.145121
+	#6S = 0.250317
+    #  }
+    }
+  }
+
+  Pt {
+    AtomConfig {
+      AtomicNumber = 78
+      Mass = 195.08
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 0.0
+	5D = 5.0 4.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 12.8 ; Radius = 3.8 }
+	P = PowerCompression { Power = 12.8 ; Radius = 3.8 }
+	D = PowerCompression { Power = 12.8 ; Radius = 3.8 }
+	F = PowerCompression { Power = 12.8 ; Radius = 3.8 }
+      }
+    #  CustomizedHubbards {
+	#5D = 0.363569
+	#6P = 0.143184
+	#6S = 0.258165
+    #  }
+    }
+  }
+
+  Au {
+    AtomConfig {
+      AtomicNumber = 79
+      Mass = 196.967
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 0.0
+	5D = 5.0 5.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 } # { Power = 2 ; Radius = 9.41 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2.0 ; Radius = 4.8 } # { Power = 2 ; Radius = 6.50 }
+	P = PowerCompression { Power = 2.0 ; Radius = 4.8 } # { Power = 2 ; Radius = 4.51 }
+	D = PowerCompression { Power = 2.0 ; Radius = 4.8 } # { Power = 2 ; Radius = 6.50 }
+	F = PowerCompression { Power = 2.0 ; Radius = 4.8 } # { Power = 2 ; Radius = 6.50 }
+      }
+    }
+  }
+
+  Hg {
+    AtomConfig {
+      AtomicNumber = 80
+      Mass = 196.967
+      Occupations {
+	$OCCUPATIONS_Xe
+	4F = 7.0 7.0
+	5D = 5.0 5.0
+	6S = 1.0 1.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2.0 ; Radius = 6.7 }
+	P = PowerCompression { Power = 2.0 ; Radius = 6.7 }
+	D = PowerCompression { Power = 2.0 ; Radius = 6.7 }
+	F = PowerCompression { Power = 2.0 ; Radius = 6.7 }
+      }
+    }
+  }
+
+  Tl {
+    AtomConfig {
+      AtomicNumber = 81
+      Mass = 200.59
+      Occupations {
+	$OCCUPATIONS_Xe
+	4F = 7.0 7.0
+	5D = 5.0 5.0
+	6S = 1.0 1.0
+	6P = 1.0 0.0
+	6D = 0.0 0.0
+      }
+      ValenceShells = 6s 6p 6d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2.2 ; Radius = 7.3 }
+	P = PowerCompression { Power = 2.2 ; Radius = 7.3 }
+	D = PowerCompression { Power = 2.2 ; Radius = 7.3 }
+	F = PowerCompression { Power = 2.2 ; Radius = 7.3 }
+      }
+    }
+  }
+
+  Pb {
+    AtomConfig {
+      AtomicNumber = 82
+      Mass = 200.59
+      Occupations {
+	$OCCUPATIONS_Xe
+	4F = 7.0 7.0
+	5D = 5.0 5.0
+	6S = 1.0 1.0
+	6P = 1.0 1.0
+	6D = 0.0 0.0
+      }
+      ValenceShells = 6s 6p 6d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 3.0 ; Radius = 5.7 }
+	P = PowerCompression { Power = 3.0 ; Radius = 5.7 }
+	D = PowerCompression { Power = 3.0 ; Radius = 5.7 }
+	F = PowerCompression { Power = 3.0 ; Radius = 5.7 }
+      }
+    }
+  }
+
+  Bi {
+    AtomConfig {
+      AtomicNumber = 83
+      Mass = 208.98
+      Occupations {
+	$OCCUPATIONS_Xe
+	4F = 7.0 7.0
+	5D = 5.0 5.0
+	6S = 1.0 1.0
+	6P = 2.0 1.0
+	6D = 0.0 0.0
+      }
+      ValenceShells = 6s 6p 6d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2.6 ; Radius = 5.8 }
+	P = PowerCompression { Power = 2.6 ; Radius = 5.8 }
+	D = PowerCompression { Power = 2.6 ; Radius = 5.8 }
+	F = PowerCompression { Power = 2.6 ; Radius = 5.8 }
+      }
+    }
+  }
+
+  Po {
+    AtomConfig {
+      AtomicNumber = 84
+      Mass = 209
+      Occupations {
+	$OCCUPATIONS_Xe
+	4F = 7.0 7.0
+	5D = 5.0 5.0
+	6S = 1.0 1.0
+	6P = 2.0 2.0
+	6D = 0.0 0.0
+      }
+      ValenceShells = 6s 6p 6d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+	P = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+	D = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+	F = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+      }
+    }
+  }
+}
+
+
+OnecenterParameters {
+
+  $StandardDeltaFilling {
+    DeltaFilling = 0.01
+  }
+
+  H {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.50 1.0 2.0
+      }
+      MaxPowers {
+	S = 3
+      }
+    }
+  }
+  
+  He {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.50 1.0 2.0
+      }
+      MaxPowers {
+	S = 3
+      }
+    }
+  }
+
+  Li {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.50 1.22 3.00 # Ref.[2]
+	P = 0.50 1.22 3.00 # Ref.[2]
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+
+  Be {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.5 0.86 2.04 4.0
+	P = 0.5 0.86 2.04 4.0
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+
+  B {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.5 0.95 2.18 5.0
+	P = 0.5 0.95 2.18 5.0
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+
+  C {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.5 1.14 2.62 6.0
+	P = 0.5 1.14 2.62 6.0
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+
+  N {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	#S = 0.5 1.2 2.9 7.0 # same as Ref.[2]
+	#P = 0.5 1.2 2.9 7.0 # same as Ref.[2]
+	S = 0.5 1.2 2.8 7.0 # same as Ref.[2]
+	P = 0.5 1.2 2.8 7.0 # same as Ref.[2]
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+
+  O {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.5 1.26 3.17 8.0 # same as Ref.[2]
+	P = 0.5 1.26 3.17 8.0 # same as Ref.[2]
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+
+  F {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.5 1.32 3.47 9.0
+	P = 0.5 1.32 3.47 9.0
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+
+  Ne {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.5 1.42 3.77 10.0
+	P = 0.5 1.42 3.77 10.0
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+
+  Na {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.50 0.87 2.08 4.93 11.00 # Ref.[2]*11/15
+	P = 0.50 0.87 2.08 4.93 11.00 # Ref.[2]*11/15
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+  
+  Mg {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.50 0.93 2.18 5.12 12.00 # Ref.[2]*12/15
+	P = 0.50 0.93 2.18 5.12 12.00 # Ref.[2]*12/15
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+
+  Al {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.50 1.01 2.37  5.55 13.00 # Ref.[2]*13/15
+	P = 0.50 1.01 2.37  5.55 13.00 # Ref.[2]*13/15
+	D = 1.50 2.75 5.81 12.30 26.00 # Ref.[2]*26/30
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  Si {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.50 1.09 2.55  5.98 14.00 # Ref.[2]*14/15
+	P = 0.50 1.09 2.55  5.98 14.00 # Ref.[2]*14/15
+	D = 1.50 2.95 6.26 13.24 28.00 # Ref.[2]*28/30
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  P {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	#S = 0.5 1.19 2.83  6.73 15.0
+	#P = 0.5 1.19 2.83  6.73 15.0
+	#D = 0.5 1.19 2.83  6.73 15.0
+	S = 0.50 1.17 2.83  6.41 15.00 # Ref.[2] (modified)
+	P = 0.50 1.17 2.83  6.41 15.00 # Ref.[2] (modified)
+	D = 1.50 3.17 6.41 14.10 30.00 # Ref.[2] (modified)
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  S {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.5 1.19 2.83 6.73 16.0
+	P = 0.5 1.19 2.83 6.73 16.0
+	D = 0.5 1.19 2.83 6.73 16.0
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  Cl {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.5 1.26 3.00 7.15 17.0 # S*17/16
+	P = 0.5 1.26 3.00 7.15 17.0 # S*17/16
+	D = 0.5 1.26 3.00 7.15 17.0 # S*17/16
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  Ar {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.5 1.33 3.18 7.57 18.0 # S*18/16
+	P = 0.5 1.33 3.18 7.57 18.0 # S*18/16
+	D = 0.5 1.33 3.18 7.57 18.0 # S*18/16
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  K {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.50 2.90  9.90 22.90 54.00
+	P = 1.50 2.90  9.90 22.90 54.00
+	D = 1.70 3.50 10.70 23.80 54.00 # 1.50 2.90  9.90 22.90 54.00
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  Ca {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	#S = 1.37 3.58  8.60 20.06 46.18 # Ref.[2]*20/21
+	#P = 1.37 3.58  8.60 20.06 46.18 # Ref.[2]*20/21
+	#D = 2.07 5.00 11.44 29.88 72.20 # Ref.[2]*20/21
+	#-----------------------------------------------
+	S = 1.50 2.90  9.90 22.90 54.00
+	P = 1.50 2.90  9.90 22.90 54.00
+	D = 2.00 4.56 10.39 23.69 54.00
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  Sc {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.60 4.16  9.99 23.29 53.60 # Ref.[2]*21/27
+	P = 1.60 4.16  9.99 23.29 53.60 # Ref.[2]*21/27
+	D = 2.40 5.82 13.29 34.69 83.80 # Ref.[2]*21/27
+      }
+      MaxPowers {
+	D = 3 # Ref.[2]
+	P = 3 # Ref.[2]
+	S = 3 # Ref.[2]
+      }
+    }
+  }
+
+  Ti {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+#	S = 0.01 0.0685 0.4690 3.2120 22.0
+#	P = 0.01 0.0685 0.4690 3.2120 22.0
+#	D = 0.01 0.0685 0.4690 3.2120 22.0
+	S = 1.67 4.35 10.46 24.40 56.15 # Ref.[2]*22/21
+	P = 1.67 4.35 10.46 24.40 56.15 # Ref.[2]*22/21
+	D = 2.51 6.10 13.92 36.34 87.79 # Ref.[2]*22/21
+      }
+      MaxPowers {
+	#S = 5
+	#P = 5
+	#D = 5
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  V {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.80 4.36 10.19 23.49 53.80
+	P = 1.80 4.36 10.19 23.49 53.80
+	D = 2.50 6.02 14.49 34.89 84.00
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Cr {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.00 4.56 10.39 23.69 54.00
+	P = 2.00 4.56 10.39 23.69 54.00
+	D = 2.70 6.22 14.69 35.09 84.20
+      }
+      MaxPowers {
+	D = 3 # Ref.[2]
+	P = 3 # Ref.[2]
+	S = 3 # Ref.[2]
+      }
+    }
+  }
+  
+  Mn {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.00 4.56 10.39 23.69 54.00
+	P = 2.00 4.56 10.39 23.69 54.00
+	D = 2.70 6.22 14.69 35.09 84.20
+      }
+      MaxPowers {
+	D = 3 # Ref.[2]
+	P = 3 # Ref.[2]
+	S = 3 # Ref.[2]
+      }
+    }
+  }
+  
+  Fe {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.00 4.56 10.39 23.69 54.00
+	P = 2.00 4.56 10.39 23.69 54.00
+	D = 2.50 6.02 14.49 34.89 84.00
+      }
+      MaxPowers {
+	D = 3 # Ref.[2]
+	P = 3 # Ref.[2]
+	S = 3 # Ref.[2]
+      }
+    }
+  }
+
+  Co {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	P = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	D = 2.50 6.02 14.49 34.89 84.00 # Ref.[2]
+      }
+      MaxPowers {
+	D = 3 # Ref.[2]
+	P = 3 # Ref.[2]
+	S = 3 # Ref.[2]
+      }
+    }
+  }
+
+  Ni {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.40 3.76  9.49 22.89 53.20
+	P = 1.40 3.76  9.49 22.89 53.20
+	D = 1.80 4.82 13.59 33.49 83.20
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+  
+  Cu {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    S = 2.0 4.72 11.28 29.07 58.0
+    P = 2.0 3.44 12.25 22.23 58.0
+    D = 2.5 7.71 18.27 37.78 87.0
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Zn {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	P = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	D = 2.50 6.02 14.49 34.89 84.00 # Ref.[2]
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Ga {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    S = 2.49 5.42 14.12 32.59  71.46 # baysian No.1
+    P = 2.57 5.76 14.61 24.93  68.17 # baysian No.1
+    D = 2.62 8.42 16.36 43.04 118.17 # baysian No.1
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Ge {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.27 5.29 12.10 27.97 62.96
+	P = 2.27 5.29 12.10 27.97 62.96
+	D = 2.30 3.32  8.10 19.97 62.96
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  As {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.34 5.45 12.47 28.84  64.93
+	P = 2.34 5.45 12.47 28.84  64.93
+	D = 2.93 7.23 17.60 42.52 101.58
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Se {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.48 5.79 13.24 30.64  68.98
+	P = 2.48 5.79 13.24 30.64  68.98
+	D = 3.11 7.68 18.70 45.17 107.92
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Br {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.55 5.96 13.64 31.56  71.07
+	P = 2.55 5.96 13.64 31.56  71.07
+	D = 3.20 7.91 19.26 46.53 111.19
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Kr {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+        S = 2.62 6.13 14.02 32.46  73.10
+        P = 2.62 6.13 14.02 32.46  73.10
+        D = 3.29 8.13 19.81 47.85 114.36
+      }
+      MaxPowers {
+        D = 3
+        P = 3
+        S = 3
+      }
+    }
+  }
+
+  Rb {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.50 2.90  9.90 22.90 54.00
+	P = 1.50 2.90  9.90 22.90 54.00
+	D = 1.70 3.50 10.70 23.80 54.00
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Sr {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.50 2.90  9.90 22.90 54.00
+	P = 1.50 2.90  9.90 22.90 54.00
+	D = 2.00 4.56 10.39 23.69 54.00
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Y {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	#S = 1.80 4.36 10.19 23.49 53.80
+	#P = 1.80 4.36 10.19 23.49 53.80
+	#D = 2.50 6.02 14.49 34.89 84.00
+	#-------------------------------
+	S = 1.50 2.90  9.90 22.90 54.00
+	P = 1.50 2.90  9.90 22.90 54.00
+	D = 2.00 4.56 10.39 23.69 54.00
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+  
+  Zr {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	P = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	D = 2.70 6.22 14.69 35.09 84.20 # Ref.[2]
+      }
+      MaxPowers {
+	D = 3 # Ref.[2]
+	P = 3 # Ref.[2]
+	S = 3 # Ref.[2]
+      }
+    }
+  }
+
+  Nb {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	#------------------------------------- (v1: same as QUASINANO)
+	#S = 2.00 4.56 10.39 23.69 54.00 # v1
+	#P = 2.00 4.56 10.39 23.69 54.00 # v1
+	#D = 2.70 6.22 14.69 35.09 84.20 # v1
+	#------------------------------------- (v2: BCC is good, but FCC is good)
+	S = 2.00 4.56 10.39 23.69 54.00 # v2
+	P = 2.50 5.06 10.89 24.19 54.50 # v2
+	D = 3.30 6.82 15.19 35.59 84.70 # v2: Power=2 (3.20 6.72)
+	#------------------------------------- (v2X: BCC is better, but FCC is soso)
+	#S = 2.00 4.56 10.39 23.69 54.00 # v2X
+	#P = 2.50 5.06 10.89 24.19 54.50 # v2X
+	#D = 3.40 6.82 15.19 35.59 84.70 # v2X: Power=2 (3.20 6.72)
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+  
+  Mo {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	P = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	D = 2.70 6.22 14.69 35.09 84.20 # Ref.[2]
+      }
+      MaxPowers {
+	D = 3 # Ref.[2]
+	P = 3 # Ref.[2]
+	S = 3 # Ref.[2]
+      }
+    }
+  }
+
+  Tc {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.80 4.36 10.19 23.49 53.80
+	P = 1.80 4.36 10.19 23.49 53.80
+	D = 2.50 6.02 14.49 34.89 84.00
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Ru {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.90 4.46 10.29 23.59 53.90
+	P = 1.90 4.46 10.29 23.59 53.90
+	D = 2.60 6.12 14.59 34.99 84.10
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+  
+  Rh {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	P = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	D = 2.70 6.22 14.69 35.09 84.20 # Ref.[2]
+      }
+      MaxPowers {
+	D = 3 # Ref.[2]
+	P = 3 # Ref.[2]
+	S = 3 # Ref.[2]
+      }
+    }
+  }
+
+  Pd {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.00 4.56 10.39 23.69 54.00
+	P = 2.00 4.56 10.39 23.69 54.00
+	D = 2.50 6.02 14.49 34.89 84.00
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Ag {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	P = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	D = 2.70 6.22 14.69 35.09 84.20 # Ref.[2]
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Cd {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	P = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	D = 2.70 6.22 14.69 35.09 84.20 # Ref.[2]
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  In {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	P = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
+	D = 2.50 5.92 14.59 34.09 84.00 # Ref.[2]
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Sn {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.27 5.29 12.10 27.97 62.96
+	P = 2.27 5.29 12.10 27.97 62.96
+	D = 2.30 3.32  8.10 19.97 62.96
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Sb {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.27 5.29 12.10 27.97 62.96
+	P = 2.27 5.29 12.10 27.97 62.96
+	D = 2.30 3.32  8.10 19.97 62.96
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Te {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.27 5.29 12.10 27.97 62.96
+	P = 2.27 5.29 12.10 27.97 62.96
+	D = 2.30 3.32  8.10 19.97 62.96
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  I {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.27 5.29 12.10 27.97 62.96
+	P = 2.27 5.29 12.10 27.97 62.96
+	D = 2.30 3.32  8.10 19.97 62.96
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Xe {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 2.27 5.29 12.10 27.97 62.96
+	P = 2.27 5.29 12.10 27.97 62.96
+	D = 2.30 3.32  8.10 19.97 62.96
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Cs {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.50 3.47 10.97 20.69  55.0 # 1.50 3.60 11.37 21.44 57.0
+	P = 1.50 3.47 10.97 20.69  55.0
+	D = 2.00 8.35 13.81 37.89 110.0
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Ba {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.50 3.54 11.17 21.06  56.00
+	P = 1.50 3.54 11.17 21.06  56.00
+	D = 2.00 8.50 14.06 38.58 112.00
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  La {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.98 8.89 26.5 79.0 235.5
+	P = 1.00 2.98 8.89 26.5 79.0 235.5
+	D = 1.00 2.98 8.89 26.5 79.0 235.5
+	F = 1.00 2.98 8.89 26.5 79.0 235.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Nd {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.98 8.89 26.5 79.0 235.5
+	P = 1.00 2.98 8.89 26.5 79.0 235.5
+	D = 1.00 2.98 8.89 26.5 79.0 235.5
+	F = 1.00 2.98 8.89 26.5 79.0 235.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Dy {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.98 8.89 26.5 79.0 235.5
+	P = 1.00 2.98 8.89 26.5 79.0 235.5
+	D = 1.00 2.98 8.89 26.5 79.0 235.5
+	F = 1.00 2.98 8.89 26.5 79.0 235.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Yb {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.98 8.89 26.5 79.0 235.5
+	P = 1.00 2.98 8.89 26.5 79.0 235.5
+	D = 1.00 2.98 8.89 26.5 79.0 235.5
+	F = 1.00 2.98 8.89 26.5 79.0 235.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+  
+  Hf {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.72  8.10 24.15  72.0 214.6
+	P = 1.00 2.72  8.10 24.15  72.0 214.6
+	D = 2.00 5.43 16.20 48.30 144.0 429.3
+	F = 1.00 2.72  8.10 24.15  72.0 214.6
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+  
+  Ta {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.75  8.21 24.48  73.0 217.6
+	P = 1.00 2.75  8.21 24.48  73.0 217.6
+	D = 2.00 5.50 16.43 48.97 146.0 435.2
+	F = 1.00 2.75  8.21 24.48  73.0 217.6
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+  
+  W {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.79  8.33 24.82  74.0 220.6
+	P = 1.00 2.79  8.33 24.82  74.0 220.6
+	D = 2.00 5.58 16.65 49.65 148.0 441.2
+	F = 1.00 2.79  8.33 24.82  74.0 220.6
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+  
+  Re {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.83  8.44 25.16  75.0 223.6
+	P = 1.00 2.83  8.44 25.16  75.0 223.6
+	D = 2.00 5.66 16.88 50.31 150.0 447.2
+	F = 1.00 2.83  8.44 25.16  75.0 223.6
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Os {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.86  8.55 25.49  76.0 226.557
+	P = 1.00 2.86  8.55 25.49  76.0 226.557
+	D = 2.00 5.73 17.10 50.99 152.0 453.1
+	F = 1.00 2.86  8.55 25.49  76.0 226.557
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Ir {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.90  8.66 25.83  77.0 229.5
+	P = 1.00 2.90  8.66 25.83  77.0 229.5
+	D = 2.00 5.81 17.33 51.65 154.0 459.1
+	F = 1.00 2.90  8.66 25.83  77.0 229.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Pt {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.94  8.77 26.16  78.0 232.5
+	P = 1.00 2.94  8.77 26.16  78.0 232.5
+	D = 2.00 5.88 17.55 52.33 156.0 465.0
+	F = 1.00 2.94  8.77 26.16  78.0 232.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Au {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.98  8.89 26.5  79.0 235.5
+	P = 1.00 2.98  8.89 26.5  79.0 235.5
+	D = 1.00 5.96 17.78 53.0 158.0 471.0 # D = 1.00 2.98 8.89 26.5 79.0 235.5
+	F = 1.00 2.98  8.89 26.5  79.0 235.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Hg {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 3.01  9.00 26.84  80.0 238.5
+	P = 1.00 3.01  9.00 26.84  80.0 238.5
+	D = 2.00 6.04 18.00 53.67 160.0 476.9
+	F = 1.00 3.01  9.00 26.84  80.0 238.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Tl {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 3.06  9.12 27.17  81.0 241.5
+	P = 1.00 3.06  9.12 27.17  81.0 241.5
+	D = 2.00 6.11 18.23 54.34 162.0 482.9
+	F = 1.00 3.06  9.12 27.17  81.0 241.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Pb {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 3.09  9.22 27.50  82.0 244.4
+	P = 1.00 3.09  9.22 27.50  82.0 244.4
+	D = 2.00 6.18 18.45 55.01 164.0 488.8
+	F = 1.00 3.09  9.22 27.50  82.0 244.4
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Bi {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 3.13  9.34 27.80  83.0 247.4
+	P = 1.00 3.13  9.34 27.80  83.0 247.4
+	D = 2.00 6.26 18.68 55.68 166.0 494.8
+	F = 1.00 3.13  9.34 27.80  83.0 247.4
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Po {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 3.17  9.45 28.18  84.0 250.4
+	P = 1.00 3.17  9.45 28.18  84.0 250.4
+	D = 2.00 6.34 18.90 56.35 168.0 500.8
+	F = 1.00 3.17  9.45 28.18  84.0 250.4
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  At {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 3.21  9.57 28.51  85.0 253.4
+	P = 1.00 3.21  9.57 28.51  85.0 253.4
+	D = 2.00 6.41 19.13 57.03 170.0 506.8
+	F = 1.00 3.21  9.57 28.51  85.0 253.4
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Rn {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.98 8.89 26.5 79.0 235.5
+	P = 1.00 2.98 8.89 26.5 79.0 235.5
+	D = 1.00 2.98 8.89 26.5 79.0 235.5
+	F = 1.00 2.98 8.89 26.5 79.0 235.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Fr {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.98 8.89 26.5 79.0 235.5
+	P = 1.00 2.98 8.89 26.5 79.0 235.5
+	D = 1.00 2.98 8.89 26.5 79.0 235.5
+	F = 1.00 2.98 8.89 26.5 79.0 235.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Ra {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.98 8.89 26.5 79.0 235.5
+	P = 1.00 2.98 8.89 26.5 79.0 235.5
+	D = 1.00 2.98 8.89 26.5 79.0 235.5
+	F = 1.00 2.98 8.89 26.5 79.0 235.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+}
+
+
+TwoCenterParameters {
+
+  $EqGrid = EquidistantGrid {
+      GridStart = 0.4
+      GridSeparation = 0.02
+      Tolerance = 5e-5
+      MaxDistance = 40.0
+  }
+
+  $EqGridShort = EquidistantGrid {
+    GridStart = 0.4
+    GridSeparation = 0.02
+    Tolerance = 5e-5
+    MaxDistance = 0.5
+  }
+
+  # Various specific cutoffs to match SK-file cutoffs in mio-1-1
+  $EqGridCutoff10 = EquidistantGrid {
+      GridStart = 0.4
+      GridSeparation = 0.02
+      Tolerance = 5e-5
+      MaxDistance = -10.001
+  }
+
+  $EqGridCutoff12 = EquidistantGrid {
+      GridStart = 0.4
+      GridSeparation = 0.02
+      Tolerance = 5e-5
+      MaxDistance = -12.39
+  }
+
+  $SkTwocnt_300_150 = Sktwocnt {
+    IntegrationPoints = 300 150
+  }
+
+  $SkTwocnt_400_200 = Sktwocnt {
+    IntegrationPoints = 400 200
+  }
+
+  H-H { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  H-C { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  H-N { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  H-O { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  H-S { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  H-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  H-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  H-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  C-C { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  C-N { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  C-O { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  C-S { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  C-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  C-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  C-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  N-N { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  N-O { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  N-S { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  N-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  N-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  N-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  O-O { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  O-S { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  O-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  O-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  O-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  S-S { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  S-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  S-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  S-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  P-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  P-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  P-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  Ti-Ti { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ti-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  Au-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  #----------------------------------------------------------------
+  He-He { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Li-Li { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Be-Be { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  B-B   { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  F-F   { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Ne-Ne { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Na-Na { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Mg-Mg { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Al-Al { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Si-Si { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Cl-Cl { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Ar-Ar { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  #----------------------------------------------------------------
+  K-K   { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ca-Ca { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Sc-Sc { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  V-V   { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Cr-Cr { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Mn-Mn { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Fe-Fe { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Co-Co { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ni-Ni { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Cu-Cu { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Zn-Zn { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ga-Ga { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ge-Ge { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  As-As { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Se-Se { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Br-Br { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Kr-Kr { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  #----------------------------------------------------------------
+  Rb-Rb { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Sr-Sr { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Y-Y   { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Zr-Zr { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Nb-Nb { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Mo-Mo { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Tc-Tc { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ru-Ru { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Rh-Rh { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Pd-Pd { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ag-Ag { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Cd-Cd { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  In-In { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Sn-Sn { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Sb-Sb { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Te-Te { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  I-I   { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Xe-Xe { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  #----------------------------------------------------------------
+  Cs-Cs { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ba-Ba { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  #-----
+  La-La { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ce-Ce { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Pr-Pr { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Nd-Nd { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Sm-Sm { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Eu-Eu { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Gd-Gd { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Dy-Dy { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ho-Ho { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Er-Er { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Tm-Tm { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Yb-Yb { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  #-----
+  Hf-Hf { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ta-Ta { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  W-W   { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Re-Re { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Os-Os { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ir-Ir { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  Pt-Pt { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  Hg-Hg { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  Tl-Tl { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Pb-Pb { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Bi-Bi { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Po-Po { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  At-At { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Rn-Rn { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  #----------------------------------------------------------------
+  Fr-Fr { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ra-Ra { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  #-----
+  Ac-Ac { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Th-Th { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Pa-Pa { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  U-U   { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Np-Np { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Pu-Pu { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  #-----
+  #----------------------------------------------------------------
+}
+
+# dumy repulsion case
+# skgen -o slateratom -t sktwocnt sktable -d H,O H,O |& tee -a output
+
+# no dumy replusion case
+# skgen -o slateratom -t sktwocnt sktable H,O H,O |& tee -a output
