@@ -28,7 +28,7 @@ lattices=(Yy
   BCC FCC HCP HCP BCC BCC HCP HCP FCC FCC FCC HCP BCC FCC SC  SC  SC  FCC
   BCC BCC 
           HCP FCC HCP FCC HCP HCP BCC HCP HCP HCP HCP HCP HCP FCC HCP 
-              HCP BCC BCC FCC HCP FCC FCC FCC SCC HCP FCC BCC SC  FCC FCC
+              HCP BCC BCC FCC HCP FCC FCC FCC SC  HCP FCC BCC SC  FCC FCC
   BCC BCC
           FCC FCC FCC FCC FCC FCC  YY)
 #-------------------------------------------------------------------------

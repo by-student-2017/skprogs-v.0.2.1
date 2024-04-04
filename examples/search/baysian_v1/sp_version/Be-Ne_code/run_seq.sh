@@ -23,7 +23,7 @@ lattices=(YY
   BCC HCP                                         FCC FCC SC  SC  SC  FCC
   BCC FCC HCP HCP BCC BCC BCC BCC HCP FCC FCC HCP BCC FCC SC  SC  SC  FCC
   BCC FCC HCP HCP BCC BCC HCP HCP FCC FCC FCC HCP BCC FCC SC  SC  SC  FCC
-  BCC BCC FCC HCP BCC BCC FCC HCP FCC FCC FCC SCC HCP FCC BCC SC  FCC FCC
+  BCC BCC FCC HCP BCC BCC FCC HCP FCC FCC FCC SC  HCP FCC BCC SC  FCC FCC
   BCC BCC)
 #-------------------------------------------------------------------------
 nelement=(0
