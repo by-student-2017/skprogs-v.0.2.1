@@ -5244,6 +5244,7 @@ TwoCenterParameters {
   Er-Er { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
   Tm-Tm { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
   Yb-Yb { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Lu-Lu { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
   #-----
   Hf-Hf { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
   Ta-Ta { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
