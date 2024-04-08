@@ -1131,9 +1131,9 @@ AtomParameters {
         #P = PowerCompression { Power = 6.3; Radius = 4.4 } # baysian No.7
         #S = PowerCompression { Power = 8.9; Radius = 4.4 } # baysian No.7
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 10.7; Radius = 3.9 } # baysian No.8
-        #P = PowerCompression { Power = 14.5; Radius = 4.3 } # baysian No.8
-        #S = PowerCompression { Power =  9.3; Radius = 3.8 } # baysian No.8
+        #D = PowerCompression { Power = 10.7; Radius = 3.9 } # baysian No.8, Unnecessary bands (BE=-8 eV)
+        #P = PowerCompression { Power = 14.5; Radius = 4.3 } # baysian No.8, Unnecessary bands (BE=-8 eV)
+        #S = PowerCompression { Power =  9.3; Radius = 3.8 } # baysian No.8, Unnecessary bands (BE=-8 eV)
         #------------------------------------------------------------------
       }
     #  CustomizedHubbards {
