@@ -890,21 +890,21 @@ AtomParameters {
         #P = PowerCompression { Power = 15.3; Radius =  6.2 } # baysian No.5 (old version)
         #S = PowerCompression { Power = 12.5; Radius =  5.8 } # baysian No.5 (old version)
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 14.4; Radius = 5.4 } # baysian No.6
-        #P = PowerCompression { Power = 13.2; Radius = 5.9 } # baysian No.6
-        #S = PowerCompression { Power = 10.4; Radius = 5.4 } # baysian No.6
+        #D = PowerCompression { Power = 14.4; Radius =  5.4 } # baysian No.6
+        #P = PowerCompression { Power = 13.2; Radius =  5.9 } # baysian No.6
+        #S = PowerCompression { Power = 10.4; Radius =  5.4 } # baysian No.6
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 10.8; Radius = 6.0 } # baysian No.7, Unnecessary bands (BE=-4.7 eV)
-        #P = PowerCompression { Power = 10.3; Radius = 6.0 } # baysian No.7, Unnecessary bands (BE=-4.7 eV)
-        #S = PowerCompression { Power = 12.4; Radius = 5.7 } # baysian No.7, Unnecessary bands (BE=-4.7 eV)
+        #D = PowerCompression { Power = 10.8; Radius =  6.0 } # baysian No.7, Unnecessary bands (BE=-4.7 eV)
+        #P = PowerCompression { Power = 10.3; Radius =  6.0 } # baysian No.7, Unnecessary bands (BE=-4.7 eV)
+        #S = PowerCompression { Power = 12.4; Radius =  5.7 } # baysian No.7, Unnecessary bands (BE=-4.7 eV)
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 15.9; Radius = 5.5 } # baysian No.8
-        #P = PowerCompression { Power = 14.7; Radius = 6.1 } # baysian No.8
-        #S = PowerCompression { Power = 10.4; Radius = 5.6 } # baysian No.8
+        #D = PowerCompression { Power = 15.9; Radius =  5.5 } # baysian No.8
+        #P = PowerCompression { Power = 14.7; Radius =  6.1 } # baysian No.8
+        #S = PowerCompression { Power = 10.4; Radius =  5.6 } # baysian No.8
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 13.7; Radius = 5.0 } # baysian No.9
-        #P = PowerCompression { Power = 14.8; Radius = 4.9 } # baysian No.9
-        #S = PowerCompression { Power =  8.4; Radius = 4.9 } # baysian No.9
+        #D = PowerCompression { Power = 13.7; Radius =  5.0 } # baysian No.9
+        #P = PowerCompression { Power = 14.8; Radius =  4.9 } # baysian No.9
+        #S = PowerCompression { Power =  8.4; Radius =  4.9 } # baysian No.9
         #------------------------------------------------------------------
       }
     #  CustomizedHubbards {
