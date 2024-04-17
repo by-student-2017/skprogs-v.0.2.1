@@ -2567,6 +2567,33 @@ AtomParameters {
     }
   }
 
+  Tm {
+    AtomConfig {
+      AtomicNumber = 69
+      Mass = 173.05
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 6.0 6.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 9.5; Radius = 14.3 } # baysian No.1
+      WaveCompressions = SingleAtomCompressions {
+        #-----------------------------------------------------------------
+        F = PowerCompression { Power = 12.8; Radius = 5.4 } # baysian No.1
+        D = PowerCompression { Power = 12.8; Radius = 5.4 } # baysian No.1
+        P = PowerCompression { Power = 11.9; Radius = 5.7 } # baysian No.1
+        S = PowerCompression { Power = 11.2; Radius = 5.2 } # baysian No.1
+        #-----------------------------------------------------------------
+      }
+    }
+  }
+
   Yb {
     AtomConfig {
       AtomicNumber = 70
@@ -4809,6 +4836,26 @@ OnecenterParameters {
 	P = 1.00 2.98 8.89 26.5 79.0 235.5
 	D = 1.00 2.98 8.89 26.5 79.0 235.5
 	F = 1.00 2.98 8.89 26.5 79.0 235.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Tm {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    #S = 1.00 2.93  8.52 24.38  69.36 269.49 # baysian No.1
+    #P = 0.85 2.62  7.61 24.29  78.72 179.18 # baysian No.1
+    #D = 1.92 5.36 18.51 73.15 200.98 493.45 # baysian No.1
+    #F = 1.31 3.09  9.80 27.15  83.11 268.82 # baysian No.1
+    #------------------------------------------------------
       }
       MaxPowers {
 	S = 4
