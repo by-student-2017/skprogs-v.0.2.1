@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # These are related with comp_band.png
-ytop=-6    # Binding energy [eV], conduction band (unoccupied states)
+ytop=-3    # Binding energy [eV], conduction band (unoccupied states)
            # Fermi energy, EF = 0 [eV]
 ybottom=3  # Binding energy [eV], valence band (occupied states)
 
