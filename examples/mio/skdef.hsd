@@ -1526,6 +1526,7 @@ AtomParameters {
     DftbAtom {
       ShellResolved = No
       DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      #DensityCompression = PowerCompression { Power = 6.1; Radius = 10.6 } # baysian No.0
       #DensityCompression = PowerCompression { Power = 6.7; Radius = 16.2 } # baysian No.1 (old version)
       #DensityCompression = PowerCompression { Power = 7.4; Radius = 13.1 } # baysian No.2
       #DensityCompression = PowerCompression { Power = 8.1; Radius = 11.0 } # baysian No.3
@@ -1534,6 +1535,10 @@ AtomParameters {
 	D = PowerCompression { Power = 8.8 ; Radius = 4.5 }
 	P = PowerCompression { Power = 8.8 ; Radius = 4.5 }
 	S = PowerCompression { Power = 8.8 ; Radius = 4.5 }
+        #------------------------------------------------------------------
+        #D = PowerCompression { Power = 10.7; Radius = 7.9 } # baysian No.0
+        #P = PowerCompression { Power =  8.2; Radius = 4.9 } # baysian No.0
+        #S = PowerCompression { Power =  8.2; Radius = 8.1 } # baysian No.0
         #------------------------------------------------------------------
         #D = PowerCompression { Power = 10.5; Radius = 5.4 } # baysian No.1 (old version)
         #P = PowerCompression { Power =  8.2; Radius = 5.1 } # baysian No.1 (old version)
@@ -4343,6 +4348,10 @@ OnecenterParameters {
 	S = 2.20 5.13 11.73 27.10 61.00
 	P = 2.20 5.13 11.73 27.10 61.00
 	D = 2.77 6.81 16.54 39.96 95.44
+    #--------------------------------------------
+    #S = 2.54 5.38 13.91 29.17  76.63 # baysian No.0
+    #P = 2.62 6.10 15.06 29.36  65.54 # baysian No.0
+    #D = 2.56 7.19 16.93 40.80 134.62 # baysian No.0
     #--------------------------------------------
     #S = 2.00 4.03 10.59 27.04  62.00 # baysian No.1 (old version)
     #P = 2.00 5.11 11.08 28.36  62.00 # baysian No.1 (old version)
