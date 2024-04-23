@@ -296,6 +296,7 @@ Note 1 (Importance of basis functions)
 - Unwanted bands are more likely to appear at the Fermi level in HCP than in FCC and BCC.
 
 - Currently, "ShellResolved = Yes" is set for Hf and later, but there are plans to change it from No to Yes for other elements as well. I don't know whether this will ultimately lead to good results.
+- Reference [1] reports that the fit is the worst for carbon, and that the optimal parameter ranges for diamond structures and other structures are distributed separately. Therefore, we are planning to provide carbon Slater-Koster files in three categories: general purpose, diamond, and non-diamond structures (FCC, HCP, BCC and Graphite).
 
 
 Note 2 (fitting)
