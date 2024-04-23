@@ -294,6 +294,8 @@ Note 1 (Importance of basis functions)
 - Parameters by different groups have been evaluated in literature [3]. mio seems to be the best, but this may be due to the small number of data points, N, or the small number of available elements.
 - Reference [1] states that an integer of 2 or 4 is often used for the "simga (=POWER)" value. We are currently investigating whether this is reasonable.
 
+- Currently, "ShellResolved = Yes" is set for Hf and later, but there are plans to change it from No to Yes for other elements as well. I don't know whether this will ultimately lead to good results.
+
 
 Note 2 (fitting)
 ================
