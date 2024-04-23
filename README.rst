@@ -293,6 +293,7 @@ Note 1 (Importance of basis functions)
 
 - Parameters by different groups have been evaluated in literature [3]. mio seems to be the best, but this may be due to the small number of data points, N, or the small number of available elements.
 - Reference [1] states that an integer of 2 or 4 is often used for the "simga (=POWER)" value. We are currently investigating whether this is reasonable.
+- Unwanted bands are more likely to appear at the Fermi level in HCP than in FCC and BCC.
 
 - Currently, "ShellResolved = Yes" is set for Hf and later, but there are plans to change it from No to Yes for other elements as well. I don't know whether this will ultimately lead to good results.
 
@@ -317,7 +318,6 @@ Note 2 (fitting)
 
 Note 3 (Tips)
 =============
-- Unwanted bands are more likely to appear at the Fermi level in HCP than in FCC and BCC.
 - FCC, which has a close-packed structure, has a relatively good approximation to the spherical electron distribution. Although HCP has a close-packed structure, in many actual materials, the c/a ratio deviates from the ideal value of the HCP structure when atoms are stacked without gaps (for example, Mg and Co The structure has a c/a ratio close to 1.633, but Be, Ti, Zr, Hf, Ru, Y, and Gd have values slightly lower than c/a=1.633, and Zn and Cd have significantly higher values). Materials with a BCC crystal structure basically have metallic bonds, and by using an interatomic potential that takes into account the electronic state as accurately as possible, you can safely analyze even if the atomic positions deviate significantly from the equilibrium state. You can proceed. The BCC structure is not a close-packed structure. This suggests that BCC has some directional dependence of binding.
 - Bond order indicates the strength of chemical bonds and depends on the reciprocal of the square root of the coordination number Z. This is explained by the second moment approximation of the moment theorem in quantum theory. When the coordination number increases, there are enough valence electrons to form bonds, and the electrons become delocalized and resonate between the bonds, weakening the bonds.
 - Universal potential [4,5]: First-principles calculations have revealed that various bonding modes (molecules, interfaces between different metals, chemisorption on metal surfaces, crystal structures, etc.) can be described by universal equations. . As a side note, this knowledge is used for the Rose function, modified Rose function, Abel's potential, etc. in MEAM and Airebo potential used in classical MD (exp in Abel's formula is an assumption).
