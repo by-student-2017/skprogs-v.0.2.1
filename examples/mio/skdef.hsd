@@ -2817,10 +2817,10 @@ AtomParameters {
         #P = PowerCompression { Power = 14.3; Radius = 6.8 } # baysian No.2, Unnecessary bands (BE=-7.8 eV)
         #S = PowerCompression { Power = 14.8; Radius = 5.2 } # baysian No.2, Unnecessary bands (BE=-7.8 eV)
         #-----------------------------------------------------------------
-        F = PowerCompression { Power = 12.5; Radius = 5.2 } # baysian No.3, Unnecessary bands (BE=-8.3 eV)
-        D = PowerCompression { Power = 12.5; Radius = 5.2 } # baysian No.3, Unnecessary bands (BE=-8.3 eV)
-        P = PowerCompression { Power = 13.9; Radius = 6.4 } # baysian No.3, Unnecessary bands (BE=-8.3 eV)
-        S = PowerCompression { Power = 14.3; Radius = 5.0 } # baysian No.3, Unnecessary bands (BE=-8.3 eV)
+        #F = PowerCompression { Power = 12.5; Radius = 5.2 } # baysian No.3, Unnecessary bands (BE=-8.3 eV)
+        #D = PowerCompression { Power = 12.5; Radius = 5.2 } # baysian No.3, Unnecessary bands (BE=-8.3 eV)
+        #P = PowerCompression { Power = 13.9; Radius = 6.4 } # baysian No.3, Unnecessary bands (BE=-8.3 eV)
+        #S = PowerCompression { Power = 14.3; Radius = 5.0 } # baysian No.3, Unnecessary bands (BE=-8.3 eV)
         #-----------------------------------------------------------------
       }
     }
