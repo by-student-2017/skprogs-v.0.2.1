@@ -325,7 +325,6 @@ Note 3 (Tips)
 
 Future plans
 ============
-
 - Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-factor. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. In my environment, I would not create training data with VASP.
 - https://github.com/deepmodeling/DeePTB
 
