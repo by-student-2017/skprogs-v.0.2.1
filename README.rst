@@ -291,13 +291,6 @@ Note 1 (Importance of basis functions)
 - If you change the environment such as the OS (PC?), only the coefficients of the radial wave function will not be reproducible. sigma and r0 are relatively easy to obtain reproducibility.
 - When the minimum and maximum values of the radial wave function are small, the high energy bands fall downward. If there are such unnecessary bands, increase the value.
 
-- Parameters by different groups have been evaluated in literature [3]. mio seems to be the best, but this may be due to the small number of data points (N) or the small number of available elements.
-- Reference [1] states that an integer of 2 or 4 is often used for the "simga (=POWER)" value in many papers. We are currently investigating whether this is reasonable.
-- Unwanted bands are more likely to appear at the Fermi level in HCP than in FCC and BCC.
-
-- Currently, "ShellResolved = Yes" is set for Hf and later, but there are plans to change it from No to Yes for other elements as well. I don't know whether this will ultimately lead to good results.
-- Reference [1] reports that the fit is the worst for carbon, and that the optimal parameter ranges for diamond structures and other structures are distributed quite separately. Therefore, for carbon, we are planning to provide Slater-Koster files in three categories: general purpose, diamond, and non-diamond structures (FCC, HCP, BCC and Graphite).
-
 
 Note 2 (fitting)
 ================
@@ -315,6 +308,14 @@ Note 2 (fitting)
 4. Fine-tune parameters. (Change r0 by 0.1. And basis functions)
 
 - "v2" of "Nb" was a two-day manual test to see how well it could fit. The fit suggests that there may be better parameters. We are eager to hear from our readers.
+
+- Parameters by different groups have been evaluated in literature [3]. mio seems to be the best, but this may be due to the small number of data points (N) or the small number of available elements.
+- Reference [1] states that an integer of 2 or 4 is often used for the "simga (=POWER)" value in many papers. We are currently investigating whether this is reasonable.
+- Unwanted bands are more likely to appear at the Fermi level in HCP than in FCC and BCC.
+
+- Currently, "ShellResolved = Yes" is set for Hf and later, but there are plans to change it from No to Yes for other elements as well. I don't know whether this will ultimately lead to good results.
+- Reference [1] reports that the fit is the worst for carbon, and that the optimal parameter ranges for diamond structures and other structures are distributed quite separately. Therefore, for carbon, we are planning to provide Slater-Koster files in three categories: general purpose, diamond, and non-diamond structures (FCC, HCP, BCC and Graphite).
+- If the value of the parameter is too small or too large, the s-band will rise and unnecessary bands will fall. It is thought that this kind of problem will probably disappear if the parameters are appropriate, so I try to find conditions where unnecessary bands do not drop.
 
 
 Note 3 (Tips)
