@@ -204,6 +204,7 @@ References
 
 - [1] [DFTB Parameters for the Periodic Table: Part 1, Electronic Structure](https://pubs.acs.org/doi/10.1021/ct4004959)
 - [2] [Self-Consistent-Charge Density-Functional Tight-Binding Parameters for Modeling an All-Solid-State Lithium Battery](https://doi.org/10.1021/acs.jctc.2c01115)
+- [3] [FTB Parameters for the Periodic Table, Part 2: Energies and Energy Gradients from Hydrogen to Calcium](https://doi.org/10.1021/acs.jctc.5b00702)
 
 
 Search method using the Bayesian optimization
@@ -278,7 +279,6 @@ Information of skprogs code
 
 Note 1 (Importance of basis functions)
 ======================================
-
 - As pointed out in literature [1], basis functions are important (especially in the s-band). Hence, to reproduce the KS matrix elements with Slater-type orbitals, special basis sets would need to be constructed to handle steep confinement potentials. [1]
 - In "STO-nG (https://www.basissetexchange.org/)" used in Gaussian etc., s and p orbitals are treated as SP. Therefore, regarding radial wave functions, s and p are often treated as SP.
 - First, we will use the already known reference value for the "slateratom" parameter. The parameter of the reference atom is multiplied by "fitting atomic number/reference atomic number" to obtain the initial value of the search for the parameter of the fitting atom.
@@ -289,10 +289,12 @@ Note 1 (Importance of basis functions)
 - If you change the environment such as the OS (PC?), only the coefficients of the radial wave function will not be reproducible. sigma and r0 are relatively easy to obtain reproducibility.
 - When the minimum and maximum values of the radial wave function are small, the high energy bands fall downward. If there are such unnecessary bands, increase the value.
 
+- Parameters by different groups have been evaluated in literature [3]. mio seems to be the best, but this may be due to the small number of data points, N, or the small number of available elements.
+- Reference [1] states that an integer of 2 or 4 is often used for the "simga (=POWER)" value. We are currently investigating whether this is reasonable.
+
 
 Note 2 (fitting)
 ================
-
 - In many cases, "r0" tends to be saturated, with "simga" of 6 or more providing a good fit. 
 - The fact that "simga" is around 7 in literature [2] (around 7 or 8, where it is fully saturated, rather than 6 where it starts to saturate) may be a result of supporting the above trend.
 - When fitting without dividing the trajectories, a good fit tends to decrease "r0" as "simga" increases. This trend also agrees with the literature [2].
@@ -307,6 +309,13 @@ Note 2 (fitting)
 4. Fine-tune parameters. (Change r0 by 0.1. And basis functions)
 
 - "v2" of "Nb" was a two-day manual test to see how well it could fit. The fit suggests that there may be better parameters. We are eager to hear from our readers.
+
+
+Note 3 (Tips)
+=============
+- Unwanted bands are more likely to appear at the Fermi level in HCP than in FCC and BCC.
+- FCC, which has a close-packed structure, has a relatively good approximation to the spherical electron distribution. Although HCP has a close-packed structure, in many actual materials, the c/a ratio deviates from the ideal value of the HCP structure when atoms are stacked without gaps (for example, Mg and Co The structure has a c/a ratio close to 1.633, but Be, Ti, Zr, Hf, Ru, Y, and Gd have values slightly lower than c/a=1.633, and Zn and Cd have significantly higher values). Materials with a BCC crystal structure basically have metallic bonds, and by using an interatomic potential that takes into account the electronic state as accurately as possible, you can safely analyze even if the atomic positions deviate significantly from the equilibrium state. You can proceed. The BCC structure is not a close-packed structure. This suggests that BCC has some directional dependence of binding.
+- Bond order indicates the strength of chemical bonds and depends on the reciprocal of the square root of the coordination number Z. This is explained by the second moment approximation of the moment theorem in quantum theory. When the coordination number increases, there are enough valence electrons to form bonds, and the electrons become delocalized and resonate between the bonds, weakening the bonds.
 
 
 Future plans
