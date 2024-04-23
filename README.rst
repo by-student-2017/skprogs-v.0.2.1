@@ -200,14 +200,14 @@ licensing conditions.
 
 
 References
-=======
+==========
 
 - [1] [DFTB Parameters for the Periodic Table: Part 1, Electronic Structure](https://pubs.acs.org/doi/10.1021/ct4004959)
 - [2] [Self-Consistent-Charge Density-Functional Tight-Binding Parameters for Modeling an All-Solid-State Lithium Battery](https://doi.org/10.1021/acs.jctc.2c01115)
 
 
 Search method using the Bayesian optimization
-=======
+=============================================
 
 0. pip3 install bayesian-optimization==1.4.3
 1. rewrite skdef.hsd.tmp_baysian and prepare band_check folder (e.g., see Mn folder)
@@ -219,8 +219,8 @@ Search method using the Bayesian optimization
 - For Ubuntu 20.04 LTS: pip3 install scipy==1.5.4
 
 
-Search method using the particle swarm optimization (PSO) 
-=======
+Search method using the particle swarm optimization (PSO)
+=========================================================
 
 0. pip3 install bayesian-optimization==1.3.0
 1. rewrite skdef.hsd.tmp_pso and prepare band_check folder (e.g., see Mn folder)
@@ -233,7 +233,7 @@ Search method using the particle swarm optimization (PSO)
 
 
 Search method using the genetic algorithm (GA)
-=======
+==============================================
 
 0. pip3 install -U deap==1.4.1 --user
 1. rewrite skdef.hsd.tmp_ga and prepare band_check folder (e.g., see Mn folder)
@@ -246,7 +246,7 @@ Search method using the genetic algorithm (GA)
 
 
 Information of skprogs code
-=======
+===========================
 
 - sktools/src/sktools/compressions.py
 
@@ -275,7 +275,7 @@ Information of skprogs code
 
 
 Note 1 (Importance of basis functions)
-=======
+======================================
 
 - As pointed out in literature [1], basis functions are important (especially in the s-band). [1]
 - Hence, to reproduce the KS matrix elements with Slater-type orbitals, special basis sets would need to be constructed to handle steep confinement potentials. [1]
@@ -290,7 +290,7 @@ Note 1 (Importance of basis functions)
 
 
 Note 2 (fitting)
-=======
+================
 
 - In many cases, "r0" tends to be saturated, with "simga" of 6 or more providing a good fit. 
 - The fact that "simga" is around 7 in literature [2] (around 7 or 8, where it is fully saturated, rather than 6 where it starts to saturate) may be a result of supporting the above trend.
@@ -309,7 +309,7 @@ Note 2 (fitting)
 
 
 Future plans
-=======
+============
 
 - Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-factor. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. In my environment, I would not create training data with VASP.
 - https://github.com/deepmodeling/DeePTB
@@ -332,7 +332,7 @@ Acknowledgment (For examples)
 
 
 PC specs used for test
-=======
+======================
 + OS: Microsoft Windows 11 Home 64 bit
 + BIOS: 1.14.0
 + CPU： 12th Gen Intel(R) Core(TM) i7-12700
