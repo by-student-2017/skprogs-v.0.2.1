@@ -2762,6 +2762,45 @@ AtomParameters {
     }
   }
 
+  Dy {
+    AtomConfig {
+      AtomicNumber = 66
+      Mass = 162.50
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 5.0 4.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 8.9; Radius = 16.3 } # baysian No.1, Unnecessary bands (BE=-6.6 eV)
+      #DensityCompression = PowerCompression{ Power = 11.3; Radius = 16.0 } # baysian No.2, Unnecessary bands (BE=-7.8 eV)
+      #DensityCompression = PowerCompression{ Power = 11.0; Radius = 16.9 } # baysian No.3, Unnecessary bands (BE=-8.3 eV)
+      WaveCompressions = SingleAtomCompressions {
+        #-----------------------------------------------------------------
+        F = PowerCompression { Power = 16.4; Radius = 6.2 } # baysian No.1, Unnecessary bands (BE=-6.6 eV)
+        D = PowerCompression { Power = 16.4; Radius = 6.2 } # baysian No.1, Unnecessary bands (BE=-6.6 eV)
+        P = PowerCompression { Power = 15.5; Radius = 7.2 } # baysian No.1, Unnecessary bands (BE=-6.6 eV)
+        S = PowerCompression { Power = 14.3; Radius = 5.7 } # baysian No.1, Unnecessary bands (BE=-6.6 eV)
+        #-----------------------------------------------------------------
+        #F = PowerCompression { Power = 12.7; Radius = 5.5 } # baysian No.2, Unnecessary bands (BE=-7.8 eV)
+        #D = PowerCompression { Power = 12.7; Radius = 5.5 } # baysian No.2, Unnecessary bands (BE=-7.8 eV)
+        #P = PowerCompression { Power = 14.3; Radius = 6.8 } # baysian No.2, Unnecessary bands (BE=-7.8 eV)
+        #S = PowerCompression { Power = 14.8; Radius = 5.2 } # baysian No.2, Unnecessary bands (BE=-7.8 eV)
+        #-----------------------------------------------------------------
+        F = PowerCompression { Power = 12.5; Radius = 5.2 } # baysian No.3, Unnecessary bands (BE=-8.3 eV)
+        D = PowerCompression { Power = 12.5; Radius = 5.2 } # baysian No.3, Unnecessary bands (BE=-8.3 eV)
+        P = PowerCompression { Power = 13.9; Radius = 6.4 } # baysian No.3, Unnecessary bands (BE=-8.3 eV)
+        S = PowerCompression { Power = 14.3; Radius = 5.0 } # baysian No.3, Unnecessary bands (BE=-8.3 eV)
+        #-----------------------------------------------------------------
+      }
+    }
+  }
+
   Ho {
     AtomConfig {
       AtomicNumber = 67
@@ -5299,6 +5338,36 @@ OnecenterParameters {
     }
   }
 
+  Dy {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 0.83 2.55  8.91 28.74  70.46 267.00 # baysian No.1, Unnecessary bands (BE=-6.6 eV)
+    P = 0.67 2.76 10.23 20.95  88.29 191.84 # baysian No.1, Unnecessary bands (BE=-6.6 eV)
+    D = 2.16 6.80 14.29 68.59 166.35 364.70 # baysian No.1, Unnecessary bands (BE=-6.6 eV)
+    F = 1.24 2.50  8.90 23.65  81.04 272.59 # baysian No.1, Unnecessary bands (BE=-6.6 eV)
+    #------------------------------------------------------
+    #S = 0.88 2.68  8.72 26.74  65.49 272.23 # baysian No.2, Unnecessary bands (BE=-7.8 eV)
+    #P = 0.64 3.21  9.72 23.61  79.86 201.08 # baysian No.2, Unnecessary bands (BE=-7.8 eV)
+    #D = 2.39 7.21 17.39 69.56 163.13 375.21 # baysian No.2, Unnecessary bands (BE=-7.8 eV)
+    #F = 1.06 2.52  9.74 22.48  78.49 246.84 # baysian No.2, Unnecessary bands (BE=-7.8 eV)
+    #------------------------------------------------------
+    #S = 0.89 2.93  8.81 26.99  67.41 271.04 # baysian No.3, Unnecessary bands (BE=-8.3 eV)
+    #P = 0.68 3.06 10.55 22.63  79.01 202.28 # baysian No.3, Unnecessary bands (BE=-8.3 eV)
+    #D = 2.26 7.12 18.03 72.22 165.84 375.49 # baysian No.3, Unnecessary bands (BE=-8.3 eV)
+    #F = 1.14 2.49  9.27 23.25  76.90 240.73 # baysian No.3, Unnecessary bands (BE=-8.3 eV)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
   Ho {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
@@ -6025,6 +6094,7 @@ TwoCenterParameters {
   Sm-Sm { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
   Eu-Eu { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
   Gd-Gd { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Tb-Tb { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
   Dy-Dy { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
   Ho-Ho { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
   Er-Er { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
