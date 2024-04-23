@@ -205,6 +205,7 @@ References
 - [1] [DFTB Parameters for the Periodic Table: Part 1, Electronic Structure](https://pubs.acs.org/doi/10.1021/ct4004959)
 - [2] [Self-Consistent-Charge Density-Functional Tight-Binding Parameters for Modeling an All-Solid-State Lithium Battery](https://doi.org/10.1021/acs.jctc.2c01115)
 - [3] [FTB Parameters for the Periodic Table, Part 2: Energies and Energy Gradients from Hydrogen to Calcium](https://doi.org/10.1021/acs.jctc.5b00702)
+- [4] []()
 
 
 Search method using the Bayesian optimization
@@ -316,6 +317,8 @@ Note 3 (Tips)
 - Unwanted bands are more likely to appear at the Fermi level in HCP than in FCC and BCC.
 - FCC, which has a close-packed structure, has a relatively good approximation to the spherical electron distribution. Although HCP has a close-packed structure, in many actual materials, the c/a ratio deviates from the ideal value of the HCP structure when atoms are stacked without gaps (for example, Mg and Co The structure has a c/a ratio close to 1.633, but Be, Ti, Zr, Hf, Ru, Y, and Gd have values slightly lower than c/a=1.633, and Zn and Cd have significantly higher values). Materials with a BCC crystal structure basically have metallic bonds, and by using an interatomic potential that takes into account the electronic state as accurately as possible, you can safely analyze even if the atomic positions deviate significantly from the equilibrium state. You can proceed. The BCC structure is not a close-packed structure. This suggests that BCC has some directional dependence of binding.
 - Bond order indicates the strength of chemical bonds and depends on the reciprocal of the square root of the coordination number Z. This is explained by the second moment approximation of the moment theorem in quantum theory. When the coordination number increases, there are enough valence electrons to form bonds, and the electrons become delocalized and resonate between the bonds, weakening the bonds.
+- Universal potential [4]: First-principles calculations have revealed that various bonding modes (molecules, interfaces between different metals, chemisorption on metal surfaces, crystal structures, etc.) can be described by universal equations. . As a side note, this knowledge is used for the Rose function, modified Rose function, Abel's potential, etc. in MEAM and Airebo potential used in classical MD (exp in Abel's formula is an assumption).
+- Using the fit function in gnuplot, it is possible to fit Murnaghan's equation of state to several data points of first-principles calculations. If you don't have enough data, you can increase the data in this way. If it can be fitted to the universal potential, it will be possible to create data with an even wider range of applications.
 
 
 Future plans
