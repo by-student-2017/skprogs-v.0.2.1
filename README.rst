@@ -293,9 +293,9 @@ Note 1 (Importance of basis functions)
 - When the minimum and maximum values of the radial wave function are small, the high energy bands fall downward. If there are such unnecessary bands, increase the value.
 
 
-Note 2 (fitting)
+Note 2 (Fitting)
 ================
-- In many cases, "r0" tends to be saturated, with "simga" of 6 or more providing a good fit. 
+- In many cases, "r0" tends to be saturated, with "simga" of 6 or more providing a good fit. Remember also that the average r0 of s, p, d tends to be close to the "QUASINANO" value.
 - The fact that "simga" is around 7 in literature [2] may be a result of supporting the above trend.
 - When fitting without dividing the trajectories, a good fit tends to decrease "r0" as "simga" increases. This trend also agrees with the literature [2].
 - As reported in references [1] and [2], the electronic structure is good even in other structures (we investigated the most stable structure possible). SC cannot reproduce it as well as Ref. [1]. In practical terms, it is sufficient to have high accuracy near a stable structure, so we do not think this result is bad.
