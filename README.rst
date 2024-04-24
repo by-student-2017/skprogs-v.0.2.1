@@ -312,7 +312,7 @@ Note 2 (Fitting)
 
 - Parameters by different groups have been evaluated in literature [3]. mio seems to be the best, but this may be due to the small number of data points (N) or the small number of available elements.
 - Reference [1] states that an integer of 2 or 4 is often used for the "simga (=POWER)" value in many papers. We are currently investigating whether this is reasonable.
-- Unwanted bands are more likely to appear at the Fermi level in HCP than in FCC and BCC.
+- Unwanted bands are more likely to appear near the Fermi level in HCP than in FCC and BCC.
 
 - Currently, "ShellResolved = Yes" is set for Hf and later, but there are plans to change it from No to Yes for other elements as well. I don't know whether this will ultimately lead to good results.
 - Reference [1] reports that the fit is the worst for carbon, and that the optimal parameter ranges for diamond structures and other structures are distributed quite separately. Therefore, for carbon, we are planning to provide Slater-Koster files in three categories: general purpose, diamond, and non-diamond structures (FCC, HCP, BCC and Graphite).
