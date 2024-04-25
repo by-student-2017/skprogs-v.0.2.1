@@ -254,7 +254,7 @@ Search method using the genetic algorithm (GA)
 Information of skprogs code
 ===========================
 
-- sktools/src/sktools/skexp.py
+- Exponents of STO basis: sktools/src/sktools/skexp.py
 
   skexp -h
   
