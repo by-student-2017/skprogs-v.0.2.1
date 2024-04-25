@@ -3614,6 +3614,32 @@ AtomParameters {
       }
     }
   }
+  
+  Th {
+    AtomConfig {
+      AtomicNumber = 90
+      Mass = 232.04
+      Occupations {
+	$OCCUPATIONS_Rn
+	6D = 1.0 1.0
+	7S = 1.0 1.0
+	7P = 0.0 0.0
+      }
+      ValenceShells = 6d 7s 7p
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression{ Power = 2; Radius = 16 }
+      WaveCompressions = SingleAtomCompressions {
+        F = PowerCompression { Power = 2; Radius = 4.0 }
+        D = PowerCompression { Power = 2; Radius = 4.0 }
+        P = PowerCompression { Power = 2; Radius = 4.0 }
+        S = PowerCompression { Power = 2; Radius = 4.0 }
+      }
+    }
+  }
+  
 }
 
 
@@ -6134,6 +6160,25 @@ OnecenterParameters {
       }
     }
   }
+  
+  Th {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    S = 1.0000 4.4814 20.0830 90.0000 403.3264 
+    P = 1.0000 4.4814 20.0830 90.0000 403.3264
+    D = 1.0000 4.4814 20.0830 90.0000 403.3264
+    F = 1.0000 4.4814 20.0830 90.0000 403.3264
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+  
 }
 
 
