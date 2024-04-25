@@ -2031,25 +2031,35 @@ AtomParameters {
     }
     DftbAtom {
        ShellResolved = No
-       #DensityCompression = PowerCompression { Power = 2 ; Radius = 14.0 } # v1
-       DensityCompression = PowerCompression { Power = 7 ; Radius = 5.5 } # v2: 2;10.0, 7;5.5
-       #DensityCompression = PowerCompression { Power = 6.5; Radius =  6.5 } # baysian No.0
-       #DensityCompression = PowerCompression { Power = 7.2; Radius = 13.8 } # baysian No.1
+       #DensityCompression = PowerCompression { Power =  2.0; Radius = 14.0 } # v1
+       DensityCompression = PowerCompression { Power = 7 ; Radius = 5.5 } # v2
+       #DensityCompression = PowerCompression { Power =  5.6; Radius =  9.2 } # baysian No.00, Unnecessary bands (BE=-7.0 eV)
+       #DensityCompression = PowerCompression { Power =  6.4; Radius =  7.5 } # baysian No.01
+       #DensityCompression = PowerCompression { Power =  6.5; Radius =  6.5 } # baysian No.0
+       #DensityCompression = PowerCompression { Power =  7.2; Radius = 13.8 } # baysian No.1
        #DensityCompression = PowerCompression { Power = 10.4; Radius = 13.1 } # baysian No.2
-       #DensityCompression = PowerCompression { Power = 9.5; Radius = 11.1 } # baysian No.3, Unnecessary bands (BE=-5.2 eV)
+       #DensityCompression = PowerCompression { Power =  9.5; Radius = 11.1 } # baysian No.3, Unnecessary bands (BE=-5.2 eV)
       WaveCompressions = SingleAtomCompressions {
-	#-------------------------------------------------------------------- (v1: same as QUASINANO)
-	#D = PowerCompression { Power = 2 ; Radius = 5.2 } # v1
-	#P = PowerCompression { Power = 2 ; Radius = 5.2 } # v1
-	#S = PowerCompression { Power = 2 ; Radius = 5.2 } # v1
-	#-------------------------------------------------------------------- (v2: BCC is good, but FCC is good)
-	D = PowerCompression { Power = 7 ; Radius =  4.6 } # v2: 2;8.0, 7;4.6
-	P = PowerCompression { Power = 7 ; Radius =  5.0 } # v2: 2;8.0, 7;5.0
-	S = PowerCompression { Power = 7 ; Radius =  4.5 } # v2: 2;4.6, 7;4.5
-	#-------------------------------------------------------------------- (v2: BCC is better, but FCC is soso)
-	#D = PowerCompression { Power = 7 ; Radius =  5.2 } # v2X: 2;8.0, 7;5.2
-	#P = PowerCompression { Power = 7 ; Radius =  5.5 } # v2X: 2;8.0, 7;5.5
-	#S = PowerCompression { Power = 7 ; Radius =  4.6 } # v2X: 2;4.6, 7;4.6
+        #-------------------------------------------------------------------- (v1: same as QUASINANO)
+        #D = PowerCompression { Power = 2 ; Radius = 5.2 } # v1
+        #P = PowerCompression { Power = 2 ; Radius = 5.2 } # v1
+        #S = PowerCompression { Power = 2 ; Radius = 5.2 } # v1
+        #-------------------------------------------------------------------- (v2: BCC is good, but FCC is good)
+        D = PowerCompression { Power = 7 ; Radius =  4.6 } # v2: 2;8.0, 7;4.6
+        P = PowerCompression { Power = 7 ; Radius =  5.0 } # v2: 2;8.0, 7;5.0
+        S = PowerCompression { Power = 7 ; Radius =  4.5 } # v2: 2;4.6, 7;4.5
+        #-------------------------------------------------------------------- (v2: BCC is better, but FCC is soso)
+        #D = PowerCompression { Power = 7 ; Radius =  5.2 } # v2X: 2;8.0, 7;5.2
+        #P = PowerCompression { Power = 7 ; Radius =  5.5 } # v2X: 2;8.0, 7;5.5
+        #S = PowerCompression { Power = 7 ; Radius =  4.6 } # v2X: 2;4.6, 7;4.6
+        #------------------------------------------------------------------
+        #D = PowerCompression { Power = 16.4; Radius = 4.3 } # baysian No.00, Unnecessary bands (BE=-7.0 eV)
+        #P = PowerCompression { Power = 17.9; Radius = 5.4 } # baysian No.00, Unnecessary bands (BE=-7.0 eV)
+        #S = PowerCompression { Power = 15.8; Radius = 4.9 } # baysian No.00, Unnecessary bands (BE=-7.0 eV)
+        #------------------------------------------------------------------
+        #D = PowerCompression { Power = 8.0; Radius = 6.0 } # baysian No.01
+        #P = PowerCompression { Power = 9.8; Radius = 4.9 } # baysian No.01
+        #S = PowerCompression { Power = 7.1; Radius = 5.1 } # baysian No.01
         #------------------------------------------------------------------
         #D = PowerCompression { Power =  7.9; Radius = 4.9 } # baysian No.0
         #P = PowerCompression { Power =  7.7; Radius = 5.3 } # baysian No.0
@@ -4964,6 +4974,14 @@ OnecenterParameters {
 	#S = 2.00 4.56 10.39 23.69 54.00 # v2X
 	#P = 2.50 5.06 10.89 24.19 54.50 # v2X
 	#D = 3.40 6.82 15.19 35.59 84.70 # v2X: Power=2 (3.20 6.72)
+    #---------------------------------------------
+    #S = 1.37 3.91 11.90 28.15 48.24 # baysian No.00, Unnecessary bands (BE=-7.0 eV)
+    #P = 2.11 5.08  9.66 29.86 53.32 # baysian No.00, Unnecessary bands (BE=-7.0 eV)
+    #D = 2.81 5.88 22.93 41.66 88.82 # baysian No.00, Unnecessary bands (BE=-7.0 eV)
+    #---------------------------------------------
+    #S = 1.66 4.77 11.47 23.44 46.79 # baysian No.01
+    #P = 2.83 4.56 11.53 27.90 43.66 # baysian No.01
+    #D = 3.12 6.80 18.46 48.46 96.51 # baysian No.01
     #---------------------------------------------
     #S = 1.64 4.42 10.38 22.83 42.44 # baysian No.0
     #P = 2.55 4.04 13.65 28.80 52.76 # baysian No.0
