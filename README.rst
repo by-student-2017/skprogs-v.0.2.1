@@ -254,6 +254,10 @@ Search method using the genetic algorithm (GA)
 Information of skprogs code
 ===========================
 
+- sktools/src/sktools/skexp.py
+
+  You can use the skexp tool to generate the exponents for a given element, see skexp -h for its usage.
+
 - sktools/src/sktools/compressions.py
 
   Compression by a power function (r/r0)^n.
@@ -277,7 +281,6 @@ Information of skprogs code
 - doc/devel/code_structure.txt
 
   ZORA: https://www.scm.com/support/background/more-details-of-the-zora-relativistic-hamiltonian/
-
 
 
 Note 1 (Importance of basis functions)
