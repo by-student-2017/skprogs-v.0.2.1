@@ -256,7 +256,7 @@ Information of skprogs code
 
 - Exponents of STO basis: sktools/src/sktools/skexp.py
 
-  skexp -h
+  Help: skexp -h
   
   C: skexp.py -s 0.5 6 4
   
