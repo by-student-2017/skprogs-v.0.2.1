@@ -259,9 +259,9 @@ Information of skprogs code
   skexp -h
   
    C: skexp.py -s 0.5 6 4
-   
+  
    N: skexp.py -s 0.5 7 4
-   
+  
    O: skexp.py -s 0.5 8 4
   
   Ti: skexp.py -s 0.01 22 5
