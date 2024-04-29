@@ -352,7 +352,7 @@ Note 4 (Introduction)
 - [NN1] [AENET](http://ann.atomistic.net/)
 - [OC1] [Open Catalysts Project](https://opencatalystproject.org/)
 - [AM1] [Alamode](https://github.com/ttadano/alamode)
-- [AE1] [Alamode Example](https://github.com/by-student-2017/alamode-example)
+- [AE1] [Alamode Example](https://github.com/by-student-2017/alamode-example) (see "plot_band.png" in every folders)
 
 
 Future plans
