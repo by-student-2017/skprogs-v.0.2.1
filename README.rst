@@ -355,7 +355,7 @@ Note 4 (Introduction)
 - [AM1] [Alamode](https://github.com/ttadano/alamode)
 - [BP1] [J. Behler and M. Parrinello, Phys. Rev. Lett. 98 (2007) 146401.](https://doi.org/10.1103/PhysRevLett.98.146401)
 - [BP2] [J. Behler, J. Phys.: Condens. Matter 26 (2014) 183001.](https://iopscience.iop.org/article/10.1088/0953-8984/26/18/183001)(According to what I've heard, it seems that several thousand to tens of thousands (in some cases, tens of thousands to hundreds of thousands) of DFT data is required.)
-- [RL1] [X. Glorot, A. Bordes and Y. Bengio, "Deep Sparse Rectifier Neural Networks" (2011).] https://www.semanticscholar.org/paper/Deep-Sparse-Rectifier-Neural-Networks-Glorot-Bordes/67107f78a84bdb2411053cb54e94fa226eea6d8e
+- [RL1] [X. Glorot, A. Bordes and Y. Bengio, "Deep Sparse Rectifier Neural Networks" (2011).](https://www.semanticscholar.org/paper/Deep-Sparse-Rectifier-Neural-Networks-Glorot-Bordes/67107f78a84bdb2411053cb54e94fa226eea6d8e)
 
 
 Future plans
