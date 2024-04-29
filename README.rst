@@ -343,7 +343,7 @@ Note 3 (Tips)
 
 Note 4 (Introduction)
 =====================
-- With information using molecular dynamics engines such as Lammp and PIMD, neural networks (NN) using methods other than graph neural networks (GNN) become unstable in systems with four or more elements. Although the problem with GNN is not clear, it requires a huge amount of training data, so it has energy reproducibility on the same level as classical MD ReaxFF, but phonon reproduction is not good. Some people say that the problem can be solved if there is plenty of training data. Even with the huge amount of training data provided by the Open Catalysts Project, this situation has not been overcome completely.
+- With information using molecular dynamics engines such as Lammp and PIMD, neural networks (NN) using methods other than graph neural networks (GNN) become unstable in systems with four or more elements. Although the problem with GNN is not clear, although it requires a huge amount of training data, it has energy reproducibility on the same level as classical MD ReaxFF, but phonon reproduction is not good. Some people say that the problem can be solved if there is plenty of training data. Even with the huge amount of training data provided by the Open Catalysts Project, this situation has not been overcome completely.
 - DFTB+ and Slater-Koster files also handle charges that are not explicitly handled by many GNNs and NNs. As for spin, the multiplicity is set using Gaussian, GAMESS, Psi4, etc., so I think it would be good to create a Slater-Koster file that separates the spin status, and the user can use it depending on the multiplicity of the system. I am. This part of the problem could potentially be automated using machine learning.
 
 
