@@ -343,7 +343,7 @@ Note 3 (Tips)
 
 Note 4 (Introduction)
 =====================
-- For information using molecular dynamics engines such as Lammp [MD1] and PIMD [MD2], neural networks (NNs) (e.g., AENET [NN1]) using methods other than general-purpose graph neural networks (GNNs) become unstable in systems with four or more elements. Although the problem with GNN is not clear, although it requires a huge amount of training data, the energy reproducibility remains at the same level as the classical MD ReaxFF, and the reproduction of phonons is not good. [AM1, AE1] There is an opinion that this problem can be solved if there is an abundance of training data, but even the huge amount of training data provided by the Open Catalysts Project [OC1] has not completely overcome this situation.
+- For information using molecular dynamics engines such as Lammp [MD1] and PIMD [MD2], neural networks (NNs) (e.g., AENET [NN1]) using methods other than general-purpose graph neural networks (GNNs) become unstable in systems with four or more elements. Although the problem with GNN is not clear, although it requires a huge amount of training data, the energy reproducibility remains at the same level as the classical MD ReaxFF, and the reproduction of phonons is not good. [AE1, AM1] There is an opinion that this problem can be solved if there is an abundance of training data, but even the huge amount of training data provided by the Open Catalysts Project [OC1] has not completely overcome this situation.
 - DFTB+ and Slater-Koster files also handle charges that are not explicitly handled by many GNNs and NNs. As for spin, the multiplicity is set using Gaussian, GAMESS, Psi4, etc., so I think it would be good to create a Slater-Koster file that separates the spin status, and the user can use it depending on the multiplicity of the system. I am. This part of the problem could potentially be automated using machine learning.
 
 
@@ -351,8 +351,8 @@ Note 4 (Introduction)
 - [MD2] [PIMD](https://ccse.jaea.go.jp/software/PIMD/index.jp.html)
 - [NN1] [AENET](http://ann.atomistic.net/)
 - [OC1] [Open Catalysts Project](https://opencatalystproject.org/)
+- [AE1] [Alamode Example](https://github.com/by-student-2017/alamode-example) (see "plot_band.png" in every folders. I had high hopes for OC20, but the Si phonon dispersion ended up with very disappointing results. The reason I have not published these results in a paper is because I have high hopes for the Open Catalysts Project.)
 - [AM1] [Alamode](https://github.com/ttadano/alamode)
-- [AE1] [Alamode Example](https://github.com/by-student-2017/alamode-example) (see "plot_band.png" in every folders)
 
 
 Future plans
