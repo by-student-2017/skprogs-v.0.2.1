@@ -360,11 +360,12 @@ Note 4 (Introduction)
 
 Future plans
 ============
-- Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-value [DF1]. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. In my environment, I would not create training data with VASP.
+- Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-value [DF1, DF2]. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. In my environment, I would not create training data with VASP.
 - https://github.com/deepmodeling/DeePTB
 
 
-- [DF1] [Comparing Solid State DFT Codes, Basis Sets and Potentials](https://molmod.ugent.be/deltacodesdft)
+- [DF1] [Comparing Solid State DFT Codes, Basis Sets and Potentials](https://molmod.ugent.be/deltacodesdft) (The volume is changed uniformly on each axis within a range of +/- 6% from a stable structure, and the energy difference due to volume change is compared with WIEN2k etc. e.g., volumes of -6, -4, -2, 0, 2, 4, and 6 %.)
+- [DF2] [Error Estimates for Solid-State Density-Functional Theory Predictions: An Overview by Means of the Ground-State Elemental Crystals](https://doi.org/10.1080/10408436.2013.772503)
 
 
 My Wish
