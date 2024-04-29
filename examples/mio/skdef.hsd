@@ -2907,6 +2907,31 @@ AtomParameters {
     }
   }
 
+  Eu {
+    AtomConfig {
+      AtomicNumber = 63
+      Mass = 151.96
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 3.0 3.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 9.3; Radius = 16.0 }
+      WaveCompressions = SingleAtomCompressions {
+        F = PowerCompression { Power = 14.5; Radius = 6.5 }
+        D = PowerCompression { Power = 14.5; Radius = 6.5 }
+        P = PowerCompression { Power = 13.3; Radius = 6.7 }
+        S = PowerCompression { Power = 15.0; Radius = 5.6 }
+      }
+    }
+  }
+
   Gd {
     AtomConfig {
       AtomicNumber = 64
@@ -6078,15 +6103,16 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.00 2.82 7.93 22.4 63.0 177.5
-	P = 1.00 2.82 7.93 22.4 63.0 177.5
-	D = 1.00 2.82 7.93 22.4 63.0 177.5
-	F = 1.00 2.82 7.93 22.4 63.0 177.5
     #---------------------------------------------
     #S = 1.0000 2.8173 7.9373 22.3617 63.0000 177.4907 # mio-like (skexp.py)
     #P = 1.0000 2.8173 7.9373 22.3617 63.0000 177.4907 # mio-like (skexp.py)
     #D = 1.0000 2.8173 7.9373 22.3617 63.0000 177.4907 # mio-like (skexp.py)
     #F = 1.0000 2.8173 7.9373 22.3617 63.0000 177.4907 # mio-like (skexp.py)
+    #---------------------------------------------
+    S = 0.91 2.36  8.66 22.19  77.46 278.98 # baysian No.1, Unnecessary bands (BE=-7.5 eV)
+    P = 0.81 3.09  9.95 19.65  83.48 250.72 # baysian No.1, Unnecessary bands (BE=-7.5 eV)
+    D = 1.83 6.94 13.05 53.06 203.41 420.46 # baysian No.1, Unnecessary bands (BE=-7.5 eV)
+    F = 1.38 3.22  7.82 17.71  64.99 252.85 # baysian No.1, Unnecessary bands (BE=-7.5 eV)
     #---------------------------------------------
       }
       MaxPowers {
