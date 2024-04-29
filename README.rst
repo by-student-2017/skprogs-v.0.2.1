@@ -341,6 +341,12 @@ Note 3 (Tips)
 - In the past, accuracy comparable to DFT was often required, but in the age of machine learning, it is important to obtain good correlations rather than matching DFT. This is because it would be good if it could solve the weaknesses of machine learning, such as the need for large amounts of data and the problem of extrapolation. DFTB+'s high transferability and fast calculation meet these requirements. Another appeal of Slater-Koster files and DFTB+ is that they are not black boxes. In addition, it is sufficient to perform single-point calculations using highly accurate quantum chemical calculations or first-principles calculations, and it goes without saying that DFTB+ and classical MD are important for structural optimization in the process up to that point. Too many people in this world forget that. (By STUDENT)
 
 
+Note 4 (Introduction)
+=====================
+- With information using molecular dynamics engines such as Lammp and PIMD, neural networks (NN) using methods other than graph neural networks (GNN) become unstable in systems with four or more elements. Although the problem with GNN is not clear, it requires a huge amount of training data, so it has energy reproducibility on the same level as classical MD ReaxFF, but phonon reproduction is not good. Some people say that the problem can be solved if there is plenty of training data. Even with the huge amount of training data provided by the Open Catalysts Project, this situation has not been overcome completely.
+- DFTB+ and Slater-Koster files also handle charges that are not explicitly handled by many GNNs and NNs. As for spin, the multiplicity is set using Gaussian, GAMESS, Psi4, etc., so I think it would be good to create a Slater-Koster file that separates the spin status, and the user can use it depending on the multiplicity of the system. I am. This part of the problem could potentially be automated using machine learning.
+
+
 Future plans
 ============
 - Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-factor. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. In my environment, I would not create training data with VASP.
