@@ -361,7 +361,7 @@ Note 4 (Introduction)
 Future plans
 ============
 - Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-value [DF1, DF2]. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. In my environment, I would not create training data with VASP.
-- https://github.com/by-student-2017/DFTBP （Use DFTB+ calculation results on Lammps. It is not confirmed whether the GCMC method can be used.）
+- https://github.com/by-student-2017/DFTBP (Use DFTB+ calculation results on Lammps. It is not confirmed whether the GCMC method can be used.)
 - https://github.com/deepmodeling/DeePTB (This is an excellent result. However, only God knows if it will work when the python format is changed.)
 
 
