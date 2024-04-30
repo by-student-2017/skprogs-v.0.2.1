@@ -2439,6 +2439,7 @@ AtomParameters {
       DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
       #DensityCompression = PowerCompression { Power =  2.7; Radius = 21.2 } # baysian No.00
       #DensityCompression = PowerCompression { Power =  3.1; Radius = 20.0 } # baysian No.01
+      #DensityCompression = PowerCompression { Power =  5.4; Radius = 14.4 } # baysian No.02
       #DensityCompression = PowerCompression { Power =  7.3; Radius = 13.0 } # baysian No.1
       #DensityCompression = PowerCompression { Power =  7.3; Radius = 14.3 } # baysian No.2
       #DensityCompression = PowerCompression { Power =  8.4; Radius = 11.9 } # baysian No.3
@@ -2459,6 +2460,10 @@ AtomParameters {
         #D = PowerCompression { Power = 2.1; Radius = 5.1 } # baysian No.01
         #P = PowerCompression { Power = 2.3; Radius = 4.4 } # baysian No.01
         #S = PowerCompression { Power = 2.6; Radius = 4.2 } # baysian No.01
+        #-----------------------------------------------------------------
+        #D = PowerCompression { Power = 2.4; Radius = 5.1 } # baysian No.02
+        #P = PowerCompression { Power = 2.8; Radius = 4.6 } # baysian No.02
+        #S = PowerCompression { Power = 2.3; Radius = 4.6 } # baysian No.02
         #-----------------------------------------------------------------
         #D = PowerCompression { Power = 2.2; Radius = 4.7 } # baysian No.1
         #P = PowerCompression { Power = 2.1; Radius = 4.7 } # baysian No.1
@@ -5670,6 +5675,10 @@ OnecenterParameters {
     #S = 1.93 4.12  9.97 18.88 73.93 # baysian No.01
     #P = 2.28 3.43  9.99 25.71 55.94 # baysian No.01
     #D = 1.95 6.31 18.10 29.67 81.95 # baysian No.01
+    #---------------------------------------------
+    #S = 1.54 3.30  8.22 26.92 67.59 # baysian No.02
+    #P = 2.03 3.44  9.80 16.99 50.36 # baysian No.02
+    #D = 2.11 6.01 16.42 38.00 78.28 # baysian No.02
     #---------------------------------------------
     #S = 1.97 4.61  9.96 25.99 53.93 # baysian No.1
     #P = 1.96 4.43 11.09 27.36 47.09 # baysian No.1
