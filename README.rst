@@ -362,7 +362,7 @@ Future plans
 ============
 - Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-value [DF1, DF2]. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. In my environment, I would not create training data with VASP.
 - https://github.com/by-student-2017/DFTBP（Use DFTB+ calculation results on Lammps. It is not confirmed whether the GCMC method can be used.）
-- https://github.com/deepmodeling/DeePTB
+- https://github.com/deepmodeling/DeePTB (This is an excellent result. However, only God knows if it will work when the python format is changed.)
 
 
 - [DF1] [Comparing Solid State DFT Codes, Basis Sets and Potentials](https://molmod.ugent.be/deltacodesdft) (The volume is changed uniformly on each axis within a range of +/- 6% from a stable structure, and the energy difference due to volume change is compared with WIEN2k etc. e.g., volumes of -6, -4, -2, 0, 2, 4, and 6 %.)
