@@ -7251,6 +7251,7 @@ TwoCenterParameters {
   Ce-Ce { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
   Pr-Pr { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
   Nd-Nd { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Pm-Pm { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
   Sm-Sm { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
   Eu-Eu { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
   Gd-Gd { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
