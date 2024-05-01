@@ -1,0 +1,4159 @@
+SkdefVersion = 1
+
+Globals {
+  # supported (semi-)local xc-functionals:
+  # XCFunctional = LDA {}
+  # XCFunctional = PBE {}
+  # XCFunctional = BLYP {}
+
+  # supported long-range corrected xc-functionals:
+  # (omega: range-separation parameter)
+  # XCFunctional = LCY-PBE {omega = 0.3}
+  # XCFunctional = LCY-BNL {omega = 0.3}
+
+  # supported global hybrid xc-functionals:
+  # XCFunctional = PBE0 {alpha = 0.25}
+  # XCFunctional = B3LYP {}
+
+  # supported CAMY xc-functionals:
+  # XCFunctional = CAMY-PBEh {
+  #   omega = 0.3
+  #   alpha = 0.25
+  #   beta = 0.75
+  # }
+  # XCFunctional = CAMY-B3LYP {
+  #   omega = 0.3
+  #   alpha = 0.19
+  #   beta = 0.46
+  # }
+
+  XCFunctional = PBE {}
+  Superposition = density
+}
+
+
+AtomParameters {
+
+  $OCCUPATIONS_Ne {
+    1S = 1.0 1.0
+    2S = 1.0 1.0
+    2P = 3.0 3.0
+  }
+
+  $OCCUPATIONS_Ar {
+    $OCCUPATIONS_Ne
+    3S = 1.0 1.0
+    3P = 3.0 3.0
+  }
+
+  $OCCUPATIONS_Kr {
+    $OCCUPATIONS_Ar
+    3D = 5.0 5.0
+    4S = 1.0 1.0
+    4P = 3.0 3.0
+  }
+
+  $OCCUPATIONS_Xe {
+    $OCCUPATIONS_Kr
+    4D = 5.0 5.0
+    5S = 1.0 1.0
+    5P = 3.0 3.0
+  }
+
+  $OCCUPATIONS_Hg {
+    $OCCUPATIONS_Xe
+    4F = 7.0 7.0
+    5D = 5.0 5.0
+    6S = 1.0 1.0
+  }
+
+  $OCCUPATIONS_Rn {
+    $OCCUPATIONS_Hg
+    6P = 3.0 3.0
+  }
+
+  H {
+    AtomConfig {
+      AtomicNumber = 1
+      Mass = 1.008
+      Occupations {
+	1S = 1.0 0.0
+      }
+      ValenceShells = 1s
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      #DensityCompression = PowerCompression { Power = 2 ; Radius = 16.0 }
+      DensityCompression = PowerCompression { Power = 2; Radius = 2.5 } # mio
+      WaveCompressions = SingleAtomCompressions {
+	#S = PowerCompression { Power = 2 ; Radius = 3.0 }
+        #------------------------------------------------------------------
+        S = PowerCompression { Power = 2; Radius = 3.0 } # mio
+        #------------------------------------------------------------------
+      }
+    }
+  }
+  
+  He {
+    AtomConfig {
+      AtomicNumber = 2
+      Mass = 4.0026
+      Occupations {
+	1S = 1.0 1.0
+      }
+      ValenceShells = 1s
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 16.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius =14.0 }
+      }
+    }
+  }
+  
+  Li {
+    AtomConfig {
+      AtomicNumber = 3
+      Mass = 6.94
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 0.0
+	2P = 0.0 0.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 16.0 }
+      WaveCompressions = SingleAtomCompressions {
+	P = PowerCompression { Power = 2.0 ; Radius = 5.0 }
+	S = PowerCompression { Power = 2.0 ; Radius = 5.0 }
+      }
+    }
+  }
+
+  Be {
+    AtomConfig {
+      AtomicNumber = 4
+      Mass = 9.0122
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 1.0
+	2P = 0.0 0.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 16.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 5.0 }
+	P = PowerCompression { Power = 2 ; Radius = 5.0 }
+      }
+    }
+  }
+
+  B {
+    AtomConfig {
+      AtomicNumber = 5
+      Mass = 10.81
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 1.0
+	2P = 1.0 0.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 16.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 5.0 }
+	P = PowerCompression { Power = 2 ; Radius = 5.0 }
+      }
+    }
+  }
+
+  C {
+    AtomConfig {
+      AtomicNumber = 6
+      Mass = 12.01
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 1.0
+	2P = 2.0 0.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      #DensityCompression = PowerCompression { Power = 2 ; Radius = 7.0 }
+      DensityCompression = PowerCompression { Power = 2; Radius = 7.0 } # mio
+      WaveCompressions = SingleAtomCompressions {
+	#S = PowerCompression { Power = 2 ; Radius = 2.7 }
+	#P = PowerCompression { Power = 2 ; Radius = 2.7 }
+        #------------------------------------------------------------------
+        S = PowerCompression { Power = 2; Radius = 2.7 } # mio
+        P = PowerCompression { Power = 2; Radius = 2.7 } # mio
+        #------------------------------------------------------------------
+      }
+    }
+  }
+
+  N {
+    AtomConfig {
+      AtomicNumber = 7
+      Mass = 14.007
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 1.0
+	2P = 2.0 1.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      #DensityCompression = PowerCompression { Power = 2 ; Radius = 11.0 }
+      DensityCompression = PowerCompression{ Power = 2; Radius = 11.0 } # mio
+      WaveCompressions = SingleAtomCompressions {
+	#S = PowerCompression { Power = 2 ; Radius = 2.2 }
+	#P = PowerCompression { Power = 2 ; Radius = 2.2 }
+        #------------------------------------------------------------------
+        S = PowerCompression { Power = 2; Radius = 2.2 } # mio
+        P = PowerCompression { Power = 2; Radius = 2.2 } # mio
+        #------------------------------------------------------------------
+      }
+      CustomizedOnsites {
+       2s = -0.64 # mio
+      }
+    }
+  }
+
+  O {
+    AtomConfig {
+      AtomicNumber = 8
+      Mass = 16.01
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 1.0
+	2P = 2.0 2.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      #DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      DensityCompression = PowerCompression{ Power = 2; Radius = 9.0 } # mio
+      WaveCompressions = SingleAtomCompressions {
+	#S = PowerCompression { Power = 2 ; Radius = 2.3 }
+	#P = PowerCompression { Power = 2 ; Radius = 2.3 }
+        #------------------------------------------------------------------
+        S = PowerCompression { Power = 2; Radius = 2.3 } # mio
+        P = PowerCompression { Power = 2; Radius = 2.3 } # mio
+        #------------------------------------------------------------------
+      }
+    }
+  }
+
+  F {
+    AtomConfig {
+      AtomicNumber = 9
+      Mass = 18.9984
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 1.0
+	2P = 3.0 2.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 10.6 ; Radius = 2.7 }
+	P = PowerCompression { Power = 10.6 ; Radius = 2.7 }
+      }
+    }
+  }
+
+  Ne {
+    AtomConfig {
+      AtomicNumber = 10
+      Mass = 20.18
+      Occupations {
+	1S = 1.0 1.0
+	2S = 1.0 1.0
+	2P = 3.0 3.0
+      }
+      ValenceShells = 2s 2p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 5.0 }
+	P = PowerCompression { Power = 2 ; Radius = 5.0 }
+      }
+    }
+  }
+
+  Na {
+    AtomConfig {
+      AtomicNumber = 11
+      Mass = 22.99
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 0.0
+	3P = 0.0 0.0
+      }
+      ValenceShells = 3s 3p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 7.0 }
+	P = PowerCompression { Power = 2 ; Radius = 7.0 }
+      }
+    }
+  }
+
+  Mg {
+    AtomConfig {
+      AtomicNumber = 12
+      Mass = 24.305
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 0.0 0.0
+      }
+      ValenceShells = 3s 3p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 7.0 }
+	P = PowerCompression { Power = 2 ; Radius = 7.0 }
+      }
+    }
+  }
+
+  Al {
+    AtomConfig {
+      AtomicNumber = 13
+      Mass = 26.982
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 1.0 0.0
+	3D = 0.0 0.0
+      }
+      ValenceShells = 3s 3p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 5.9 }
+	P = PowerCompression { Power = 2 ; Radius = 5.9 }
+	D = PowerCompression { Power = 2 ; Radius = 5.9 }
+      }
+    }
+  }
+
+  Si {
+    AtomConfig {
+      AtomicNumber = 14
+      Mass = 28.0855
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 1.0 1.0
+	3D = 0.0 0.0
+      }
+      ValenceShells = 3s 3p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 12.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 4.4 }
+	P = PowerCompression { Power = 2 ; Radius = 4.4 }
+	D = PowerCompression { Power = 2 ; Radius = 4.4 }
+      }
+    }
+  }
+
+  P {
+    AtomConfig {
+      AtomicNumber = 15
+      Mass = 32.065
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 2.0 1.0
+	3D = 0.0 0.0
+      }
+      ValenceShells = 3s 3p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      #DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      DensityCompression = PowerCompression{ Power = 2; Radius = 9.0 } # mio
+      WaveCompressions = SingleAtomCompressions {
+	#S = PowerCompression { Power =  2 ; Radius = 4.5 }
+	#P = PowerCompression { Power =  2 ; Radius = 4.5 }
+	#D = PowerCompression { Power =  2 ; Radius = 4.5 }
+        #------------------------------------------------------------------
+        S = PowerCompression { Power = 2; Radius = 3.8 } # mio
+        P = PowerCompression { Power = 2; Radius = 3.8 } # mio
+        D = PowerCompression { Power = 2; Radius = 4.4 } # mio
+        #------------------------------------------------------------------
+      }
+      CustomizedOnsites {
+	    3D = 0.520437 # mio
+      }
+    }
+  }
+
+  S {
+    AtomConfig {
+      AtomicNumber = 16
+      Mass = 32.065
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 2.0 2.0
+	3D = 0.0 0.0
+      }
+      ValenceShells = 3s 3p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      #DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      DensityCompression = PowerCompression{ Power = 2; Radius = 9.0 } # mio
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 3.8 }
+	P = PowerCompression { Power = 2 ; Radius = 3.8 }
+	D = PowerCompression { Power = 2 ; Radius = 4.4 }
+        #------------------------------------------------------------------
+        #S = PowerCompression { Power = 2; Radius = 3.8 } # mio
+        #P = PowerCompression { Power = 2; Radius = 3.8 } # mio
+        #D = PowerCompression { Power = 2; Radius = 4.4 } # mio
+        #------------------------------------------------------------------
+      }
+    }
+  }
+
+  Cl {
+    AtomConfig {
+      AtomicNumber = 17
+      Mass = 35.45
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 3.0 2.0
+	3D = 0.0 0.0
+      }
+      ValenceShells = 3s 3p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 3.8 }
+	P = PowerCompression { Power = 2 ; Radius = 3.8 }
+	D = PowerCompression { Power = 2 ; Radius = 4.4 }
+      }
+    }
+  }
+
+  Ar {
+    AtomConfig {
+      AtomicNumber = 18
+      Mass = 39.95
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 3.0 3.0
+	3D = 0.0 0.0
+      }
+      ValenceShells = 3s 3p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2.0 ; Radius = 6.4 }
+	P = PowerCompression { Power = 2.0 ; Radius = 6.4 }
+	D = PowerCompression { Power = 2.0 ; Radius = 6.4 }
+      }
+    }
+  }
+
+  K {
+    AtomConfig {
+      AtomicNumber = 19
+      Mass = 39.0983
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 0.0 0.0
+	4S = 1.0 0.0
+	4P = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 12.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 6.5 }
+	P = PowerCompression { Power = 2 ; Radius = 6.5 }
+	D = PowerCompression { Power = 2 ; Radius = 6.5 }
+      }
+    }
+  }
+
+  Ca {
+    AtomConfig {
+      AtomicNumber = 20
+      Mass = 40.078
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 0.0 0.0
+	4S = 1.0 1.0
+	4P = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius =  5.9 }
+	P = PowerCompression { Power = 2 ; Radius =  5.9 }
+	D = PowerCompression { Power = 2 ; Radius =  5.9 }
+      }
+    }
+  }
+
+  Sc {
+    AtomConfig {
+      AtomicNumber = 21
+      Mass = 44.956
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 1.0 1.0
+	4S = 1.0 0.0
+	4P = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power =  2 ; Radius =  8.2 }
+	P = PowerCompression { Power =  2 ; Radius =  8.2 }
+	D = PowerCompression { Power =  2 ; Radius =  8.2 }
+      }
+      CustomizedHubbards {
+	3D = 0.189558
+	4P = 0.189558
+	4S = 0.189558
+      }
+    }
+  }
+
+  Ti {
+    AtomConfig {
+      AtomicNumber = 22
+      Mass = 47.867
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 1.0 1.0
+	4S = 1.0 1.0
+	4P = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      #DensityCompression = PowerCompression { Power = 2 ; Radius = 14.0 }
+      DensityCompression = PowerCompression{ Power = 2; Radius = 14.0 } # mio
+      WaveCompressions = SingleAtomCompressions {
+	#S = PowerCompression { Power = 2 ; Radius = 4.3 }
+	#P = PowerCompression { Power = 2 ; Radius = 4.3 }
+	#D = PowerCompression { Power = 2 ; Radius = 4.3 }
+        #------------------------------------------------------------------
+        #S = PowerCompression { Power = 2; Radius = 4.3 } # mio
+        #P = PowerCompression { Power = 2; Radius = 4.3 } # mio
+        #D = PowerCompression { Power = 2; Radius = 4.3 } # mio
+        #------------------------------------------------------------------
+      }
+      CustomizedHubbards {
+	3D = 0.20006 # mio
+	4P = 0.20006 # mio
+	4S = 0.20006 # mio
+      }
+    }
+  }
+  
+  V {
+    AtomConfig {
+      AtomicNumber = 23
+      Mass = 50.942
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 2.0 2.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 6.8 }
+	P = PowerCompression { Power = 2 ; Radius = 6.8 }
+	S = PowerCompression { Power = 2 ; Radius = 6.8 }
+      }
+      CustomizedHubbards {
+	3D = 0.201341
+	4P = 0.201341
+	4S = 0.201341
+      }
+    }
+  }
+  
+  Cr {
+    AtomConfig {
+      AtomicNumber = 24
+      Mass = 51.996
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 3.0 2.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 6.8 }
+	P = PowerCompression { Power = 2 ; Radius = 6.8 }
+	S = PowerCompression { Power = 2 ; Radius = 6.8 }
+      }
+      CustomizedHubbards {
+	3D = 0.200284
+	4P = 0.200284
+	4S = 0.200284
+      }
+    }
+  }
+  
+  Mn {
+    AtomConfig {
+      AtomicNumber = 25
+      Mass = 54.94
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 3.0 3.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 6.8 }
+	P = PowerCompression { Power = 2 ; Radius = 6.8 }
+	S = PowerCompression { Power = 2 ; Radius = 6.8 }
+      }
+      CustomizedHubbards {
+	3D = 0.230740
+	4P = 0.230740
+	4S = 0.230740
+      }
+    }
+  }
+
+  Fe {
+    AtomConfig {
+      AtomicNumber = 26
+      Mass = 55.85
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 4.0 3.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 3.7 }
+	P = PowerCompression { Power = 2 ; Radius = 3.7 }
+	S = PowerCompression { Power = 2 ; Radius = 3.7 }
+      }
+      CustomizedHubbards {
+	3D = 0.239398
+	4P = 0.239398
+	4S = 0.239398
+      }
+    }
+  }
+
+  Co {
+    AtomConfig {
+      AtomicNumber = 27
+      Mass = 58.9332
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 4.0 4.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 3.6 }
+	P = PowerCompression { Power = 2 ; Radius = 3.6 }
+	S = PowerCompression { Power = 2 ; Radius = 3.6 }
+      }
+      CustomizedHubbards {
+	3D = 0.247710
+	4P = 0.247710
+	4S = 0.247710
+      }
+    }
+  }
+  
+  Ni {
+    AtomConfig {
+      AtomicNumber = 28
+      Mass = 58.693
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 4.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 9.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 3.8 }
+	P = PowerCompression { Power = 2 ; Radius = 3.8 }
+	S = PowerCompression { Power = 2 ; Radius = 3.8 }
+      }
+      CustomizedHubbards {
+	3D = 0.235429
+	4P = 0.235429
+	4S = 0.235429
+      }
+    }
+  }
+  
+  Cu {
+    AtomConfig {
+      AtomicNumber = 29
+      Mass = 63.546
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 19.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 5.3 }
+	P = PowerCompression { Power = 2 ; Radius = 5.3 }
+	S = PowerCompression { Power = 2 ; Radius = 5.3 }
+      }
+      CustomizedHubbards {
+	3D = 0.243169
+	4P = 0.243169
+	4S = 0.243169
+      }
+    }
+  }
+
+  Zn {
+    AtomConfig {
+      AtomicNumber = 30
+      Mass = 65.38
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4P = 0.0 0.0
+	4S = 1.0 1.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 19.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 4.6 }
+	P = PowerCompression { Power = 2 ; Radius = 4.6 }
+	S = PowerCompression { Power = 2 ; Radius = 4.6 }
+      }
+      CustomizedHubbards {
+	3D = 0.271212
+	4P = 0.271212
+	4S = 0.271212
+      }
+    }
+  }
+
+  Ga {
+    AtomConfig {
+      AtomicNumber = 31
+      Mass = 69.723
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4S = 1.0 1.0
+	4P = 1.0 0.0
+	4D = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 4.5 }
+	P = PowerCompression { Power = 2 ; Radius = 4.5 }
+	S = PowerCompression { Power = 2 ; Radius = 4.5 }
+      }
+    }
+  }
+
+  Ge {
+    AtomConfig {
+      AtomicNumber = 32
+      Mass = 72.630
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4S = 1.0 1.0
+	4P = 1.0 1.0
+	4D = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 6.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 4.5 }
+	P = PowerCompression { Power = 2 ; Radius = 4.5 }
+	S = PowerCompression { Power = 2 ; Radius = 4.5 }
+      }
+    }
+  }
+
+  As {
+    AtomConfig {
+      AtomicNumber = 33
+      Mass = 74.922
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4S = 1.0 1.0
+	4P = 2.0 1.0
+	4D = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 6.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 6.0 }
+	P = PowerCompression { Power = 2 ; Radius = 6.0 }
+	S = PowerCompression { Power = 2 ; Radius = 6.0 }
+      }
+      CustomizedOnsites {
+	    3D = 0.532564
+      }
+    }
+  }
+
+  Se {
+    AtomConfig {
+      AtomicNumber = 34
+      Mass = 78.971
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4S = 1.0 1.0
+	4P = 2.0 2.0
+	4D = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 6.5 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 7.0 }
+	P = PowerCompression { Power = 2 ; Radius = 7.0 }
+	S = PowerCompression { Power = 2 ; Radius = 7.0 }
+      }
+    }
+  }
+
+  Br {
+    AtomConfig {
+      AtomicNumber = 35
+      Mass = 79.904
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4S = 1.0 1.0
+	4P = 3.0 2.0
+	4D = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 7.5 }
+	P = PowerCompression { Power = 2 ; Radius = 7.5 }
+	S = PowerCompression { Power = 2 ; Radius = 7.5 }
+      }
+    }
+  }
+
+  Kr {
+    AtomConfig {
+      AtomicNumber = 36
+      Mass = 83.798
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4S = 1.0 1.0
+	4P = 3.0 3.0
+	4D = 0.0 0.0
+      }
+      ValenceShells = 4s 4p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 6.0 }
+	P = PowerCompression { Power = 2 ; Radius = 6.0 }
+	S = PowerCompression { Power = 2 ; Radius = 6.0 }
+      }
+    }
+  }
+
+  Rb {
+    AtomConfig {
+      AtomicNumber = 37
+      Mass = 85.468
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 0.0 0.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 4d 5s 5p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power =  2 ; Radius = 14.0 }
+	P = PowerCompression { Power =  2 ; Radius = 14.0 }
+	D = PowerCompression { Power =  2 ; Radius = 14.0 }
+      }
+    }
+  }
+
+  Sr {
+    AtomConfig {
+      AtomicNumber = 38
+      Mass = 87.62
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 0.0 0.0
+	5S = 1.0 1.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 4d 5s 5p
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 6.9 }
+	P = PowerCompression { Power = 2 ; Radius = 6.9 }
+	S = PowerCompression { Power = 2 ; Radius = 6.9 }
+      }
+    }
+  }
+
+  Y {
+    AtomConfig {
+      AtomicNumber = 39
+      Mass = 88.906
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 1.0 1.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+       ShellResolved = No
+       DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 5.7 }
+	P = PowerCompression { Power = 2 ; Radius = 5.7 }
+	S = PowerCompression { Power = 2 ; Radius = 5.7 }
+      }
+      CustomizedHubbards {
+	4D = 0.176814
+	5P = 0.176814
+	5S = 0.176814
+      }
+    }
+  }
+
+  Zr {
+    AtomConfig {
+      AtomicNumber = 40
+      Mass = 91.224
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 2.0 1.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+       ShellResolved = No
+       DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 5.2 } 
+	P = PowerCompression { Power = 2 ; Radius = 5.2 } 
+	S = PowerCompression { Power = 2 ; Radius = 5.2 } 
+      }
+      CustomizedHubbards {
+	4D = 0.189428
+	5P = 0.189428
+	5S = 0.189428
+      }
+    }
+  }
+
+  Nb {
+    AtomConfig {
+      AtomicNumber = 41
+      Mass = 92.91
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 2.0 2.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+       ShellResolved = No
+       DensityCompression = PowerCompression { Power = 2; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+        D = PowerCompression { Power = 2 ; Radius = 5.2 }
+        P = PowerCompression { Power = 2 ; Radius = 5.2 }
+        S = PowerCompression { Power = 2 ; Radius = 5.2 }
+      }
+      CustomizedHubbards {
+	4D = 0.200280
+	5P = 0.200280
+	5S = 0.200280
+      }
+    }
+  }
+  
+  Mo {
+    AtomConfig {
+      AtomicNumber = 42
+      Mass = 95.95
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 3.0 2.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+       ShellResolved = No
+       DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 5.2 } 
+	P = PowerCompression { Power = 2 ; Radius = 5.2 } 
+	S = PowerCompression { Power = 2 ; Radius = 5.2 } 
+      }
+      CustomizedHubbards {
+	4D = 0.209759
+	5P = 0.209759
+	5S = 0.209759
+      }
+    }
+  }
+  
+  Tc {
+    AtomConfig {
+      AtomicNumber = 43
+      Mass = 98.00
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 3.0 3.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+       ShellResolved = No
+       DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 4.1 }
+	P = PowerCompression { Power = 2 ; Radius = 4.5 }
+	S = PowerCompression { Power = 2 ; Radius = 4.0 }
+      }
+      CustomizedHubbards {
+	4D = 0.218221
+	5P = 0.218221
+	5S = 0.218221
+      }
+    }
+  }
+  
+  Ru {
+    AtomConfig {
+      AtomicNumber = 44
+      Mass = 101.07
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 4.0 3.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 4.0 }
+	P = PowerCompression { Power = 2 ; Radius = 4.0 }
+	S = PowerCompression { Power = 2 ; Radius = 4.0 }
+      }
+      CustomizedHubbards {
+	4D = 0.212289
+	5P = 0.212289
+	5S = 0.212289
+      }
+    }
+  }
+  
+  Rh {
+    AtomConfig {
+      AtomicNumber = 45
+      Mass = 107.87
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 4.0 4.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 4.0 }
+	P = PowerCompression { Power = 2 ; Radius = 4.0 }
+	S = PowerCompression { Power = 2 ; Radius = 4.0 }
+      }
+      CustomizedHubbards {
+	4D = 0.219321
+	5P = 0.219321
+	5S = 0.212289
+      }
+    }
+  }
+
+  Pd {
+    AtomConfig {
+      AtomicNumber = 46
+      Mass = 106.42
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 4.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 12.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 4.4 }
+	P = PowerCompression { Power = 2 ; Radius = 4.4 }
+	S = PowerCompression { Power = 2 ; Radius = 4.4 }
+      }
+      CustomizedHubbards {
+	4D = 0.225725
+	5P = 0.225725
+	5S = 0.225725
+      }
+    }
+  }
+
+  Ag {
+    AtomConfig {
+      AtomicNumber = 47
+      Mass = 107.87
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 0.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 4.5 }
+	P = PowerCompression { Power = 2 ; Radius = 4.5 }
+	S = PowerCompression { Power = 2 ; Radius = 4.5 }
+      }
+      CustomizedHubbards {
+	4D = 0.231628
+	5P = 0.231628
+	5S = 0.231628
+      }
+    }
+  }
+
+  Cd {
+    AtomConfig {
+      AtomicNumber = 48
+      Mass = 112.41
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 1.0
+	5P = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 4d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 5.4 }
+	P = PowerCompression { Power = 2 ; Radius = 5.4 }
+	S = PowerCompression { Power = 2 ; Radius = 5.4 }
+      }
+      CustomizedHubbards {
+	4D = 0.251776
+	5P = 0.251776
+	5S = 0.251776
+      }
+    }
+  }
+
+  In {
+    AtomConfig {
+      AtomicNumber = 49
+      Mass = 114.82
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 1.0
+	5P = 1.0 0.0
+	5D = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 4.8 }
+	P = PowerCompression { Power = 2 ; Radius = 4.8 }
+	S = PowerCompression { Power = 2 ; Radius = 4.8 }
+      }
+    }
+  }
+
+  Sn {
+    AtomConfig {
+      AtomicNumber = 50
+      Mass = 118.71
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 1.0
+	5P = 1.0 1.0
+	5D = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 4.7 }
+	P = PowerCompression { Power = 2 ; Radius = 4.7 }
+	S = PowerCompression { Power = 2 ; Radius = 4.7 }
+      }
+    }
+  }
+
+  Sb {
+    AtomConfig {
+      AtomicNumber = 51
+      Mass = 121.76
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 1.0
+	5P = 2.0 1.0
+	5D = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 5.2 }
+	P = PowerCompression { Power = 2 ; Radius = 5.2 }
+	S = PowerCompression { Power = 2 ; Radius = 5.2 }
+      }
+      CustomizedOnsites {
+	    3D = 0.471377
+      }
+    }
+  }
+
+  Te {
+    AtomConfig {
+      AtomicNumber = 52
+      Mass = 127.60
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 1.0
+	5P = 2.0 2.0
+	5D = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 5.2 }
+	P = PowerCompression { Power = 2 ; Radius = 5.2 }
+	S = PowerCompression { Power = 2 ; Radius = 5.2 }
+      }
+    }
+  }
+
+  I {
+    AtomConfig {
+      AtomicNumber = 53
+      Mass = 126.90
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 1.0
+	5P = 3.0 2.0
+	5D = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 6.2 }
+	P = PowerCompression { Power = 2 ; Radius = 6.2 }
+	S = PowerCompression { Power = 2 ; Radius = 6.2 }
+      }
+    }
+  }
+
+  Xe {
+    AtomConfig {
+      AtomicNumber = 54
+      Mass = 131.29
+      Occupations {
+	$OCCUPATIONS_Kr
+	4D = 5.0 5.0
+	5S = 1.0 1.0
+	5P = 3.0 3.0
+	5D = 0.0 0.0
+      }
+      ValenceShells = 5s 5p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 5.2 }
+	P = PowerCompression { Power = 2 ; Radius = 5.2 }
+	S = PowerCompression { Power = 2 ; Radius = 5.2 }
+      }
+    }
+  }
+
+  Cs {
+    AtomConfig {
+      AtomicNumber = 55
+      Mass = 132.91
+      Occupations {
+	$OCCUPATIONS_Xe
+	5D = 0.0 0.0
+	6S = 1.0 0.0
+	6P = 0.0 0.0
+      }
+      ValenceShells = 5d 6s 6p
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 10.6 }
+	P = PowerCompression { Power = 2 ; Radius = 10.6 }
+	S = PowerCompression { Power = 2 ; Radius = 10.6 }
+      }
+    }
+  }
+
+  Ba {
+    AtomConfig {
+      AtomicNumber = 56
+      Mass = 132.91
+      Occupations {
+	$OCCUPATIONS_Xe
+	5D = 0.0 0.0
+	6S = 1.0 1.0
+	6P = 0.0 0.0
+      }
+      ValenceShells = 5d 6s 6p
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	D = PowerCompression { Power = 2 ; Radius = 6.7 }
+	P = PowerCompression { Power = 2 ; Radius = 6.7 }
+	S = PowerCompression { Power = 2 ; Radius = 6.7 }
+      }
+    }
+  }
+
+  La {
+    AtomConfig {
+      AtomicNumber = 57
+      Mass = 138.91
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 0.0 0.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 7.4 }
+	P = PowerCompression { Power = 2 ; Radius = 7.4 }
+	D = PowerCompression { Power = 2 ; Radius = 7.4 }
+	F = PowerCompression { Power = 2 ; Radius = 7.4 }
+      }
+    }
+  }
+
+  Ce {
+    AtomConfig {
+      AtomicNumber = 58
+      Mass = 140.12
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 1.0 0.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	F = PowerCompression { Power = 2 ; Radius = 7.3 }
+	D = PowerCompression { Power = 2 ; Radius = 7.3 }
+	P = PowerCompression { Power = 2 ; Radius = 7.3 }
+	S = PowerCompression { Power = 2 ; Radius = 7.3 }
+      }
+    }
+  }
+  
+  Pr {
+    AtomConfig {
+      AtomicNumber = 59
+      Mass = 140.91
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 1.0 1.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	F = PowerCompression { Power = 2 ; Radius = 7.2 }
+	D = PowerCompression { Power = 2 ; Radius = 7.2 }
+	P = PowerCompression { Power = 2 ; Radius = 7.2 }
+	S = PowerCompression { Power = 2 ; Radius = 7.2 }
+      }
+    }
+  }
+  
+  Nd {
+    AtomConfig {
+      AtomicNumber = 60
+      Mass = 144.24
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 2.0 1.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	F = PowerCompression { Power = 2 ; Radius = 7.1 }
+	D = PowerCompression { Power = 2 ; Radius = 7.1 }
+	P = PowerCompression { Power = 2 ; Radius = 7.1 }
+	S = PowerCompression { Power = 2 ; Radius = 7.1 }
+      }
+    }
+  }
+  
+  Pm {
+    AtomConfig {
+      AtomicNumber = 61
+      Mass = 145
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 2.0 2.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	F = PowerCompression { Power = 2 ; Radius = 7.0 }
+	D = PowerCompression { Power = 2 ; Radius = 7.0 }
+	P = PowerCompression { Power = 2 ; Radius = 7.0 }
+	S = PowerCompression { Power = 2 ; Radius = 7.0 }
+      }
+    }
+  }
+
+  Sm {
+    AtomConfig {
+      AtomicNumber = 62
+      Mass = 173.05
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 3.0 2.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2; Radius = 17 }
+      WaveCompressions = SingleAtomCompressions {
+        #-----------------------------------------------------------------
+        F = PowerCompression { Power = 2; Radius = 5.8 }
+        D = PowerCompression { Power = 2; Radius = 5.8 }
+        P = PowerCompression { Power = 2; Radius = 5.8 }
+        S = PowerCompression { Power = 2; Radius = 5.8 }
+        #-----------------------------------------------------------------
+      }
+    }
+  }
+
+  Eu {
+    AtomConfig {
+      AtomicNumber = 63
+      Mass = 151.96
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 3.0 3.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 2; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+        #-----------------------------------------------------------------
+        F = PowerCompression { Power = 2; Radius = 6.5 }
+        D = PowerCompression { Power = 2; Radius = 6.5 }
+        P = PowerCompression { Power = 2; Radius = 6.5 }
+        S = PowerCompression { Power = 2; Radius = 6.5 }
+        #-----------------------------------------------------------------
+      }
+    }
+  }
+
+  Gd {
+    AtomConfig {
+      AtomicNumber = 64
+      Mass = 157.25
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 4.0 3.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression { Power = 2; Radius = 17 }
+      WaveCompressions = SingleAtomCompressions {
+        #-----------------------------------------------------------------
+        F = PowerCompression { Power = 2; Radius = 6.0 }
+        D = PowerCompression { Power = 2; Radius = 6.0 }
+        P = PowerCompression { Power = 2; Radius = 6.0 }
+        S = PowerCompression { Power = 2; Radius = 6.0 }
+        #-----------------------------------------------------------------
+      }
+    }
+  }
+
+  Tb {
+    AtomConfig {
+      AtomicNumber = 65
+      Mass = 162.50
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 4.0 4.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 2; Radius = 17 }
+      WaveCompressions = SingleAtomCompressions {
+        #-----------------------------------------------------------------
+        F = PowerCompression { Power = 2; Radius = 6.0 }
+        D = PowerCompression { Power = 2; Radius = 6.0 }
+        P = PowerCompression { Power = 2; Radius = 6.0 }
+        S = PowerCompression { Power = 2; Radius = 6.0 }
+        #-----------------------------------------------------------------
+      }
+    }
+  }
+
+  Dy {
+    AtomConfig {
+      AtomicNumber = 66
+      Mass = 162.50
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 5.0 4.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 2; Radius = 17 }
+      WaveCompressions = SingleAtomCompressions {
+        #-----------------------------------------------------------------
+        F = PowerCompression { Power = 2; Radius = 6.2 }
+        D = PowerCompression { Power = 2; Radius = 6.2 }
+        P = PowerCompression { Power = 2; Radius = 6.2 }
+        S = PowerCompression { Power = 2; Radius = 6.2 }
+        #-----------------------------------------------------------------
+      }
+    }
+  }
+
+  Ho {
+    AtomConfig {
+      AtomicNumber = 67
+      Mass = 164.93
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 5.0 5.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 2; Radius = 17 }
+      WaveCompressions = SingleAtomCompressions {
+        #-----------------------------------------------------------------
+        F = PowerCompression { Power = 2; Radius = 5.5 }
+        D = PowerCompression { Power = 2; Radius = 5.5 }
+        P = PowerCompression { Power = 2; Radius = 5.5 }
+        S = PowerCompression { Power = 2; Radius = 5.5 }
+        #-----------------------------------------------------------------
+      }
+    }
+  }
+
+  Er {
+    AtomConfig {
+      AtomicNumber = 68
+      Mass = 167.26
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 6.0 5.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 2; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+        #-----------------------------------------------------------------
+        F = PowerCompression { Power = 2; Radius = 6.5 }
+        D = PowerCompression { Power = 2; Radius = 6.5 }
+        P = PowerCompression { Power = 2; Radius = 6.5 }
+        S = PowerCompression { Power = 2; Radius = 6.5 }
+        #-----------------------------------------------------------------
+      }
+    }
+  }
+
+  Tm {
+    AtomConfig {
+      AtomicNumber = 69
+      Mass = 173.05
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 6.0 6.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 2; Radius = 17 }
+      WaveCompressions = SingleAtomCompressions {
+        #-----------------------------------------------------------------
+        F = PowerCompression { Power = 2; Radius = 5.4 }
+        D = PowerCompression { Power = 2; Radius = 5.4 }
+        P = PowerCompression { Power = 2; Radius = 5.4 }
+        S = PowerCompression { Power = 2; Radius = 5.4 }
+        #-----------------------------------------------------------------
+      }
+    }
+  }
+
+  Yb {
+    AtomConfig {
+      AtomicNumber = 70
+      Mass = 173.05
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 7.0 6.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 2; Radius = 17 }
+      WaveCompressions = SingleAtomCompressions {
+        #-----------------------------------------------------------------
+        F = PowerCompression { Power = 2; Radius = 6.0 }
+        D = PowerCompression { Power = 2; Radius = 6.0 }
+        P = PowerCompression { Power = 2; Radius = 6.0 }
+        S = PowerCompression { Power = 2; Radius = 6.0 }
+        #-----------------------------------------------------------------
+      }
+    }
+  }
+
+  Lu {
+    AtomConfig {
+      AtomicNumber = 71
+      Mass = 174.97
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 0.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 2; Radius = 17 }
+      WaveCompressions = SingleAtomCompressions {
+        #-----------------------------------------------------------------
+        F = PowerCompression { Power = 2; Radius = 5.5 }
+        D = PowerCompression { Power = 2; Radius = 5.5 }
+        P = PowerCompression { Power = 2; Radius = 5.5 }
+        S = PowerCompression { Power = 2; Radius = 5.5 }
+        #-----------------------------------------------------------------
+      }
+    }
+  }
+
+  Hf {
+    AtomConfig {
+      AtomicNumber = 72
+      Mass = 178.49
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 1.0 1.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 5.2 }
+	P = PowerCompression { Power = 2 ; Radius = 5.2 }
+	D = PowerCompression { Power = 2 ; Radius = 5.2 }
+	F = PowerCompression { Power = 2 ; Radius = 5.2 }
+      }
+    }
+  }
+
+  Ta {
+    AtomConfig {
+      AtomicNumber = 73
+      Mass = 180.95
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 2.0 1.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 4.8 }
+	P = PowerCompression { Power = 2 ; Radius = 4.8 }
+	D = PowerCompression { Power = 2 ; Radius = 4.8 }
+	F = PowerCompression { Power = 2 ; Radius = 4.8 }
+      }
+    }
+  }
+
+  W {
+    AtomConfig {
+      AtomicNumber = 74
+      Mass = 183.84
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 2.0 2.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 4.2 }
+	P = PowerCompression { Power = 2 ; Radius = 4.2 }
+	D = PowerCompression { Power = 2 ; Radius = 4.2 }
+	F = PowerCompression { Power = 2 ; Radius = 4.2 }
+      }
+    }
+  }
+
+  Re {
+    AtomConfig {
+      AtomicNumber = 75
+      Mass = 186.21
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 3.0 2.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 4.2 }
+	P = PowerCompression { Power = 2 ; Radius = 4.2 }
+	D = PowerCompression { Power = 2 ; Radius = 4.2 }
+	F = PowerCompression { Power = 2 ; Radius = 4.2 }
+      }
+    }
+  }
+
+  Os {
+    AtomConfig {
+      AtomicNumber = 76
+      Mass = 190.23
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 3.0 3.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 8.0 ; Radius = 4.0 }
+	P = PowerCompression { Power = 8.0 ; Radius = 4.0 }
+	D = PowerCompression { Power = 8.0 ; Radius = 4.0 }
+	F = PowerCompression { Power = 8.0 ; Radius = 4.0 }
+      }
+    }
+  }
+
+  Ir {
+    AtomConfig {
+      AtomicNumber = 77
+      Mass = 192.22
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 1.0
+	5D = 4.0 3.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 3.9 }
+	P = PowerCompression { Power = 2 ; Radius = 3.9 }
+	D = PowerCompression { Power = 2 ; Radius = 3.9 }
+	F = PowerCompression { Power = 2 ; Radius = 3.9 }
+      }
+    }
+  }
+
+  Pt {
+    AtomConfig {
+      AtomicNumber = 78
+      Mass = 195.08
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 0.0
+	5D = 5.0 4.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 3.8 }
+	P = PowerCompression { Power = 2 ; Radius = 3.8 }
+	D = PowerCompression { Power = 2 ; Radius = 3.8 }
+	F = PowerCompression { Power = 2 ; Radius = 3.8 }
+      }
+    }
+  }
+
+  Au {
+    AtomConfig {
+      AtomicNumber = 79
+      Mass = 196.967
+      Occupations {
+	$OCCUPATIONS_Xe
+	6S = 1.0 0.0
+	5D = 5.0 5.0
+	4F = 7.0 7.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      #DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      DensityCompression = PowerCompression{ Power = 2; Radius = 9.41 } # mio
+      WaveCompressions = SingleAtomCompressions {
+	#S = PowerCompression { Power = 2.0 ; Radius = 4.8 }
+	#P = PowerCompression { Power = 2.0 ; Radius = 4.8 }
+	#D = PowerCompression { Power = 2.0 ; Radius = 4.8 }
+	#F = PowerCompression { Power = 2.0 ; Radius = 4.8 }
+        #-----------------------------------------------------------------
+        S = PowerCompression { Power = 2; Radius = 6.50 } # mio
+        P = PowerCompression { Power = 2; Radius = 4.51 } # mio
+        D = PowerCompression { Power = 2; Radius = 6.50 } # mio
+        F = PowerCompression { Power = 2; Radius = 6.50 } # mio
+        #-----------------------------------------------------------------
+      }
+    }
+  }
+
+  Hg {
+    AtomConfig {
+      AtomicNumber = 80
+      Mass = 196.967
+      Occupations {
+	$OCCUPATIONS_Xe
+	4F = 7.0 7.0
+	5D = 5.0 5.0
+	6S = 1.0 1.0
+      }
+      ValenceShells = 6s 6p 5d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 6.7 }
+	P = PowerCompression { Power = 2 ; Radius = 6.7 }
+	D = PowerCompression { Power = 2 ; Radius = 6.7 }
+	F = PowerCompression { Power = 2 ; Radius = 6.7 }
+      }
+    }
+  }
+
+  Tl {
+    AtomConfig {
+      AtomicNumber = 81
+      Mass = 200.59
+      Occupations {
+	$OCCUPATIONS_Xe
+	4F = 7.0 7.0
+	5D = 5.0 5.0
+	6S = 1.0 1.0
+	6P = 1.0 0.0
+	6D = 0.0 0.0
+      }
+      ValenceShells = 6s 6p 6d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 7.3 }
+	P = PowerCompression { Power = 2 ; Radius = 7.3 }
+	D = PowerCompression { Power = 2 ; Radius = 7.3 }
+	F = PowerCompression { Power = 2 ; Radius = 7.3 }
+      }
+    }
+  }
+
+  Pb {
+    AtomConfig {
+      AtomicNumber = 82
+      Mass = 200.59
+      Occupations {
+	$OCCUPATIONS_Xe
+	4F = 7.0 7.0
+	5D = 5.0 5.0
+	6S = 1.0 1.0
+	6P = 1.0 1.0
+	6D = 0.0 0.0
+      }
+      ValenceShells = 6s 6p 6d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 5.7 }
+	P = PowerCompression { Power = 2 ; Radius = 5.7 }
+	D = PowerCompression { Power = 2 ; Radius = 5.7 }
+	F = PowerCompression { Power = 2 ; Radius = 5.7 }
+      }
+    }
+  }
+
+  Bi {
+    AtomConfig {
+      AtomicNumber = 83
+      Mass = 208.98
+      Occupations {
+	$OCCUPATIONS_Xe
+	4F = 7.0 7.0
+	5D = 5.0 5.0
+	6S = 1.0 1.0
+	6P = 2.0 1.0
+	6D = 0.0 0.0
+      }
+      ValenceShells = 6s 6p 6d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 5.8 }
+	P = PowerCompression { Power = 2 ; Radius = 5.8 }
+	D = PowerCompression { Power = 2 ; Radius = 5.8 }
+	F = PowerCompression { Power = 2 ; Radius = 5.8 }
+      }
+    }
+  }
+
+  Po {
+    AtomConfig {
+      AtomicNumber = 84
+      Mass = 209
+      Occupations {
+	$OCCUPATIONS_Xe
+	4F = 7.0 7.0
+	5D = 5.0 5.0
+	6S = 1.0 1.0
+	6P = 2.0 2.0
+	6D = 0.0 0.0
+      }
+      ValenceShells = 6s 6p 6d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
+      WaveCompressions = SingleAtomCompressions {
+	S = PowerCompression { Power = 2 ; Radius = 5.5 }
+	P = PowerCompression { Power = 2 ; Radius = 5.5 }
+	D = PowerCompression { Power = 2 ; Radius = 5.5 }
+	F = PowerCompression { Power = 2 ; Radius = 5.5 }
+      }
+    }
+  }
+  
+  Th {
+    AtomConfig {
+      AtomicNumber = 90
+      Mass = 232.04
+      Occupations {
+	$OCCUPATIONS_Rn
+	6D = 1.0 1.0
+	7S = 1.0 1.0
+	7P = 0.0 0.0
+      }
+      ValenceShells = 6d 7s 7p
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 2; Radius = 17 }
+      WaveCompressions = SingleAtomCompressions {
+        #-----------------------------------------------------------------
+        F = PowerCompression { Power = 2; Radius = 4.5 }
+        D = PowerCompression { Power = 2; Radius = 4.5 }
+        P = PowerCompression { Power = 2; Radius = 4.5 }
+        S = PowerCompression { Power = 2; Radius = 4.5 }
+        #-----------------------------------------------------------------
+      }
+      CustomizedHubbards {
+	6D = 0.174221
+	7P = 0.174221
+	7S = 0.174221
+      }
+    }
+  }
+  
+}
+
+
+OnecenterParameters {
+
+  $StandardDeltaFilling {
+    DeltaFilling = 0.01
+  }
+
+  H {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	#S = 0.50 1.0 2.0
+    #--------------------------------------
+    S = 0.50 1.0 2.0 # mio
+    #--------------------------------------
+      }
+      MaxPowers {
+    S = 3 # mio
+	#S = 3
+      }
+    }
+  }
+  
+  He {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 0.50 1.0 2.0
+      }
+      MaxPowers {
+	S = 3
+      }
+    }
+  }
+
+  Li {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------
+    S = 0.5000 1.2247 3.0000 # mio-like (skexp.py)
+    P = 0.5000 1.2247 3.0000 # mio-like (skexp.py)
+    #--------------------------------------
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+
+  Be {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------
+    S = 0.5000 1.0000 2.0000 4.0000 # mio-like (skexp.py)
+    P = 0.5000 1.0000 2.0000 4.0000 # mio-like (skexp.py)
+    #--------------------------------------
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+
+  B {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------
+    S = 0.5000 1.0772 2.3208 5.0000 # mio-like (skexp.py)
+    P = 0.5000 1.0772 2.3208 5.0000 # mio-like (skexp.py)
+    #--------------------------------------
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+
+  C {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------
+    S = 0.5 1.14 2.62 6.0 # mio
+    P = 0.5 1.14 2.62 6.0 # mio
+    #--------------------------------------
+      }
+      MaxPowers {
+    S = 3 # mio
+    P = 3 # mio
+      }
+    }
+  }
+
+  N {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------
+    S = 0.5 1.2 2.9 7.0 # mio
+    P = 0.5 1.2 2.9 7.0 # mio
+    #---------------------------------------
+      }
+      MaxPowers {
+    S = 3 # mio
+    P = 3 # mio
+      }
+    }
+  }
+
+  O {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------
+    #S = 0.5 1.26 3.17 8.0 # mio
+    #P = 0.5 1.26 3.17 8.0 # mio
+    #---------------------------------------
+      }
+      MaxPowers {
+    S = 3 # mio
+    P = 3 # mio
+      }
+    }
+  }
+
+  F {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------
+    #S = 0.5000 1.3104 3.4341 9.0000 # mio-like (skexp.py)
+    #P = 0.5000 1.3104 3.4341 9.0000 # mio-like (skexp.py)
+    #---------------------------------------
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+
+  Ne {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------
+    #S = 0.5000 1.3572 3.6840 10.0000 # mio-like (skexp.py)
+    #P = 0.5000 1.3572 3.6840 10.0000 # mio-like (skexp.py)
+    #---------------------------------------
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+
+  Na {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #-----------------------------------------
+    #S = 0.5000 1.0829 2.3452 5.0791 11.0000 # mio-like (skexp.py)
+    #P = 0.5000 1.0829 2.3452 5.0791 11.0000 # mio-like (skexp.py)
+    #-----------------------------------------
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+  
+  Mg {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #-----------------------------------------
+    #S = 0.5000 1.1067 2.4495 5.4216 12.0000 # mio-like (skexp.py)
+    #P = 0.5000 1.1067 2.4495 5.4216 12.0000 # mio-like (skexp.py)
+    #-----------------------------------------
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+      }
+    }
+  }
+
+  Al {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #-----------------------------------------
+    #S = 0.5000 1.1291 2.5495 5.7571 13.0000 # mio-like (skexp.py)
+    #P = 0.5000 1.1291 2.5495 5.7571 13.0000 # mio-like (skexp.py)
+    #D = 0.5000 1.1291 2.5495 5.7571 13.0000 # mio-like (skexp.py)
+    #-----------------------------------------
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  Si {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #-----------------------------------------
+    #S = 0.5000 1.1502 2.6458 6.0861 14.0000 # mio-like (skexp.py)
+    #P = 0.5000 1.1502 2.6458 6.0861 14.0000 # mio-like (skexp.py)
+    #D = 0.5000 1.1502 2.6458 6.0861 14.0000 # mio-like (skexp.py)
+    #-----------------------------------------
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  P {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #-----------------------------------------
+	#S = 0.50 1.17 2.83  6.41 15.00 # Ref.[2] (modified)
+	#P = 0.50 1.17 2.83  6.41 15.00 # Ref.[2] (modified)
+	#D = 1.50 3.17 6.41 14.10 30.00 # Ref.[2] (modified)
+    #-----------------------------------------
+    S = 0.5 1.19 2.83 6.73 15.0 # mio
+    P = 0.5 1.19 2.83 6.73 15.0 # mio
+    D = 0.5 1.19 2.83 6.73 15.0 # mio
+    #-----------------------------------------
+      }
+      MaxPowers {
+    S = 3 # mio
+    P = 3 # mio
+    D = 3 # mio
+	#S = 3
+	#P = 3
+	#D = 3
+      }
+    }
+  }
+
+  S {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	#S = 0.5 1.19 2.83 6.73 16.0
+	#P = 0.5 1.19 2.83 6.73 16.0
+	#D = 0.5 1.19 2.83 6.73 16.0
+    #--------------------------------------------
+    S = 0.5 1.19 2.83 6.73 16.0 # mio
+    P = 0.5 1.19 2.83 6.73 16.0 # mio
+    D = 0.5 1.19 2.83 6.73 16.0 # mio
+    #--------------------------------------------
+      }
+      MaxPowers {
+    S = 3 # mio
+    P = 3 # mio
+    D = 3 # mio
+	#S = 3
+	#P = 3
+	#D = 3
+      }
+    }
+  }
+
+  Cl {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------------
+    S = 0.5000 1.2074 2.9155 7.0401 17.0000 # mio-like (skexp.py)
+    P = 0.5000 1.2074 2.9155 7.0401 17.0000 # mio-like (skexp.py)
+    D = 0.5000 1.2074 2.9155 7.0401 17.0000 # mio-like (skexp.py)
+    #--------------------------------------------
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  Ar {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------------
+    S = 0.5000 1.2247 3.0000 7.3485 18.0000 # mio-like (skexp.py)
+    P = 0.5000 1.2247 3.0000 7.3485 18.0000 # mio-like (skexp.py)
+    D = 0.5000 1.2247 3.0000 7.3485 18.0000 # mio-like (skexp.py)
+    #--------------------------------------------
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  K {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    # -------------------------------------------
+    S = 0.5000 1.2414 3.0822 7.6526 19.0000 # mio-like (skexp.py)
+    P = 0.5000 1.2414 3.0822 7.6526 19.0000 # mio-like (skexp.py)
+    D = 0.5000 1.2414 3.0822 7.6526 19.0000 # mio-like (skexp.py)
+    # -------------------------------------------
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  Ca {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #-----------------------------------------------
+    S = 0.5000 1.2574 3.1623 7.9527 20.0000 # mio-like (skexp.py)
+    P = 0.5000 1.2574 3.1623 7.9527 20.0000 # mio-like (skexp.py)
+    D = 0.5000 1.2574 3.1623 7.9527 20.0000 # mio-like (skexp.py)
+    #-----------------------------------------------
+      }
+      MaxPowers {
+	S = 3
+	P = 3
+	D = 3
+      }
+    }
+  }
+
+  Sc {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #-----------------------------------------------
+    S = 0.0100 0.0677 0.4583 3.1022 21.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0677 0.4583 3.1022 21.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0677 0.4583 3.1022 21.0000 # mio-like (skexp.py)
+    #-----------------------------------------------
+      }
+      MaxPowers {
+	S = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	D = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+
+  Ti {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------------
+    S = 0.01 0.0685 0.4690 3.2120 22.0 # mio
+    P = 0.01 0.0685 0.4690 3.2120 22.0 # mio
+    D = 0.01 0.0685 0.4690 3.2120 22.0 # mio
+    #--------------------------------------------
+      }
+      MaxPowers {
+	S = 5 # mio
+	P = 5 # mio
+	D = 5 # mio
+      }
+    }
+  }
+
+  V {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------------
+    S = 0.0100 0.0693 0.4796 3.3212 23.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0693 0.4796 3.3212 23.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0693 0.4796 3.3212 23.0000 # mio-like (skexp.py)
+    #--------------------------------------------
+      }
+      MaxPowers {
+	S = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	D = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+
+  Cr {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------------
+    #S = 0.0100 0.0700 0.4899 3.4289 24.0000 # mio-like (skexp.py)
+    #P = 0.0100 0.0700 0.4899 3.4289 24.0000 # mio-like (skexp.py)
+    #D = 0.0100 0.0700 0.4899 3.4289 24.0000 # mio-like (skexp.py)
+    #--------------------------------------------
+      }
+      MaxPowers {
+	S = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	D = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+  
+  Mn {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------------
+    S = 0.0100 0.0707 0.5000 3.5355 25.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0707 0.5000 3.5355 25.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0707 0.5000 3.5355 25.0000 # mio-like (skexp.py)
+    #--------------------------------------------
+      }
+      MaxPowers {
+	S = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	D = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+  
+  Fe {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------------
+    S = 0.0100 0.0714 0.5099 3.6411 26.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0714 0.5099 3.6411 26.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0714 0.5099 3.6411 26.0000 # mio-like (skexp.py)
+    #--------------------------------------------
+      }
+      MaxPowers {
+	S = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	D = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+
+  Co {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------------
+    S = 0.0100 0.0721 0.5196 3.7456 27.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0721 0.5196 3.7456 27.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0721 0.5196 3.7456 27.0000 # mio-like (skexp.py)
+    #--------------------------------------------
+      }
+      MaxPowers {
+	S = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	D = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+
+  Ni {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------------
+    #S = 0.0100 0.0727 0.5292 3.8492 28.0000 # mio-like (skexp.py)
+    #P = 0.0100 0.0727 0.5292 3.8492 28.0000 # mio-like (skexp.py)
+    #D = 0.0100 0.0727 0.5292 3.8492 28.0000 # mio-like (skexp.py)
+    #--------------------------------------------
+      }
+      MaxPowers {
+	S = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	D = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+  
+  Cu {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------------
+    S = 0.0100 0.0734 0.5385 3.9518 29.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0734 0.5385 3.9518 29.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0734 0.5385 3.9518 29.0000 # mio-like (skexp.py)
+    #--------------------------------------------
+      }
+      MaxPowers {
+	S = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	D = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+
+  Zn {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------------
+    #S = 0.0100 0.0740 0.5477 4.0536 30.0000 # mio-like (skexp.py)
+    #P = 0.0100 0.0740 0.5477 4.0536 30.0000 # mio-like (skexp.py)
+    #D = 0.0100 0.0740 0.5477 4.0536 30.0000 # mio-like (skexp.py)
+    #--------------------------------------------
+      }
+      MaxPowers {
+	S = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	D = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+
+  Ga {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------------
+    S = 0.5000 1.4030 3.9370 11.0475 31.0000 # mio-like (skexp.py)
+    P = 0.5000 1.4030 3.9370 11.0475 31.0000 # mio-like (skexp.py)
+    D = 0.5000 1.4030 3.9370 11.0475 31.0000 # mio-like (skexp.py)
+    #--------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Ge {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------------
+    S = 0.5000 1.4142 4.0000 11.3137 32.0000 # mio-like (skexp.py)
+    P = 0.5000 1.4142 4.0000 11.3137 32.0000 # mio-like (skexp.py)
+    D = 0.5000 1.4142 4.0000 11.3137 32.0000 # mio-like (skexp.py)
+    #--------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  As {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------------
+    S = 0.5000 1.4251 4.0620 11.5779 33.0000 # mio-like (skexp.py)
+    P = 0.5000 1.4251 4.0620 11.5779 33.0000 # mio-like (skexp.py)
+    D = 0.5000 1.4251 4.0620 11.5779 33.0000 # mio-like (skexp.py)
+    #--------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Se {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------
+    S = 0.5000 1.4358 4.1231 11.8400 34.0000 # mio-like (skexp.py)
+    P = 0.5000 1.4358 4.1231 11.8400 34.0000 # mio-like (skexp.py)
+    D = 0.5000 1.4358 4.1231 11.8400 34.0000 # mio-like (skexp.py)
+    #------------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Br {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------
+    S = 0.5000 1.4463 4.1833 12.1002 35.0000 # mio-like (skexp.py)
+    P = 0.5000 1.4463 4.1833 12.1002 35.0000 # mio-like (skexp.py)
+    D = 0.5000 1.4463 4.1833 12.1002 35.0000 # mio-like (skexp.py)
+    #------------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Kr {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------
+    S = 0.5000 1.4565 4.2426 12.3586 36.0000 # mio-like (skexp.py)
+    P = 0.5000 1.4565 4.2426 12.3586 36.0000 # mio-like (skexp.py)
+    D = 0.5000 1.4565 4.2426 12.3586 36.0000 # mio-like (skexp.py)
+    #------------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Rb {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #-------------------------------------------
+    S = 0.5000 1.4665 4.3012 12.6152 37.0000 # mio-like (skexp.py)
+    P = 0.5000 1.4665 4.3012 12.6152 37.0000 # mio-like (skexp.py)
+    D = 0.5000 1.4665 4.3012 12.6152 37.0000 # mio-like (skexp.py)
+    #-------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Sr {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #-------------------------------------------
+    S = 0.5000 1.4763 4.3589 12.8700 38.0000 # mio-like (skexp.py)
+    P = 0.5000 1.4763 4.3589 12.8700 38.0000 # mio-like (skexp.py)
+    D = 0.5000 1.4763 4.3589 12.8700 38.0000 # mio-like (skexp.py)
+    #-------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Y {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #----------------------------------------------
+    S = 0.0100 0.0790 0.6245 4.9351 39.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0790 0.6245 4.9351 39.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0790 0.6245 4.9351 39.0000 # mio-like (skexp.py)
+    #----------------------------------------------
+      }
+      MaxPowers {
+	D = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	S = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+  
+  Zr {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 0.0100 0.0795 0.6325 5.0297 40.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0795 0.6325 5.0297 40.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0795 0.6325 5.0297 40.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	S = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+
+  Nb {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 0.0100 0.0800 0.6403 5.1237 41.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0800 0.6403 5.1237 41.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0800 0.6403 5.1237 41.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	S = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+  
+  Mo {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 0.0100 0.0805 0.6481 5.2172 42.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0805 0.6481 5.2172 42.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0805 0.6481 5.2172 42.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	S = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+
+  Tc {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #--------------------------------------------- 
+    S = 0.0100 0.0810 0.6557 5.3101 43.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0810 0.6557 5.3101 43.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0810 0.6557 5.3101 43.0000 # mio-like (skexp.py)
+    #--------------------------------------------- 
+      }
+      MaxPowers {
+	D = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	S = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+
+  Ru {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 0.0100 0.0814 0.6633 5.4024 44.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0814 0.6633 5.4024 44.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0814 0.6633 5.4024 44.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	S = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+  
+  Rh {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 0.0100 0.0819 0.6708 5.4943 45.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0819 0.6708 5.4943 45.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0819 0.6708 5.4943 45.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	S = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+
+  Pd {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 0.0100 0.0824 0.6782 5.5856 46.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0824 0.6782 5.5856 46.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0824 0.6782 5.5856 46.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	S = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+
+  Ag {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 0.0100 0.0828 0.6856 5.6764 47.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0828 0.6856 5.6764 47.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0828 0.6856 5.6764 47.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	S = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+
+  Cd {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 0.0100 0.0832 0.6928 5.7667 48.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0832 0.6928 5.7667 48.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0832 0.6928 5.7667 48.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	S = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+
+  In {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 0.5000 1.5732 4.9497 15.5736 49.0000 # mio-like (skexp.py)
+    P = 0.5000 1.5732 4.9497 15.5736 49.0000 # mio-like (skexp.py)
+    D = 0.5000 1.5732 4.9497 15.5736 49.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Sn {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 0.5000 1.5811 5.0000 15.8114 50.0000 # mio-like (skexp.py)
+    P = 0.5000 1.5811 5.0000 15.8114 50.0000 # mio-like (skexp.py)
+    D = 0.5000 1.5811 5.0000 15.8114 50.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Sb {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 0.5000 1.5890 5.0498 16.0480 51.0000 # mio-like (skexp.py)
+    P = 0.5000 1.5890 5.0498 16.0480 51.0000 # mio-like (skexp.py)
+    D = 0.5000 1.5890 5.0498 16.0480 51.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Te {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 0.5000 1.5967 5.0990 16.2834 52.0000 # mio-like (skexp.py)
+    P = 0.5000 1.5967 5.0990 16.2834 52.0000 # mio-like (skexp.py)
+    D = 0.5000 1.5967 5.0990 16.2834 52.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  I {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 0.5000 1.6043 5.1478 16.5177 53.0000 # mio-like (skexp.py)
+    P = 0.5000 1.6043 5.1478 16.5177 53.0000 # mio-like (skexp.py)
+    D = 0.5000 1.6043 5.1478 16.5177 53.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Xe {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    #S = 0.5000 1.6119 5.1962 16.7509 54.0000 # mio-like (skexp.py)
+    #P = 0.5000 1.6119 5.1962 16.7509 54.0000 # mio-like (skexp.py)
+    #D = 0.5000 1.6119 5.1962 16.7509 54.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Cs {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 0.5000 1.6193 5.2440 16.9830 55.0000 # mio-like (skexp.py)
+    P = 0.5000 1.6193 5.2440 16.9830 55.0000 # mio-like (skexp.py)
+    D = 0.5000 1.6193 5.2440 16.9830 55.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  Ba {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 0.5000 1.6266 5.2915 17.2141 56.0000 # mio-like (skexp.py)
+    P = 0.5000 1.6266 5.2915 17.2141 56.0000 # mio-like (skexp.py)
+    D = 0.5000 1.6266 5.2915 17.2141 56.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	D = 3
+	P = 3
+	S = 3
+      }
+    }
+  }
+
+  La {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 1.0000 2.7477 7.5498 20.7447 57.0000 156.6187 # mio-like (skexp.py)
+    P = 1.0000 2.7477 7.5498 20.7447 57.0000 156.6187 # mio-like (skexp.py)
+    D = 1.0000 2.7477 7.5498 20.7447 57.0000 156.6187 # mio-like (skexp.py)
+    F = 1.0000 2.7477 7.5498 20.7447 57.0000 156.6187 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Ce {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 1.0000 2.7597 7.6158 21.0170 58.0000 160.0608 # mio-like (skexp.py)
+    P = 1.0000 2.7597 7.6158 21.0170 58.0000 160.0608 # mio-like (skexp.py)
+    D = 1.0000 2.7597 7.6158 21.0170 58.0000 160.0608 # mio-like (skexp.py)
+    F = 1.0000 2.7597 7.6158 21.0170 58.0000 160.0608 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Pr {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 1.0000 2.7715 7.6811 21.2882 59.0000 163.5178 # mio-like (skexp.py)
+    P = 1.0000 2.7715 7.6811 21.2882 59.0000 163.5178 # mio-like (skexp.py)
+    D = 1.0000 2.7715 7.6811 21.2882 59.0000 163.5178 # mio-like (skexp.py)
+    F = 1.0000 2.7715 7.6811 21.2882 59.0000 163.5178 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Nd {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 1.0000 2.7832 7.7460 21.5582 60.0000 166.9895 # mio-like (skexp.py)
+    P = 1.0000 2.7832 7.7460 21.5582 60.0000 166.9895 # mio-like (skexp.py)
+    D = 1.0000 2.7832 7.7460 21.5582 60.0000 166.9895 # mio-like (skexp.py)
+    F = 1.0000 2.7832 7.7460 21.5582 60.0000 166.9895 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Pm {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 1.0000 2.7947 7.8102 21.8272 61.0000 170.4756 # mio-like (skexp.py)
+    P = 1.0000 2.7947 7.8102 21.8272 61.0000 170.4756 # mio-like (skexp.py)
+    D = 1.0000 2.7947 7.8102 21.8272 61.0000 170.4756 # mio-like (skexp.py)
+    F = 1.0000 2.7947 7.8102 21.8272 61.0000 170.4756 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Sm {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 1.0000 2.8061 7.8740 22.0950 62.0000 173.9761 # mio-like (skexp.py)
+    P = 1.0000 2.8061 7.8740 22.0950 62.0000 173.9761 # mio-like (skexp.py)
+    D = 1.0000 2.8061 7.8740 22.0950 62.0000 173.9761 # mio-like (skexp.py)
+    F = 1.0000 2.8061 7.8740 22.0950 62.0000 173.9761 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Eu {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 1.0000 2.8173 7.9373 22.3617 63.0000 177.4907 # mio-like (skexp.py)
+    P = 1.0000 2.8173 7.9373 22.3617 63.0000 177.4907 # mio-like (skexp.py)
+    D = 1.0000 2.8173 7.9373 22.3617 63.0000 177.4907 # mio-like (skexp.py)
+    F = 1.0000 2.8173 7.9373 22.3617 63.0000 177.4907 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Gd {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #---------------------------------------------
+    S = 1.0000 2.8284 8.0000 22.6274 64.0000 181.0193 # mio-like (skexp.py)
+    P = 1.0000 2.8284 8.0000 22.6274 64.0000 181.0193 # mio-like (skexp.py)
+    D = 1.0000 2.8284 8.0000 22.6274 64.0000 181.0193 # mio-like (skexp.py)
+    F = 1.0000 2.8284 8.0000 22.6274 64.0000 181.0193 # mio-like (skexp.py)
+    #---------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Tb {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 2.8394 8.0623 22.8921 65.0000 184.5617 # mio-like (skexp.py)
+    P = 1.0000 2.8394 8.0623 22.8921 65.0000 184.5617 # mio-like (skexp.py)
+    D = 1.0000 2.8394 8.0623 22.8921 65.0000 184.5617 # mio-like (skexp.py)
+    F = 1.0000 2.8394 8.0623 22.8921 65.0000 184.5617 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Dy {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 2.8503 8.1240 23.1557 66.0000 188.1178 # mio-like (skexp.py)
+    P = 1.0000 2.8503 8.1240 23.1557 66.0000 188.1178 # mio-like (skexp.py)
+    D = 1.0000 2.8503 8.1240 23.1557 66.0000 188.1178 # mio-like (skexp.py)
+    F = 1.0000 2.8503 8.1240 23.1557 66.0000 188.1178 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Ho {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 2.8610 8.1854 23.4183 67.0000 191.6874 # mio-like (skexp.py)
+    P = 1.0000 2.8610 8.1854 23.4183 67.0000 191.6874 # mio-like (skexp.py)
+    D = 1.0000 2.8610 8.1854 23.4183 67.0000 191.6874 # mio-like (skexp.py)
+    F = 1.0000 2.8610 8.1854 23.4183 67.0000 191.6874 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Er {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 2.8716 8.2462 23.6800 68.0000 195.2703 # mio-like (skexp.py)
+    P = 1.0000 2.8716 8.2462 23.6800 68.0000 195.2703 # mio-like (skexp.py)
+    D = 1.0000 2.8716 8.2462 23.6800 68.0000 195.2703 # mio-like (skexp.py)
+    F = 1.0000 2.8716 8.2462 23.6800 68.0000 195.2703 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Tm {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 2.8821 8.3066 23.9407 69.0000 198.8664 # mio-like (skexp.py)
+    P = 1.0000 2.8821 8.3066 23.9407 69.0000 198.8664 # mio-like (skexp.py)
+    D = 1.0000 2.8821 8.3066 23.9407 69.0000 198.8664 # mio-like (skexp.py)
+    F = 1.0000 2.8821 8.3066 23.9407 69.0000 198.8664 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Yb {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 2.8925 8.3666 24.2005 70.0000 202.4755 # mio-like (skexp.py)
+    P = 1.0000 2.8925 8.3666 24.2005 70.0000 202.4755 # mio-like (skexp.py)
+    D = 1.0000 2.8925 8.3666 24.2005 70.0000 202.4755 # mio-like (skexp.py)
+    F = 1.0000 2.8925 8.3666 24.2005 70.0000 202.4755 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+  
+  Lu {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 2.9028 8.4261 24.4593 71.0000 206.0976 # mio-like (skexp.py)
+    P = 1.0000 2.9028 8.4261 24.4593 71.0000 206.0976 # mio-like (skexp.py)
+    D = 1.0000 2.9028 8.4261 24.4593 71.0000 206.0976 # mio-like (skexp.py)
+    F = 1.0000 2.9028 8.4261 24.4593 71.0000 206.0976 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+  
+  Hf {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 2.9130 8.4853 24.7172 72.0000 209.7324 # mio-like (skexp.py)
+    P = 1.0000 2.9130 8.4853 24.7172 72.0000 209.7324 # mio-like (skexp.py)
+    D = 1.0000 2.9130 8.4853 24.7172 72.0000 209.7324 # mio-like (skexp.py)
+    F = 1.0000 2.9130 8.4853 24.7172 72.0000 209.7324 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+  
+  Ta {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 2.9230 8.5440 24.9742 73.0000 213.3799 # mio-like (skexp.py)
+    P = 1.0000 2.9230 8.5440 24.9742 73.0000 213.3799 # mio-like (skexp.py)
+    D = 1.0000 2.9230 8.5440 24.9742 73.0000 213.3799 # mio-like (skexp.py)
+    F = 1.0000 2.9230 8.5440 24.9742 73.0000 213.3799 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+  
+  W {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 2.9330 8.6023 25.2304 74.0000 217.0399 # mio-like (skexp.py)
+    P = 1.0000 2.9330 8.6023 25.2304 74.0000 217.0399 # mio-like (skexp.py)
+    D = 1.0000 2.9330 8.6023 25.2304 74.0000 217.0399 # mio-like (skexp.py)
+    F = 1.0000 2.9330 8.6023 25.2304 74.0000 217.0399 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+  
+  Re {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 2.9428 8.6603 25.4857 75.0000 220.7123 # mio-like (skexp.py)
+    P = 1.0000 2.9428 8.6603 25.4857 75.0000 220.7123 # mio-like (skexp.py)
+    D = 1.0000 2.9428 8.6603 25.4857 75.0000 220.7123 # mio-like (skexp.py)
+    F = 1.0000 2.9428 8.6603 25.4857 75.0000 220.7123 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Os {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 2.9526 8.7178 25.7401 76.0000 224.3970 # mio-like (skexp.py)
+    P = 1.0000 2.9526 8.7178 25.7401 76.0000 224.3970 # mio-like (skexp.py)
+    D = 1.0000 2.9526 8.7178 25.7401 76.0000 224.3970 # mio-like (skexp.py)
+    F = 1.0000 2.9526 8.7178 25.7401 76.0000 224.3970 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Ir {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 2.9623 8.7750 25.9937 77.0000 228.0938 # mio-like (skexp.py)
+    P = 1.0000 2.9623 8.7750 25.9937 77.0000 228.0938 # mio-like (skexp.py)
+    D = 1.0000 2.9623 8.7750 25.9937 77.0000 228.0938 # mio-like (skexp.py)
+    F = 1.0000 2.9623 8.7750 25.9937 77.0000 228.0938 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Pt {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 2.9718 8.8318 26.2465 78.0000 231.8026 # mio-like (skexp.py)
+    P = 1.0000 2.9718 8.8318 26.2465 78.0000 231.8026 # mio-like (skexp.py)
+    D = 1.0000 2.9718 8.8318 26.2465 78.0000 231.8026 # mio-like (skexp.py)
+    F = 1.0000 2.9718 8.8318 26.2465 78.0000 231.8026 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Au {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.00 2.98 8.89 26.5 79.0 235.5 # mio
+    P = 1.00 2.98 8.89 26.5 79.0 235.5 # mio
+    D = 1.00 2.98 8.89 26.5 79.0 235.5 # mio
+    F = 1.00 2.98 8.89 26.5 79.0 235.5 # mio
+    #------------------------------------------------------
+      }
+      MaxPowers {
+    S = 4 # mio
+    P = 4 # mio
+    D = 4 # mio
+    F = 4 # mio
+      }
+    }
+  }
+
+  Hg {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 2.9907 8.9443 26.7496 80.0000 239.2558 # mio-like (skexp.py)
+    P = 1.0000 2.9907 8.9443 26.7496 80.0000 239.2558 # mio-like (skexp.py)
+    D = 1.0000 2.9907 8.9443 26.7496 80.0000 239.2558 # mio-like (skexp.py)
+    F = 1.0000 2.9907 8.9443 26.7496 80.0000 239.2558 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Tl {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 3.0000 9.0000 27.0000 81.0000 243.0000 # mio-like (skexp.py)
+    P = 1.0000 3.0000 9.0000 27.0000 81.0000 243.0000 # mio-like (skexp.py)
+    D = 1.0000 3.0000 9.0000 27.0000 81.0000 243.0000 # mio-like (skexp.py)
+    F = 1.0000 3.0000 9.0000 27.0000 81.0000 243.0000 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Pb {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 3.0092 9.0554 27.2496 82.0000 246.7558 # mio-like (skexp.py)
+    P = 1.0000 3.0092 9.0554 27.2496 82.0000 246.7558 # mio-like (skexp.py)
+    D = 1.0000 3.0092 9.0554 27.2496 82.0000 246.7558 # mio-like (skexp.py)
+    F = 1.0000 3.0092 9.0554 27.2496 82.0000 246.7558 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Bi {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 3.0183 9.1104 27.4985 83.0000 250.5230 # mio-like (skexp.py)
+    P = 1.0000 3.0183 9.1104 27.4985 83.0000 250.5230 # mio-like (skexp.py)
+    D = 1.0000 3.0183 9.1104 27.4985 83.0000 250.5230 # mio-like (skexp.py)
+    F = 1.0000 3.0183 9.1104 27.4985 83.0000 250.5230 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Po {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 3.0274 9.1652 27.7466 84.0000 254.3016 # mio-like (skexp.py)
+    P = 1.0000 3.0274 9.1652 27.7466 84.0000 254.3016 # mio-like (skexp.py)
+    D = 1.0000 3.0274 9.1652 27.7466 84.0000 254.3016 # mio-like (skexp.py)
+    F = 1.0000 3.0274 9.1652 27.7466 84.0000 254.3016 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  At {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 3.0364 9.2195 27.9940 85.0000 258.0915 # mio-like (skexp.py)
+    P = 1.0000 3.0364 9.2195 27.9940 85.0000 258.0915 # mio-like (skexp.py)
+    D = 1.0000 3.0364 9.2195 27.9940 85.0000 258.0915 # mio-like (skexp.py)
+    F = 1.0000 3.0364 9.2195 27.9940 85.0000 258.0915 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Rn {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 3.0453 9.2736 28.2406 86.0000 261.8925 # mio-like (skexp.py)
+    P = 1.0000 3.0453 9.2736 28.2406 86.0000 261.8925 # mio-like (skexp.py)
+    D = 1.0000 3.0453 9.2736 28.2406 86.0000 261.8925 # mio-like (skexp.py)
+    F = 1.0000 3.0453 9.2736 28.2406 86.0000 261.8925 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Fr {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 3.0541 9.3274 28.4865 87.0000 265.7046 # mio-like (skexp.py)
+    P = 1.0000 3.0541 9.3274 28.4865 87.0000 265.7046 # mio-like (skexp.py)
+    D = 1.0000 3.0541 9.3274 28.4865 87.0000 265.7046 # mio-like (skexp.py)
+    F = 1.0000 3.0541 9.3274 28.4865 87.0000 265.7046 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Ra {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 3.0628 9.3808 28.7317 88.0000 269.5277 # mio-like (skexp.py)
+    P = 1.0000 3.0628 9.3808 28.7317 88.0000 269.5277 # mio-like (skexp.py)
+    D = 1.0000 3.0628 9.3808 28.7317 88.0000 269.5277 # mio-like (skexp.py)
+    F = 1.0000 3.0628 9.3808 28.7317 88.0000 269.5277 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+  
+  Th {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    #------------------------------------------------------
+    S = 1.0000 3.0801 9.4868 29.2201 90.0000 277.2063 # mio-like (skexp.py)
+    P = 1.0000 3.0801 9.4868 29.2201 90.0000 277.2063 # mio-like (skexp.py)
+    D = 1.0000 3.0801 9.4868 29.2201 90.0000 277.2063 # mio-like (skexp.py)
+    F = 1.0000 3.0801 9.4868 29.2201 90.0000 277.2063 # mio-like (skexp.py)
+    #------------------------------------------------------
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+  
+}
+
+
+TwoCenterParameters {
+
+  $EqGrid = EquidistantGrid {
+      GridStart = 0.4
+      GridSeparation = 0.02
+      Tolerance = 5e-5
+      MaxDistance = 40.0
+  }
+
+  $EqGridShort = EquidistantGrid {
+    GridStart = 0.4
+    GridSeparation = 0.02
+    Tolerance = 5e-5
+    MaxDistance = 0.5
+  }
+
+  # Various specific cutoffs to match SK-file cutoffs in mio-1-1
+  $EqGridCutoff10 = EquidistantGrid {
+      GridStart = 0.4
+      GridSeparation = 0.02
+      Tolerance = 5e-5
+      MaxDistance = -10.001
+  }
+
+  $EqGridCutoff12 = EquidistantGrid {
+      GridStart = 0.4
+      GridSeparation = 0.02
+      Tolerance = 5e-5
+      MaxDistance = -12.39
+  }
+
+  $SkTwocnt_300_150 = Sktwocnt {
+    IntegrationPoints = 300 150
+  }
+
+  $SkTwocnt_400_200 = Sktwocnt {
+    IntegrationPoints = 400 200
+  }
+
+  H-H { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  H-C { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  H-N { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  H-O { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  H-S { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  H-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  H-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  H-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  C-C { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  C-N { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  C-O { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  C-S { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  C-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  C-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  C-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  N-N { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  N-O { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  N-S { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  N-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  N-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  N-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  O-O { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  O-S { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  O-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  O-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  O-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  S-S { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  S-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  S-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  S-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  P-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  P-Ti { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  P-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  Ti-Ti { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ti-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  Au-Au { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  #----------------------------------------------------------------
+  He-He { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Li-Li { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Be-Be { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  B-B   { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  F-F   { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Ne-Ne { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Na-Na { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Mg-Mg { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Al-Al { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Si-Si { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Cl-Cl { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  Ar-Ar { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+  #----------------------------------------------------------------
+  K-K   { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ca-Ca { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Sc-Sc { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  V-V   { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Cr-Cr { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Mn-Mn { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Fe-Fe { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Co-Co { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ni-Ni { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Cu-Cu { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Zn-Zn { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ga-Ga { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ge-Ge { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  As-As { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Se-Se { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Br-Br { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Kr-Kr { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  #----------------------------------------------------------------
+  Rb-Rb { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Sr-Sr { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Y-Y   { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Zr-Zr { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Nb-Nb { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Mo-Mo { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Tc-Tc { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ru-Ru { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Rh-Rh { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Pd-Pd { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ag-Ag { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Cd-Cd { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  In-In { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Sn-Sn { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Sb-Sb { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Te-Te { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  I-I   { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Xe-Xe { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  #----------------------------------------------------------------
+  Cs-Cs { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ba-Ba { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  #-----
+  La-La { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ce-Ce { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Pr-Pr { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Nd-Nd { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Pm-Pm { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Sm-Sm { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Eu-Eu { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Gd-Gd { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Tb-Tb { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Dy-Dy { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ho-Ho { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Er-Er { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Tm-Tm { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Yb-Yb { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Lu-Lu { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  #-----
+  Hf-Hf { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ta-Ta { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  W-W   { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Re-Re { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Os-Os { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ir-Ir { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  Pt-Pt { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  Hg-Hg { Grid = $EqGrid ; Calculator = $SkTwocnt_400_200 }
+  Tl-Tl { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Pb-Pb { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Bi-Bi { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Po-Po { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  At-At { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Rn-Rn { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  #----------------------------------------------------------------
+  Fr-Fr { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Ra-Ra { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  #-----
+  Ac-Ac { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Th-Th { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Pa-Pa { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  U-U   { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Np-Np { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  Pu-Pu { Grid = $EqGridCutoff12 ; Calculator = $SkTwocnt_400_200 }
+  #-----
+  #----------------------------------------------------------------
+}
+
+# dumy repulsion case
+# skgen -o slateratom -t sktwocnt sktable -d H,O H,O |& tee -a output
+
+# no dumy replusion case
+# skgen -o slateratom -t sktwocnt sktable H,O H,O |& tee -a output
