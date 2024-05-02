@@ -218,8 +218,8 @@ Search method using the Bayesian optimization (sequential version)
 2. cp ./mio-like/* ./*
 3. chmod +x mkinp_baysian.sh
 4. chmod +x run_seq.sh
-5. rewrite skdef.hsd_backup_run_seq
-6. rewrite run_seq.sh and prepare band_check folder
+5. rewrite "skdef.hsd_backup_run_seq"
+6. rewrite "run_seq.sh" and prepare "band_check" folder
 7. ./run_seq.sh
 
 
