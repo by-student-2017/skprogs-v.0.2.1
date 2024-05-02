@@ -93,6 +93,7 @@ for i in 8 7 6; do
   ./mkinp_baysian.sh ${elements[$i]} ${lattices[$i]}
   #---------------------------------------------------------------
   mv Evalute.txt ./${elements[$i]}/Evalute.txt
+  mv Evalute_sort.txt ./${elements[$i]}/Evalute_sort.txt
   mv logs.json   ./${elements[$i]}/logs.json
   mv skdef.hsd.tmp_baysian_${elements[$i]} ./${elements[$i]}/skdef.hsd.tmp_baysian_${elements[$i]}
   mv baysian_v1_${elements[$i]}.py ./${elements[$i]}/baysian_v1_${elements[$i]}.py

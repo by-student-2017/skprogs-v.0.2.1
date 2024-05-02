@@ -103,6 +103,7 @@ for i in 19 38 40 42 44 46 48 50 52 33 31 21 23; do # K, Sr, Zr, Mo, Ru, Pd, Cd,
   ./mkinp_baysian.sh ${elements[$i]} ${lattices[$i]}
   #---------------------------------------------------------------
   mv Evalute.txt ./${elements[$i]}/Evalute.txt
+  mv Evalute_sort.txt ./${elements[$i]}/Evalute_sort.txt
   mv logs.json   ./${elements[$i]}/logs.json
   mv skdef.hsd.tmp_baysian_${elements[$i]} ./${elements[$i]}/skdef.hsd.tmp_baysian_${elements[$i]}
   mv baysian_v1_${elements[$i]}.py ./${elements[$i]}/baysian_v1_${elements[$i]}.py
