@@ -99,7 +99,13 @@ for((i=1;i<95;i++)); do # H-Pu
   #---------------------------------------------------------------
   ./mkinp_baysian.sh ${elements[$i]} ${lattices[$i]}
   #---------------------------------------------------------------
+  cp plot_map.gpl ./${elements[$i]}/plot_map.gpl
   mv Evalute.txt ./${elements[$i]}/Evalute.txt
+    #------------------------
+    cd ./${elements[$i]}
+      gnuplot < plot_map.gpl
+    cd ..
+    #------------------------
   mv Evalute_sort.txt ./${elements[$i]}/Evalute_sort.txt
   mv logs.json   ./${elements[$i]}/logs.json
   mv skdef.hsd.tmp_baysian_${elements[$i]} ./${elements[$i]}/skdef.hsd.tmp_baysian_${elements[$i]}

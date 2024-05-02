@@ -52,7 +52,7 @@ atomic_number = atomic_number_Yy # In this code, this value is used as a paramet
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
 #---------------------------
 hwb_den = 10.0 # search range [-x*hwb:+x*hwt]
-hwt_den = 10.0 # search range [-x*hwb:+x*hwt]
+hwt_den = 15.0 # search range [-x*hwb:+x*hwt]
 #---------------------------
 hwb_wav = 6.0 # search range [-x*hwb:+x*hwt]
 hwt_wav = 6.0 # search range [-x*hwb:+x*hwt]
@@ -256,7 +256,7 @@ else:
   optimizer = BayesianOptimization(f=descripter, pbounds=pbounds, verbose=2, random_state=1, bounds_transformer=bounds_transformer)
   logger = JSONLogger(path="./logs") # Results will be saved in ./logs.json
   optimizer.subscribe(Events.OPTIMIZATION_STEP, logger)
-  optimizer.maximize(init_points=(n_gene*27), n_iter=(250*1)) # 600 cycles / 12 h (Note: It depends on the number of parameters and search range, but usually around 150 times is a good value (in n_gene*5 case). I set it to 600 just in case (from after I got home until the next morning).)
+  optimizer.maximize(init_points=(n_gene*50), n_iter=(450*1)) # 600 cycles / 12 h (Note: It depends on the number of parameters and search range, but usually around 150 times is a good value (in n_gene*5 case). I set it to 600 just in case (from after I got home until the next morning).)
   optimizer.set_gp_params(alpha=1e-3) # The greater the whitenoise, the greater alpha value.
   # Note: Since "bounds_transformer" is used to narrow the search area, 
   #  in order to initially search as wide a range as possible, 
