@@ -35,8 +35,10 @@ print("CPU: ",str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
 num_core = int(str(sub_num_core.stdout).lstrip("b'").rstrip("\\n'"))
 dftbp_adress = "mpirun -np "+str(num_core)+" dftb+"
 #skprogs_adress = "/home/user/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # Linux
+#skprogs_adress = "/home/inukai/skprogs/sktools/src/sktools/scripts/skgen.py" # Linux
 skprogs_adress = "/home/inukai/skprogs/sktools/src/sktools/scripts/skgen.py" # Linux
 #skprogs_adress = "/mnt/d/skprogs-v.0.2.1/sktools/src/sktools/scripts/skgen.py" # WSL2
+#
 #pwscf_adress = "mpirun -np "+str(num_core)+" pw.x"
 
 #----------------------------------------------------------------------
@@ -49,11 +51,11 @@ atomic_number = atomic_number_Yy # In this code, this value is used as a paramet
 #------------------------------------------------
 # Note: Empirically, setting a value around 0.3 will significantly reduce the number of failures.
 #---------------------------
-hwb_den = 8.0 # search range [-x*hwb:+x*hwt]
-hwt_den = 8.0 # search range [-x*hwb:+x*hwt]
+hwb_den = 10.0 # search range [-x*hwb:+x*hwt]
+hwt_den = 10.0 # search range [-x*hwb:+x*hwt]
 #---------------------------
-hwb_wav = 4.0 # search range [-x*hwb:+x*hwt]
-hwt_wav = 4.0 # search range [-x*hwb:+x*hwt]
+hwb_wav = 6.0 # search range [-x*hwb:+x*hwt]
+hwt_wav = 6.0 # search range [-x*hwb:+x*hwt]
 #---------------------------
 x0  = x0_Zz # r0 of density
 x1  = x1_Zz # r0 of S, P, D and F
@@ -275,3 +277,4 @@ else:
 #acq = ucb, ei, poi, (default: ubc)
 #----------------------------------------------------------------------
 subprocess.run("sort -k 2 Evalute.txt > Evalute_sort.txt", shell=True)
+#subprocess.run("mv Evalute_sort.txt ./"+element+"/Evalute_sort.txt", shell=True)

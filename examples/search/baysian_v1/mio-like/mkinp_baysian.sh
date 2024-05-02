@@ -62,6 +62,9 @@ awk -v n1st_dftbatom=${n1st_dftbatom} '{
   else {print $0}
 }' ${filename} > skdef.hsd.tmp_baysian_1st
 
+mv skdef.hsd.tmp_baysian_1st skdef.hsd.tmp_baysian_$1
+sed -i "s/skdef.hsd.tmp_baysian/skdef.hsd.tmp_baysian_$1/g" baysian_v1_$1.py
+
 #----------
 x0=`awk -v n1st_dftbatom=${n1st_dftbatom} '{
   if(NR==n1st_dftbatom+2 && $8=="="){printf "%4.1f",$9}

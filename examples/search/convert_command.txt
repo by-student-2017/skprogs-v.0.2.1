@@ -1,0 +1,5 @@
+Convert Win(CRLF) to Linux(LF)
+sed -i 's/\r//g' test.txt
+
+Convert Linux(LF) to Win(CRLF)
+sed -i 's/$/\r/g' test.txt

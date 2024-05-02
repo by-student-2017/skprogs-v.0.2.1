@@ -47,7 +47,7 @@ nelement=(0
 ndata=${#elements[@]}
 #echo ${ndata}
 #-------------------------------------------------------------------------
-for((i=72;i<87;i++)); do # Hf-Rn
+for((i=1;i<95;i++)); do # H-Pu
 #for i in 57 72 73 74 75 76 77 78 79 80 81 82 83; do # La, Hf, Ta, W, Re, Os, Ir, Pt, Au, Hg, Tl, Pb, Bi
   #--------------------------------------------------------------
   echo $i", "${nelement[$i]}", "${elements[$i]}", "${lattices[$i]}
@@ -100,6 +100,7 @@ for((i=72;i<87;i++)); do # Hf-Rn
   ./mkinp_baysian.sh ${elements[$i]} ${lattices[$i]}
   #---------------------------------------------------------------
   mv Evalute.txt ./${elements[$i]}/Evalute.txt
+  mv Evalute_sort.txt ./${elements[$i]}/Evalute_sort.txt
   mv logs.json   ./${elements[$i]}/logs.json
   mv skdef.hsd.tmp_baysian_${elements[$i]} ./${elements[$i]}/skdef.hsd.tmp_baysian_${elements[$i]}
   mv baysian_v1_${elements[$i]}.py ./${elements[$i]}/baysian_v1_${elements[$i]}.py
