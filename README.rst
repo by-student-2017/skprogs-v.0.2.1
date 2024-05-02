@@ -359,7 +359,7 @@ Note 4 (Introduction)
 =====================
 - For information using molecular dynamics engines such as Lammp [MD1] and PIMD [MD2], neural networks (NNs) (e.g., AENET [NN1]) using methods other than general-purpose graph neural networks (GNNs) become unstable in systems with four or more elements. Although the problem with GNN is not clear, although it requires a huge amount of training data, the energy reproducibility remains at the same level as the classical MD ReaxFF, and the reproduction of phonons is not good. [AE1, AM1] There is an opinion that this problem can be solved if there is an abundance of training data, but even the huge amount of training data provided by the Open Catalysts Project [OC1] has not completely overcome this situation.
 - Currently (1/April/2024), many well-known neural networks (NNs) used in molecular dynamics engines do not handle charge in an explicit manner, so they have the drawback of not being able to calculate behavior when an electric field is applied, which is important for battery materials. DFTB+ and Slater-Koster files also handle charges that are not explicitly handled by many GNNs and NNs. As for spin, the multiplicity is set using Gaussian, GAMESS, Psi4, etc., so I think it would be good to create a Slater-Koster file that separates the spin status, and the user can use it depending on the multiplicity of the system. I am. This part of the problem could potentially be automated using machine learning.
-
+- Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-value [DF1, DF2]. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. In my environment, I would not create training data with VASP.
 
 - [MD1] [Lammps](https://www.lammps.org/#gsc.tab=0)
 - [MD2] [PIMD](https://ccse.jaea.go.jp/software/PIMD/index.jp.html)
@@ -374,7 +374,6 @@ Note 4 (Introduction)
 
 Future plans
 ============
-- Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-value [DF1, DF2]. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. In my environment, I would not create training data with VASP.
 - https://github.com/by-student-2017/DFTBP (Use DFTB+ calculation results on Lammps. It is not confirmed whether the GCMC method can be used.)
 - https://github.com/deepmodeling/DeePTB (This is an excellent result. However, only God knows if it will work when the python format is changed.)
 - As a first step in material search, it is conceivable to search for a structure using DFTB+ or Lammps to satisfy e/uc (many reports have been made by U. Mizutani and H. Sato et al. [7]). This e/uc has been investigated using real material systems from the Pearson Handbook and verified non-spin. Therefore, it is estimated that he can play an active role even with the non-spin Slater-Koster parameter and potential. One of the reasons why material exploration using e/uc is not currently being carried out is that the Slater-Koster parameters and classical MD potentials are not available. I am strongly convinced that the results of this research will be valuable basic research for realizing materials exploration using e/uc.
