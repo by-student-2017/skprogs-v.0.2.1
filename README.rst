@@ -210,6 +210,19 @@ References
 - [6] [Empirical chemical pseudopotential theory of molecular and metallic bonding](https://doi.org/10.1103/PhysRevB.31.6184)
 
 
+Search method using the Bayesian optimization (sequential version)
+==================================================================
+
+0. pip3 install bayesian-optimization==1.4.3
+1. cd baysian_v1
+2. cp ./mio-like/* ./*
+3. chmod +x mkinp_baysian.sh
+4. chmod +x run_seq.sh
+5. rewrite skdef.hsd_backup_run_seq
+6. rewrite run_seq.sh and prepare band_check folder
+7. ./run_seq.sh
+
+
 Search method using the Bayesian optimization
 =============================================
 
