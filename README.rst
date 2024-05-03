@@ -345,6 +345,8 @@ Note 2 (Fitting)
 - Reference [1] reports that the fit is the worst for carbon, and that the optimal parameter ranges for diamond structures and other structures are distributed quite separately. Therefore, for carbon, we are planning to provide Slater-Koster files in three categories: general purpose, diamond, and non-diamond structures (FCC, HCP, BCC and Graphite).
 - If the value of the parameter is too small or too large, the s-band will rise and unnecessary bands will fall. It is thought that this kind of problem will probably disappear if the parameters are appropriate, so I try to find conditions where unnecessary bands do not drop.
 
+- Among the lanthanide series elements, parameter search for Nd progresses unusually quickly. Does it have something to do with the fact that it exists as a practical material ?
+
 
 Note 3 (Tips)
 =============
