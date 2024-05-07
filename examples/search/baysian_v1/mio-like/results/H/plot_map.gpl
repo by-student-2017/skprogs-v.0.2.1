@@ -20,39 +20,24 @@ set view 0,0
 #set palette cubehelix start 1 cycles 5 saturation 3 negative
 #splot "Evalute.txt" u 3:4:2 t ""
 #------------------------------------------------
-set xlabel "Radii of density, r_{0} / bohr" offset 0,1.0,0 rotate parallel font "Arial,12"
-set ylabel "Radii of wave (s, p, d and f), r_{0} / bohr" offset -4.5,0,0 rotate parallel font "Arial,12"
-set zlabel ""
+set xlabel "Radii of density, r_{0} / bohr"
+set ylabel "Radii of wave (s, p, d and f), r_{0} / bohr"
+set zlabel "Evaluate value [eV]"
 set  ytics 1
 set mxtics 5
 set  ytics 1
 set mytics 5
 set grid
-set key box 
-#set hidden3d
-set dgrid3d 32,48 qnorm 1
-set pm3d at b
-splot "Evalute.txt" u 3:4:2 w lp t "" pt 10 lw 0.1 lc rgb "black", "Evalute_sort.txt" u 3:4:2 every ::0::0 w p t "An optimal point selected in Bayesian optimization" pt 2 lc rgb "red"
-
-set xlabel offset 0,0,0
-set ylabel offset 0,0,0
-set zlabel "Evaluate value [eV]" offset 0,0,0 rotate parallel font "Arial,12"
+splot "Evalute.txt" u 3:4:2 t "" pt 10
 
 set output "map_XYZ.png"
 set view 40,55
 replot
 
-set hidden3d
-set pm3d at s
-
-# "Radii of density, r_{0} / bohr"
-set xlabel offset 0,1.0,0
 set output "map_XZ.png"
 set view 90,0
 replot
 
-# "Radii of wave (s, p, d and f), r_{0} / bohr"
-set ylabel offset 0,1.0,0
 set output "map_YZ.png"
 set view 90,90
 replot

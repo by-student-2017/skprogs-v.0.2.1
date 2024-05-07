@@ -107,9 +107,9 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = No
-      DensityCompression = PowerCompression { Power = 2 ; Radius = 16.0 }
+      DensityCompression = PowerCompression { Power = 2 ; Radius = 10.0 }
       WaveCompressions = SingleAtomCompressions {
-	S = PowerCompression { Power = 2 ; Radius = 14.0 }
+	S = PowerCompression { Power = 2 ; Radius = 8.0 }
       }
     }
   }
@@ -2436,8 +2436,8 @@ OnecenterParameters {
     Calculator = SlaterAtom {
       Exponents {
     #---------------------------------------
-    #S = 0.5 1.26 3.17 8.0 # mio
-    #P = 0.5 1.26 3.17 8.0 # mio
+    S = 0.5 1.26 3.17 8.0 # mio
+    P = 0.5 1.26 3.17 8.0 # mio
     #---------------------------------------
       }
       MaxPowers {
@@ -2452,8 +2452,8 @@ OnecenterParameters {
     Calculator = SlaterAtom {
       Exponents {
     #---------------------------------------
-    #S = 0.5000 1.3104 3.4341 9.0000 # mio-like (skexp.py)
-    #P = 0.5000 1.3104 3.4341 9.0000 # mio-like (skexp.py)
+    S = 0.5000 1.3104 3.4341 9.0000 # mio-like (skexp.py)
+    P = 0.5000 1.3104 3.4341 9.0000 # mio-like (skexp.py)
     #---------------------------------------
       }
       MaxPowers {
@@ -2468,8 +2468,8 @@ OnecenterParameters {
     Calculator = SlaterAtom {
       Exponents {
     #---------------------------------------
-    #S = 0.5000 1.3572 3.6840 10.0000 # mio-like (skexp.py)
-    #P = 0.5000 1.3572 3.6840 10.0000 # mio-like (skexp.py)
+    S = 0.5000 1.3572 3.6840 10.0000 # mio-like (skexp.py)
+    P = 0.5000 1.3572 3.6840 10.0000 # mio-like (skexp.py)
     #---------------------------------------
       }
       MaxPowers {
@@ -2484,8 +2484,8 @@ OnecenterParameters {
     Calculator = SlaterAtom {
       Exponents {
     #-----------------------------------------
-    #S = 0.5000 1.0829 2.3452 5.0791 11.0000 # mio-like (skexp.py)
-    #P = 0.5000 1.0829 2.3452 5.0791 11.0000 # mio-like (skexp.py)
+    S = 0.5000 1.0829 2.3452 5.0791 11.0000 # mio-like (skexp.py)
+    P = 0.5000 1.0829 2.3452 5.0791 11.0000 # mio-like (skexp.py)
     #-----------------------------------------
       }
       MaxPowers {
@@ -2500,8 +2500,8 @@ OnecenterParameters {
     Calculator = SlaterAtom {
       Exponents {
     #-----------------------------------------
-    #S = 0.5000 1.1067 2.4495 5.4216 12.0000 # mio-like (skexp.py)
-    #P = 0.5000 1.1067 2.4495 5.4216 12.0000 # mio-like (skexp.py)
+    S = 0.5000 1.1067 2.4495 5.4216 12.0000 # mio-like (skexp.py)
+    P = 0.5000 1.1067 2.4495 5.4216 12.0000 # mio-like (skexp.py)
     #-----------------------------------------
       }
       MaxPowers {
@@ -2516,9 +2516,9 @@ OnecenterParameters {
     Calculator = SlaterAtom {
       Exponents {
     #-----------------------------------------
-    #S = 0.5000 1.1291 2.5495 5.7571 13.0000 # mio-like (skexp.py)
-    #P = 0.5000 1.1291 2.5495 5.7571 13.0000 # mio-like (skexp.py)
-    #D = 0.5000 1.1291 2.5495 5.7571 13.0000 # mio-like (skexp.py)
+    S = 0.5000 1.1291 2.5495 5.7571 13.0000 # mio-like (skexp.py)
+    P = 0.5000 1.1291 2.5495 5.7571 13.0000 # mio-like (skexp.py)
+    D = 0.5000 1.1291 2.5495 5.7571 13.0000 # mio-like (skexp.py)
     #-----------------------------------------
       }
       MaxPowers {
@@ -2534,9 +2534,9 @@ OnecenterParameters {
     Calculator = SlaterAtom {
       Exponents {
     #-----------------------------------------
-    #S = 0.5000 1.1502 2.6458 6.0861 14.0000 # mio-like (skexp.py)
-    #P = 0.5000 1.1502 2.6458 6.0861 14.0000 # mio-like (skexp.py)
-    #D = 0.5000 1.1502 2.6458 6.0861 14.0000 # mio-like (skexp.py)
+    S = 0.5000 1.1502 2.6458 6.0861 14.0000 # mio-like (skexp.py)
+    P = 0.5000 1.1502 2.6458 6.0861 14.0000 # mio-like (skexp.py)
+    D = 0.5000 1.1502 2.6458 6.0861 14.0000 # mio-like (skexp.py)
     #-----------------------------------------
       }
       MaxPowers {

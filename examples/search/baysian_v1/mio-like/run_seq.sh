@@ -61,13 +61,13 @@ for((i=1;i<95;i++)); do # H-Pu
   #----- -----
   nOCC_Rn=`grep "OCCUPATIONS_Rn {" -n ${filename}_backup_run_seq | sed "s/:.*//g"`
   #----- -----
-  n1st_start=`grep " ${elements[$i]} " -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "1p"`
-  n1st_end=`grep " ${elements[$(($i+1))]} " -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "1p"`
+  n1st_start=`grep " ${elements[$i]} {" -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "1p"`
+  n1st_end=`grep " ${elements[$(($i+1))]} {" -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "1p"`
   #----- -----
   nOne=`grep OnecenterParameters -n ${filename}_backup_run_seq | sed "s/:.*//g"`
   #----- -----
-  n2nd_start=`grep " ${elements[$i]} " -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "2p"`
-  n2nd_end=`grep " ${elements[$(($i+1))]} " -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "2p"`
+  n2nd_start=`grep " ${elements[$i]} {" -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "2p"`
+  n2nd_end=`grep " ${elements[$(($i+1))]} {" -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "2p"`
   #----- -----
   nTwo_start=`grep TwoCenterParameters -n ${filename}_backup_run_seq | sed "s/:.*//g"`
   nTwo_end=`grep SkTwocnt_400_200 -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "1p"`
@@ -100,13 +100,14 @@ for((i=1;i<95;i++)); do # H-Pu
   ./mkinp_baysian.sh ${elements[$i]} ${lattices[$i]}
   #---------------------------------------------------------------
   cp plot_map.gpl ./${elements[$i]}/plot_map.gpl
+  sort -k 2 Evalute.txt > Evalute_sort.txt
+  mv Evalute_sort.txt ./${elements[$i]}/Evalute_sort.txt
   mv Evalute.txt ./${elements[$i]}/Evalute.txt
     #------------------------
     cd ./${elements[$i]}
       gnuplot < plot_map.gpl
     cd ..
     #------------------------
-  mv Evalute_sort.txt ./${elements[$i]}/Evalute_sort.txt
   mv logs.json   ./${elements[$i]}/logs.json
   mv skdef.hsd.tmp_baysian_${elements[$i]} ./${elements[$i]}/skdef.hsd.tmp_baysian_${elements[$i]}
   mv baysian_v1_${elements[$i]}.py ./${elements[$i]}/baysian_v1_${elements[$i]}.py

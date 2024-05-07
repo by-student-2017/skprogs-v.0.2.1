@@ -19,11 +19,11 @@ import datetime # for results folder
 #----------------------------------------------------------------------
 # Usage: command:
 # 1. pip3 install bayesian-optimization==1.4.3
-# 2. rewrite skdef.hsd.tmp_baysian and prepare band_check folder (e.g., see Mg folder)
+# 2. rewrite skdef.hsd.tmp_baysian_H and prepare band_check folder (e.g., see Mg folder)
 # 3. rewrite initial parameters and boundaries in this file
 # 4. python3 baysian_v1.py
 #----------------------------------------------------------------------
-file_tmp = 'skdef.hsd.tmp_baysian'
+file_tmp = 'skdef.hsd.tmp_baysian_H'
 file_inp = 'skdef.hsd'
 file_msd = 'msd.dat'
 
@@ -44,8 +44,8 @@ skprogs_adress = "/home/inukai/skprogs/sktools/src/sktools/scripts/skgen.py" # L
 #----------------------------------------------------------------------
 # set initial parameters and boundaries
 #----------------------------------------------------------------------
-element = "element_Xx"
-atomic_number = atomic_number_Yy # In this code, this value is used as a parameter of the radial wave function.
+element = "H"
+atomic_number =  1.0 # In this code, this value is used as a parameter of the radial wave function.
 #---------------------------
 
 #------------------------------------------------
@@ -57,8 +57,8 @@ hwt_den = 15.0 # search range [-x*hwb:+x*hwt]
 hwb_wav = 6.0 # search range [-x*hwb:+x*hwt]
 hwt_wav = 6.0 # search range [-x*hwb:+x*hwt]
 #---------------------------
-x0  = x0_Zz # r0 of density
-x1  = x1_Zz # r0 of S, P, D and F
+x0  =  2.5 # r0 of density
+x1  =  3.0 # r0 of S, P, D and F
 #---------------------------
 print("------------------------")
 print("initial parameters:   x0  x1")
@@ -79,10 +79,10 @@ max_ind[0] = float(x0) + hwt_den
 min_ind[1] = float(x1) - hwb_wav
 max_ind[1] = float(x1) + hwt_wav
 #---------------------------
-if min_ind[0] < 2.0:
-  min_ind[0] = 2.0
-if min_ind[1] < 2.0:
-  min_ind[1] = 2.0
+if min_ind[0] < 6.0:
+  min_ind[0] = 6.0
+if min_ind[1] < 3.0:
+  min_ind[1] = 3.0
 #---------------------------
 pbounds = {
    'x0': (float(min_ind[0]),float(max_ind[0])),
