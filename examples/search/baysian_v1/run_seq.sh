@@ -64,13 +64,13 @@ for i in 19 38 40 42 44 46 48 50 52 33 31 21 23; do # K, Sr, Zr, Mo, Ru, Pd, Cd,
   #----- -----
   nOCC_Rn=`grep "OCCUPATIONS_Rn {" -n ${filename}_backup_run_seq | sed "s/:.*//g"`
   #----- -----
-  n1st_start=`grep " ${elements[$i]} " -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "1p"`
-  n1st_end=`grep " ${elements[$(($i+1))]} " -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "1p"`
+  n1st_start=`grep " ${elements[$i]} {" -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "1p"`
+  n1st_end=`grep " ${elements[$(($i+1))]} {" -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "1p"`
   #----- -----
   nOne=`grep OnecenterParameters -n ${filename}_backup_run_seq | sed "s/:.*//g"`
   #----- -----
-  n2nd_start=`grep " ${elements[$i]} " -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "2p"`
-  n2nd_end=`grep " ${elements[$(($i+1))]} " -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "2p"`
+  n2nd_start=`grep " ${elements[$i]} {" -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "2p"`
+  n2nd_end=`grep " ${elements[$(($i+1))]} {" -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "2p"`
   #----- -----
   nTwo_start=`grep TwoCenterParameters -n ${filename}_backup_run_seq | sed "s/:.*//g"`
   nTwo_end=`grep SkTwocnt_400_200 -n ${filename}_backup_run_seq | sed "s/:.*//g" | sed -n "1p"`
