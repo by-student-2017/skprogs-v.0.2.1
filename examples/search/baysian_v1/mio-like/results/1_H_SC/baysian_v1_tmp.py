@@ -79,10 +79,10 @@ max_ind[0] = float(x0) + hwt_den
 min_ind[1] = float(x1) - hwb_wav
 max_ind[1] = float(x1) + hwt_wav
 #---------------------------
-if min_ind[0] < 2.0:
-  min_ind[0] = 2.0
-if min_ind[1] < 2.0:
-  min_ind[1] = 2.0
+if min_ind[0] < 1.0:
+  min_ind[0] = 1.0
+if min_ind[1] < 1.0:
+  min_ind[1] = 1.0
 #---------------------------
 pbounds = {
    'x0': (float(min_ind[0]),float(max_ind[0])),

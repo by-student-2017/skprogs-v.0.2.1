@@ -20,24 +20,64 @@ set view 0,0
 #set palette cubehelix start 1 cycles 5 saturation 3 negative
 #splot "Evalute.txt" u 3:4:2 t ""
 #------------------------------------------------
-set xlabel "Radii of density, r_{0} / bohr"
-set ylabel "Radii of wave (s, p, d and f), r_{0} / bohr"
-set zlabel "Evaluate value [eV]"
+set xlabel "Radii of density, r_{0} / bohr" offset 0,1.0,0 rotate parallel font "Arial,12"
+set ylabel "Radii of wave (s, p, d and f), r_{0} / bohr" offset -4.5,0,0 rotate parallel font "Arial,12"
+set zlabel ""
+
 set  ytics 1
 set mxtics 5
 set  ytics 1
 set mytics 5
-set grid
-splot "Evalute.txt" u 3:4:2 t "" pt 10
+
+set grid linecolor "dark-red"
+set grid linetype 1 linecolor 0
+set grid xtics mxtics linewidth 0.3, linewidth 0.05
+set grid ytics mytics linewidth 0.3, linewidth 0.05
+
+#set key box
+set nokey
+
+#set hidden3d
+set dgrid3d 32,48 qnorm 1
+set pm3d at s
+#set pm3d at b
+#set pm3d at bs
+#----------------------
+# Old version
+#splot "Evalute.txt" u 3:4:2 w lp t "" pt 10 lw 0.1 lc rgb "black", "Evalute_sort.txt" u 3:4:2 every ::0::0 w p t "An optimal point selected in Bayesian optimization" pt 2 lc rgb "red"
+
+# New version
+set contour
+set cntrparam levels incremental 0,0.1,10
+#set cntrparam points 10
+#set cntrparam cubicspline
+splot "Evalute.txt" u 3:4:2 w l t "" lw 0.1 lc rgb "black", "Evalute_sort.txt" u 3:4:2 every ::0::0 w p t "" pt 2 lc rgb "red"
+#----------------------
+set xlabel offset 0,0,0
+set ylabel offset 0,0,0
+set zlabel "Evaluate value [eV]" offset 0,0,0 rotate parallel font "Arial,12"
+
+set mxtics 2
+set mytics 2
 
 set output "map_XYZ.png"
 set view 40,55
 replot
+#----------------------
+set hidden3d
+set pm3d at s
 
+set mxtics 5
+set mytics 5
+
+# "Radii of density, r_{0} / bohr"
+set xlabel offset 0,1.0,0
 set output "map_XZ.png"
 set view 90,0
 replot
 
+# "Radii of wave (s, p, d and f), r_{0} / bohr"
+set ylabel offset 0,1.0,0
 set output "map_YZ.png"
 set view 90,90
 replot
