@@ -384,8 +384,8 @@ Future plans
 - [DF2] [Error Estimates for Solid-State Density-Functional Theory Predictions: An Overview by Means of the Ground-State Elemental Crystals](https://doi.org/10.1080/10408436.2013.772503)
 
 
-Types of Slater-Koster parameters (planned)
-===========================================
+Types of Slater-Koster parameters (planned) (in examples)
+=========================================================
 - mio: The original parameters of skprogs
 - mio-like-parameter-v1: Fix power=2 and STO. All orbits have the same radius.
 - mio-like-parameter-v2: Fix power=2 and STO. All orbits have the same radius. Forcibly change E and U.
