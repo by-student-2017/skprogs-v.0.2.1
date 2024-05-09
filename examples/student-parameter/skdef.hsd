@@ -119,7 +119,7 @@ AtomParameters {
       DensityCompression = PowerCompression { Power = 2 ; Radius = 17.0 }
       #DensityCompression = PowerCompression{ Power = 2.4; Radius = 18.3 } # baysian No.1
       WaveCompressions = SingleAtomCompressions {
-	S = PowerCompression { Power = 2 ; Radius =14.0 }
+	S = PowerCompression { Power = 2 ; Radius = 14.0 }
         #------------------------------------------------------------------
         #S = PowerCompression { Power = 2.1; Radius = 15.3 } # baysian No.1
         #------------------------------------------------------------------
