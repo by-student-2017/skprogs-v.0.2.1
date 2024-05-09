@@ -1,16 +1,16 @@
 &CONTROL
-  calculation  = 'scf' ,
+  calculation  = 'bands' ,
   prefix  = 'POSCAR' ,
   outdir  = './work/' ,
   pseudo_dir = './../../../pseudo/psl100_PBE' ,
 /
 &SYSTEM
   ibrav = 0
-  A =    1.57006
+  A =    2.79545
   nat = 1
   ntyp = 1
   ecutwfc  =  46.0 ,
-  ecutrho  = 221.0 ,
+  ecutrho  = 203.0 ,
   occupations = 'smearing' ,
   degauss  = 0.02 ,
   smearing = 'mp',
@@ -26,9 +26,15 @@ CELL_PARAMETERS {alat}
  -0.333333333333333   0.942809033637852   0.000000000000000 
  -0.333333333333333  -0.471404564484194   0.816496546528280 
 ATOMIC_SPECIES
-   H    1.00750  H.pbe-kjpaw_psl.1.0.0.UPF 
+  He    4.00200  He.pbe-kjpaw_psl.1.0.0.UPF 
 ATOMIC_POSITIONS {crystal}
-  H   0.000000000000000   0.000000000000000   0.000000000000000 
-K_POINTS automatic
-  25 25 25  0 0 0
-
+  He   0.000000000000000   0.000000000000000   0.000000000000000 
+K_POINTS {crystal_b}
+7
+ 0.25000000      0.25000000      0.25000000   10 ! P
+ 0.00000000      0.00000000      0.50000000   10 ! N
+ 0.00000000      0.00000000      0.00000000   20 ! G
+-0.50000000      0.50000000      0.50000000   20 ! H
+ 0.25000000      0.25000000      0.25000000   10 ! P
+ 0.00000000      0.00000000      0.00000000   10 ! G
+ 0.00000000      0.00000000      0.50000000    0 ! N
