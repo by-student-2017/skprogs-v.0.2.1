@@ -2102,65 +2102,65 @@ AtomParameters {
     DftbAtom {
        ShellResolved = No
        DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
-       #DensityCompression = PowerCompression { Power =  2.4; Radius = 14.6 } # baysian No.0B, Unnecessary bands (BE=-3.7 eV)
-       #DensityCompression = PowerCompression { Power =  2.9; Radius = 14.0 } # baysian No.0A, Unnecessary bands (BE=-2.0 eV)
-       #DensityCompression = PowerCompression { Power =  2.9; Radius = 17.7 } # baysian No.00, Unnecessary bands (BE=-2.5 eV)
-       #DensityCompression = PowerCompression { Power =  3.1; Radius = 13.8 } # baysian No.0C, Unnecessary bands (BE=-3.0 eV)
-       #DensityCompression = PowerCompression { Power =  5.4; Radius = 17.7 } # baysian No.01, Unnecessary bands (BE=-3.0 eV)
-       #DensityCompression = PowerCompression { Power =  5.3; Radius = 10.3 } # baysian No.02, Unnecessary bands (BE=-3.3 eV)
-       #DensityCompression = PowerCompression { Power =  7.3; Radius = 16.6 } # baysian No.1
-       #DensityCompression = PowerCompression { Power =  8.1; Radius = 12.5 } # baysian No.2 (old version)
-       #DensityCompression = PowerCompression { Power =  8.2; Radius = 14.6 } # baysian No.3
-       #DensityCompression = PowerCompression { Power =  8.2; Radius = 14.7 } # baysian No.4, Unnecessary bands (BE=-4.6 eV)
-       #DensityCompression = PowerCompression { Power = 12.2; Radius = 15.6 } # baysian No.5, Unnecessary bands (BE=-2.6 eV)
+       #DensityCompression = PowerCompression { Power =  2.4; Radius = 14.6 } # baysian No.1, Unnecessary bands (BE=-3.7 eV)
+       #DensityCompression = PowerCompression { Power =  2.9; Radius = 14.0 } # baysian No.2, Unnecessary bands (BE=-2.0 eV)
+       #DensityCompression = PowerCompression { Power =  2.9; Radius = 17.7 } # baysian No.3, Unnecessary bands (BE=-2.5 eV)
+       #DensityCompression = PowerCompression { Power =  3.1; Radius = 13.8 } # baysian No.4, Unnecessary bands (BE=-3.0 eV)
+       #DensityCompression = PowerCompression { Power =  5.4; Radius = 17.7 } # baysian No.5, Unnecessary bands (BE=-3.0 eV)
+       #DensityCompression = PowerCompression { Power =  5.3; Radius = 10.3 } # baysian No.6, Unnecessary bands (BE=-3.3 eV)
+       #DensityCompression = PowerCompression { Power =  7.3; Radius = 16.6 } # baysian No.7
+       #DensityCompression = PowerCompression { Power =  8.1; Radius = 12.5 } # baysian No.8 (old version)
+       #DensityCompression = PowerCompression { Power =  8.2; Radius = 14.6 } # baysian No.9
+       #DensityCompression = PowerCompression { Power =  8.2; Radius = 14.7 } # baysian No.10, Unnecessary bands (BE=-4.6 eV)
+       #DensityCompression = PowerCompression { Power = 12.2; Radius = 15.6 } # baysian No.11, Unnecessary bands (BE=-2.6 eV)
       WaveCompressions = SingleAtomCompressions {
 	D = PowerCompression { Power = 13.6 ; Radius = 5.7 }
 	P = PowerCompression { Power = 13.6 ; Radius = 5.7 }
 	S = PowerCompression { Power = 13.6 ; Radius = 5.7 }
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 15.8; Radius = 6.2 } # baysian No.0B, Unnecessary bands (BE=-3.7 eV)
-        #P = PowerCompression { Power = 12.5; Radius = 5.7 } # baysian No.0B, Unnecessary bands (BE=-3.7 eV)
-        #S = PowerCompression { Power = 12.4; Radius = 6.5 } # baysian No.0B, Unnecessary bands (BE=-3.7 eV)
+        #D = PowerCompression { Power = 15.8; Radius = 6.2 } # baysian No.1, Unnecessary bands (BE=-3.7 eV)
+        #P = PowerCompression { Power = 12.5; Radius = 5.7 } # baysian No.1, Unnecessary bands (BE=-3.7 eV)
+        #S = PowerCompression { Power = 12.4; Radius = 6.5 } # baysian No.1, Unnecessary bands (BE=-3.7 eV)
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 13.0; Radius = 5.1 } # baysian No.0A, Unnecessary bands (BE=-2.0 eV)
-        #P = PowerCompression { Power = 10.4; Radius = 5.7 } # baysian No.0A, Unnecessary bands (BE=-2.0 eV)
-        #S = PowerCompression { Power = 16.8; Radius = 5.0 } # baysian No.0A, Unnecessary bands (BE=-2.0 eV)
+        #D = PowerCompression { Power = 13.0; Radius = 5.1 } # baysian No.2, Unnecessary bands (BE=-2.0 eV)
+        #P = PowerCompression { Power = 10.4; Radius = 5.7 } # baysian No.2, Unnecessary bands (BE=-2.0 eV)
+        #S = PowerCompression { Power = 16.8; Radius = 5.0 } # baysian No.2, Unnecessary bands (BE=-2.0 eV)
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 10.2; Radius = 7.1 } # baysian No.00, Unnecessary bands (BE=-2.5 eV)
-        #P = PowerCompression { Power = 12.9; Radius = 7.2 } # baysian No.00, Unnecessary bands (BE=-2.5 eV)
-        #S = PowerCompression { Power = 10.6; Radius = 5.8 } # baysian No.00, Unnecessary bands (BE=-2.5 eV)
+        #D = PowerCompression { Power = 10.2; Radius = 7.1 } # baysian No.3, Unnecessary bands (BE=-2.5 eV)
+        #P = PowerCompression { Power = 12.9; Radius = 7.2 } # baysian No.3, Unnecessary bands (BE=-2.5 eV)
+        #S = PowerCompression { Power = 10.6; Radius = 5.8 } # baysian No.3, Unnecessary bands (BE=-2.5 eV)
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 16.3; Radius = 6.8 } # baysian No.0C, Unnecessary bands (BE=-3.0 eV)
-        #P = PowerCompression { Power = 10.0; Radius = 5.7 } # baysian No.0C, Unnecessary bands (BE=-3.0 eV)
-        #S = PowerCompression { Power = 14.9; Radius = 6.2 } # baysian No.0C, Unnecessary bands (BE=-3.0 eV)
+        #D = PowerCompression { Power = 16.3; Radius = 6.8 } # baysian No.4, Unnecessary bands (BE=-3.0 eV)
+        #P = PowerCompression { Power = 10.0; Radius = 5.7 } # baysian No.4, Unnecessary bands (BE=-3.0 eV)
+        #S = PowerCompression { Power = 14.9; Radius = 6.2 } # baysian No.4, Unnecessary bands (BE=-3.0 eV)
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 10.2; Radius = 7.1 } # baysian No.01, Unnecessary bands (BE=-3.0 eV)
-        #P = PowerCompression { Power = 12.9; Radius = 7.2 } # baysian No.01, Unnecessary bands (BE=-3.0 eV)
-        #S = PowerCompression { Power = 10.6; Radius = 5.8 } # baysian No.01, Unnecessary bands (BE=-3.0 eV)
+        #D = PowerCompression { Power = 10.2; Radius = 7.1 } # baysian No.5, Unnecessary bands (BE=-3.0 eV)
+        #P = PowerCompression { Power = 12.9; Radius = 7.2 } # baysian No.5, Unnecessary bands (BE=-3.0 eV)
+        #S = PowerCompression { Power = 10.6; Radius = 5.8 } # baysian No.5, Unnecessary bands (BE=-3.0 eV)
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 14.5; Radius = 5.9 } # baysian No.02, Unnecessary bands (BE=-3.3 eV)
-        #P = PowerCompression { Power = 16.3; Radius = 6.2 } # baysian No.02, Unnecessary bands (BE=-3.3 eV)
-        #S = PowerCompression { Power = 14.7; Radius = 5.6 } # baysian No.02, Unnecessary bands (BE=-3.3 eV)
+        #D = PowerCompression { Power = 14.5; Radius = 5.9 } # baysian No.6, Unnecessary bands (BE=-3.3 eV)
+        #P = PowerCompression { Power = 16.3; Radius = 6.2 } # baysian No.6, Unnecessary bands (BE=-3.3 eV)
+        #S = PowerCompression { Power = 14.7; Radius = 5.6 } # baysian No.6, Unnecessary bands (BE=-3.3 eV)
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 11.4; Radius = 6.0 } # baysian No.1
-        #P = PowerCompression { Power = 11.6; Radius = 6.6 } # baysian No.1
-        #S = PowerCompression { Power = 17.0; Radius = 6.8 } # baysian No.1
+        #D = PowerCompression { Power = 11.4; Radius = 6.0 } # baysian No.7
+        #P = PowerCompression { Power = 11.6; Radius = 6.6 } # baysian No.7
+        #S = PowerCompression { Power = 17.0; Radius = 6.8 } # baysian No.7
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 11.9; Radius = 6.6 } # baysian No.2 (old version)
-        #P = PowerCompression { Power = 14.1; Radius = 6.5 } # baysian No.2 (old version)
-        #S = PowerCompression { Power = 12.3; Radius = 5.3 } # baysian No.2 (old version)
+        #D = PowerCompression { Power = 11.9; Radius = 6.6 } # baysian No.8 (old version)
+        #P = PowerCompression { Power = 14.1; Radius = 6.5 } # baysian No.8 (old version)
+        #S = PowerCompression { Power = 12.3; Radius = 5.3 } # baysian No.8 (old version)
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 12.7; Radius = 5.6 } # baysian No.3
-        #P = PowerCompression { Power = 12.4; Radius = 5.8 } # baysian No.3
-        #S = PowerCompression { Power = 15.3; Radius = 5.5 } # baysian No.3
+        #D = PowerCompression { Power = 12.7; Radius = 5.6 } # baysian No.9
+        #P = PowerCompression { Power = 12.4; Radius = 5.8 } # baysian No.9
+        #S = PowerCompression { Power = 15.3; Radius = 5.5 } # baysian No.9
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 10.7; Radius = 5.8 } # baysian No.4, Unnecessary bands (BE=-4.6 eV)
-        #P = PowerCompression { Power = 10.3; Radius = 6.0 } # baysian No.4, Unnecessary bands (BE=-4.6 eV)
-        #S = PowerCompression { Power = 18.0; Radius = 5.8 } # baysian No.4, Unnecessary bands (BE=-4.6 eV)
+        #D = PowerCompression { Power = 10.7; Radius = 5.8 } # baysian No.10, Unnecessary bands (BE=-4.6 eV)
+        #P = PowerCompression { Power = 10.3; Radius = 6.0 } # baysian No.10, Unnecessary bands (BE=-4.6 eV)
+        #S = PowerCompression { Power = 18.0; Radius = 5.8 } # baysian No.10, Unnecessary bands (BE=-4.6 eV)
         #------------------------------------------------------------------
-        #D = PowerCompression { Power = 15.8; Radius = 6.0 } # baysian No.5, Unnecessary bands (BE=-2.6 eV)
-        #P = PowerCompression { Power = 15.1; Radius = 6.3 } # baysian No.5, Unnecessary bands (BE=-2.6 eV)
-        #S = PowerCompression { Power = 15.7; Radius = 6.0 } # baysian No.5, Unnecessary bands (BE=-2.6 eV)
+        #D = PowerCompression { Power = 15.8; Radius = 6.0 } # baysian No.11, Unnecessary bands (BE=-2.6 eV)
+        #P = PowerCompression { Power = 15.1; Radius = 6.3 } # baysian No.11, Unnecessary bands (BE=-2.6 eV)
+        #S = PowerCompression { Power = 15.7; Radius = 6.0 } # baysian No.11, Unnecessary bands (BE=-2.6 eV)
         #------------------------------------------------------------------
       }
     #  CustomizedHubbards {
@@ -6000,49 +6000,49 @@ OnecenterParameters {
     #P = 0.5000 1.4859 4.4159 13.1232 39.0000 # mio-like (skexp.py)
     #D = 0.5000 1.4859 4.4159 13.1232 39.0000 # mio-like (skexp.py)
     #----------------------------------------------
-    #S = 1.26 2.80  9.26 22.89 39.36 # baysian No.0B, Unnecessary bands (BE=-3.7 eV)
-    #P = 1.28 4.58  9.30 20.07 44.29 # baysian No.0B, Unnecessary bands (BE=-3.7 eV)
-    #D = 1.94 3.88 11.50 29.43 65.95 # baysian No.0B, Unnecessary bands (BE=-3.7 eV)
+    #S = 1.26 2.80  9.26 22.89 39.36 # baysian No.1, Unnecessary bands (BE=-3.7 eV)
+    #P = 1.28 4.58  9.30 20.07 44.29 # baysian No.1, Unnecessary bands (BE=-3.7 eV)
+    #D = 1.94 3.88 11.50 29.43 65.95 # baysian No.1, Unnecessary bands (BE=-3.7 eV)
     #----------------------------------------------
-    #S = 1.67 3.92 10.61 26.44 56.14 # baysian No.0A, Unnecessary bands (BE=-2.0 eV)
-    #P = 1.28 3.99  6.58 17.65 71.69 # baysian No.0A, Unnecessary bands (BE=-2.0 eV)
-    #D = 1.93 4.51 13.49 35.52 73.72 # baysian No.0A, Unnecessary bands (BE=-2.0 eV)
+    #S = 1.67 3.92 10.61 26.44 56.14 # baysian No.2, Unnecessary bands (BE=-2.0 eV)
+    #P = 1.28 3.99  6.58 17.65 71.69 # baysian No.2, Unnecessary bands (BE=-2.0 eV)
+    #D = 1.93 4.51 13.49 35.52 73.72 # baysian No.2, Unnecessary bands (BE=-2.0 eV)
     #----------------------------------------------
-    #S = 1.40 4.65  9.87 18.71 52.98 # baysian No.00, Unnecessary bands (BE=-2.5 eV)
-    #P = 1.46 4.35  8.75 17.07 61.55 # baysian No.00, Unnecessary bands (BE=-2.5 eV)
-    #D = 2.13 4.15 12.56 24.87 67.64 # baysian No.00, Unnecessary bands (BE=-2.5 eV)
+    #S = 1.40 4.65  9.87 18.71 52.98 # baysian No.3, Unnecessary bands (BE=-2.5 eV)
+    #P = 1.46 4.35  8.75 17.07 61.55 # baysian No.3, Unnecessary bands (BE=-2.5 eV)
+    #D = 2.13 4.15 12.56 24.87 67.64 # baysian No.3, Unnecessary bands (BE=-2.5 eV)
     #----------------------------------------------
-    #S = 1.67 4.08 11.47 19.96 50.73 # baysian No.0C, Unnecessary bands (BE=-3.0 eV)
-    #P = 1.46 3.48  8.48 18.75 58.80 # baysian No.0C, Unnecessary bands (BE=-3.0 eV)
-    #D = 1.57 5.47 11.09 21.36 73.31 # baysian No.0C, Unnecessary bands (BE=-3.0 eV)
+    #S = 1.67 4.08 11.47 19.96 50.73 # baysian No.4, Unnecessary bands (BE=-3.0 eV)
+    #P = 1.46 3.48  8.48 18.75 58.80 # baysian No.4, Unnecessary bands (BE=-3.0 eV)
+    #D = 1.57 5.47 11.09 21.36 73.31 # baysian No.4, Unnecessary bands (BE=-3.0 eV)
     #----------------------------------------------
-    #S = 1.40 4.65  9.87 18.71 52.98 # baysian No.01, Unnecessary bands (BE=-3.0 eV)
-    #P = 1.46 4.35  8.75 17.07 61.55 # baysian No.01, Unnecessary bands (BE=-3.0 eV)
-    #D = 2.13 4.15 12.56 24.87 67.64 # baysian No.01, Unnecessary bands (BE=-3.0 eV)
+    #S = 1.40 4.65  9.87 18.71 52.98 # baysian No.5, Unnecessary bands (BE=-3.0 eV)
+    #P = 1.46 4.35  8.75 17.07 61.55 # baysian No.5, Unnecessary bands (BE=-3.0 eV)
+    #D = 2.13 4.15 12.56 24.87 67.64 # baysian No.5, Unnecessary bands (BE=-3.0 eV)
     #----------------------------------------------
-    #S = 1.86 4.08 12.43 24.02 50.33 # baysian No.02, Unnecessary bands (BE=-3.3 eV)
-    #P = 1.29 3.91 10.00 19.53 52.30 # baysian No.02, Unnecessary bands (BE=-3.3 eV)
-    #D = 1.68 3.72 14.79 31.25 74.39 # baysian No.02, Unnecessary bands (BE=-3.3 eV)
+    #S = 1.86 4.08 12.43 24.02 50.33 # baysian No.6, Unnecessary bands (BE=-3.3 eV)
+    #P = 1.29 3.91 10.00 19.53 52.30 # baysian No.6, Unnecessary bands (BE=-3.3 eV)
+    #D = 1.68 3.72 14.79 31.25 74.39 # baysian No.6, Unnecessary bands (BE=-3.3 eV)
     #----------------------------------------------
-    #S = 1.60 3.07  9.59 19.70  67.86 # baysian No.1
-    #P = 1.71 3.31 11.57 26.58  55.89 # baysian No.1
-    #D = 2.30 5.32 12.24 22.64  53.01 # baysian No.1
+    #S = 1.60 3.07  9.59 19.70  67.86 # baysian No.7
+    #P = 1.71 3.31 11.57 26.58  55.89 # baysian No.7
+    #D = 2.30 5.32 12.24 22.64  53.01 # baysian No.7
     #----------------------------------------------
-    #S = 2.00 5.50 14.13 31.38  78.00 # baysian No.2 (old version)
-    #P = 2.00 4.58 14.31 36.32  78.00 # baysian No.2 (old version)
-    #D = 2.50 6.28 14.38 34.28 117.00 # baysian No.2 (old version)
+    #S = 2.00 5.50 14.13 31.38  78.00 # baysian No.8 (old version)
+    #P = 2.00 4.58 14.31 36.32  78.00 # baysian No.8 (old version)
+    #D = 2.50 6.28 14.38 34.28 117.00 # baysian No.8 (old version)
     #----------------------------------------------
-    #S = 1.10 2.12  8.87 19.23  54.44 # baysian No.3
-    #P = 1.47 2.98  8.16 27.70  44.71 # baysian No.3
-    #D = 1.66 4.99  9.98 23.49  45.92 # baysian No.3
+    #S = 1.10 2.12  8.87 19.23  54.44 # baysian No.9
+    #P = 1.47 2.98  8.16 27.70  44.71 # baysian No.9
+    #D = 1.66 4.99  9.98 23.49  45.92 # baysian No.9
     #----------------------------------------------
-    #S = 0.91 1.71  7.37 17.65  54.48 # baysian No.4, Unnecessary bands (BE=-4.6 eV)
-    #P = 1.66 2.50  9.68 32.46  51.18 # baysian No.4, Unnecessary bands (BE=-4.6 eV)
-    #D = 1.72 4.57  9.47 17.92  46.17 # baysian No.4, Unnecessary bands (BE=-4.6 eV)
+    #S = 0.91 1.71  7.37 17.65  54.48 # baysian No.10, Unnecessary bands (BE=-4.6 eV)
+    #P = 1.66 2.50  9.68 32.46  51.18 # baysian No.10, Unnecessary bands (BE=-4.6 eV)
+    #D = 1.72 4.57  9.47 17.92  46.17 # baysian No.10, Unnecessary bands (BE=-4.6 eV)
     #----------------------------------------------
-    #S = 0.88 2.55  9.33 19.38  61.21 # baysian No.5, Unnecessary bands (BE=-2.6 eV)
-    #P = 1.49 2.26  9.49 22.94  51.61 # baysian No.5, Unnecessary bands (BE=-2.6 eV)
-    #D = 1.98 5.45 11.79 29.39  54.27 # baysian No.5, Unnecessary bands (BE=-2.6 eV)
+    #S = 0.88 2.55  9.33 19.38  61.21 # baysian No.11, Unnecessary bands (BE=-2.6 eV)
+    #P = 1.49 2.26  9.49 22.94  51.61 # baysian No.11, Unnecessary bands (BE=-2.6 eV)
+    #D = 1.98 5.45 11.79 29.39  54.27 # baysian No.11, Unnecessary bands (BE=-2.6 eV)
     #----------------------------------------------
       }
       MaxPowers {
