@@ -1,0 +1,6 @@
+&bands
+  outdir  = './work/',
+  prefix  = 'POSCAR',
+  filband = 'POSCAR.bands',
+  lsym    = .true.,
+/
