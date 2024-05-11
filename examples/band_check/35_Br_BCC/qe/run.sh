@@ -7,6 +7,9 @@ NCPU=`grep 'core id' /proc/cpuinfo | sort -u | wc -l`
 echo "Number of CPUs: "${NCPU}
 MPI_PREFIX="mpirun -np ${NCPU}"
 
+##PowerShell
+#'C:\Program Files\VESTA-win64\VESTA.exe' -nogui -i POSCAR -o POSCAR.cif
+
 cif2cell -p pwscf --pwscf-pseudo-PSLibrary-libdr='./../../../pseudo/psl100_PBE' --setup-all --k-resolution=0.20 --pwscf-spin=no --pwscf-run-type=scf -f POSCAR.cif
 ${MPI_PREFIX} pw.x < POSCAR.scf.in | tee POSCAR.scf.out
 
