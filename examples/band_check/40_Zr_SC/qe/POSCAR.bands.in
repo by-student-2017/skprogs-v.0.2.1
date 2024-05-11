@@ -1,0 +1,41 @@
+&CONTROL
+  calculation  = 'bands' ,
+  prefix  = 'POSCAR' ,
+  outdir  = './work/' ,
+  pseudo_dir = './../../../pseudo/psl100_PBE' ,
+/
+&SYSTEM
+  ibrav = 0
+  A =    2.89900
+  nat = 1
+  ntyp = 1
+  nbnd = 34
+  ecutwfc  =  46.0 ,
+  ecutrho  = 267.0 ,
+  occupations = 'smearing' ,
+  degauss  = 0.02 ,
+  smearing = 'mp',
+  exxdiv_treatment = 'gygi-baldereschi' ,
+  x_gamma_extrapolation = .true. ,
+/
+&ELECTRONS
+  conv_thr = 7.3e-05 ,
+  mixing_beta = 0.7 ,
+/
+CELL_PARAMETERS {alat}
+  1.000000000000000   0.000000000000000   0.000000000000000 
+  0.000000000000000   1.000000000000000   0.000000000000000 
+  0.000000000000000   0.000000000000000   1.000000000000000 
+ATOMIC_SPECIES
+  Zr   91.22400  Zr.pbe-spn-kjpaw_psl.1.0.0.UPF 
+ATOMIC_POSITIONS {crystal}
+  Zr   0.000000000000000   0.000000000000000   0.000000000000000 
+K_POINTS {crystal_b}
+7
+ 0.00000000      0.50000000      0.50000000   10 ! M
+ 0.50000000      0.50000000      0.50000000   20 ! R
+ 0.00000000      0.00000000      0.00000000   10 ! G
+ 0.50000000      0.00000000      0.00000000   10 ! X
+ 0.50000000      0.50000000      0.00000000   20 ! M
+ 0.00000000      0.00000000      0.00000000   20 ! G
+ 0.50000000      0.50000000      0.50000000    0 ! R
