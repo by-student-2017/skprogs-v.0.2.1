@@ -9,12 +9,14 @@
   A =    5.33649
   nat = 1
   ntyp = 1
-  nbnd = 28
+  nbnd = 26
   ecutwfc  =  34.0 ,
   ecutrho  = 258.0 ,
   occupations = 'smearing' ,
   degauss  = 0.02 ,
   smearing = 'mp',
+  exxdiv_treatment = 'gygi-baldereschi' ,
+  x_gamma_extrapolation = .true. ,
 /
 &ELECTRONS
   conv_thr = 7.3e-05 ,
