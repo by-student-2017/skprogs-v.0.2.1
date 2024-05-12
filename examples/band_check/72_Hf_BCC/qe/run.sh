@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sym=HCP # e.g., FCC, BCC, HCP, SC
+sym=BCC # e.g., FCC, BCC, HCP, SC
 
 export OMP_NUM_THREADS=1
 NCPU=`grep 'core id' /proc/cpuinfo | sort -u | wc -l`
