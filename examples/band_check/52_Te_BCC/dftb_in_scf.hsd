@@ -1,0 +1,26 @@
+Geometry = VaspFormat {
+  <<< "POSCAR"
+}
+
+Hamiltonian = DFTB {
+  Scc = Yes
+  SccTolerance = 1e-5
+  SlaterKosterFiles = Type2FileNames {
+    Prefix = "./"
+    Separator = "-"
+    Suffix = ".skf"
+  }
+  MaxAngularMomentum {
+    Te = "d"
+  }
+  KPointsAndWeights = SupercellFolding {
+    8 0 0
+    0 8 0
+    0 0 8
+    0.0 0.0 0.0
+  }
+}
+
+ParserOptions {
+  ParserVersion = 12
+}
