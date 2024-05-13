@@ -30,7 +30,7 @@ lattices=(Yy
           HCP FCC HCP FCC FCC FCC FCC HCP HCP HCP HCP HCP HCP FCC HCP 
               HCP BCC BCC FCC HCP FCC FCC FCC SC  HCP FCC BCC SC  FCC FCC
   BCC BCC
-          FCC FCC FCC FCC FCC FCC YY)
+          FCC BCC FCC BCC FCC BCC YY)
 #-------------------------------------------------------------------------
 nelement=(0
   1                                                                    2
