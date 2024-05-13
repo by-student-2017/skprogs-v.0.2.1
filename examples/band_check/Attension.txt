@@ -195,3 +195,12 @@ rcov=(1.000
 Si: run_v2.sh + conv_dftbp_band.sh
 Kr: run_v2.sh + conv_dftbp_band_v2.sh
 ------------------------------------------------------------------------------------------------
+Lattice: Coordination Number
+Graphite: 3
+Diamond: 4
+SC: 6
+HCP: 6
+BCC: 8
+FCC: 12
+Note: The shorter the bond length, the easier it is for unnecessary bands (unoccupied levels) to approach the vicinity of the Fermi level.
+------------------------------------------------------------------------------------------------
