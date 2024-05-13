@@ -2187,6 +2187,7 @@ AtomParameters {
     DftbAtom {
        ShellResolved = No
        DensityCompression = PowerCompression { Power = 2 ; Radius = 14.0 }
+       #DensityCompression = PowerCompression { Power = 3.0; Radius = 17.8 } # baysian No.00
        #DensityCompression = PowerCompression { Power = 5.1; Radius = 16.9 } # baysian No.01
        #DensityCompression = PowerCompression { Power = 7.1; Radius = 13.8 } # baysian No.1 (old version)
        #DensityCompression = PowerCompression { Power = 7.8; Radius = 17.4 } # baysian No.2
@@ -2198,6 +2199,10 @@ AtomParameters {
 	D = PowerCompression { Power = 2 ; Radius = 5.2 } 
 	P = PowerCompression { Power = 2 ; Radius = 5.2 } 
 	S = PowerCompression { Power = 2 ; Radius = 5.2 } 
+        #------------------------------------------------------------------
+        #D = PowerCompression { Power = 13.8; Radius = 5.6 } # baysian No.00
+        #P = PowerCompression { Power = 11.0; Radius = 5.3 } # baysian No.00
+        #S = PowerCompression { Power = 15.6; Radius = 5.4 } # baysian No.00
         #------------------------------------------------------------------
         #D = PowerCompression { Power = 13.9; Radius = 4.6 } # baysian No.01
         #P = PowerCompression { Power = 12.8; Radius = 4.9 } # baysian No.01
@@ -2392,6 +2397,9 @@ AtomParameters {
     DftbAtom {
        ShellResolved = No
        DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 } # 2, 14
+       #DensityCompression = PowerCompression { Power = 2.2; Radius = 12.6 } # baysian No.0B
+       #DensityCompression = PowerCompression { Power = 2.6; Radius = 13.9 } # baysian No.00, Unnecessary bands (BE=-9.3 eV)
+       #DensityCompression = PowerCompression { Power = 2.6; Radius = 14.4 } # baysian No.0A, Unnecessary bands (BE=-8.7 eV)
        #DensityCompression = PowerCompression { Power = 4.1; Radius = 16.9 } # baysian No.01, Unnecessary bands (BE=-8.1 eV)
        #DensityCompression = PowerCompression { Power = 4.3; Radius = 14.5 } # baysian No.02, Unnecessary bands (BE=-7.9 eV)
        #DensityCompression = PowerCompression { Power = 4.6; Radius = 17.6 } # baysian No.03, Unnecessary bands (BE=-4.8 eV)
@@ -2403,6 +2411,18 @@ AtomParameters {
 	D = PowerCompression { Power = 16.5 ; Radius = 4.1 } # 2, 4.1
 	P = PowerCompression { Power = 16.5 ; Radius = 4.5 } 
 	S = PowerCompression { Power = 16.5 ; Radius = 4.0 } 
+        #------------------------------------------------------------------
+        #D = PowerCompression { Power = 11.6; Radius = 4.4 } # baysian No.0B
+        #P = PowerCompression { Power = 12.8; Radius = 4.2 } # baysian No.0B
+        #S = PowerCompression { Power = 13.6; Radius = 4.3 } # baysian No.0B
+        #------------------------------------------------------------------
+        #D = PowerCompression { Power = 13.9; Radius = 3.6 } # baysian No.00, Unnecessary bands (BE=-9.3 eV)
+        #P = PowerCompression { Power = 16.8; Radius = 4.0 } # baysian No.00, Unnecessary bands (BE=-9.3 eV)
+        #S = PowerCompression { Power = 11.4; Radius = 3.6 } # baysian No.00, Unnecessary bands (BE=-9.3 eV)
+        #------------------------------------------------------------------
+        #D = PowerCompression { Power = 14.0; Radius = 3.4 } # baysian No.0A, Unnecessary bands (BE=-8.7 eV)
+        #P = PowerCompression { Power = 16.8; Radius = 4.0 } # baysian No.0A, Unnecessary bands (BE=-8.7 eV)
+        #S = PowerCompression { Power = 11.7; Radius = 3.4 } # baysian No.0A, Unnecessary bands (BE=-8.7 eV)
         #------------------------------------------------------------------
         #D = PowerCompression { Power = 10.1; Radius = 4.3 } # baysian No.01, Unnecessary bands (BE=-8.1 eV)
         #P = PowerCompression { Power = 10.0; Radius = 4.2 } # baysian No.01, Unnecessary bands (BE=-8.1 eV)
@@ -2457,6 +2477,9 @@ AtomParameters {
     DftbAtom {
       ShellResolved = No
       DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      #DensityCompression = PowerCompression { Power = 2.9; Radius = 21.3 } # baysian No.0A
+      #DensityCompression = PowerCompression { Power = 3.1; Radius = 17.4 } # baysian No.0B
+      #DensityCompression = PowerCompression { Power = 3.1; Radius = 23.5 } # baysian No.00
       #DensityCompression = PowerCompression { Power = 3.9; Radius = 21.0 } # baysian No.01
       #DensityCompression = PowerCompression { Power = 4.2; Radius = 22.2 } # baysian No.02
       #DensityCompression = PowerCompression { Power = 7.0; Radius = 11.7 } # baysian No.1 (old version)
@@ -2469,6 +2492,18 @@ AtomParameters {
 	D = PowerCompression { Power = 3.8 ; Radius = 4.1 }
 	P = PowerCompression { Power = 3.8 ; Radius = 4.1 }
 	S = PowerCompression { Power = 3.8 ; Radius = 4.1 }
+        #-----------------------------------------------------------------
+        #D = PowerCompression { Power = 3.1; Radius = 3.3 } # baysian No.0A
+        #P = PowerCompression { Power = 3.0; Radius = 3.7 } # baysian No.0A
+        #S = PowerCompression { Power = 2.3; Radius = 3.5 } # baysian No.0A
+        #-----------------------------------------------------------------
+        #D = PowerCompression { Power = 2.7; Radius = 4.4 } # baysian No.0B
+        #P = PowerCompression { Power = 2.7; Radius = 3.7 } # baysian No.0B
+        #S = PowerCompression { Power = 2.1; Radius = 3.7 } # baysian No.0B
+        #-----------------------------------------------------------------
+        #D = PowerCompression { Power = 3.0; Radius = 3.4 } # baysian No.00
+        #P = PowerCompression { Power = 3.5; Radius = 3.8 } # baysian No.00
+        #S = PowerCompression { Power = 2.8; Radius = 3.4 } # baysian No.00
         #-----------------------------------------------------------------
         #D = PowerCompression { Power = 2.2; Radius = 4.2 } # baysian No.01
         #P = PowerCompression { Power = 2.5; Radius = 3.7 } # baysian No.01
@@ -2527,6 +2562,10 @@ AtomParameters {
     DftbAtom {
       ShellResolved = No
       DensityCompression = PowerCompression { Power = 6 ; Radius = 14.0 }
+      #DensityCompression = PowerCompression { Power =  2.3; Radius = 15.8 } # baysian No.0A
+      #DensityCompression = PowerCompression { Power =  3.0; Radius = 14.7 } # baysian No.0B
+      #DensityCompression = PowerCompression { Power =  3.0; Radius = 14.1 } # baysian No.0C
+      #DensityCompression = PowerCompression { Power =  3.3; Radius = 12.5 } # baysian No.0D
       #DensityCompression = PowerCompression { Power =  3.8; Radius = 17.8 } # baysian No.01
       #DensityCompression = PowerCompression { Power =  5.6; Radius = 14.3 } # baysian No.02
       #DensityCompression = PowerCompression { Power =  6.6; Radius = 11.8 } # baysian No.1 (old version)
@@ -2539,6 +2578,22 @@ AtomParameters {
 	D = PowerCompression { Power = 3.4 ; Radius = 4.0 }
 	P = PowerCompression { Power = 3.4 ; Radius = 4.0 }
 	S = PowerCompression { Power = 3.4 ; Radius = 4.0 }
+        #-----------------------------------------------------------------
+        #D = PowerCompression { Power = 2.3; Radius = 4.0 } # baysian No.0A
+        #P = PowerCompression { Power = 2.3; Radius = 3.9 } # baysian No.0A
+        #S = PowerCompression { Power = 3.2; Radius = 4.0 } # baysian No.0A
+        #-----------------------------------------------------------------
+        #D = PowerCompression { Power = 2.1; Radius = 4.0 } # baysian No.0B
+        #P = PowerCompression { Power = 2.6; Radius = 4.0 } # baysian No.0B
+        #S = PowerCompression { Power = 3.0; Radius = 3.5 } # baysian No.0B
+        #-----------------------------------------------------------------
+        #D = PowerCompression { Power = 2.1; Radius = 4.1 } # baysian No.0C
+        #P = PowerCompression { Power = 2.3; Radius = 4.0 } # baysian No.0C
+        #S = PowerCompression { Power = 3.0; Radius = 3.4 } # baysian No.0C
+        #-----------------------------------------------------------------
+        #D = PowerCompression { Power = 3.2; Radius = 4.0 } # baysian No.0D
+        #P = PowerCompression { Power = 2.8; Radius = 4.0 } # baysian No.0D
+        #S = PowerCompression { Power = 3.2; Radius = 3.7 } # baysian No.0D
         #-----------------------------------------------------------------
         #D = PowerCompression { Power = 2.2; Radius = 4.3 } # baysian No.01
         #P = PowerCompression { Power = 2.6; Radius = 3.6 } # baysian No.01
@@ -6083,6 +6138,10 @@ OnecenterParameters {
     #P = 0.5000 1.4953 4.4721 13.3748 40.0000 # mio-like (skexp.py)
     #D = 0.5000 1.4953 4.4721 13.3748 40.0000 # mio-like (skexp.py)
     #---------------------------------------------
+    #S = 1.00 3.11  8.14 23.88 36.10 # baysian No.00
+    #P = 2.41 3.89 13.37 29.96 48.05 # baysian No.00
+    #D = 2.36 4.82 19.54 42.87 94.61 # baysian No.00
+    #---------------------------------------------
     #S = 0.94 3.44  8.02 23.33 34.73 # baysian No.01
     #P = 2.50 3.64 15.24 29.55 48.59 # baysian No.01
     #D = 2.54 4.78 19.25 41.00 96.95 # baysian No.01
@@ -6248,6 +6307,18 @@ OnecenterParameters {
     #P = 0.5000 1.5226 4.6368 14.1203 43.0000 # mio-like (skexp.py)
     #D = 0.5000 1.5226 4.6368 14.1203 43.0000 # mio-like (skexp.py)
     #--------------------------------------------- 
+    #S = 1.54 3.03 12.22 27.83  43.25 # baysian No.0B
+    #P = 2.46 4.55 14.07 24.85  47.84 # baysian No.0B
+    #D = 2.11 5.02 10.81 29.51 113.76 # baysian No.0B
+    #--------------------------------------------- 
+    #S = 1.32 3.38 10.12 32.17  57.05 # baysian No.00, Unnecessary bands (BE=-9.3 eV)
+    #P = 2.31 4.04  9.79 24.41  41.25 # baysian No.00, Unnecessary bands (BE=-9.3 eV)
+    #D = 1.95 4.51  8.78 23.58 122.43 # baysian No.00, Unnecessary bands (BE=-9.3 eV)
+    #--------------------------------------------- 
+    #S = 1.26 3.37 10.46 32.13  56.96 # baysian No.0A, Unnecessary bands (BE=-8.7 eV)
+    #P = 2.33 3.82 10.10 24.45  41.55 # baysian No.0A, Unnecessary bands (BE=-8.7 eV)
+    #D = 1.93 4.27  8.94 23.64 122.44 # baysian No.0A, Unnecessary bands (BE=-8.7 eV)
+    #--------------------------------------------- 
     #S = 1.15 3.17  8.44 29.73  57.96 # baysian No.01, Unnecessary bands (BE=-8.1 eV)
     #P = 2.36 3.45 14.95 25.23  52.07 # baysian No.01, Unnecessary bands (BE=-8.1 eV)
     #D = 2.05 4.91  8.61 20.34 110.56 # baysian No.01, Unnecessary bands (BE=-8.1 eV)
@@ -6299,6 +6370,18 @@ OnecenterParameters {
     #S = 0.5000 1.5314 4.6904 14.3659 44.0000 # mio-like (skexp.py)
     #P = 0.5000 1.5314 4.6904 14.3659 44.0000 # mio-like (skexp.py)
     #D = 0.5000 1.5314 4.6904 14.3659 44.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+    #S = 1.90 3.80  9.30 25.32 54.54 # baysian No.0A
+    #P = 2.45 4.04  9.64 21.42 47.96 # baysian No.0A
+    #D = 2.90 9.21 16.21 36.13 74.51 # baysian No.0A
+    #---------------------------------------------
+    #S = 1.21 4.37 12.12 26.14 69.78 # baysian No.0B
+    #P = 2.13 4.37 10.71 25.85 57.95 # baysian No.0B
+    #D = 1.86 5.86 10.70 28.03 93.65 # baysian No.0B
+    #---------------------------------------------
+    #S = 1.48 3.92  9.32 26.19 74.00 # baysian No.00
+    #P = 2.48 3.95  9.43 21.61 55.60 # baysian No.00
+    #D = 2.75 7.60 15.52 30.31 79.22 # baysian No.00
     #---------------------------------------------
     #S = 1.17 3.40  8.35 20.17 57.79 # baysian No.01
     #P = 2.45 4.09 11.19 30.71 69.59 # baysian No.01
@@ -6355,6 +6438,22 @@ OnecenterParameters {
     #S = 0.5000 1.5400 4.7434 14.6101 45.0000 # mio-like (skexp.py)
     #P = 0.5000 1.5400 4.7434 14.6101 45.0000 # mio-like (skexp.py)
     #D = 0.5000 1.5400 4.7434 14.6101 45.0000 # mio-like (skexp.py)
+    #---------------------------------------------
+    #S = 1.53 3.75  9.89 22.40 68.04 # baysian No.0A
+    #P = 2.41 3.91 11.60 30.71 59.85 # baysian No.0A
+    #D = 3.46 6.25 15.34 27.66 95.61 # baysian No.0A
+    #---------------------------------------------
+    #S = 2.00 4.11 11.49 21.88 83.19 # baysian No.0B
+    #P = 2.29 3.77 10.09 22.28 45.07 # baysian No.0B
+    #D = 2.99 8.64 18.46 40.59 90.16 # baysian No.0B
+    #---------------------------------------------
+    #S = 1.88 3.98 10.97 22.26 78.24 # baysian No.0C
+    #P = 2.25 3.70 10.97 21.48 44.47 # baysian No.0C
+    #D = 2.99 8.21 18.92 40.75 85.58 # baysian No.0C
+    #---------------------------------------------
+    #S = 1.85 4.42  9.72 28.36  64.33 # baysian No.0D
+    #P = 2.52 4.56 10.30 22.49  46.86 # baysian No.0D
+    #D = 3.31 7.52 13.12 37.43 109.86 # baysian No.0D
     #---------------------------------------------
     #S = 1.25 3.49  8.87 20.34 56.98 # baysian No.01
     #P = 2.52 3.88 11.54 29.83 65.84 # baysian No.01
