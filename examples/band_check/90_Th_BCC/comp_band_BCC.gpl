@@ -6,16 +6,16 @@ set output "comp_band.png"
 set key opaque box lc rgb "white" height 1
 #------------------------------------------------
 xmin = 1
-xmax = 101
+xmax = 81
 #------------------------------------------------
 ytop = -10
-ybottom = 9.3
+ybottom = 6
 #------------------------------------------------
 set xrange [xmin:xmax]
 #unset xtics
-set title "FCC: W-X-G-L-K-G-L"
-x1=11; x2=31; x3=51; x4=61; x5=81
-set xtics ("W" xmin, "X" x1, "{/Symbol G}" x2, "L" x3, "K" x4, "{/Symbol G}" x5, "L" xmax)
+set title "BCC: P-N-G-H-P-G-N"
+x1=11; x2=21; x3=41; x4=61; x5=71
+set xtics ("P" xmin, "N" x1, "{/Symbol G}" x2, "H" x3, "P" x4, "{/Symbol G}" x5, "N" xmax)
 set arrow 1 nohead from x1,ybottom to x1,ytop lt 2 lc "gray"
 set arrow 2 nohead from x2,ybottom to x2,ytop lt 2 lc "gray"
 set arrow 3 nohead from x3,ybottom to x3,ytop lt 2 lc "gray"
