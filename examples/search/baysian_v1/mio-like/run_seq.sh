@@ -47,8 +47,8 @@ nelement=(0
 ndata=${#elements[@]}
 #echo ${ndata}
 #-------------------------------------------------------------------------
-for((i=12;i<95;i++)); do # H-Pu
-#for i in 5 12 13 14 ; do
+for((i=21;i<31;i++)); do # H-Pu
+#for i in 24 28 30; do
   #--------------------------------------------------------------
   echo $i", "${nelement[$i]}", "${elements[$i]}", "${lattices[$i]}
   #echo $(($i+1))", "${nelement[$(($i+1))]}", "${elements[$(($i+1))]}", "${lattices[$(($i+1))]}

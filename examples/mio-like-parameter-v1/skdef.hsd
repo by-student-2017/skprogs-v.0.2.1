@@ -364,6 +364,63 @@ AtomParameters {
     }
   }
 
+  Co {
+    AtomConfig {
+      AtomicNumber = 27
+      Mass = 58.9332
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 4.0 4.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 2; Radius = 15.3 }
+      WaveCompressions = SingleAtomCompressions {
+        D = PowerCompression { Power = 2; Radius = 3.3 }
+        P = PowerCompression { Power = 2; Radius = 3.3 }
+        S = PowerCompression { Power = 2; Radius = 3.3 }
+      }
+      CustomizedHubbards {
+	3D = 0.247710
+	4P = 0.247710
+	4S = 0.247710
+      }
+    }
+  }
+
+  Cu {
+    AtomConfig {
+      AtomicNumber = 29
+      Mass = 63.546
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 5.0 5.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 2; Radius = 18.2 }
+      WaveCompressions = SingleAtomCompressions {
+        D = PowerCompression { Power = 2; Radius = 3.8 }
+        P = PowerCompression { Power = 2; Radius = 3.8 }
+        S = PowerCompression { Power = 2; Radius = 3.8 }
+      }
+      CustomizedHubbards {
+	3D = 0.243169
+	4P = 0.243169
+	4S = 0.243169
+      }
+    }
+  }
 
   Au {
     AtomConfig {
@@ -576,6 +633,38 @@ OnecenterParameters {
 	S = 5
 	P = 5
 	D = 5
+      }
+    }
+  }
+
+  Co {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    S = 0.0100 0.0721 0.5196 3.7456 27.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0721 0.5196 3.7456 27.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0721 0.5196 3.7456 27.0000 # mio-like (skexp.py)
+      }
+      MaxPowers {
+	S = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	D = 5 # mio-like (skexp.py)
+      }
+    }
+  }
+
+  Cu {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    S = 0.0100 0.0734 0.5385 3.9518 29.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0734 0.5385 3.9518 29.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0734 0.5385 3.9518 29.0000 # mio-like (skexp.py)
+      }
+      MaxPowers {
+	S = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	D = 5 # mio-like (skexp.py)
       }
     }
   }
