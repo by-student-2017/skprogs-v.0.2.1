@@ -204,3 +204,11 @@ BCC: 8
 FCC: 12
 Note: The shorter the bond length, the easier it is for unnecessary bands (unoccupied levels) to approach the vicinity of the Fermi level.
 ------------------------------------------------------------------------------------------------
+grep -r -e VESTA --include="*.sh"
+
+##PowerShell
+#'C:\Program Files\VESTA-win64\VESTA.exe' -nogui -i POSCAR -o POSCAR.cif
+
+##Linux
+#(I haven't been there yet.)
+------------------------------------------------------------------------------------------------
