@@ -3347,21 +3347,21 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = No
-      DensityCompression = PowerCompression { Power = 8.3; Radius = 14.5 }
+      #DensityCompression = PowerCompression { Power = 8.3; Radius = 14.5 }
       #DensityCompression = PowerCompression{ Power = 4.6; Radius = 15.1 } # baysian No.1, soso, Unnecessary bands (BE=-4.4 eV)
       #DensityCompression = PowerCompression{ Power = 5.0; Radius = 16.2 } # baysian No.2, soso, Unnecessary bands (BE=-4.6 eV)
       #DensityCompression = PowerCompression{ Power = 5.8; Radius = 16.1 } # baysian No.3, soso, Unnecessary bands (BE=-3.3 eV)
       #DensityCompression = PowerCompression{ Power = 6.1; Radius = 17.8 } # baysian No.4, soso, Unnecessary bands (BE=-3.3 eV)
       #DensityCompression = PowerCompression{ Power = 7.1; Radius = 13.9 } # baysian No.0A, soso, Unnecessary bands (BE=-5.7 eV)
-      #DensityCompression = PowerCompression{ Power = 7.6; Radius = 12.3 } # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
+      DensityCompression = PowerCompression{ Power = 7.6; Radius = 12.3 } # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
       #DensityCompression = PowerCompression{ Power = 8.5; Radius = 13.3 } # baysian No.0C, soso, Unnecessary bands (BE=-5.8 eV)
       #DensityCompression = PowerCompression{ Power = 8.0; Radius = 17.1 } # baysian No.01, soso, Unnecessary bands (BE=-5.9 eV) (BCC)
       #DensityCompression = PowerCompression{ Power = 9.5; Radius = 16.0 } # baysian No.5, soso, Unnecessary bands (BE=-5.8 eV)
       WaveCompressions = SingleAtomCompressions {
-	F = PowerCompression { Power = 12; Radius = 5.7 } 
-	D = PowerCompression { Power = 12; Radius = 5.7 } 
-	P = PowerCompression { Power = 13.4; Radius = 5.5 } 
-	S = PowerCompression { Power = 13.4; Radius = 5.5 } 
+	#F = PowerCompression { Power = 12; Radius = 5.7 } 
+	#D = PowerCompression { Power = 12; Radius = 5.7 } 
+	#P = PowerCompression { Power = 13.4; Radius = 5.5 } 
+	#S = PowerCompression { Power = 13.4; Radius = 5.5 } 
         #-----------------------------------------------------------------
         #F = PowerCompression { Power = 7.0; Radius = 5.7 } # baysian No.1, soso, Unnecessary bands (BE=-4.4 eV)
         #D = PowerCompression { Power = 7.0; Radius = 5.7 } # baysian No.1, soso, Unnecessary bands (BE=-4.4 eV)
@@ -3388,10 +3388,10 @@ AtomParameters {
         #P = PowerCompression { Power = 13.8; Radius = 5.3 } # baysian No.0A, soso, Unnecessary bands (BE=-5.7 eV)
         #S = PowerCompression { Power = 12.8; Radius = 5.8 } # baysian No.0A, soso, Unnecessary bands (BE=-5.7 eV)
         #-----------------------------------------------------------------
-        #F = PowerCompression { Power = 12.1; Radius = 4.9 } # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
-        #D = PowerCompression { Power = 12.1; Radius = 4.9 } # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
-        #P = PowerCompression { Power = 14.7; Radius = 5.3 } # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
-        #S = PowerCompression { Power = 11.2; Radius = 5.6 } # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
+        F = PowerCompression { Power = 12.1; Radius = 4.9 } # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
+        D = PowerCompression { Power = 12.1; Radius = 4.9 } # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
+        P = PowerCompression { Power = 14.7; Radius = 5.3 } # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
+        S = PowerCompression { Power = 11.2; Radius = 5.6 } # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
         #-----------------------------------------------------------------
         #F = PowerCompression { Power = 12.7; Radius = 5.4 } # baysian No.0C, soso, Unnecessary bands (BE=-5.8 eV)
         #D = PowerCompression { Power = 12.7; Radius = 5.4 } # baysian No.0C, soso, Unnecessary bands (BE=-5.8 eV)
@@ -7160,10 +7160,10 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-    S = 1.05 2.58  8.41 25.83  64.30 253.34 
-    P = 1.05 2.58  8.41 25.83  64.30 253.34 
-    D = 1.05 2.58  8.41 25.83  64.30 253.34 
-    F = 1.05 2.58  8.41 25.83  64.30 253.34 
+    #S = 1.05 2.58  8.41 25.83  64.30 253.34 
+    #P = 1.05 2.58  8.41 25.83  64.30 253.34 
+    #D = 1.05 2.58  8.41 25.83  64.30 253.34 
+    #F = 1.05 2.58  8.41 25.83  64.30 253.34 
     #---------------------------------------------
     #S = 1.0000 2.7477 7.5498 20.7447 57.0000 156.6187 # mio-like (skexp.py)
     #P = 1.0000 2.7477 7.5498 20.7447 57.0000 156.6187 # mio-like (skexp.py)
@@ -7195,10 +7195,10 @@ OnecenterParameters {
     #D = 0.97 2.22 9.63 26.34 55.86 288.42 # baysian No.0A, soso, Unnecessary bands (BE=-5.7 eV)
     #F = 1.09 2.21 8.54 25.61 65.28 255.70 # baysian No.0A, soso, Unnecessary bands (BE=-5.7 eV)
     #---------------------------------------------
-    #S = 0.96 2.17 9.61 26.34 71.64 269.53 # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
-    #P = 1.19 2.42 8.51 25.59 62.07 283.59 # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
-    #D = 1.14 2.57 8.62 29.55 60.71 231.04 # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
-    #F = 1.01 2.28 9.04 27.60 68.22 287.11 # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
+    S = 0.96 2.17 9.61 26.34 71.64 269.53 # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
+    P = 1.19 2.42 8.51 25.59 62.07 283.59 # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
+    D = 1.14 2.57 8.62 29.55 60.71 231.04 # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
+    F = 1.01 2.28 9.04 27.60 68.22 287.11 # baysian No.0B, soso, Unnecessary bands (BE=-6.1 eV)
     #---------------------------------------------
     #S = 0.89 2.34 7.80 21.79 55.75 213.53 # baysian No.0C, soso, Unnecessary bands (BE=-5.8 eV)
     #P = 1.07 2.84 7.77 28.27 64.94 245.99 # baysian No.0C, soso, Unnecessary bands (BE=-5.8 eV)
