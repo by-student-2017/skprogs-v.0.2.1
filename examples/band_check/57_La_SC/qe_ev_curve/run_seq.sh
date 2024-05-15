@@ -46,8 +46,8 @@ for dv in -6 -4 -2  0  2  4  6 ; do
   #---------------------------------------------------------------
   cp qe_bands.dat qe_bands_v${dv}.dat
   grep "!    total energy" POSCAR.scf.out > total_energy.dat
-  vol=`awk -v dv=${dv} '{if($1=="_cell_volume"){printf "%15.6f",$2*(1+dv/100)}}' POSCAR_vS.cif`
-  awk -v vol=${vol} '{if(NR==1){printf "%15.6f %15.6f",vol*(1/0.52918)^3,$5*2.0}}' total_energy.dat > v${dv}e.dat
+  vol=`awk -v dv=${dv} '{if($1=="_cell_volume"){printf "%-15.6f",$2*(1+dv/100)}}' POSCAR_vS.cif`
+  awk -v vol=${vol} '{if(NR==1){printf "%15.6f %15.6f \n",vol*(1/0.52918)^3,$5*2.0}}' total_energy.dat > v${dv}e.dat
   cat v${dv}e.dat >> ./../ve.data
   #---------------------------------------------------------------
   cd ./../
