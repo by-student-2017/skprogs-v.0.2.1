@@ -5,6 +5,7 @@ sym=SC # e.g., FCC, BCC, HCP, SC
 
 export OMP_NUM_THREADS=1
 NCPU=`grep 'core id' /proc/cpuinfo | sort -u | wc -l`
+NCPU=1
 echo "Number of CPUs: "${NCPU}
 MPI_PREFIX="mpirun -np ${NCPU}"
 #-------------------------------------------------------------------------
@@ -57,12 +58,24 @@ for dv in -6 -4 -2  0  2  4  6 ; do
     #---------------------------------------------------------------
     cd ./../
     #---------------------------------------------------------------
+  else
+    #---------------------------------------------------------------
+    cd qe_v${dv}
+    #---------------------------------------------------------------
+    cp qe_bands.dat qe_bands_v${dv}.dat
+    grep "!    total energy" POSCAR.scf.out > total_energy.dat
+    vol=`awk -v dv=${dv} '{if($1=="_cell_volume"){printf "%-15.6f",$2*(1+dv/100)}}' POSCAR_vS.cif`
+    awk -v vol=${vol} '{if(NR==1){printf "%15.6f %15.6f \n",vol*(1/0.52918)^3,$5*2.0}}' total_energy.dat > v${dv}e.dat
+    cat v${dv}e.dat >> ./../ve.data
+    #---------------------------------------------------------------
+    cd ./../
+    #---------------------------------------------------------------
   fi
 done
 #-------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------
-sort -k 1 -g t " " -u -f ve.data > ve_sort.data # -n option for int case
+sort -k 1 -g -u -f ve.data > ve_sort.data # -n option for int case
 mv ve_sort.data ve.data
 gnuplot < veplot.gpl
 #-------------------------------------------------------------------------

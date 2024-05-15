@@ -1,8 +1,15 @@
-#!/bin/gnuplot
-
-# Usage
-# gnuplot -p gnuplot.gpl
-
+#!/usr/local/bin/gnuplot -persist
+#------------------------------------------------
+set terminal pngcairo color enhanced font "Arial" fontscale 1.0
+set output "evplot.png"
+#------------------------------------------------
+set key opaque box lc rgb "white" height 1
+#-----------------------------------------------
+set title "Murnaghan equation of state"
+set xlabel "Volume, V / Bohr^3"
+set ylabel "Total Energy, E / Ha"
+set mxtics 5
+set mytics 5
 #-----------------------------------------------
 # Murnaghan equation of state
 f(x) = (a*x/(b*(b-1)))*(b*(1-c/x)+(c/x)**b-1)+d
