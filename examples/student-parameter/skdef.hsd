@@ -3427,19 +3427,19 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = No
-      #DensityCompression = PowerCompression{ Power = 7.9; Radius = 12.3 } # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV)
-      DensityCompression = PowerCompression{ Power = 8.0; Radius = 12.2 } # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV)
+      DensityCompression = PowerCompression{ Power = 7.9; Radius = 12.3 } # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV)
+      #DensityCompression = PowerCompression{ Power = 8.0; Radius = 12.2 } # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV)
       WaveCompressions = SingleAtomCompressions {
         #-----------------------------------------------------------------
-        #F = PowerCompression { Power =  8.9; Radius = 5.2 } # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV)
-        #D = PowerCompression { Power =  8.9; Radius = 5.2 } # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV)
-        #P = PowerCompression { Power = 17.1; Radius = 5.5 } # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV)
-        #S = PowerCompression { Power = 16.2; Radius = 6.3 } # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV)
+        F = PowerCompression { Power =  8.9; Radius = 5.2 } # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV)
+        D = PowerCompression { Power =  8.9; Radius = 5.2 } # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV)
+        P = PowerCompression { Power = 17.1; Radius = 5.5 } # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV)
+        S = PowerCompression { Power = 16.2; Radius = 6.3 } # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV)
         #-----------------------------------------------------------------
-        F = PowerCompression { Power =  8.9; Radius = 5.2 } # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV)
-        D = PowerCompression { Power =  8.9; Radius = 5.2 } # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV)
-        P = PowerCompression { Power = 17.4; Radius = 5.4 } # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV)
-        S = PowerCompression { Power = 16.3; Radius = 6.5 } # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV)
+        #F = PowerCompression { Power =  8.9; Radius = 5.2 } # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV)
+        #D = PowerCompression { Power =  8.9; Radius = 5.2 } # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV)
+        #P = PowerCompression { Power = 17.4; Radius = 5.4 } # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV)
+        #S = PowerCompression { Power = 16.3; Radius = 6.5 } # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV)
         #-----------------------------------------------------------------
       }
     }
@@ -7235,21 +7235,21 @@ OnecenterParameters {
     #D = 1.0000 2.7597 7.6158 21.0170 58.0000 160.0608 # mio-like (skexp.py)
     #F = 1.0000 2.7597 7.6158 21.0170 58.0000 160.0608 # mio-like (skexp.py)
     #---------------------------------------------
-    #S = 0.94 2.04  9.59 28.38  85.80 249.47 # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV)
-    #P = 0.89 4.39 11.65 27.55 114.15 252.48 # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV)
-    #D = 1.66 5.83 14.27 39.94 151.37 335.50 # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV)
-    #F = 1.25 4.70  9.51 21.43 103.15 286.62 # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV)
+    #S = 0.94 2.04  9.59 28.38  85.80 249.47 # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV) (Ubuntu 22.04 LTS)
+    #P = 0.89 4.39 11.65 27.55 114.15 252.48 # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV) (Ubuntu 22.04 LTS)
+    #D = 1.66 5.83 14.27 39.94 151.37 335.50 # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV) (Ubuntu 22.04 LTS)
+    #F = 1.25 4.70  9.51 21.43 103.15 286.62 # baysian No.0, bad, Unnecessary bands (BE=-4.4 eV) (Ubuntu 22.04 LTS)
     #---------------------------------------------
-    #S = 0.95 2.05  9.42 28.24  86.57 248.40 # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV)
-    #P = 0.88 4.26 11.61 27.25 112.50 247.99 # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV)
-    #D = 1.69 5.68 14.15 39.22 152.87 332.49 # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV)
-    #F = 1.25 4.74  9.29 21.23 104.29 292.52 # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV)
+    #S = 0.95 2.05  9.42 28.24  86.57 248.40 # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV) (Ubuntu 22.04 LTS)
+    #P = 0.88 4.26 11.61 27.25 112.50 247.99 # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV) (Ubuntu 22.04 LTS)
+    #D = 1.69 5.68 14.15 39.22 152.87 332.49 # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV) (Ubuntu 22.04 LTS)
+    #F = 1.25 4.74  9.29 21.23 104.29 292.52 # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV) (Ubuntu 22.04 LTS)
     #---------------------------------------------
     #For the second and subsequent ones, reduce the value by about 10% from "bayesian No.1".
-    S = 0.95 2.05  8.12 24.24  71.57 228.40 # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV) (WSL2)
-    P = 0.88 3.26  9.11 23.25  97.50 227.99 # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV) (WSL2)
-    D = 1.69 4.28 11.15 31.22 117.87 297.49 # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV) (WSL2)
-    F = 1.25 4.24  8.19 17.23  89.29 272.52 # baysian No.1, bad, Unnecessary bands (BE=-7.0 eV) (WSL2)
+    S = 0.95 2.05  8.12 24.24  71.57 228.40 # baysian No.1 (or baysian No.0), bad, Unnecessary bands (BE=-7.0 eV) (Ubuntu 22.04 LTS on WSL(Windows11))
+    P = 0.88 3.26  9.11 23.25  97.50 227.99 # baysian No.1 (or baysian No.0), bad, Unnecessary bands (BE=-7.0 eV) (Ubuntu 22.04 LTS on WSL(Windows11))
+    D = 1.69 4.28 11.15 31.22 117.87 297.49 # baysian No.1 (or baysian No.0), bad, Unnecessary bands (BE=-7.0 eV) (Ubuntu 22.04 LTS on WSL(Windows11))
+    F = 1.25 4.24  8.19 17.23  89.29 272.52 # baysian No.1 (or baysian No.0), bad, Unnecessary bands (BE=-7.0 eV) (Ubuntu 22.04 LTS on WSL(Windows11))
     #---------------------------------------------
       }
       MaxPowers {
