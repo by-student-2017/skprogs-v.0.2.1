@@ -364,6 +364,35 @@ AtomParameters {
     }
   }
 
+  Cr {
+    AtomConfig {
+      AtomicNumber = 24
+      Mass = 51.996
+      Occupations {
+	$OCCUPATIONS_Ar
+	3D = 3.0 2.0
+	4P = 0.0 0.0
+	4S = 1.0 0.0
+      }
+      ValenceShells = 4s 4p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 2; Radius = 22.1 }
+      WaveCompressions = SingleAtomCompressions {
+        D = PowerCompression { Power = 2; Radius = 4.6 }
+        P = PowerCompression { Power = 2; Radius = 4.6 }
+        S = PowerCompression { Power = 2; Radius = 4.6 }
+      }
+      CustomizedHubbards {
+	3D = 0.200284
+	4P = 0.200284
+	4S = 0.200284
+      }
+    }
+  }
+
   Co {
     AtomConfig {
       AtomicNumber = 27
@@ -633,6 +662,22 @@ OnecenterParameters {
 	S = 5
 	P = 5
 	D = 5
+      }
+    }
+  }
+
+  Cr {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    S = 0.0100 0.0700 0.4899 3.4289 24.0000 # mio-like (skexp.py)
+    P = 0.0100 0.0700 0.4899 3.4289 24.0000 # mio-like (skexp.py)
+    D = 0.0100 0.0700 0.4899 3.4289 24.0000 # mio-like (skexp.py)
+      }
+      MaxPowers {
+	S = 5 # mio-like (skexp.py)
+	P = 5 # mio-like (skexp.py)
+	D = 5 # mio-like (skexp.py)
       }
     }
   }
