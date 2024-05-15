@@ -12,12 +12,16 @@ MPI_PREFIX="mpirun -np ${NCPU}"
 #-------------------------------------------------------------------------
 cp -r ./../qe ./qe_vS
 
+if [ ! -d qe_bands_series ]; then
+  mkdir qe_bands_series
+fi
+
 if [ ! -e ve.data ]; then
-  echo "# V(Angstrom^3) vs. Etot(Ry)" > ve.data
+  echo "# V(Angstrom^3), Etot(Ry), La(Angstrom), dV(%)" > ve.data
 fi
 #-------------------------------------------------------------------------
-#for dv in -20 -14 -10 -8 -6 -4 -2 -1 0 1 2 4 6 8 10 14 20; do
-for dv in -6 -4 -2  0  2  4  6 ; do
+for dv in -20 -14 -10 -8 -6 -4 -2 -1 0 1 2 4 6 8 10 14 20 26; do
+#for dv in -6 -4 -2  0  2  4  6 ; do
   #---------------------------------------------------------------
   if [ ! -e qe_v${dv} ]; then
     #---------------------------------------------------------------
@@ -56,9 +60,10 @@ for dv in -6 -4 -2  0  2  4  6 ; do
     #---------------------------------------------------------------
   fi
     cp qe_bands.dat qe_bands_v${dv}.dat
+    cp qe_bands.dat ./../qe_bands_series/qe_bands_v${dv}.dat
     grep "!    total energy" POSCAR.scf.out > total_energy.dat
     vol=`awk -v dv=${dv} '{if($1=="_cell_volume"){printf "%-15.6f",$2*(1+dv/100)}}' POSCAR_vS.cif`
-    awk -v vol=${vol} '{if(NR==1){printf "%15.6f %15.6f \n",vol,$5}}' total_energy.dat > v${dv}e.dat
+    awk -v vol=${vol} -v dv=${dv} '{if(NR==1){printf "%15.6f %15.6f %15.6f %d \n",vol,$5,vol^(1/3),dv}}' total_energy.dat > v${dv}e.dat
     cat v${dv}e.dat >> ./../ve.data
     #---------------------------------------------------------------
     cd ./../
@@ -70,4 +75,6 @@ done
 sort -k 1 -g -u -f ve.data > ve_sort.data # -n option for int case
 mv ve_sort.data ve.data
 gnuplot < veplot.gpl
+cp ve.data ./qe_bands_series/ve.data
+cp fit.log ./qe_bands_series/fit.log
 #-------------------------------------------------------------------------
