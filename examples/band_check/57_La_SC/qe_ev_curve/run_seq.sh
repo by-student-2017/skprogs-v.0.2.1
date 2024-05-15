@@ -5,7 +5,6 @@ sym=SC # e.g., FCC, BCC, HCP, SC
 
 export OMP_NUM_THREADS=1
 NCPU=`grep 'core id' /proc/cpuinfo | sort -u | wc -l`
-NCPU=1
 echo "Number of CPUs: "${NCPU}
 MPI_PREFIX="mpirun -np ${NCPU}"
 #-------------------------------------------------------------------------
