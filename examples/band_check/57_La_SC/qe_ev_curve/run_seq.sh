@@ -14,7 +14,7 @@ MPI_PREFIX="mpirun -np ${NCPU}"
 cp -r ./../qe ./qe_vS
 
 if [ ! -e ve.data ]; then
-  echo "# V(bohr^3) vs. Etot(Ha)" > ve.data
+  echo "# V(Angstrom^3) vs. Etot(Ry)" > ve.data
 fi
 #-------------------------------------------------------------------------
 for dv in -6 -4 -2  0  2  4  6 ; do
@@ -50,27 +50,19 @@ for dv in -6 -4 -2  0  2  4  6 ; do
     
     ./conv_qe_bands.sh
     #---------------------------------------------------------------
-    cp qe_bands.dat qe_bands_v${dv}.dat
-    grep "!    total energy" POSCAR.scf.out > total_energy.dat
-    vol=`awk -v dv=${dv} '{if($1=="_cell_volume"){printf "%-15.6f",$2*(1+dv/100)}}' POSCAR_vS.cif`
-    awk -v vol=${vol} '{if(NR==1){printf "%15.6f %15.6f \n",vol*(1/0.52918)^3,$5*2.0}}' total_energy.dat > v${dv}e.dat
-    cat v${dv}e.dat >> ./../ve.data
-    #---------------------------------------------------------------
-    cd ./../
-    #---------------------------------------------------------------
   else
     #---------------------------------------------------------------
     cd qe_v${dv}
     #---------------------------------------------------------------
+  fi
     cp qe_bands.dat qe_bands_v${dv}.dat
     grep "!    total energy" POSCAR.scf.out > total_energy.dat
     vol=`awk -v dv=${dv} '{if($1=="_cell_volume"){printf "%-15.6f",$2*(1+dv/100)}}' POSCAR_vS.cif`
-    awk -v vol=${vol} '{if(NR==1){printf "%15.6f %15.6f \n",vol*(1/0.52918)^3,$5*2.0}}' total_energy.dat > v${dv}e.dat
+    awk -v vol=${vol} '{if(NR==1){printf "%15.6f %15.6f \n",vol,$5}}' total_energy.dat > v${dv}e.dat
     cat v${dv}e.dat >> ./../ve.data
     #---------------------------------------------------------------
     cd ./../
     #---------------------------------------------------------------
-  fi
 done
 #-------------------------------------------------------------------------
 
