@@ -22,13 +22,13 @@ f(x) = (a*x/(b*(b-1)))*(b*(1-c/x)+(c/x)**b-1)+d
 #d=-7.8  # Total energy in the volume of a stable unit cell [Ha] = 2*[Ry] = 27.21*[eV]
 #-----------------------------------------------
 # new version [Ry] and [Angstrom^3] unit
-a=0.0104062 # Bulk modulus [Ry/Angstrom^3]
-b=-13.2163  # Differential of bulk modulus
-c=42.2111   # Unit cell volume [Angstrom^3]
+a=0.0157359 # Bulk modulus [Ry/Angstrom^3]
+b=12.444  # Differential of bulk modulus
+c=36.9327   # Unit cell volume [Angstrom^3]
 d=-458.192  # Total energy in the volume of a stable unit cell [Ry]
 #-----------------------------------------------
 fit f(x) 've.data' u 1:2 via a,b,c,d
-plot f(x), 've.data' u 1:2 t "DFT(QE)" w lp
+plot f(x), 've.data' u 1:2 t "DFT(QE) (cubic spline)" smooth csplines, 've.data' u 1:2 t "DFT(QE)" w p pt 1 ps 2
 #-----------------------------------------------
 # ve.data: V(bohr^3) vs. Etot(Ha)
 #-----------------------------------------------
