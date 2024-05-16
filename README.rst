@@ -380,9 +380,9 @@ Note 5 (Results and Discussion)
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
   :name: The number one.
   :fig: 1
-  :width: 1in
+  :width: 10in
 
-  The number one.
+  Fig.1 
    
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png
    
