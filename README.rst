@@ -378,8 +378,6 @@ Note 5 (Results and Discussion)
 ===============================
 
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
-  :name: The number one.
-  :fig: Fig.1
 
   Fig.1 
    
