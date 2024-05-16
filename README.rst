@@ -437,18 +437,31 @@ Figure 4 shows the results of parameter fitting for the Nd FCC structure. It can
 
 Figure 5 shows the results of the parameter fit for the Nd BCC structure. QUASINANO is similar, but the electronic structure of the H point in the BCC structure cannot be reproduced well. When the parameters are adjusted to improve the reproduction of this H point, the band of unoccupied levels near the binding energy - 7.5 eV approaches the Fermi level, worsening the reproduction of the overall electronic structure. As shown in Figure 6, this unoccupied level band greatly approaches the Fermi level in the structure-optimized Simple Cubic.
 
+Information about the crystal structure in Nd is shown in Table 1. Each structure has a different coordination number (C.N.) and bond length, so a simple comparison is not possible.
+Therefore, Figure 7 shows the result of simply increasing the volume of the SC structure by -20%, and Figure 8 shows the result of increasing it by +20%.
 
+The reproduction of the electronic structure is not so bad in both cases where the volume is increased or decreased.
+
+Figure 7 shows that as the volume increases, the unnecessary band at point H moves farther away from the Fermi level. This result shows that our parameters can be used over long distances without any problems.
+
+On the other hand, when the volume is reduced, it can be seen that an unoccupied level band at the H point also exists in the valence band. This result suggests that it is necessary to always check the electronic structure under conditions where the distance between atoms is shortened (e.g. ultra-high pressure) or when bonding with elements with small covalent radius.
+
+The electronic structure of a system bonded to an element with a small covalent bond radius is compared with DFT, and parameters that do not cause such problems are adopted.
+
+Calculations at ultra-high pressures and high temperatures require parameters that take into account interatomic distances that are difficult to approach energetically when repulsive forces are added.
+
+One eV is equivalent to approximately 10,000 K, and at a firing temperature of 1500 K, it is approximately 0.15 eV, so for Nd, FCC and BCC are the range used. SC is 6000 K at about 0.6 eV, and even without calculating its abundance ratio from the Boltzmann distribution, it is easy to imagine that it is difficult to get close to the interatomic distance of SC.
 
 .. table:: Table.1 Crystal structure data of Nd
    :widths: auto
    
-   =======  ===========  ====  =====================  =============
-   Lattice  Bond length  C.N.  Total Energy, TE (Ry)   delta TE (eV)
-   =======  ===========  ====  =====================   =============
-   FCC      3.68816      12    -499.3087               0.000
-   BCC      3.57957      8     -499.2999               0.120
-   SC       3.31954      6     -499.2642               0.605
-   =======  ===========  ====  =====================   =============
+   =======  ====  ===========  =====================  =============
+   Lattice  C.N.  Bond length  Total Energy, TE (Ry)   delta TE (eV)
+   =======  ====  ===========  =====================   =============
+   FCC      12    3.68816      -499.3087               0.000
+   BCC      8     3.57957      -499.2999               0.120
+   SC       6     3.31954      -499.2642               0.605
+   =======  ====  ===========  =====================   =============
 
 .. figure:: ./examples/band_check/60_Nd_FCC/Ref_comp_band.png
 
@@ -473,6 +486,14 @@ Figure 5 shows the results of the parameter fit for the Nd BCC structure. QUASIN
 .. figure:: ./examples/band_check/60_Nd_SC/dftb_v-20/Ref_comp_band_v-20.png
 
   Fig.8 The electronic structure of Nd (SC, volume -20%).
+
+
+Conclusion
+==========
+In this study, we used Bayesian optimization to explore the Slater-Koster parameters for almost all elements in the periodic table, including the lanthanide series.
+
+
+
 
 Future plans
 ============
