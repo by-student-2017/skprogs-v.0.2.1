@@ -378,7 +378,9 @@ Note 5 (Results and Discussion)
 ===============================
 .. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
    :scale: 10 %
-   :alt: Fig. 1
+   :alt: 
+   
+   Fig. 1
    
 .. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png
    
