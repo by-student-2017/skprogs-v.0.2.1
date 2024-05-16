@@ -456,11 +456,11 @@ One eV is equivalent to approximately 10,000 K, and at a firing temperature of 1
    :widths: auto
    
    =======  ====  ===========  =====================  ==============  =======================
-   Lattice  C.N.  Bond length  Total Energy, TE (Ry)   delta TE (eV)  Ratio at 1273 K (298 K)
+   Lattice  C.N.  Bond length  Total Energy, TE (Ry)   delta TE (eV)  Ratio at 1500 K (298 K)
    =======  ====  ===========  =====================   =============  =======================
-   FCC      12    3.68816      -499.3087               0.000          74.67% ( 99.07%)
-   BCC      8     3.57957      -499.2999               0.120          25.03% (  0.93%)
-   SC       6     3.31954      -499.2642               0.605          0.30% (5.92e-9%)
+   FCC      12    3.68816      -499.3087               0.000          71.18% ( 99.07%)
+   BCC      8     3.57957      -499.2999               0.120          28.15% (  0.93%)
+   SC       6     3.31954      -499.2642               0.605          0.66% (5.92e-9%)
    =======  ====  ===========  =====================   =============  ========================
 
 .. figure:: ./examples/band_check/60_Nd_FCC/Ref_comp_band.png
