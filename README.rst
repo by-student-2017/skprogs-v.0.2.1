@@ -374,6 +374,12 @@ Note 4 (Introduction)
 - [RL1] [X. Glorot, A. Bordes and Y. Bengio, "Deep Sparse Rectifier Neural Networks" (2011).](https://www.semanticscholar.org/paper/Deep-Sparse-Rectifier-Neural-Networks-Glorot-Bordes/67107f78a84bdb2411053cb54e94fa226eea6d8e) 
 
 
+Note 5 (Results and Discussion)
+===============================
+! [Fig.1](https://github.com/by-student-2017/skprogs-v.0.2.1/blob/main/examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png)
+! [Fig.2](https://github.com/by-student-2017/skprogs-v.0.2.1/blob/main/examples/search/Old_version/Ref/B/Note/r0/map_p_r0_sigma.png)
+! [Fig.3](https://github.com/by-student-2017/skprogs-v.0.2.1/blob/main/examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png)
+
 Future plans
 ============
 - https://github.com/by-student-2017/DFTBP (Use DFTB+ calculation results on Lammps. It is not confirmed whether the GCMC method can be used.)
