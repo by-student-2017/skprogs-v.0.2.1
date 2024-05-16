@@ -374,7 +374,7 @@ Introduction
 - [RL1] [X. Glorot, A. Bordes and Y. Bengio, "Deep Sparse Rectifier Neural Networks" (2011).](https://www.semanticscholar.org/paper/Deep-Sparse-Rectifier-Neural-Networks-Glorot-Bordes/67107f78a84bdb2411053cb54e94fa226eea6d8e) 
 
 
-METHODS
+Methods
 =======
 
 A. Creation of electronic structure by DFT for comparison
