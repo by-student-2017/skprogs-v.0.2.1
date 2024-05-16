@@ -493,6 +493,9 @@ Conclusion
 In this study, we used Bayesian optimization to explore the Slater-Koster parameters for almost all elements in the periodic table, including the lanthanide series.
 
 
+Acknowledgment
+==============
+This research was conducted at RIKEN by Dr. Uchiyama, who is affiliated with meguREnergy Co., Ltd. and ATSUMITEC Co., Ltd., with funding from ATSUMITEC Co., Ltd.
 
 
 Future plans
