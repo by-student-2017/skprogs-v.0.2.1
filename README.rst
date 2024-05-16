@@ -454,7 +454,7 @@ Figure 5 shows the results of the parameter fit for the Nd BCC structure. QUASIN
   Fig.6 The electronic structure of Nd (SC).
 
 
-.. table:: 
+.. table:: Crystal structure data of Nd
    :widths: auto
    
    =======  ===========  ====
