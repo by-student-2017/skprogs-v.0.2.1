@@ -383,7 +383,7 @@ I calculated the electronic structure for comparison using the Quantum Espresso 
 
 B. Creating the slater-koster parameter
 ---------------------------------------
-I calculated the slater-koster file using the skprogs package. The parameters required to create the slater-koster file were explored using Bayesian optimization. 
+I calculated the slater-koster file using the skprogs package. The parameters required to create the Slater-Koster file were explored using Bayesian optimization. 
 
 
 Results and Discussion
