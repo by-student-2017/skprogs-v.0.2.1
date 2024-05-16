@@ -376,8 +376,13 @@ Note 4 (Introduction)
 
 Note 5 (Results and Discussion)
 ===============================
+.. class:: multiple
+
+   First paragraph. (Relationship between various parameters and fit in B)
 .. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
    :name: Fig.1 
+
+   Second paragraph.
 
 
 Future plans
