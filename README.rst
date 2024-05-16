@@ -357,9 +357,9 @@ Note 3 (Tips)
 - In the past, accuracy comparable to DFT was often required, but in the age of machine learning, it is important to obtain good correlations rather than matching DFT. This is because it would be good if it could solve the weaknesses of machine learning, such as the need for large amounts of data and the problem of extrapolation. DFTB+'s high transferability and fast calculation meet these requirements. Another appeal of Slater-Koster files and DFTB+ is that they are not black boxes. In addition, it is sufficient to perform single-point calculations using highly accurate quantum chemical calculations or first-principles calculations, and it goes without saying that DFTB+ and classical MD are important for structural optimization in the process up to that point. Too many people in this world forget that. (By STUDENT)
 
 
-================================================================================
+
 Slater-Koster Parameters for the Periodic Table: Part 1, Electronic Structure
-================================================================================
+=============================================================================
 
 
 By STUDENT
