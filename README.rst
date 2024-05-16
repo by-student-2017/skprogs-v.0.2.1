@@ -376,8 +376,7 @@ Note 4 (Introduction)
 
 Note 5 (Results and Discussion)
 ===============================
-**raw.githubusercontent.com**:
-<img src="https://github.com/by-student-2017/skprogs-v.0.2.1/blob/main/examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png?raw=true" />
+figure:: https://github.com/by-student-2017/skprogs-v.0.2.1/blob/main/examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
 
 
 Future plans
