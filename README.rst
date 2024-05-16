@@ -384,7 +384,9 @@ Note 5 (Results and Discussion)
 
   Fig.1 
    
-.. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png
+.. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png
+   :name: Fig.2
+is a concise syntax alternative to preceding it with a hyperlink target
    
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_p_r0_sigma.png
 
