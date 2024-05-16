@@ -414,7 +414,6 @@ Figure 2 shows the relationship between r0 and sigma for p orbital of Boron. For
 
 Figure 3 similarly shows the relationship between r0 and sigma for the s orbit. The best fit for s-orbitals is not inversely proportional, unlike for p-orbitals and densities. The optimal value of r0 in the s orbital is different from that in the p orbital. In mi0 and QUASINANO, r0 and sigma of each orbit have the same value, so the parameters are optimized with these influences combined.
 
-
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
 
   Fig.1 
@@ -432,8 +431,9 @@ B. Search with Bayesian optimization
 ------------------------------------
 The success or failure of Bayesian optimization depends on the settings of the evaluation function and evaluation range. Complicating the evaluation function is not very effective, but it not only makes coding more difficult, but also reduces versatility and makes it difficult for humans to interpret and analyze the results. Finally, in this study, we used a simple evaluation function as described in the literature. 
 
-Even in QUASINANO, parameters for the lanthanide series are only disclosed for La and Lu. Here, Nd, which is a constituent element of Nd-Fe-B, which is famous as a magnetic material, is shown in Figures 4, 5, and 6 as a representative of the lanthanide series.
+Even in QUASINANO, parameters for the lanthanide series are only disclosed for La and Lu. Here, we will explain parameter fitting using Bayesian optimization using Nd, a constituent element of Nd-Fe-B, which is famous as a magnetic material, as a representative of the lanthanide series.
 
+Figure 4 shows the results of parameter fitting for the Nd FCC structure. It can be seen that the electronic structure of DFTB near the important Fermi level (0 eV) is better reproduced compared to the electronic structure near the less important binding energy - 8 eV.
 
 
 .. figure:: ./examples/band_check/60_Nd_FCC/Ref_comp_band.png
