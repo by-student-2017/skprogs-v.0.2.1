@@ -433,6 +433,22 @@ B. Search with Bayesian optimization
 The success or failure of Bayesian optimization depends on the settings of the evaluation function and evaluation range. Complicating the evaluation function is not very effective, but it not only makes coding more difficult, but also reduces versatility and makes it difficult for humans to interpret and analyze the results. Finally, in this study, we used a simple evaluation function as described in the literature. 
 
 
+.. figure:: ./examples/band_check/60_Nd_BCC/Ref_comp_band.png
+
+  Fig.4 The electronic structure of Nd (BCC).
+
+
+.. figure:: ./examples/band_check/60_Nd_FCC/Ref_comp_band.png
+
+  Fig.5 The electronic structure of Nd (FCC).
+
+
+.. figure:: ./examples/band_check/60_Nd_SC/Ref_comp_band.png
+
+  Fig.6 The electronic structure of Nd (SC).
+
+
+
 Future plans
 ============
 - https://github.com/by-student-2017/DFTBP (Use DFTB+ calculation results on Lammps. It is not confirmed whether the GCMC method can be used.)
