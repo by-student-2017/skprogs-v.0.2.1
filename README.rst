@@ -376,9 +376,6 @@ Note 4 (Introduction)
 
 Note 5 (Results and Discussion)
 ===============================
-.. class:: multiple
-
-   First paragraph. (Relationship between various parameters and fit in B)
 .. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
    :scale: 50 %
    :alt: map to buried treasure
@@ -392,8 +389,6 @@ Note 5 (Results and Discussion)
 .. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png
    
 .. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_p_r0_sigma.png
-
-   Second paragraph.
 
 
 Future plans
