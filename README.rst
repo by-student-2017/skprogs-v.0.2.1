@@ -391,7 +391,7 @@ Results and Discussion
 
 A. Relationship between various parameters and fit in Boron
 -----------------------------------------------------------
-I investigated boron's parameters using grid search. Figure 1 shows the results when changing r0 and sigma for boron density.
+I investigated the parameters for Boron using grid search. Figure 1 shows the result when changing r0 and sigma of density compression for Boron. For fit, the smaller the evaluation value, the smaller the deviation from the DFT. r0 and sigma show an inversely proportional relationship. The point of maximum curvature is often chosen to show a relationship such as inverse proportion. Adopting the value that maximizes the curvature is used to determine the optimal value of the parameter in MEM, Tikhonov regularization, etc. 
 
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
 
