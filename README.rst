@@ -390,11 +390,15 @@ Introduction
 Methods
 =======
 
-A. Creation of electronic structure by DFT for comparison
----------------------------------------------------------
-I calculated the electronic structure for comparison using the Quantum Espresso package. The electronic structures were calculated using the PAW psuedopotentials. The exchange and correlation functional with the generalized gradient approximation of Perdew, Burke, and Ernzerhof was used. The crystal structures used for parameter fitting were obtained from the Materials Project, and structures not listed there were obtained from the support information of QUASINANO. Additionally, structures such as Simple cubic, which are also not listed, were created using the Birch-Murnaghan equation of state.
+A. Crystal structures
+---------------------
+The crystal structures used for parameter fitting were obtained from the Materials Project, and structures not listed there were obtained from the support information of QUASINANO. Additionally, structures such as Simple cubic, which are also not listed, were created using the Birch-Murnaghan equation of state on the  Qunatum Espresso package.
 
-B. Creating the slater-koster parameter
+B. Creation of electronic structure by DFT for comparison
+---------------------------------------------------------
+I calculated the electronic structure for comparison using the Quantum Espresso package. The electronic structures were calculated using the PAW psuedopotentials. The exchange and correlation functional with the generalized gradient approximation of Perdew, Burke, and Ernzerhof was used.
+
+C. Creating the slater-koster parameter
 ---------------------------------------
 I calculated the slater-koster file using the skprogs package. The parameters required to create the Slater-Koster file were explored using Bayesian optimization. The parameters were evaluated by comparing the electronic structure using DFT using Quantum Espresso and DFTB+ package.
 
