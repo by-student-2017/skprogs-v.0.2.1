@@ -453,16 +453,17 @@ Figure 5 shows the results of the parameter fit for the Nd BCC structure. QUASIN
 
   Fig.6 The electronic structure of Nd (SC).
 
-Table.1
-+-----------------------------+------+
-| Lattice  | Bond length / Å  | C.N. |
-+=============================+======+
-|   FCC    |    3.68816       |  12  |
-+-----------------------------+------+
-|   BCC    |    3.57957       |   8  |
-+-----------------------------+------+
-|   SC     |    3.31954       |   6  |
-+-----------------------------+------+
+.. table:: Truth table for "not"
+   :widths: auto
+   
+   =======  ===========  ====
+   Lattice  Bond length  C.N.
+   =======  ===========  ====
+    FCC      3.68816      12
+    BCC      3.57957       8
+    SC       3.31954       6
+   =======  ===========  ====
+
 
 Future plans
 ============
