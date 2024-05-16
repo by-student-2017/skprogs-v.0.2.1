@@ -377,13 +377,8 @@ Note 4 (Introduction)
 Note 5 (Results and Discussion)
 ===============================
 .. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
-   :scale: 50 %
-
-   This is the caption of the figure (a simple paragraph).
-
-   The legend consists of all elements after the caption.  In this
-   case, the legend consists of this paragraph and the following
-   table:
+   :scale: 10 %
+   :alt: Fig. 1
    
 .. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png
    
