@@ -407,6 +407,10 @@ I investigated boron's parameters using grid search. Figure 1 shows the results 
 
   Fig.3 
 
+B. Search with Bayesian optimization
+------------------------------------
+The success or failure of Bayesian optimization depends on the settings of the evaluation function and evaluation range. Complicating the evaluation function is not very effective, but it not only makes coding more difficult, but also reduces versatility and makes it difficult for humans to interpret and analyze the results. Finally, in this study, we used a simple evaluation function as described in the literature. 
+
 
 Future plans
 ============
