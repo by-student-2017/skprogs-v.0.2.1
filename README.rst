@@ -495,8 +495,7 @@ In this study, we used Bayesian optimization to explore the Slater-Koster parame
 
 Acknowledgment
 ==============
-This research was conducted at RIKEN by Dr. Uchiyama, who is affiliated with meguREnergy Co., Ltd. and ATSUMITEC Co., Ltd., with funding from ATSUMITEC Co., Ltd.
-
+This research was funded by ATSUMITEC Co., Ltd. by Dr. N. Uchiyama, who is affiliated with meguREnergy Co., Ltd. and ATSUMITEC Co., Ltd. 
 
 Future plans
 ============
