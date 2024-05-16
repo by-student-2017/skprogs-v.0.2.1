@@ -383,7 +383,7 @@ I calculated the electronic structure for comparison using the Quantum Espresso 
 
 B. Creating the slater-koster parameter
 ---------------------------------------
-I calculated the slater-koster file using the skprogs package. The parameters required to create the Slater-Koster file were explored using Bayesian optimization. 
+I calculated the slater-koster file using the skprogs package. The parameters required to create the Slater-Koster file were explored using Bayesian optimization. The parameters were evaluated by comparing the electronic structure using DFT using Quantum Espresso and DFTB+ package.
 
 
 Results and Discussion
@@ -391,6 +391,7 @@ Results and Discussion
 
 A. Relationship between various parameters and fit in Boron
 -----------------------------------------------------------
+I investigated boron's parameters using grid search. Figure 1 shows the results when changing r0 and sigma for boron density.
 
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
 
