@@ -368,7 +368,7 @@ By STUDENT
 
 Abstract
 ========
-A Slater-Koster parameter for the electronic part of the density functional-based strong binding (DFTB) method was proposed that covers the periodic table in the same range as the  PAW pseudopotential of Quantum Espresso package. A semi-automatic parameterization scheme using Bayesian optimization with Kohn-Sham energy as reference data was developed. The confinement potential is used to strengthen the Kohn-Sham orbit. This includes up to 34 free parameters that are used to optimize the performance of the method. This method has been tested on over 300 systems and shows good overall performance.
+A Slater-Koster parameter for the electronic part of the density functional-based strong binding (DFTB) method was proposed that covers the periodic table in the same range as the  PAW pseudopotential of the Quantum Espresso package. A semi-automatic parameterization scheme using Bayesian optimization with Kohn-Sham energy as reference data was developed. The confinement potential is used to strengthen the Kohn-Sham orbit. This includes up to 34 free parameters that are used to optimize the performance of the method. This method has been tested on over 300 systems and shows good overall performance.
 
 Introduction
 ============
