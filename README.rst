@@ -376,7 +376,7 @@ Note 4 (Introduction)
 
 Note 5 (Results and Discussion)
 ===============================
-![alt text](examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png?raw=true)
+![alt text](./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png?raw=true)
 
 
 Future plans
