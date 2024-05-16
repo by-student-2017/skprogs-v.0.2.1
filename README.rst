@@ -432,15 +432,18 @@ B. Search with Bayesian optimization
 ------------------------------------
 The success or failure of Bayesian optimization depends on the settings of the evaluation function and evaluation range. Complicating the evaluation function is not very effective, but it not only makes coding more difficult, but also reduces versatility and makes it difficult for humans to interpret and analyze the results. Finally, in this study, we used a simple evaluation function as described in the literature. 
 
+Even in QUASINANO, parameters for the lanthanide series are only disclosed for La and Lu. Here, Nd, which is a constituent element of Nd-Fe-B, which is famous as a magnetic material, is shown in Figures 4, 5, and 6 as a representative of the lanthanide series.
 
-.. figure:: ./examples/band_check/60_Nd_BCC/Ref_comp_band.png
-
-  Fig.4 The electronic structure of Nd (BCC).
 
 
 .. figure:: ./examples/band_check/60_Nd_FCC/Ref_comp_band.png
 
-  Fig.5 The electronic structure of Nd (FCC).
+  Fig.4 The electronic structure of Nd (FCC).
+
+
+.. figure:: ./examples/band_check/60_Nd_BCC/Ref_comp_band.png
+
+  Fig.5 The electronic structure of Nd (BCC).
 
 
 .. figure:: ./examples/band_check/60_Nd_SC/Ref_comp_band.png
