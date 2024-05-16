@@ -380,7 +380,7 @@ Note 5 (Results and Discussion)
 
    First paragraph. (Relationship between various parameters and fit in B)
 .. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
-   :name:Fig.1 
+   :name: Fig.1 
    :class:text
    
 .. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png
