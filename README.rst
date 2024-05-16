@@ -410,6 +410,7 @@ I investigated the parameters for Boron using grid search. Figure 1 shows the re
 
   Fig.1 
 
+
 Figure 2 shows the relationship between r0 and sigma for p orbital of Boron. For the p-orbital, the best-fitting range shows an inversely proportional relationship between r0 and sigma, similar to the density.
 
 Figure 3 similarly shows the relationship between r0 and sigma for the s orbit. The best fit for s-orbitals is not inversely proportional, unlike for p-orbitals and densities. The optimal value of r0 in the s orbital is different from that in the p orbital. In mi0 and QUASINANO, r0 and sigma of each orbit have the same value, so the parameters are optimized with these influences combined.
