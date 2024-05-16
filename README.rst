@@ -357,8 +357,8 @@ Note 3 (Tips)
 - In the past, accuracy comparable to DFT was often required, but in the age of machine learning, it is important to obtain good correlations rather than matching DFT. This is because it would be good if it could solve the weaknesses of machine learning, such as the need for large amounts of data and the problem of extrapolation. DFTB+'s high transferability and fast calculation meet these requirements. Another appeal of Slater-Koster files and DFTB+ is that they are not black boxes. In addition, it is sufficient to perform single-point calculations using highly accurate quantum chemical calculations or first-principles calculations, and it goes without saying that DFTB+ and classical MD are important for structural optimization in the process up to that point. Too many people in this world forget that. (By STUDENT)
 
 
-Note 4 (Introduction)
-=====================
+Introduction
+============
 - For information using molecular dynamics engines such as Lammp [MD1] and PIMD [MD2], neural networks (NNs) (e.g., AENET [NN1]) using methods other than general-purpose graph neural networks (GNNs) become unstable in systems with four or more elements. Although the problem with GNN is not clear, although it requires a huge amount of training data, the energy reproducibility remains at the same level as the classical MD ReaxFF, and the reproduction of phonons is not good. [AE1, AM1] There is an opinion that this problem can be solved if there is an abundance of training data, but even the huge amount of training data provided by the Open Catalysts Project [OC1] has not completely overcome this situation.
 - Currently (1/April/2024), many well-known neural networks (NNs) used in molecular dynamics engines do not handle charge in an explicit manner, so they have the drawback of not being able to calculate behavior when an electric field is applied, which is important for battery materials. DFTB+ and Slater-Koster files also handle charges that are not explicitly handled by many GNNs and NNs. As for spin, the multiplicity is set using Gaussian, GAMESS, Psi4, etc., so I think it would be good to create a Slater-Koster file that separates the spin status, and the user can use it depending on the multiplicity of the system. I am. This part of the problem could potentially be automated using machine learning.
 - Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-value [DF1, DF2]. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. In my environment, I would not create training data with VASP.
@@ -374,11 +374,16 @@ Note 4 (Introduction)
 - [RL1] [X. Glorot, A. Bordes and Y. Bengio, "Deep Sparse Rectifier Neural Networks" (2011).](https://www.semanticscholar.org/paper/Deep-Sparse-Rectifier-Neural-Networks-Glorot-Bordes/67107f78a84bdb2411053cb54e94fa226eea6d8e) 
 
 
-Note 5 (Results and Discussion)
-===============================
+METHODS
+=======
+  I calculated the electronic structure using Quantum Espresso package. The electronic structures were calculated using a PAW psuedopotential. The exchange and correlation functional with the generalized gradient approximation of Perdew, Burke, and Ernzerhof was used.
 
-Relationship between various parameters and fit in B
-----------------------------------------------------
+
+Results and Discussion
+======================
+
+A. Relationship between various parameters and fit in Boron
+-----------------------------------------------------------
 
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
 
