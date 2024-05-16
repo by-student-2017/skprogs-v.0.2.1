@@ -379,14 +379,12 @@ Note 5 (Results and Discussion)
 
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
   :name: The number one.
-  :fig: 1
+  :fig: Fig.1
   :width: 5in
 
   Fig.1 
    
-.. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png
-   :name: Fig.2
-is a concise syntax alternative to preceding it with a hyperlink target
+.. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png
    
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_p_r0_sigma.png
 
