@@ -397,16 +397,18 @@ I investigated the parameters for Boron using grid search. Figure 1 shows the re
 
   Fig.1 
 
-Figure 2 shows the relationship between r0 and sigma for boron's s orbital. 
-
-.. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png
-
-  Fig.2 
-
+Figure 3 shows the relationship between r0 and sigma for p orbital of Boron. For the p-orbital, the best-fitting range shows an inversely proportional relationship between r0 and sigma, similar to the density.
 
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_p_r0_sigma.png
 
+  Fig.2 
+
+Figure 3 shows the relationship between r0 and sigma for s orbital of Boron. 
+
+.. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png
+
   Fig.3 
+
 
 B. Search with Bayesian optimization
 ------------------------------------
