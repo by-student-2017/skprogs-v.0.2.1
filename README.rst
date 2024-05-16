@@ -452,7 +452,7 @@ Calculations at ultra-high pressures and high temperatures require parameters th
 
 One eV is equivalent to approximately 10,000 K, and at a firing temperature of 1500 K, it is approximately 0.15 eV, so for Nd, FCC and BCC are the range used. SC is 6000 K at about 0.6 eV, and even without calculating its abundance ratio from the Boltzmann distribution, it is easy to imagine that it is difficult to get close to the interatomic distance of SC.
 
-.. table:: Table.1 Crystal structure data of Nd
+.. table:: Table.1 Data on the crystal structure of Nd
    :widths: auto
    
    =======  ====  ===========  =====================  =============
