@@ -357,6 +357,19 @@ Note 3 (Tips)
 - In the past, accuracy comparable to DFT was often required, but in the age of machine learning, it is important to obtain good correlations rather than matching DFT. This is because it would be good if it could solve the weaknesses of machine learning, such as the need for large amounts of data and the problem of extrapolation. DFTB+'s high transferability and fast calculation meet these requirements. Another appeal of Slater-Koster files and DFTB+ is that they are not black boxes. In addition, it is sufficient to perform single-point calculations using highly accurate quantum chemical calculations or first-principles calculations, and it goes without saying that DFTB+ and classical MD are important for structural optimization in the process up to that point. Too many people in this world forget that. (By STUDENT)
 
 
+=============================================================================
+Slater-Koster Parameters for the Periodic Table: Part 1, Electronic Structure
+=============================================================================
+
+
+By STUDENT
+==========
+
+
+Abstract
+========
+A Slater-Koster parameter for the electronic part of the density functional-based strong binding (DFTB) method was proposed that covers the periodic table in the same range as the  PAW pseudopotential of Quantum Espresso package. A semi-automatic parameterization scheme using Bayesian optimization with Kohn-Sham energy as reference data was developed. The confinement potential is used to strengthen the Kohn-Sham orbit. This includes up to 34 free parameters that are used to optimize the performance of the method. This method has been tested on over 300 systems and shows good overall performance.
+
 Introduction
 ============
 - For information using molecular dynamics engines such as Lammp [MD1] and PIMD [MD2], neural networks (NNs) (e.g., AENET [NN1]) using methods other than general-purpose graph neural networks (GNNs) become unstable in systems with four or more elements. Although the problem with GNN is not clear, although it requires a huge amount of training data, the energy reproducibility remains at the same level as the classical MD ReaxFF, and the reproduction of phonons is not good. [AE1, AM1] There is an opinion that this problem can be solved if there is an abundance of training data, but even the huge amount of training data provided by the Open Catalysts Project [OC1] has not completely overcome this situation.
