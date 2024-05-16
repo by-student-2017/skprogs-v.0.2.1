@@ -435,6 +435,9 @@ Even in QUASINANO, parameters for the lanthanide series are only disclosed for L
 
 Figure 4 shows the results of parameter fitting for the Nd FCC structure. It can be seen that the electronic structure of DFTB near the important Fermi level (0 eV) is better reproduced compared to the electronic structure near the less important binding energy - 8 eV.
 
+Figure 5 shows the results of the parameter fit for the Nd BCC structure. QUASINANO is similar, but the electronic structure of the H point in the BCC structure cannot be reproduced well. When the parameters are adjusted to improve the reproduction of this H point, the band of unoccupied levels near the binding energy - 7.5 eV approaches the Fermi level, worsening the reproduction of the overall electronic structure. As shown in Figure 6, this unoccupied level band greatly approaches the Fermi level in the structure-optimized Simple Cubic.
+
+
 
 .. figure:: ./examples/band_check/60_Nd_FCC/Ref_comp_band.png
 
@@ -450,7 +453,16 @@ Figure 4 shows the results of parameter fitting for the Nd FCC structure. It can
 
   Fig.6 The electronic structure of Nd (SC).
 
-
+Table.1
++-----------------------------+------+
+| Lattice  | Bond length / Å  | C.N. |
++=============================+======+
+|   FCC    |    3.68816       |  12  |
++-----------------------------+------+
+|   BCC    |    3.57957       |   8  |
++-----------------------------+------+
+|   SC     |    3.31954       |   6  |
++-----------------------------+------+
 
 Future plans
 ============
