@@ -437,7 +437,16 @@ Figure 4 shows the results of parameter fitting for the Nd FCC structure. It can
 
 Figure 5 shows the results of the parameter fit for the Nd BCC structure. QUASINANO is similar, but the electronic structure of the H point in the BCC structure cannot be reproduced well. When the parameters are adjusted to improve the reproduction of this H point, the band of unoccupied levels near the binding energy - 7.5 eV approaches the Fermi level, worsening the reproduction of the overall electronic structure. As shown in Figure 6, this unoccupied level band greatly approaches the Fermi level in the structure-optimized Simple Cubic.
 
-
+.. table:: Crystal structure data of Nd
+   :widths: auto
+   
+   =======  ===========  ====
+   Lattice  Bond length  C.N.
+   =======  ===========  ====
+    FCC      3.68816      12
+    BCC      3.57957       8
+    SC       3.31954       6
+   =======  ===========  ====
 
 .. figure:: ./examples/band_check/60_Nd_FCC/Ref_comp_band.png
 
@@ -452,18 +461,6 @@ Figure 5 shows the results of the parameter fit for the Nd BCC structure. QUASIN
 .. figure:: ./examples/band_check/60_Nd_SC/Ref_comp_band.png
 
   Fig.6 The electronic structure of Nd (SC).
-
-
-.. table:: Crystal structure data of Nd
-   :widths: auto
-   
-   =======  ===========  ====
-   Lattice  Bond length  C.N.
-   =======  ===========  ====
-    FCC      3.68816      12
-    BCC      3.57957       8
-    SC       3.31954       6
-   =======  ===========  ====
 
 
 Future plans
