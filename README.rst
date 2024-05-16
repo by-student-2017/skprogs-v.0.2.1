@@ -376,14 +376,17 @@ Note 4 (Introduction)
 
 Note 5 (Results and Discussion)
 ===============================
-For instance:
 
-.. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
-   :width: 40pt
+.. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
+  :name: The number one.
+  :fig: 1
+  :width: 1in
+
+  The number one.
    
-.. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png
+.. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png
    
-.. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_p_r0_sigma.png
+.. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_p_r0_sigma.png
 
 
 Future plans
