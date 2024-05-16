@@ -378,7 +378,6 @@ Note 5 (Results and Discussion)
 ===============================
 .. image:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
    :scale: 50 %
-   :alt: map to buried treasure
 
    This is the caption of the figure (a simple paragraph).
 
