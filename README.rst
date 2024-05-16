@@ -376,6 +376,7 @@ Introduction
 
 METHODS
 =======
+
   I calculated the electronic structure using Quantum Espresso package. The electronic structures were calculated using a PAW psuedopotential. The exchange and correlation functional with the generalized gradient approximation of Perdew, Burke, and Ernzerhof was used.
 
 
