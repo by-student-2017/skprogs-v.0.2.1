@@ -442,13 +442,13 @@ Figure 5 shows the results of the parameter fit for the Nd BCC structure. QUASIN
 .. table:: Table.1 Crystal structure data of Nd
    :widths: auto
    
-   =======  ===========  ====  ==================
-   Lattice  Bond length  C.N.  Total Energy (Ry)
-   =======  ===========  ====  =================
-    FCC      3.68816      12      -499.3087
-    BCC      3.57957       8      -499.2999
-    SC       3.31954       6      -499.2642
-   =======  ===========  ====  =================
+   =======  ===========  ====  ==================  ============
+   Lattice  Bond length  C.N.  Total Energy (Ry)   XXX-FCC (eV)
+   =======  ===========  ====  =================   ============
+    FCC      3.68816      12      -499.3087           0.000
+    BCC      3.57957       8      -499.2999           0.120
+    SC       3.31954       6      -499.2642           0.605
+   =======  ===========  ====  =================   ============
 
 .. figure:: ./examples/band_check/60_Nd_FCC/Ref_comp_band.png
 
