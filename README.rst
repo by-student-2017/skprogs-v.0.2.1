@@ -376,7 +376,14 @@ Introduction
 
 METHODS
 =======
-I calculated the electronic structure using Quantum Espresso package. The electronic structures were calculated using a PAW psuedopotential. The exchange and correlation functional with the generalized gradient approximation of Perdew, Burke, and Ernzerhof was used.
+
+A. Creation of electronic structure by DFT for comparison
+---------------------------------------------------------
+I calculated the electronic structure for comparison using the Quantum Espresso package. The electronic structures were calculated using the PAW psuedopotentials. The exchange and correlation functional with the generalized gradient approximation of Perdew, Burke, and Ernzerhof was used.
+
+B. Creating the slater-koster parameter
+---------------------------------------
+I calculated the slater-koster file using the skprogs package. The parameters required to create the slater-koster file were explored using Bayesian optimization. 
 
 
 Results and Discussion
