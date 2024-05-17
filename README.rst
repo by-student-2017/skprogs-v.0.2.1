@@ -462,7 +462,7 @@ Figure 7 shows that as the volume increases, the unnecessary band at the M point
 
 On the other hand, when the volume is reduced, it can be seen that an unoccupied level band at the M point also exists in the valence band. This result suggests that it is necessary to always check the electronic structure under conditions where the distance between atoms is shortened (e.g. ultra-high pressure) or when bonding with elements with small covalent radius.
 
-The electronic structure of a system bonded to an element with a small covalent bond radius is compared with DFT, and parameters that do not cause such problems are adopted.
+When actually using this method, it is recommended to compare the electronic state of a system bonded to an element with a small covalent bond radius with DFT, and to adopt parameters that do not cause such problems.
 
 Calculations at ultra-high pressures and high temperatures require parameters that take into account interatomic distances that are difficult to approach energetically when repulsive forces are added.
 
