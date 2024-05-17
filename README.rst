@@ -424,6 +424,8 @@ The p orbital of boron has a value close to the maximum curvature of about 6 in 
 Figure 3 similarly shows the relationship between r0 and sigma for the s orbit. The best fit for s orbitals is not inversely proportional, unlike for p orbitals and densities. The optimal value of r0 in the s orbital is different from that in the p orbital. In mi0 and QUASINANO, r0 and sigma of each orbit have the same value, so the parameters are optimized with these influences combined.
 The s orbital of boron has a value close to the maximum curvature of about 4 in simga. 
 
+As the s orbital becomes more important near the Fermi level, sigma tends to approach 2. Cu, Ag, and Au are particularly typical examples. The p-block of typical metals tends to be between S and P. 
+The exceptions are the alkali metals and alkaline earth metals in the s-block of typical metals. One of the reasons for the large simga is that the p and d orbitals in unoccupied levels are also important for reproducing the electronic structure.
 
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
 
