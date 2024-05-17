@@ -431,7 +431,7 @@ The exceptions are the alkali metals and alkaline earth metals in the s-block of
 
 The r0 tends to be twice the covalent radius (rcov). This trend is also shown in QUASINANO. Although there appear to be exceptions, the covalent bond radius changes depending on the bonding mode, so taking them into consideration will help. For example, in Lu, the covalent radius of a single bond is 1.62 A, so r0/rcav = 1.96, a value close to 2. The fact that there are examples in papers where r0 is twice the covalent bond radius can be said to be reasonable if the bonding mode is properly considered.
 
-Although not mentioned much in papers, experimentally the interatomic distance (R(AB)) is determined by the sum of the covalent bond radii of paired elements (for example, A and B) (R(AB)=rcov(A)+rcov(B )) is known to be. Therefore, for a unitary system (A and A), it is not unnatural that r0, which is related to potential confinement, is close to twice rcov.
+Although not mentioned much in many papers, experimentally the interatomic distance (R(AB)) is determined by the sum of the covalent bond radii of paired elements (for example, A and B) (R(AB)=rcov(A)+rcov(B )) is known to be. Therefore, for a unitary system (A and A), it is not unnatural that r0, which is related to potential confinement, is close to twice rcov.
 
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
 
