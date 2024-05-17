@@ -419,10 +419,10 @@ The general trend is that increasing sigma makes the calculation unstable and ev
 The top left of Figure 2 shows just that. This trend is also seen in the orbital sigma and r0 results.
 
 Figure 2 shows the relationship between r0 and sigma for p orbital of Boron. For the p orbital, the best-fitting range shows an inversely proportional relationship between r0 and sigma, similar to the density.
-Figure 2 shows that even the p orbital of boron has a value close to the maximum curvature of about 6 in simga.
+The p orbital of boron has a value close to the maximum curvature of about 6 in simga.
 
 Figure 3 similarly shows the relationship between r0 and sigma for the s orbit. The best fit for s orbitals is not inversely proportional, unlike for p orbitals and densities. The optimal value of r0 in the s orbital is different from that in the p orbital. In mi0 and QUASINANO, r0 and sigma of each orbit have the same value, so the parameters are optimized with these influences combined.
-Figure 3 shows that even the s orbital of boron has a value close to the maximum curvature of about 4 in simga. 
+The s orbital of boron has a value close to the maximum curvature of about 4 in simga. 
 
 
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
