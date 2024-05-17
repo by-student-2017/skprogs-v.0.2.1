@@ -433,9 +433,9 @@ Figure 3 similarly shows the relationship between r0 and sigma for the s orbit. 
 
 B. Search with Bayesian optimization
 ------------------------------------
-The success or failure of Bayesian optimization depends on the settings of the evaluation function and evaluation range. Complicating the evaluation function is not very effective, but it not only makes coding more difficult, but also reduces versatility and makes it difficult for humans to interpret and analyze the results. Finally, in this study, we used a simple evaluation function as described in the literature. 
+The success or failure of Bayesian optimization depends on the settings of the evaluation function and evaluation range. Complicating the evaluation function is not very effective, but it not only makes coding more difficult, but also reduces versatility and makes it difficult for humans to interpret and analyze the results. Finally, in this study, I used a simple evaluation function as described in the literature. 
 
-Even in QUASINANO, parameters for the lanthanide series are only disclosed for La and Lu. Here, we will explain parameter fitting using Bayesian optimization using Nd, a constituent element of Nd-Fe-B, which is famous as a magnetic material, as a representative of the lanthanide series.
+Even in QUASINANO, parameters for the lanthanide series are only disclosed for La and Lu. Here, I will explain parameter fitting using Bayesian optimization using Nd, a constituent element of Nd-Fe-B, which is famous as a magnetic material, as a representative of the lanthanide series.
 
 Figure 4 shows the results of parameter fitting for the Nd FCC structure. It can be seen that the electronic structure of DFTB near the important Fermi level (0 eV) is better reproduced compared to the electronic structure near the less important binding energy - 8 eV.
 
@@ -494,7 +494,7 @@ One eV is equivalent to approximately 10,000 K, and at a firing temperature of 1
 
 Conclusion
 ==========
-In this study, we used Bayesian optimization to explore the Slater-Koster parameters for almost all elements in the periodic table, including the lanthanide series.
+In this study, I used Bayesian optimization to explore the Slater-Koster parameters for almost all elements in the periodic table, including the lanthanide series.
 
 
 Acknowledgment
@@ -525,7 +525,7 @@ My Wish
 =======
 - I strongly hope that parameter files will be prepared for almost all elements and their combinations free of charge.
 - With Hotcent, I was not able to set the parameters satisfactorily due to my lack of skill. I hope that the parameters will be better organized in skprog-v.0.2.
-- Ultimately, it is necessary to improve the repulsive force, but it is important to maintain the electronic structure in the optimal structure for almost all elements. In order to develop parameters that can be used free of charge, we sincerely hope for the cooperation of many people in terms of paper reports and financial support.
+- Ultimately, it is necessary to improve the repulsive force, but it is important to maintain the electronic structure in the optimal structure for almost all elements. In order to develop parameters that can be used free of charge, I sincerely hope for the cooperation of many people in terms of paper reports and financial support.
 
 
 Acknowledgment (For examples)
