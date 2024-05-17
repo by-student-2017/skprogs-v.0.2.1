@@ -419,6 +419,7 @@ We investigated the parameters for Boron using grid search. Figure 1 shows the r
 Many papers choose sigma values of 2, 4, or 6, and parameter optimization using genetic algorithms (GA) reports sigma values close to 7 for many elements related to LiCoO2.
 As a general trend, as r0 becomes larger, bands that should originally be in vacant levels begin to exist in the valence band. Increasing sigma makes the calculation unstable and eventually impossible.
 The top left of Figure 2 shows just that. This trend is also seen in the orbital sigma and r0 results.
+In Figure 1, there are parts where the evaluation value deteriorates in areas where r0 is large, indicating that there is a risk of calculation instability if r0 is too large.
 
 Figure 2 shows the relationship between r0 and sigma for p orbital of Boron. For the p orbital, the best-fitting range shows an inversely proportional relationship between r0 and sigma, similar to the density.
 The p orbital of boron has a value close to the maximum curvature of about 6 in sigma.
