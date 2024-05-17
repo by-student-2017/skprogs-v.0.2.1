@@ -461,8 +461,7 @@ This result is consistent with the relationship between the universal potential 
 Figure 7 shows that as the volume increases, the unnecessary band at the M point moves farther away from the Fermi level. This result shows that our parameters can be used over long distances without any problems.
 
 On the other hand, when the volume is reduced, it can be seen that an unoccupied level band at the M point also exists in the valence band. This result suggests that it is necessary to always check the electronic structure under conditions where the distance between atoms is shortened (e.g. ultra-high pressure) or when bonding with elements with small covalent radius.
-
-When actually using this method, it is recommended to compare the electronic state of a system bonded to an element with a small covalent bond radius with DFT, and to adopt parameters that do not cause such problems.
+Therefore, when actually using this parameter, it is recommended to compare the electronic states of systems bonded to elements with small covalent radius using DFT.
 
 Calculations at ultra-high pressures and high temperatures require parameters that take into account interatomic distances that are difficult to approach energetically when repulsive forces are added.
 

@@ -6,12 +6,12 @@
 /
 &SYSTEM
   ibrav = 0
-  A =    3.52484
-  nat = 2
+  A =    3.21645
+  nat = 1
   ntyp = 1
-  nbnd = 26
-  ecutwfc  =  42.0 ,
-  ecutrho  = 333.0 ,
+  nbnd = 24
+  ecutwfc  =  39.0 ,
+  ecutrho  = 278.0 ,
   occupations = 'smearing' ,
   degauss  = 0.02 ,
   smearing = 'mp',
@@ -19,18 +19,17 @@
   x_gamma_extrapolation = .true. ,
 /
 &ELECTRONS
-  conv_thr = 1.5e-04 ,
+  conv_thr = 7.3e-05 ,
   mixing_beta = 0.7 ,
 /
 CELL_PARAMETERS {alat}
   1.000000000000000   0.000000000000000   0.000000000000000 
- -0.500000000000000   0.866025403784439   0.000000000000000 
-  0.000000000000000   0.000000000000000   1.552018560853009 
+  0.000000000000000   1.000000000000000   0.000000000000000 
+  0.000000000000000   0.000000000000000   1.000000000000000 
 ATOMIC_SPECIES
-  Lu  174.96680  Lu.pbe-spdn-kjpaw_psl.1.0.0.UPF 
+  Yb  173.05400  Yb.pbe-spdn-kjpaw_psl.1.0.0.UPF 
 ATOMIC_POSITIONS {crystal}
-  Lu   0.333333333333333   0.666666666666667   0.250000000000000 
-  Lu   0.666666666666667   0.333333333333333   0.750000000000000 
+  Yb   0.000000000000000   0.000000000000000   0.000000000000000 
 K_POINTS automatic
-  10 10 6  0 0 0
+  10 10 10  0 0 0
 

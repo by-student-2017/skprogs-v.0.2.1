@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # These are related with comp_band.png
-ytop=-5    # Binding energy [eV], conduction band (unoccupied states)
+ytop=-6    # Binding energy [eV], conduction band (unoccupied states)
            # Fermi energy, EF = 0 [eV]
-ybottom=7  # Binding energy [eV], valence band (occupied states)
+ybottom=6  # Binding energy [eV], valence band (occupied states)
 
 echo "---------------------------------"
 if [ ! -e qe_bands.dat ]; then

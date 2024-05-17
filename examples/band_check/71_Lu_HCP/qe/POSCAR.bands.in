@@ -9,7 +9,7 @@
   A =    3.52484
   nat = 2
   ntyp = 1
-  nbnd = 56
+  nbnd = 26
   ecutwfc  =  42.0 ,
   ecutrho  = 333.0 ,
   occupations = 'smearing' ,
