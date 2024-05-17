@@ -7654,10 +7654,16 @@ OnecenterParameters {
     #D = 1.0000 2.8821 8.3066 23.9407 69.0000 198.8664 # mio-like (skexp.py)
     #F = 1.0000 2.8821 8.3066 23.9407 69.0000 198.8664 # mio-like (skexp.py)
     #------------------------------------------------------
-    S = 1.00 2.93  8.52 24.38  69.36 269.49 # baysian No.1, Unnecessary bands (BE=-7.0 eV)
-    P = 0.85 2.62  7.61 24.29  78.72 179.18 # baysian No.1, Unnecessary bands (BE=-7.0 eV)
-    D = 1.92 5.36 18.51 73.15 200.98 493.45 # baysian No.1, Unnecessary bands (BE=-7.0 eV)
-    F = 1.31 3.09  9.80 27.15  83.11 268.82 # baysian No.1, Unnecessary bands (BE=-7.0 eV)
+    #S = 1.00 2.93  8.52 24.38  69.36 269.49 # baysian No.1, Unnecessary bands (BE=-7.0 eV)
+    #P = 0.85 2.62  7.61 24.29  78.72 179.18 # baysian No.1, Unnecessary bands (BE=-7.0 eV)
+    #D = 1.92 5.36 18.51 73.15 200.98 493.45 # baysian No.1, Unnecessary bands (BE=-7.0 eV)
+    #F = 1.31 3.09  9.80 27.15  83.11 268.82 # baysian No.1, Unnecessary bands (BE=-7.0 eV)
+    #------------------------------------------------------
+    #For the second and subsequent ones, reduce the value by about 10% from "bayesian No.1".
+    S = 1.00 2.63  8.02 23.38  59.36 249.49 # baysian No.1, Unnecessary bands (BE=-7.8 eV) (Ubuntu 22.04 LTS on WSL(Windows11))
+    P = 0.85 2.32  7.11 23.29  68.72 165.18 # baysian No.1, Unnecessary bands (BE=-7.8 eV) (Ubuntu 22.04 LTS on WSL(Windows11))
+    D = 1.92 4.86 18.01 71.15 180.98 463.45 # baysian No.1, Unnecessary bands (BE=-7.8 eV) (Ubuntu 22.04 LTS on WSL(Windows11))
+    F = 1.31 2.79  9.30 26.15  73.11 228.82 # baysian No.1, Unnecessary bands (BE=-7.8 eV) (Ubuntu 22.04 LTS on WSL(Windows11))
     #------------------------------------------------------
       }
       MaxPowers {
