@@ -478,8 +478,7 @@ Calculations at ultra-high pressures and high temperatures require parameters th
 
 One eV is equivalent to approximately 10,000 K, and at a firing temperature of 1500 K, it is approximately 0.15 eV, so for Nd, FCC and BCC are the range used. SC is 6000 K at about 0.6 eV, and even without calculating its abundance ratio from the Boltzmann distribution, it is easy to imagine that it is difficult to get close to the interatomic distance of SC.
 
-In our results, we were unable to reproduce the electronic structure as well as in QUASINANO using La. Similarly, the electronic structure of Ce has not been successfully reproduced. Although Nd has been separated from misch metal with the advent of Nd-Fe-B, it is important to reproduce the electronic structure of La and Ce when there is an industrial demand for using misch metal. Masu. Ce is an important element because it also plays an important role as a catalyst.
-
+In our results, we were unable to reproduce the electronic structure of La as well as QUASINANO. Similarly, the electronic structure of Ce, which is also important as a catalyst, could not be reproduced well. With the advent of Nd-Fe-B, Nd was separated from misch metal, but if the use of misch metal is required industrially, there is a strong need to reproduce the electronic structure of La and Ce.
 Other elements whose electronic structures are poorly reproduced include elements in the seventh period. Since these elements are important as materials related to nuclear reactors, it will be necessary to continue searching for optimal parameters using skprogs.
 
 .. table:: Table.1 Data on the crystal structure of Nd
