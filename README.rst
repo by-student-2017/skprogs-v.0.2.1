@@ -523,6 +523,7 @@ Conclusions
 ===========
 In this study, we used Bayesian optimization to explore the Slater-Koster parameters for almost all elements in the periodic table, including the lanthanide series.
 As a result, we were able to obtain parameters that well reproduce the electronic structure of DFT, except for La, Ce, and elements in the seventh period.
+
 Even when the volume of a simple cubic Nd was changed by +/-20%, the electronic structure was well reproduced, and good results were shown even when the interatomic distance became long. On the other hand, when the interatomic distance becomes short, an unnecessary unoccupied level band exists in the valence band. It has become clear that it is necessary to check whether the electronic structure is well reproduced in situations where is shortened.
 
 
