@@ -315,7 +315,7 @@ Note 1 (Importance of basis functions)
 ======================================
 - As pointed out in literature [1], basis functions are important (especially in the s-band). Hence, to reproduce the KS matrix elements with Slater-type orbitals, special basis sets would need to be constructed to handle steep confinement potentials. [1]
 - In "STO-nG (https://www.basissetexchange.org/)" used in Gaussian etc., s and p orbitals are treated as SP. Therefore, regarding radial wave functions, s and p are often treated as SP. 
-- First, we will use the already known reference value for the "slateratom" parameter. The parameter of the reference atom is multiplied by "fitting atomic number/reference atomic number" to obtain the initial value of the search for the parameter of the fitting atom. New Info: A tool (skexp.py) has recently been developed to set the STO basis by making all s, p, d, and f the same. Using this skexp.py, I plan to prepare a mio like version of the parameters with power=2 and other parameters (Radius) fitted with DFT (Quantum Espresso) data by Bayesian optimization.
+- First, I will use the already known reference value for the "slateratom" parameter. The parameter of the reference atom is multiplied by "fitting atomic number/reference atomic number" to obtain the initial value of the search for the parameter of the fitting atom. New Info: A tool (skexp.py) has recently been developed to set the STO basis by making all s, p, d, and f the same. Using this skexp.py, I plan to prepare a mio like version of the parameters with power=2 and other parameters (Radius) fitted with DFT (Quantum Espresso) data by Bayesian optimization.
 - Although the conditions are different from paper [1], good r0 results are obtained with "QUASINANO". There is a similar trend for simga parameters. Increasing simga from 2.0 and decreasing r0 brings the s-band closer to the DFT result. The average of the parameters of s, p, and d is often close to the value of "QUASINANO".
 - The lattice constants of the crystal structures used in "QUASINANO" can be found in "4 Crystal structures information". I regret that I should have found it sooner.
 - When examining the S orbit of boron, there is a tendency that when the coefficient of the S orbit is expressed in log (coefficient), it is better to divide it into approximately equal intervals between (maximum value - minimum value). When the minimum is 0.5, the maximum must be 7 or more. The maximum value is preferably 140 or less in this case.
@@ -339,10 +339,10 @@ Note 2 (Fitting)
 3. Decrease the density r0 and increase the r0 of the orbitals occupied by electrons relative to the P or D orbitals. (This is often not very effective)
 4. Fine-tune parameters. (Change r0 by 0.1. And basis functions)
 
-- "v2" of "Nb" was a two-day manual test to see how well it could fit. The fit suggests that there may be better parameters. We are eager to hear from our readers.
+- "v2" of "Nb" was a two-day manual test to see how well it could fit. The fit suggests that there may be better parameters. I am eager to hear from our readers.
 
 - Parameters by different groups have been evaluated in literature [3]. mio seems to be the best, but this may be due to the small number of data points (N) or the small number of available elements.
-- Reference [1] states that an integer of 2 or 4 is often used for the "simga (=POWER)" value in many papers. We are currently investigating whether this is reasonable.
+- Reference [1] states that an integer of 2 or 4 is often used for the "simga (=POWER)" value in many papers. I am currently investigating whether this is reasonable.
 - Unwanted bands are more likely to appear near the Fermi level in HCP than in FCC and BCC.
 
 - Currently, "ShellResolved = Yes" is set for Hf and later, but there are plans to change it from No to Yes for other elements as well. I don't know whether this will ultimately lead to good results.
@@ -412,7 +412,7 @@ Results and Discussion
 
 A. Relationship between various parameters and fit in Boron
 -----------------------------------------------------------
-I investigated the parameters for Boron using grid search. Figure 1 shows the result when changing r0 and sigma of density compression for Boron. For fit, the smaller the evaluation value, the smaller the deviation from the DFT. r0 and sigma show an inversely proportional relationship. The point of maximum curvature is often chosen to show a relationship such as inverse proportion. Adopting the value that maximizes the curvature is used to determine the optimal value of the parameter in MEM, Tikhonov regularization, etc. The maximum curvature for boron is around r0 = 11, sigma = 6. In this way, we will search for values with just the right fit and error for other elements.
+I investigated the parameters for Boron using grid search. Figure 1 shows the result when changing r0 and sigma of density compression for Boron. For fit, the smaller the evaluation value, the smaller the deviation from the DFT. r0 and sigma show an inversely proportional relationship. The point of maximum curvature is often chosen to show a relationship such as inverse proportion. Adopting the value that maximizes the curvature is used to determine the optimal value of the parameter in MEM, Tikhonov regularization, etc. The maximum curvature for boron is around r0 = 11, sigma = 6. In this way, I will search for values with just the right fit and error for other elements.
 
 Figure 2 shows the relationship between r0 and sigma for p orbital of Boron. For the p-orbital, the best-fitting range shows an inversely proportional relationship between r0 and sigma, similar to the density.
 
