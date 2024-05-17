@@ -414,7 +414,7 @@ A. Relationship between various parameters and fit in Boron
 -----------------------------------------------------------
 I investigated the parameters for Boron using grid search. Figure 1 shows the result when changing r0 and sigma of density compression for Boron. For fit, the smaller the evaluation value, the smaller the deviation from the DFT. r0 and sigma show an inversely proportional relationship. The point of maximum curvature is often chosen to show a relationship such as inverse proportion. Adopting the value that maximizes the curvature is used to determine the optimal value of the parameter in maximum entropy method (MEM), Tikhonov regularization, etc. The maximum curvature for boron is around r0 = 11, sigma = 6. In this way, I will search for values with just the right fit and error for other elements.
 
-Many papers choose sigma values of 2, 4, or 6, and parameter optimization using genetic algorithms (GA) reports sigma values close to 7 for many elements for LiCoO2.
+Many papers choose sigma values of 2, 4, or 6, and parameter optimization using genetic algorithms (GA) reports sigma values close to 7 for many elements related to LiCoO2.
 The general trend is that increasing sigma makes the calculation unstable and eventually impossible. When r0 is increased, bands that should originally be in unoccupied levels now exist in the valence band.
 The top left of Figure 2 shows just that. This trend is also seen in the orbital sigma and r0 results.
 
