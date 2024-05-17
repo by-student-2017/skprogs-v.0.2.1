@@ -456,6 +456,7 @@ Information about the crystal structure in Nd is shown in Table 1. Each structur
 Therefore, Figure 7 shows the result of simply increasing the volume of the SC structure by -20%, and Figure 8 shows the result of increasing it by +20%.
 
 The reproduction of the electronic structure is not so bad in both cases where the volume is increased or decreased.
+This result is consistent with the relationship between Abell et al.'s universal curve and bond order, which shows that coordination number is important at a ratio of 85% or more.
 
 Figure 7 shows that as the volume increases, the unnecessary band at the M point moves farther away from the Fermi level. This result shows that our parameters can be used over long distances without any problems.
 
