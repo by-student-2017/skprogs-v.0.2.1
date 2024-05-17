@@ -414,9 +414,9 @@ A. Relationship between various parameters and fit in Boron
 -----------------------------------------------------------
 I investigated the parameters for Boron using grid search. Figure 1 shows the result when changing r0 and sigma of density compression for Boron. For fit, the smaller the evaluation value, the smaller the deviation from the DFT. r0 and sigma show an inversely proportional relationship. The point of maximum curvature is often chosen to show a relationship such as inverse proportion. Adopting the value that maximizes the curvature is used to determine the optimal value of the parameter in MEM, Tikhonov regularization, etc. The maximum curvature for boron is around r0 = 11, sigma = 6. In this way, I will search for values with just the right fit and error for other elements.
 
-Figure 2 shows the relationship between r0 and sigma for p orbital of Boron. For the p-orbital, the best-fitting range shows an inversely proportional relationship between r0 and sigma, similar to the density.
+Figure 2 shows the relationship between r0 and sigma for p orbital of Boron. For the p orbital, the best-fitting range shows an inversely proportional relationship between r0 and sigma, similar to the density.
 
-Figure 3 similarly shows the relationship between r0 and sigma for the s orbit. The best fit for s-orbitals is not inversely proportional, unlike for p-orbitals and densities. The optimal value of r0 in the s orbital is different from that in the p orbital. In mi0 and QUASINANO, r0 and sigma of each orbit have the same value, so the parameters are optimized with these influences combined.
+Figure 3 similarly shows the relationship between r0 and sigma for the s orbit. The best fit for s orbitals is not inversely proportional, unlike for p orbitals and densities. The optimal value of r0 in the s orbital is different from that in the p orbital. In mi0 and QUASINANO, r0 and sigma of each orbit have the same value, so the parameters are optimized with these influences combined.
 
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
 
