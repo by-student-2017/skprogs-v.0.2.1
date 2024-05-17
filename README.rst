@@ -307,6 +307,10 @@ Information of skprogs code
   ZORA: https://www.scm.com/support/background/more-details-of-the-zora-relativistic-hamiltonian/
 
 
+Support information
+===================
+
+
 Note 1 (Importance of basis functions)
 ======================================
 - As pointed out in literature [1], basis functions are important (especially in the s-band). Hence, to reproduce the KS matrix elements with Slater-type orbitals, special basis sets would need to be constructed to handle steep confinement potentials. [1]
