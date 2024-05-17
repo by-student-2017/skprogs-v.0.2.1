@@ -427,6 +427,8 @@ The s orbital of boron has a value close to the maximum curvature of about 4 in 
 As the s orbital becomes more important near the Fermi level, sigma tends to approach 2. Cu, Ag, and Au are particularly typical examples. The p-block of typical metals tends to be between S and P. 
 The exceptions are the alkali metals and alkaline earth metals in the s-block of typical metals. One of the reasons for the large simga is that the p and d orbitals in unoccupied levels are also important for reproducing the electronic structure.
 
+r0 tends to be twice the covalent radius (rcov). This trend is also shown in QUASINANO. Although there appear to be exceptions, the covalent bond radius changes depending on the bonding mode, so taking them into consideration will help. For example, in Lu, the covalent radius of a single bond is 1.62 A, so r0/rcav = 1.96, a value close to 2. The fact that there are examples in papers where r0 is twice the covalent bond radius can be said to be reasonable if the bonding mode is properly considered.
+
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
 
   Fig.1 Relationship between r0 and sigma in density.

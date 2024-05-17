@@ -1,0 +1,35 @@
+#!/usr/local/bin/gnuplot -persist
+#------------------------------------------------
+set terminal pngcairo color enhanced font "Arial" fontscale 1.0
+set output "evplot.png"
+#------------------------------------------------
+#set key opaque box lc rgb "white" height 1
+set key box lw 1 lc "black"
+set key top center
+#-----------------------------------------------
+set title "Murnaghan equation of state"
+set xlabel "Volume, V / Angstrom^3"
+set ylabel "Total Energy, E / Ry"
+set mxtics 5
+set mytics 5
+#-----------------------------------------------
+# Murnaghan equation of state
+f(x) = (a*x/(b*(b-1)))*(b*(1-c/x)+(c/x)**b-1)+d
+#-----------------------------------------------
+# old version [Ha] and[ bohr^3] unit
+#a=0.001 # Bulk modulus [Ha/bohr^3] = 2*[Ry/bohr^3]: a * 29421.02648438959 [GPa]: FCC*4
+#b=2     # Differential of bulk modulus
+#c=1100  # Unit cell volume [bohr^3] = (0.52918)^3 * [Angstrom^3] = 0.148 * [Angstrom^3]
+#d=-7.8  # Total energy in the volume of a stable unit cell [Ha] = 2*[Ry] = 27.21*[eV]
+#-----------------------------------------------
+# new version [Ry] and [Angstrom^3] unit
+a=0.0124456 # Bulk modulus [Ry/Angstrom^3]
+b=3.2769   # Differential of bulk modulus
+c=33.3446   # Unit cell volume [Angstrom^3]
+d=-634.536  # Total energy in the volume of a stable unit cell [Ry]
+#-----------------------------------------------
+fit f(x) 've.data' u 1:2 via a,b,c,d 
+plot f(x) t "Murnaghan equation of state, f(x)", 've.data' u 1:2 t "DFT(QE) (cubic spline)" smooth csplines, 've.data' u 1:2 t "DFT(QE)" w p pt 1 ps 2
+#-----------------------------------------------
+# ve.data: V(bohr^3) vs. Etot(Ha)
+#-----------------------------------------------
