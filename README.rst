@@ -443,7 +443,7 @@ Even in QUASINANO, parameters for the lanthanide series are only disclosed for L
 
 Figure 4 shows the results of parameter fitting for the Nd FCC structure. It can be seen that the electronic structure of DFTB near the important Fermi level (0 eV) is better reproduced compared to the electronic structure near the less important binding energy - 8 eV.
 
-Figure 5 shows the results of the parameter fit for the Nd BCC structure. QUASINANO is similar, but the electronic structure of the H point in the BCC structure cannot be reproduced well. When the parameters are adjusted to improve the reproduction of this H point, the band of unoccupied levels near the binding energy - 7.5 eV approaches the Fermi level, worsening the reproduction of the overall electronic structure. As shown in Figure 6, this unoccupied level band greatly approaches the Fermi level in the structure-optimized Simple Cubic.
+Figure 5 shows the results of the parameter fit for the Nd BCC structure. QUASINANO is similar, but the electronic structure of the M point in the BCC structure cannot be reproduced well. When the parameters are adjusted to improve the reproduction of this M point, the band of unoccupied levels near the binding energy - 7.5 eV approaches the Fermi level, worsening the reproduction of the overall electronic structure. As shown in Figure 6, this unoccupied level band greatly approaches the Fermi level in the structure-optimized Simple Cubic.
 
 Information about the crystal structure in Nd is shown in Table 1. Each structure has a different coordination number (C.N.) and bond length, so a simple comparison is not possible.
 Therefore, Figure 7 shows the result of simply increasing the volume of the SC structure by -20%, and Figure 8 shows the result of increasing it by +20%.
@@ -452,7 +452,7 @@ The reproduction of the electronic structure is not so bad in both cases where t
 
 Figure 7 shows that as the volume increases, the unnecessary band at point H moves farther away from the Fermi level. This result shows that our parameters can be used over long distances without any problems.
 
-On the other hand, when the volume is reduced, it can be seen that an unoccupied level band at the H point also exists in the valence band. This result suggests that it is necessary to always check the electronic structure under conditions where the distance between atoms is shortened (e.g. ultra-high pressure) or when bonding with elements with small covalent radius.
+On the other hand, when the volume is reduced, it can be seen that an unoccupied level band at the M point also exists in the valence band. This result suggests that it is necessary to always check the electronic structure under conditions where the distance between atoms is shortened (e.g. ultra-high pressure) or when bonding with elements with small covalent radius.
 
 The electronic structure of a system bonded to an element with a small covalent bond radius is compared with DFT, and parameters that do not cause such problems are adopted.
 
