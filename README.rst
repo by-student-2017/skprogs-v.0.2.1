@@ -339,10 +339,10 @@ Note 2 (Fitting)
 3. Decrease the density r0 and increase the r0 of the orbitals occupied by electrons relative to the P or D orbitals. (This is often not very effective)
 4. Fine-tune parameters. (Change r0 by 0.1. And basis functions)
 
-- "v2" of "Nb" was a two-day manual test to see how well it could fit. The fit suggests that there may be better parameters. I am eager to hear from our readers.
+- "v2" of "Nb" was a two-day manual test to see how well it could fit. The fit suggests that there may be better parameters. We are eager to hear from our readers.
 
 - Parameters by different groups have been evaluated in literature [3]. mio seems to be the best, but this may be due to the small number of data points (N) or the small number of available elements.
-- Reference [1] states that an integer of 2 or 4 is often used for the "simga (=POWER)" value in many papers. I am currently investigating whether this is reasonable.
+- Reference [1] states that an integer of 2 or 4 is often used for the "simga (=POWER)" value in many papers. We are currently investigating whether this is reasonable.
 - Unwanted bands are more likely to appear near the Fermi level in HCP than in FCC and BCC.
 
 - Currently, "ShellResolved = Yes" is set for Hf and later, but there are plans to change it from No to Yes for other elements as well. I don't know whether this will ultimately lead to good results.
@@ -365,7 +365,7 @@ Note 3 (Tips)
 
 Slater-Koster Parameters for the Periodic Table: Part 1, Electronic Structure
 =============================================================================
-Small sample problem (I can't increase the number of samples (number of trials), but I want to get as accurate an answer (parameters) as possible)
+Small sample problem (We can't increase the number of samples (number of trials), but we want to get as accurate an answer (parameters) as possible)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 By STUDENT
@@ -379,7 +379,7 @@ Slater-Koster parameters for the electronic part of the density functional-based
 Introduction
 ============
 - For information using molecular dynamics engines such as Lammp [MD1] and PIMD [MD2], neural networks (NNs) (e.g., AENET [NN1]) using methods other than general-purpose graph neural networks (GNNs) become unstable in systems with four or more elements. Although the problem with GNN is not clear, although it requires a huge amount of training data, the energy reproducibility remains at the same level as the classical MD ReaxFF, and the reproduction of phonons is not good. [AE1, AM1] There is an opinion that this problem can be solved if there is an abundance of training data, but even the huge amount of training data provided by the Open Catalysts Project [OC1] has not completely overcome this situation.
-- Currently (1/April/2024), many well-known neural networks (NNs) used in molecular dynamics engines do not handle charge in an explicit manner, so they have the drawback of not being able to calculate behavior when an electric field is applied, which is important for battery materials. DFTB+ and Slater-Koster files also handle charges that are not explicitly handled by many GNNs and NNs. As for spin, the multiplicity is set using Gaussian, GAMESS, Psi4, etc., so I think it would be good to create a Slater-Koster file that separates the spin status, and the user can use it depending on the multiplicity of the system. I am. This part of the problem could potentially be automated using machine learning.
+- Currently (1/April/2024), many well-known neural networks (NNs) used in molecular dynamics engines do not handle charge in an explicit manner, so they have the drawback of not being able to calculate behavior when an electric field is applied, which is important for battery materials. DFTB+ and Slater-Koster files also handle charges that are not explicitly handled by many GNNs and NNs. As for spin, the multiplicity is set using Gaussian, GAMESS, Psi4, etc., so I think it would be good to create a Slater-Koster file that separates the spin status, and the user can use it depending on the multiplicity of the system. We are. This part of the problem could potentially be automated using machine learning.
 - Create training data with QE. This is because the accuracy of QE is sufficiently guaranteed by the delta-value [DF1, DF2]. This was because I didn't have the budget, and although I contacted the developer, I was unable to purchase VASP for academic purposes. In my environment, I would not create training data with VASP.
 
 - [MD1] [Lammps](https://www.lammps.org/#gsc.tab=0)
@@ -402,11 +402,11 @@ The crystal structures used for parameter fitting were obtained from the Materia
 
 B. Creation of electronic structure by DFT for comparison
 ---------------------------------------------------------
-I calculated the electronic structure for comparison using the Quantum Espresso package. The electronic structures were calculated using the PAW psuedopotentials. The exchange and correlation functional with the generalized gradient approximation of Perdew, Burke, and Ernzerhof was used.
+We calculated the electronic structure for comparison using the Quantum Espresso package. The electronic structures were calculated using the PAW psuedopotentials. The exchange and correlation functional with the generalized gradient approximation of Perdew, Burke, and Ernzerhof was used.
 
 C. Creating the Slater-Koster parameters
 ----------------------------------------
-I calculated the Slater-Koster file using the skprogs package. The parameters required to create the Slater-Koster file were explored using Bayesian optimization. The parameters were evaluated by comparing the electronic structure using DFT using Quantum Espresso and DFTB+ package.
+We calculated the Slater-Koster file using the skprogs package. The parameters required to create the Slater-Koster file were explored using Bayesian optimization. The parameters were evaluated by comparing the electronic structure using DFT using Quantum Espresso and DFTB+ package.
 
 
 Results and Discussion
@@ -414,7 +414,7 @@ Results and Discussion
 
 A. Relationship between various parameters and fit in Boron
 -----------------------------------------------------------
-I investigated the parameters for Boron using grid search. Figure 1 shows the result when changing r0 and sigma of density compression for Boron. For fit, the smaller the evaluation value, the smaller the deviation from the DFT. r0 and sigma show an inversely proportional relationship. The point of maximum curvature is often chosen to show a relationship such as inverse proportion. Adopting the value that maximizes the curvature is used to determine the optimal value of the parameter in maximum entropy method (MEM), Tikhonov regularization, etc. The maximum curvature for boron is around r0 = 11, sigma = 6. In this way, I will search for values with just the right fit and error for other elements.
+We investigated the parameters for Boron using grid search. Figure 1 shows the result when changing r0 and sigma of density compression for Boron. For fit, the smaller the evaluation value, the smaller the deviation from the DFT. r0 and sigma show an inversely proportional relationship. The point of maximum curvature is often chosen to show a relationship such as inverse proportion. Adopting the value that maximizes the curvature is used to determine the optimal value of the parameter in maximum entropy method (MEM), Tikhonov regularization, etc. The maximum curvature for boron is around r0 = 11, sigma = 6. In this way, we will search for values with just the right fit and error for other elements.
 
 Many papers choose sigma values of 2, 4, or 6, and parameter optimization using genetic algorithms (GA) reports sigma values close to 7 for many elements related to LiCoO2.
 As a general trend, as r0 becomes larger, bands that should originally be in vacant levels begin to exist in the valence band. Increasing sigma makes the calculation unstable and eventually impossible.
@@ -448,9 +448,9 @@ Although not mentioned much in papers, experimentally the interatomic distance (
 
 B. Search with Bayesian optimization
 ------------------------------------
-The success or failure of Bayesian optimization depends on the settings of the evaluation function and evaluation range. Complicating the evaluation function is not very effective, but it not only makes coding more difficult, but also reduces versatility and makes it difficult for humans to interpret and analyze the results. Finally, in this study, I used a simple evaluation function as described in the literature. 
+The success or failure of Bayesian optimization depends on the settings of the evaluation function and evaluation range. Complicating the evaluation function is not very effective, but it not only makes coding more difficult, but also reduces versatility and makes it difficult for humans to interpret and analyze the results. Finally, in this study, we used a simple evaluation function as described in the literature. 
 
-Even in QUASINANO, parameters for the lanthanide series are only disclosed for La and Lu. Here, I will explain parameter fitting using Bayesian optimization using Nd, a constituent element of Nd-Fe-B, which is famous as a magnetic material, as a representative of the lanthanide series.
+Even in QUASINANO, parameters for the lanthanide series are only disclosed for La and Lu. Here, we will explain parameter fitting using Bayesian optimization using Nd, a constituent element of Nd-Fe-B, which is famous as a magnetic material, as a representative of the lanthanide series.
 
 Figure 4 shows the results of parameter fitting for the Nd FCC structure. It can be seen that the electronic structure of DFTB near the important Fermi level (0 eV) is better reproduced compared to the electronic structure near the less important binding energy -8 eV.
 
@@ -506,9 +506,9 @@ One eV is equivalent to approximately 10,000 K, and at a firing temperature of 1
   Fig.8 The electronic structure of Nd (SC, volume -20%).
 
 
-Conclusion
-==========
-In this study, I used Bayesian optimization to explore the Slater-Koster parameters for almost all elements in the periodic table, including the lanthanide series.
+Conclusions
+===========
+In this study, we used Bayesian optimization to explore the Slater-Koster parameters for almost all elements in the periodic table, including the lanthanide series.
 
 
 Acknowledgment
@@ -519,7 +519,7 @@ Future plans
 ============
 - https://github.com/by-student-2017/DFTBP (Use DFTB+ calculation results on Lammps. It is not confirmed whether the GCMC method can be used.)
 - https://github.com/deepmodeling/DeePTB (This is an excellent result. However, only God knows if it will work when the python format is changed.)
-- As a first step in material search, it is conceivable to search for a structure using DFTB+ or Lammps to satisfy an "e/uc" (many reports have been made by U. Mizutani and H. Sato et al. on WIEN2k for the "e/uc". [7]). This "e/uc" has been investigated using real material structures from the Pearson Handbook and verified on the non-spin scheme. Therefore, it is estimated that even Slater-Koster parameters and classical MD potentials based on non-spin schemes can play a sufficient role in "e/uc". One of the reasons why material exploration using "e/uc" is not currently being carried out is that the Slater-Koster parameters and classical MD potentials are not available for all of the elemental pairs. I am strongly convinced that the results of this research will be valuable basic research for realizing materials exploration using "e/uc."
+- As a first step in material search, it is conceivable to search for a structure using DFTB+ or Lammps to satisfy an "e/uc" (many reports have been made by U. Mizutani and H. Sato et al. on WIEN2k for the "e/uc". [7]). This "e/uc" has been investigated using real material structures from the Pearson Handbook and verified on the non-spin scheme. Therefore, it is estimated that even Slater-Koster parameters and classical MD potentials based on non-spin schemes can play a sufficient role in "e/uc". One of the reasons why material exploration using "e/uc" is not currently being carried out is that the Slater-Koster parameters and classical MD potentials are not available for all of the elemental pairs. We are strongly convinced that the results of this research will be valuable basic research for realizing materials exploration using "e/uc."
 
 - [DF1] [Comparing Solid State DFT Codes, Basis Sets and Potentials](https://molmod.ugent.be/deltacodesdft) (The volume is changed uniformly on each axis within a range of +/- 6% from a stable structure, and the energy difference due to volume change is compared with WIEN2k etc. e.g., volumes of -6, -4, -2, 0, 2, 4, and 6 %.)
 - [DF2] [Error Estimates for Solid-State Density-Functional Theory Predictions: An Overview by Means of the Ground-State Elemental Crystals](https://doi.org/10.1080/10408436.2013.772503)
