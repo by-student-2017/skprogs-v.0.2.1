@@ -365,7 +365,8 @@ Note 3 (Tips)
 
 Slater-Koster Parameters for the Periodic Table: Part 1, Electronic Structure
 =============================================================================
-
+Small sample problem (I can't increase the number of samples, but I want to get as accurate an answer as possible)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 By STUDENT
 ==========
