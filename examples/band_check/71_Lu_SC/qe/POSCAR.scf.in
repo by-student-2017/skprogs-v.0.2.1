@@ -6,12 +6,12 @@
 /
 &SYSTEM
   ibrav = 0
-  A =    3.21645
+  A =    3.21232
   nat = 1
   ntyp = 1
   nbnd = 24
-  ecutwfc  =  39.0 ,
-  ecutrho  = 278.0 ,
+  ecutwfc  =  42.0 ,
+  ecutrho  = 333.0 ,
   occupations = 'smearing' ,
   degauss  = 0.02 ,
   smearing = 'mp',
@@ -27,9 +27,9 @@ CELL_PARAMETERS {alat}
   0.000000000000000   1.000000000000000   0.000000000000000 
   0.000000000000000   0.000000000000000   1.000000000000000 
 ATOMIC_SPECIES
-  Yb  173.05400  Yb.pbe-spdn-kjpaw_psl.1.0.0.UPF 
+  Lu  174.96680  Lu.pbe-spdn-kjpaw_psl.1.0.0.UPF 
 ATOMIC_POSITIONS {crystal}
-  Yb   0.000000000000000   0.000000000000000   0.000000000000000 
+  Lu   0.000000000000000   0.000000000000000   0.000000000000000 
 K_POINTS automatic
   10 10 10  0 0 0
 
