@@ -418,7 +418,7 @@ Many papers choose sigma values of 2, 4, or 6, and parameter optimization using 
 
 The general trend is that increasing sigma makes the calculation unstable and eventually impossible. When r0 is increased, bands that should originally be in unoccupied levels now exist in the valence band.
 
-
+The top left of Figure 2 shows just that. This trend is also seen in the orbital sigma and r0 results.
 
 Figure 2 shows the relationship between r0 and sigma for p orbital of Boron. For the p orbital, the best-fitting range shows an inversely proportional relationship between r0 and sigma, similar to the density.
 
