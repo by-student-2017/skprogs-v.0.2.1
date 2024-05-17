@@ -420,15 +420,15 @@ Figure 3 similarly shows the relationship between r0 and sigma for the s orbit. 
 
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
 
-  Fig.1 
+  Fig.1 Relationship between r0 and sigma in density.
 
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_p_r0_sigma.png
 
-  Fig.2 
+  Fig.2 Relationship between r0 and sigma in P orbital.
 
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png
 
-  Fig.3 
+  Fig.3 Relationship between r0 and sigma in S orbital.
 
 
 B. Search with Bayesian optimization
