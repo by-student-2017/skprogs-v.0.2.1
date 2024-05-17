@@ -451,6 +451,8 @@ B. Search with Bayesian optimization
 The Grid search is a good method, but as the number of parameters increases, it becomes difficult to search for all combinations in terms of time.
 Other well-known search methods other than grid search include genetic algorithm (GA) and particle swarm method (PSO). However, these methods also require significant computational cost and time. Bayesian optimization is a search method that is more efficient than these methods.
 
+In this study, we used Bayesian optimization to search for efficient parameters. The initial values were set based on the results of grid searches for boron and manganese. The search range was +/-27% for atomic numbers below 56, and +/-17% for atomic numbers above 57. If the reproduction of the electronic structure is too poor compared to DFT, we have recalculated using promising parameters obtained during Bayesian optimization as initial values.
+
 The success or failure of Bayesian optimization depends on the settings of the evaluation function and evaluation range. Complicating the evaluation function is not very effective, but it not only makes coding more difficult, but also reduces versatility and makes it difficult for humans to interpret and analyze the results. Finally, in this study, we used a simple evaluation function as described in the literature. 
 
 Even in QUASINANO, parameters for the lanthanide series are only disclosed for La and Lu. Here, we will explain parameter fitting using Bayesian optimization using Nd, a constituent element of Nd-Fe-B, which is famous as a magnetic material, as a representative of the lanthanide series.
