@@ -428,7 +428,8 @@ As the s orbital becomes more important near the Fermi level, sigma tends to app
 The exceptions are the alkali metals and alkaline earth metals in the s-block of typical metals. One of the reasons for the large sigma is that the p and d orbitals in unoccupied levels are also important for reproducing the electronic structure.
 
 r0 tends to be twice the covalent radius (rcov). This trend is also shown in QUASINANO. Although there appear to be exceptions, the covalent bond radius changes depending on the bonding mode, so taking them into consideration will help. For example, in Lu, the covalent radius of a single bond is 1.62 A, so r0/rcav = 1.96, a value close to 2. The fact that there are examples in papers where r0 is twice the covalent bond radius can be said to be reasonable if the bonding mode is properly considered.
-Since the interatomic distance tends to be the sum of the covalent bond radii of the paired elements (A and B) (Rcov(AB)=rcov(A)+rcov(B)), in a single element system (A and A), It is supported as a rational reason that r0 is twice rcov.
+
+Although it is rarely mentioned in papers, experimentally the interatomic distance is the sum of the covalent bond radii of the paired elements (A and B) (Rcov(AB)=rcov(A)+rcov(B)) It is known that there is a tendency to Therefore, it is supported that r0 is twice rcov in the unit system (A and A).
 
 .. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_den_r0_sigma.png
 
