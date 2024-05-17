@@ -437,7 +437,7 @@ r0 tends to be twice the covalent radius (rcov). This trend is also shown in QUA
 
   Fig.2 Relationship between r0 and sigma in P orbital.
 
-.. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_simga.png
+.. figure:: ./examples/search/Old_version/Ref/B/Note/r0/map_s_r0_sigma.png
 
   Fig.3 Relationship between r0 and sigma in S orbital.
 
