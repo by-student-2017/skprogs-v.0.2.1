@@ -27,6 +27,8 @@ for dv in -20 -14 -10 -8 -6 -4 -2 -1 0 1 2 4 6 8 10 14 20 26; do
     #---------------------------------------------------------------
     cp -r qe_vS qe_v${dv}
     cd qe_v${dv}
+    #---------------------------------------------------------------
+    cif2cell -p pwscf --pwscf-nbnd=26 --pwscf-pseudo-PSLibrary-libdr='./../../../../pseudo/psl100_PBE' --setup-all --k-resolution=0.20 --pwscf-spin=no --pwscf-run-type=scf -f POSCAR.cif
     mv POSCAR.cif POSCAR_vS.cif
     #---------------------------------------------------------------
     awk -v dv=${dv} '{
@@ -38,7 +40,19 @@ for dv in -20 -14 -10 -8 -6 -4 -2 -1 0 1 2 4 6 8 10 14 20 26; do
     }' POSCAR_vS.cif > POSCAR_v${dv}.cif
     cp POSCAR_v${dv}.cif POSCAR.cif
     #---------------------------------------------------------------
-    cif2cell -p pwscf --pwscf-nbnd=26 --pwscf-pseudo-PSLibrary-libdr='./../../../../pseudo/psl100_PBE' --setup-all --k-resolution=0.20 --pwscf-spin=no --pwscf-run-type=scf -f POSCAR.cif
+    awk -v dv=${dv} '{
+        if($1=="A" && $2=="="){printf "  A = %10.5f",$3*(1+dv/100)^(1/3)}
+        else {print $0}
+    }' POSCAR.scf.in > POSCAR_v${dv}.scf.in
+    cp POSCAR_v${dv}.scf.in POSCAR.scf.in
+    #---------------------------------------------------------------
+    awk -v dv=${dv} '{
+        if($1=="A" && $2=="="){printf "  A = %10.5f",$3*(1+dv/100)^(1/3)}
+        else {print $0}
+    }' POSCAR.bands.in > POSCAR_v${dv}.bands.in
+    cp POSCAR_v${dv}.bands.in POSCAR.bands.in
+    #---------------------------------------------------------------
+    #cif2cell -p pwscf --pwscf-nbnd=26 --pwscf-pseudo-PSLibrary-libdr='./../../../../pseudo/psl100_PBE' --setup-all --k-resolution=0.20 --pwscf-spin=no --pwscf-run-type=scf -f POSCAR.cif
     ${MPI_PREFIX} pw.x < POSCAR.scf.in | tee POSCAR.scf.out
     
     grep "Fermi" POSCAR.scf.out > info.dat
