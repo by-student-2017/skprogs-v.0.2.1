@@ -4543,6 +4543,135 @@ AtomParameters {
     }
   }
   
+  At {
+    AtomConfig {
+      AtomicNumber = 85
+      Mass = 210
+      Occupations {
+	$OCCUPATIONS_Xe
+	4F = 7.0 7.0
+	5D = 5.0 5.0
+	6S = 1.0 1.0
+	6P = 3.0 2.0
+	6D = 0.0 0.0
+      }
+      ValenceShells = 6s 6p 6d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	F = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+	D = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+	P = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+	S = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+      }
+    }
+  }
+
+  Rn {
+    AtomConfig {
+      AtomicNumber = 86
+      Mass = 222
+      Occupations {
+	$OCCUPATIONS_Xe
+	4F = 7.0 7.0
+	5D = 5.0 5.0
+	6S = 1.0 1.0
+	6P = 3.0 3.0
+	6D = 0.0 0.0
+      }
+      ValenceShells = 6s 6p 6d
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	F = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+	D = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+	P = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+	S = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+      }
+    }
+  }
+  
+  Fr {
+    AtomConfig {
+      AtomicNumber = 87
+      Mass = 223
+      Occupations {
+	$OCCUPATIONS_Rn
+	6D = 1.0 0.0
+	7S = 0.0 0.0
+	7P = 0.0 0.0
+      }
+      ValenceShells = 6d 7s 7p
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	F = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+	D = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+	P = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+	S = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+      }
+    }
+  }
+  
+  Ra {
+    AtomConfig {
+      AtomicNumber = 88
+      Mass = 226
+      Occupations {
+	$OCCUPATIONS_Rn
+	6D = 1.0 1.0
+	7S = 0.0 0.0
+	7P = 0.0 0.0
+      }
+      ValenceShells = 6d 7s 7p
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	F = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+	D = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+	P = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+	S = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+      }
+    }
+  }
+  
+  Ac {
+    AtomConfig {
+      AtomicNumber = 89
+      Mass = 226
+      Occupations {
+	$OCCUPATIONS_Rn
+	6D = 2.0 1.0
+	7S = 0.0 0.0
+	7P = 0.0 0.0
+      }
+      ValenceShells = 6d 7s 7p
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 14.0 }
+      WaveCompressions = SingleAtomCompressions {
+	F = PowerCompression { Power = 12 ; Radius = 7.0 }
+	D = PowerCompression { Power = 12 ; Radius = 7.0 }
+	P = PowerCompression { Power = 12 ; Radius = 7.0 }
+	S = PowerCompression { Power = 12 ; Radius = 7.0 }
+      }
+    }
+  }
+  
   Th {
     AtomConfig {
       AtomicNumber = 90
@@ -4558,21 +4687,26 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 13.2 }
       #DensityCompression = PowerCompression { Power = 6.2; Radius = 10.8 } # baysian No.1, Unnecessary bands (BE=-4.0 eV)
-      DensityCompression = PowerCompression { Power = 7.7; Radius = 11.3 } # baysian No.2, Unnecessary bands (BE=-5.0 eV)
+      #DensityCompression = PowerCompression { Power = 7.7; Radius = 11.3 } # baysian No.2, Unnecessary bands (BE=-5.0 eV)
       #DensityCompression = PowerCompression { Power = 5.9; Radius = 12.2 } # baysian No.3, Unnecessary bands (BE=-6.2 eV)
       #DensityCompression = PowerCompression{ Power = 2; Radius = 16 } # baysian No.X, Unnecessary bands (BE=-4.0 eV)
       WaveCompressions = SingleAtomCompressions {
+	F = PowerCompression { Power = 12 ; Radius = 6.6 }
+	D = PowerCompression { Power = 12 ; Radius = 6.6 }
+	P = PowerCompression { Power = 12 ; Radius = 6.6 }
+	S = PowerCompression { Power = 12 ; Radius = 6.6 }
         #-----------------------------------------------------------------
         #F = PowerCompression { Power = 4.4; Radius = 4.5 } # baysian No.1, Unnecessary bands (BE=-4.0 eV)
         #D = PowerCompression { Power = 4.4; Radius = 4.5 } # baysian No.1, Unnecessary bands (BE=-4.0 eV)
         #P = PowerCompression { Power = 4.0; Radius = 4.7 } # baysian No.1, Unnecessary bands (BE=-4.0 eV)
         #S = PowerCompression { Power = 3.8; Radius = 4.8 } # baysian No.1, Unnecessary bands (BE=-4.0 eV)
         #-----------------------------------------------------------------
-        F = PowerCompression { Power = 4.4; Radius = 4.2 } # baysian No.2, Unnecessary bands (BE=-5.0 eV)
-        D = PowerCompression { Power = 4.4; Radius = 4.2 } # baysian No.2, Unnecessary bands (BE=-5.0 eV)
-        P = PowerCompression { Power = 4.3; Radius = 4.7 } # baysian No.2, Unnecessary bands (BE=-5.0 eV)
-        S = PowerCompression { Power = 3.8; Radius = 4.5 } # baysian No.2, Unnecessary bands (BE=-5.0 eV)
+        #F = PowerCompression { Power = 4.4; Radius = 4.2 } # baysian No.2, Unnecessary bands (BE=-5.0 eV)
+        #D = PowerCompression { Power = 4.4; Radius = 4.2 } # baysian No.2, Unnecessary bands (BE=-5.0 eV)
+        #P = PowerCompression { Power = 4.3; Radius = 4.7 } # baysian No.2, Unnecessary bands (BE=-5.0 eV)
+        #S = PowerCompression { Power = 3.8; Radius = 4.5 } # baysian No.2, Unnecessary bands (BE=-5.0 eV)
         #-----------------------------------------------------------------
         #F = PowerCompression { Power = 4.5; Radius = 4.3 } # baysian No.3, Unnecessary bands (BE=-6.2 eV)
         #D = PowerCompression { Power = 4.5; Radius = 4.3 } # baysian No.3, Unnecessary bands (BE=-6.2 eV)
@@ -4603,22 +4737,27 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 12.8 }
       #DensityCompression = PowerCompression{ Power = 5.4; Radius = 11.0 } # baysian No.0, not good, Unnecessary bands (BE=-5.4 eV)
-      DensityCompression = PowerCompression{ Power = 5.8; Radius = 11.5 } # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
+      #DensityCompression = PowerCompression{ Power = 5.8; Radius = 11.5 } # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
       #DensityCompression = PowerCompression{ Power = 5.9; Radius = 11.3 } # baysian No.2, not good, Unnecessary bands (BE=-5.9 eV)
       #DensityCompression = PowerCompression{ Power = 6.7; Radius = 12.5 } # baysian No.3, not good, Unnecessary bands (BE=-4.8 eV)
       #DensityCompression = PowerCompression{ Power = 7.0; Radius = 12.5 } # baysian No.4, not good, Unnecessary bands (BE=-4.0 eV)
       WaveCompressions = SingleAtomCompressions {
+	F = PowerCompression { Power = 12 ; Radius = 6.4 }
+	D = PowerCompression { Power = 12 ; Radius = 6.4 }
+	P = PowerCompression { Power = 12 ; Radius = 6.4 }
+	S = PowerCompression { Power = 12 ; Radius = 6.4 }
         #-----------------------------------------------------------------
         #F = PowerCompression { Power = 4.1; Radius = 4.8 } # baysian No.0, not good, Unnecessary bands (BE=-5.4 eV)
         #D = PowerCompression { Power = 4.1; Radius = 4.8 } # baysian No.0, not good, Unnecessary bands (BE=-5.4 eV)
         #P = PowerCompression { Power = 3.7; Radius = 4.0 } # baysian No.0, not good, Unnecessary bands (BE=-5.4 eV)
         #S = PowerCompression { Power = 4.5; Radius = 5.4 } # baysian No.0, not good, Unnecessary bands (BE=-5.4 eV)
         #-----------------------------------------------------------------
-        F = PowerCompression { Power = 5.1; Radius = 4.4 } # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
-        D = PowerCompression { Power = 5.1; Radius = 4.4 } # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
-        P = PowerCompression { Power = 4.2; Radius = 4.0 } # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
-        S = PowerCompression { Power = 3.9; Radius = 5.1 } # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
+        #F = PowerCompression { Power = 5.1; Radius = 4.4 } # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
+        #D = PowerCompression { Power = 5.1; Radius = 4.4 } # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
+        #P = PowerCompression { Power = 4.2; Radius = 4.0 } # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
+        #S = PowerCompression { Power = 3.9; Radius = 5.1 } # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
         #-----------------------------------------------------------------
         #F = PowerCompression { Power = 3.7; Radius = 4.2 } # baysian No.2, not good, Unnecessary bands (BE=-5.9 eV)
         #D = PowerCompression { Power = 3.7; Radius = 4.2 } # baysian No.2, not good, Unnecessary bands (BE=-5.9 eV)
@@ -4638,7 +4777,82 @@ AtomParameters {
       }
     }
   }
-  
+
+  U {
+    AtomConfig {
+      AtomicNumber = 92
+      Mass = 238.03
+      Occupations {
+	$OCCUPATIONS_Rn
+	6D = 3.0 3.0
+	7S = 0.0 0.0
+	7P = 0.0 0.0
+      }
+      ValenceShells = 6d 7s 7p
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 12.9 }
+      WaveCompressions = SingleAtomCompressions {
+	F = PowerCompression { Power = 12 ; Radius = 6.4 }
+	D = PowerCompression { Power = 12 ; Radius = 6.4 }
+	P = PowerCompression { Power = 12 ; Radius = 6.4 }
+	S = PowerCompression { Power = 12 ; Radius = 6.4 }
+      }
+    }
+  }
+
+  Np {
+    AtomConfig {
+      AtomicNumber = 93
+      Mass = 237
+      Occupations {
+	$OCCUPATIONS_Rn
+	6D = 4.0 3.0
+	7S = 0.0 0.0
+	7P = 0.0 0.0
+      }
+      ValenceShells = 6d 7s 7p
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 12.9 }
+      WaveCompressions = SingleAtomCompressions {
+	F = PowerCompression { Power = 12 ; Radius = 6.4 }
+	D = PowerCompression { Power = 12 ; Radius = 6.4 }
+	P = PowerCompression { Power = 12 ; Radius = 6.4 }
+	S = PowerCompression { Power = 12 ; Radius = 6.4 }
+      }
+    }
+  }
+
+  Pu {
+    AtomConfig {
+      AtomicNumber = 94
+      Mass = 244
+      Occupations {
+	$OCCUPATIONS_Rn
+	6D = 4.0 4.0
+	7S = 0.0 0.0
+	7P = 0.0 0.0
+      }
+      ValenceShells = 6d 7s 7p
+      Relativistics = Zora
+    }
+    DftbAtom {
+      ShellResolved = Yes
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 12.9 }
+      WaveCompressions = SingleAtomCompressions {
+	F = PowerCompression { Power = 12 ; Radius = 6.4 }
+	D = PowerCompression { Power = 12 ; Radius = 6.4 }
+	P = PowerCompression { Power = 12 ; Radius = 6.4 }
+	S = PowerCompression { Power = 12 ; Radius = 6.4 }
+      }
+    }
+  }
+
 }
 
 
@@ -8312,6 +8526,24 @@ OnecenterParameters {
     }
   }
   
+  Ac {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.98 8.89 26.5 79.0 235.5
+	P = 1.00 2.98 8.89 26.5 79.0 235.5
+	D = 1.00 2.98 8.89 26.5 79.0 235.5
+	F = 1.00 2.98 8.89 26.5 79.0 235.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+  
   Th {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
@@ -8356,16 +8588,20 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
+	S = 1.00 2.98 8.89 26.5 79.0 235.5
+	P = 1.00 2.98 8.89 26.5 79.0 235.5
+	D = 1.00 2.98 8.89 26.5 79.0 235.5
+	F = 1.00 2.98 8.89 26.5 79.0 235.5
     #------------------------------------------------------
     #S = 0.92 3.49 10.62 32.61  91.72 313.20 # baysian No.0, not good, Unnecessary bands (BE=-5.4 eV)
     #P = 1.12 2.97  9.37 31.98  78.83 317.54 # baysian No.0, not good, Unnecessary bands (BE=-5.4 eV)
     #D = 1.10 2.67  9.09 30.10 104.51 307.45 # baysian No.0, not good, Unnecessary bands (BE=-5.4 eV)
     #F = 1.03 3.22  9.94 26.52  96.93 284.12 # baysian No.0, not good, Unnecessary bands (BE=-5.4 eV)
     #------------------------------------------------------
-    S = 0.99 3.06 9.93 28.33 97.64 321.80 # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
-    P = 1.01 3.37 8.23 29.07 96.08 255.66 # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
-    D = 0.95 2.88 9.59 25.82 86.54 233.43 # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
-    F = 1.00 3.22 9.88 31.25 98.22 313.88 # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
+    #S = 0.99 3.06 9.93 28.33 97.64 321.80 # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
+    #P = 1.01 3.37 8.23 29.07 96.08 255.66 # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
+    #D = 0.95 2.88 9.59 25.82 86.54 233.43 # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
+    #F = 1.00 3.22 9.88 31.25 98.22 313.88 # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
     #------------------------------------------------------
     #S = 0.86 2.59  8.29 32.19 104.98 244.74 # baysian No.2, not good, Unnecessary bands (BE=-5.9 eV)
     #P = 0.87 2.69 10.82 32.61  86.29 316.65 # baysian No.2, not good, Unnecessary bands (BE=-5.9 eV)
@@ -8391,7 +8627,61 @@ OnecenterParameters {
       }
     }
   }
-  
+
+  U {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.98 8.89 26.5 79.0 235.5
+	P = 1.00 2.98 8.89 26.5 79.0 235.5
+	D = 1.00 2.98 8.89 26.5 79.0 235.5
+	F = 1.00 2.98 8.89 26.5 79.0 235.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Np {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.98 8.89 26.5 79.0 235.5
+	P = 1.00 2.98 8.89 26.5 79.0 235.5
+	D = 1.00 2.98 8.89 26.5 79.0 235.5
+	F = 1.00 2.98 8.89 26.5 79.0 235.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
+  Pu {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+	S = 1.00 2.98 8.89 26.5 79.0 235.5
+	P = 1.00 2.98 8.89 26.5 79.0 235.5
+	D = 1.00 2.98 8.89 26.5 79.0 235.5
+	F = 1.00 2.98 8.89 26.5 79.0 235.5
+      }
+      MaxPowers {
+	S = 4
+	P = 4
+	D = 4
+	F = 4
+      }
+    }
+  }
+
 }
 
 
