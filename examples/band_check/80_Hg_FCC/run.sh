@@ -3,9 +3,9 @@
 sym=FCC # e.g., FCC, BCC, HCP, SC
 
 export OMP_NUM_THREADS=1
-#NCPU=`grep 'core id' /proc/cpuinfo | sort -u | wc -l`
-#echo "Number of CPU: "${NCPU}
-MPI_PREFIX="mpirun -np 1"
+NCPU=`grep 'core id' /proc/cpuinfo | sort -u | wc -l`
+echo "Number of CPU: "${NCPU}
+#MPI_PREFIX="mpirun -np 1"
 
 echo "---------- SCF calculation ----------"
 cp dftb_in_scf.hsd dftb_in.hsd
