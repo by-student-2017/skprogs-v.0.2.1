@@ -4496,7 +4496,7 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      DensityCompression = PowerCompression { Power = 7 ; Radius = 11.0 }
       #DensityCompression = PowerCompression{ Power = 6.0; Radius = 13.5 } # baysian No.1
       #DensityCompression = PowerCompression{ Power = 6.2; Radius = 14.8 } # baysian No.2
       #DensityCompression = PowerCompression{ Power = 6.4; Radius = 14.7 } # baysian No.3
@@ -4560,7 +4560,7 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 6 ; Radius = 14.0 }
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 11.0 }
       WaveCompressions = SingleAtomCompressions {
 	F = PowerCompression { Power = 2.2 ; Radius = 5.5 }
 	D = PowerCompression { Power = 2.2 ; Radius = 5.5 }
@@ -4587,7 +4587,7 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 11.0 }
       WaveCompressions = SingleAtomCompressions {
 	F = PowerCompression { Power = 2.2 ; Radius = 5.5 }
 	D = PowerCompression { Power = 2.2 ; Radius = 5.5 }
@@ -4612,7 +4612,7 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 11.0 }
       WaveCompressions = SingleAtomCompressions {
 	F = PowerCompression { Power = 2.2 ; Radius = 5.5 }
 	D = PowerCompression { Power = 2.2 ; Radius = 5.5 }
@@ -4637,7 +4637,7 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 11.0 }
       WaveCompressions = SingleAtomCompressions {
 	F = PowerCompression { Power = 2.2 ; Radius = 5.5 }
 	D = PowerCompression { Power = 2.2 ; Radius = 5.5 }
@@ -4784,8 +4784,8 @@ AtomParameters {
       Mass = 238.03
       Occupations {
 	$OCCUPATIONS_Rn
-	6D = 3.0 3.0
-	7S = 0.0 0.0
+	6D = 2.0 2.0
+	7S = 1.0 1.0
 	7P = 0.0 0.0
       }
       ValenceShells = 6d 7s 7p
@@ -4793,7 +4793,7 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 6 ; Radius = 12.9 }
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 12.8 }
       WaveCompressions = SingleAtomCompressions {
 	F = PowerCompression { Power = 12 ; Radius = 6.4 }
 	D = PowerCompression { Power = 12 ; Radius = 6.4 }
@@ -4809,8 +4809,8 @@ AtomParameters {
       Mass = 237
       Occupations {
 	$OCCUPATIONS_Rn
-	6D = 4.0 3.0
-	7S = 0.0 0.0
+	6D = 3.0 2.0
+	7S = 1.0 1.0
 	7P = 0.0 0.0
       }
       ValenceShells = 6d 7s 7p
@@ -4818,7 +4818,7 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 6 ; Radius = 12.9 }
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 12.8 }
       WaveCompressions = SingleAtomCompressions {
 	F = PowerCompression { Power = 12 ; Radius = 6.4 }
 	D = PowerCompression { Power = 12 ; Radius = 6.4 }
@@ -4834,8 +4834,8 @@ AtomParameters {
       Mass = 244
       Occupations {
 	$OCCUPATIONS_Rn
-	6D = 4.0 4.0
-	7S = 0.0 0.0
+	6D = 3.0 3.0
+	7S = 1.0 1.0
 	7P = 0.0 0.0
       }
       ValenceShells = 6d 7s 7p
@@ -4843,12 +4843,12 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 6 ; Radius = 12.9 } # Radius = 2*(1.72/0.529)^2
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 12.8 }
       WaveCompressions = SingleAtomCompressions {
-	F = PowerCompression { Power = 12 ; Radius = 6.4 } # Radius = 2*(1.72/0.529)
-	D = PowerCompression { Power = 12 ; Radius = 6.4 }
-	P = PowerCompression { Power = 12 ; Radius = 6.4 }
-	S = PowerCompression { Power = 12 ; Radius = 6.4 }
+	F = PowerCompression { Power = 4 ; Radius = 6.4 } # Radius = 2*(1.72/0.529)
+	D = PowerCompression { Power = 4 ; Radius = 6.4 }
+	P = PowerCompression { Power = 4 ; Radius = 6.4 }
+	S = PowerCompression { Power = 4 ; Radius = 6.4 }
       }
     }
   }
@@ -8530,10 +8530,10 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.00 2.98 8.89 26.5 79.0 235.5
-	P = 1.00 2.98 8.89 26.5 79.0 235.5
-	D = 1.00 2.98 8.89 26.5 79.0 235.5
-	F = 1.00 2.98 8.89 26.5 79.0 235.5
+	S = 1.00 3.07 9.43 28.9 89.0 273.3
+	P = 1.00 3.07 9.43 28.9 89.0 273.3
+	D = 1.00 3.07 9.43 28.9 89.0 273.3
+	F = 1.00 3.07 9.43 28.9 89.0 273.3
       }
       MaxPowers {
 	S = 4
@@ -8632,10 +8632,10 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.00 2.98 8.89 26.5 79.0 235.5
-	P = 1.00 2.98 8.89 26.5 79.0 235.5
-	D = 1.00 2.98 8.89 26.5 79.0 235.5
-	F = 1.00 2.98 8.89 26.5 79.0 235.5
+	S = 1.00 3.09 9.59 29.7 92.0 284.9
+	P = 1.00 3.09 9.59 29.7 92.0 284.9
+	D = 1.00 3.09 9.59 29.7 92.0 284.9
+	F = 1.00 3.09 9.59 29.7 92.0 284.9
       }
       MaxPowers {
 	S = 4
@@ -8650,10 +8650,10 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.00 2.98 8.89 26.5 79.0 235.5
-	P = 1.00 2.98 8.89 26.5 79.0 235.5
-	D = 1.00 2.98 8.89 26.5 79.0 235.5
-	F = 1.00 2.98 8.89 26.5 79.0 235.5
+	S = 1.00 3.10 9.64 29.9 93.0 288.8
+	P = 1.00 3.10 9.64 29.9 93.0 288.8
+	D = 1.00 3.10 9.64 29.9 93.0 288.8
+	F = 1.00 3.10 9.64 29.9 93.0 288.8
       }
       MaxPowers {
 	S = 4
@@ -8668,10 +8668,10 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.00 2.98 8.89 26.5 79.0 235.5
-	P = 1.00 2.98 8.89 26.5 79.0 235.5
-	D = 1.00 2.98 8.89 26.5 79.0 235.5
-	F = 1.00 2.98 8.89 26.5 79.0 235.5
+	S = 1.00 3.11 9.69 30.18 94.0 292.59
+	P = 1.00 3.11 9.69 30.18 94.0 292.59
+	D = 1.00 3.11 9.69 30.18 94.0 292.59
+	F = 1.00 3.11 9.69 30.18 94.0 292.59
       }
       MaxPowers {
 	S = 4
