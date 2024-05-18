@@ -1,7 +1,7 @@
 
 
 *******************************************************************************
-Thu May 16 17:58:40 2024
+Sat May 18 21:34:59 2024
 
 
 FIT:    data read from 've.data' u 1:2
@@ -14,27 +14,67 @@ function used for fitting: f(x)
 fitted parameters initialized with current variable values
 
 iter      chisq       delta/lim  lambda   a             b             c             d            
-   0 4.3295252235e+03   0.00e+00  2.94e+02    1.232560e-02   3.148440e+00   3.370360e+01  -5.872410e+02
-   8 7.8959381890e-08  -5.74e-01  2.94e-06    1.244206e-02   3.298973e+00   3.357116e+01  -6.027500e+02
+   0 4.3295240616e+03   0.00e+00  2.94e+02    1.235990e-02   2.725780e+00   3.380230e+01  -5.872410e+02
+   9 3.2699784800e-08  -8.85e-04  2.94e-07    1.264625e-02   2.998135e+00   3.359426e+01  -6.027500e+02
 
-After 8 iterations the fit converged.
-final sum of squares of residuals : 7.89594e-08
-rel. change during last iteration : -5.73962e-06
+After 9 iterations the fit converged.
+final sum of squares of residuals : 3.26998e-08
+rel. change during last iteration : -8.84733e-09
 
 degrees of freedom    (FIT_NDF)                        : 14
-rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 7.50996e-05
-variance of residuals (reduced chisquare) = WSSR/ndf   : 5.63996e-09
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 4.83291e-05
+variance of residuals (reduced chisquare) = WSSR/ndf   : 2.3357e-09
 
 Final set of parameters            Asymptotic Standard Error
 =======================            ==========================
-a               = 0.0124421        +/- 6.469e-05    (0.52%)
-b               = 3.29897          +/- 0.128        (3.881%)
-c               = 33.5712          +/- 0.02751      (0.08194%)
-d               = -602.75          +/- 2.21e-05     (3.667e-06%)
+a               = 0.0126463        +/- 4.143e-05    (0.3276%)
+b               = 2.99813          +/- 0.08031      (2.679%)
+c               = 33.5943          +/- 0.01733      (0.05158%)
+d               = -602.75          +/- 1.422e-05    (2.359e-06%)
 
 correlation matrix of the fit parameters:
                 a      b      c      d      
 a               1.000 
-b               0.108  1.000 
-c              -0.141 -0.886  1.000 
-d              -0.595 -0.000  0.020  1.000 
+b               0.026  1.000 
+c              -0.076 -0.885  1.000 
+d              -0.594  0.045 -0.025  1.000 
+
+
+*******************************************************************************
+Sat May 18 21:35:41 2024
+
+
+FIT:    data read from 've.data' u 1:2
+        format = x:z
+        #datapoints = 18
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = (a*x/(b*(b-1)))*(b*(1-c/x)+(c/x)**b-1)+d
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             c             d            
+   0 6.8118030073e-08   0.00e+00  3.01e+02    1.264630e-02   2.998130e+00   3.359430e+01  -6.027500e+02
+   3 3.2699848545e-08  -1.72e-03  3.01e-01    1.264630e-02   2.998130e+00   3.359430e+01  -6.027500e+02
+
+After 3 iterations the fit converged.
+final sum of squares of residuals : 3.26998e-08
+rel. change during last iteration : -1.71779e-08
+
+degrees of freedom    (FIT_NDF)                        : 14
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 4.83291e-05
+variance of residuals (reduced chisquare) = WSSR/ndf   : 2.3357e-09
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 0.0126463        +/- 4.143e-05    (0.3276%)
+b               = 2.99813          +/- 0.08031      (2.679%)
+c               = 33.5943          +/- 0.01733      (0.05158%)
+d               = -602.75          +/- 1.422e-05    (2.359e-06%)
+
+correlation matrix of the fit parameters:
+                a      b      c      d      
+a               1.000 
+b               0.026  1.000 
+c              -0.076 -0.885  1.000 
+d              -0.594  0.045 -0.025  1.000 
