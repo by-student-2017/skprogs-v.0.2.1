@@ -23,9 +23,9 @@ f(x) = (a*x/(b*(b-1)))*(b*(1-c/x)+(c/x)**b-1)+d
 #d=-7.8  # Total energy in the volume of a stable unit cell [Ha] = 2*[Ry] = 27.21*[eV]
 #-----------------------------------------------
 # new version [Ry] and [Angstrom^3] unit
-a=0.0121749 # Bulk modulus [Ry/Angstrom^3]
-b=3.06793   # Differential of bulk modulus
-c=33.8673   # Unit cell volume [Angstrom^3]
+a=0.0120399 # Bulk modulus [Ry/Angstrom^3]
+b=2.7583   # Differential of bulk modulus
+c=33.982   # Unit cell volume [Angstrom^3]
 d=-571.982  # Total energy in the volume of a stable unit cell [Ry]
 #-----------------------------------------------
 fit f(x) 've.data' u 1:2 via a,b,c,d 
