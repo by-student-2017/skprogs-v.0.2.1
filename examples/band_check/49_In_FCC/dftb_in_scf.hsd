@@ -17,7 +17,7 @@ Hamiltonian = DFTB {
    11  0  0
     0 11  0
     0  0 11
-    0.5 0.5 0.5
+    0.0 0.0 0.0
   }
   Filling = MethfesselPaxton {
     Order = 2
