@@ -429,7 +429,7 @@ Figure 3 similarly shows the relationship between r0 and sigma for the s orbit. 
 The s orbital of boron has a value close to the maximum curvature of about 4 in sigma. 
 
 As the s orbital becomes more important near the Fermi level, sigma tends to approach 2. Cu, Ag, and Au are particularly typical examples. The p-block of typical metals tends to be between S and P. 
-The exceptions are the alkali metals and alkaline earth metals in the s-block of typical metals. One of the reasons for the large sigma is that the p and d orbitals in unoccupied levels are also important for reproducing the electronic structure.
+The exceptions are the alkali metals and alkaline earth metals, which are found in the typical s-block of metals. These elements have longer covalent bond radii than other elements, so the change in potential becomes smaller with respect to change in distance. Therefore, a larger value of sigma is required to form the same confinement potential as other elements.
 
 The r0 tends to be twice the covalent radius (rcov). This trend is also shown in QUASINANO. Although there appear to be exceptions, the covalent bond radius changes depending on the bonding mode, so taking them into consideration will help. For example, in Lu, the covalent radius of a single bond is 1.62 A, so r0/rcav = 1.96, a value close to 2. The fact that there are examples in papers where r0 is twice the covalent bond radius can be said to be reasonable if the bonding mode is properly considered.
 
