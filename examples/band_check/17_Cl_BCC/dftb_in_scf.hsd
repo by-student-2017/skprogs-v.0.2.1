@@ -14,9 +14,9 @@ Hamiltonian = DFTB {
     Cl = "d"
   }
   KPointsAndWeights = SupercellFolding {
-   12  0  0
-    0 12  0
-    0  0 12
+   13  0  0
+    0 13  0
+    0  0 13
     0.0 0.0 0.0
   }
   Filling = MethfesselPaxton {
