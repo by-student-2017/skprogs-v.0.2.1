@@ -847,9 +847,9 @@ AtomParameters {
 	P = PowerCompression { Power = 12.0 ; Radius = 4.4 }
 	D = PowerCompression { Power = 12.0 ; Radius = 4.4 }
         #------------------------------------------------------------------
-        D = PowerCompression { Power = 10.8; Radius = 5.7 } # baysian No.1
-        P = PowerCompression { Power =  9.2; Radius = 5.6 } # baysian No.1
-        S = PowerCompression { Power = 16.0; Radius = 5.6 } # baysian No.1
+        #D = PowerCompression { Power = 10.8; Radius = 5.7 } # baysian No.1
+        #P = PowerCompression { Power =  9.2; Radius = 5.6 } # baysian No.1
+        #S = PowerCompression { Power = 16.0; Radius = 5.6 } # baysian No.1
         #------------------------------------------------------------------
       }
     #  CustomizedHubbards {
