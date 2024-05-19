@@ -4737,7 +4737,7 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 6 ; Radius = 12.8 }
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 15.5 } # Radius = 11/sqrt(0.87)*sqrt(1.72)
       #DensityCompression = PowerCompression{ Power = 5.4; Radius = 11.0 } # baysian No.0, not good, Unnecessary bands (BE=-5.4 eV)
       #DensityCompression = PowerCompression{ Power = 5.8; Radius = 11.5 } # baysian No.1, not good, Unnecessary bands (BE=-5.6 eV)
       #DensityCompression = PowerCompression{ Power = 5.9; Radius = 11.3 } # baysian No.2, not good, Unnecessary bands (BE=-5.9 eV)
@@ -4793,7 +4793,7 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 6 ; Radius = 12.8 }
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 15.5 } # Radius = 11/sqrt(0.87)*sqrt(1.72)
       WaveCompressions = SingleAtomCompressions {
 	F = PowerCompression { Power = 12 ; Radius = 6.4 }
 	D = PowerCompression { Power = 12 ; Radius = 6.4 }
@@ -4818,7 +4818,7 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 6 ; Radius = 12.8 }
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 15.5 } # Radius = 11/sqrt(0.87)*sqrt(1.72)
       WaveCompressions = SingleAtomCompressions {
 	F = PowerCompression { Power = 12 ; Radius = 6.4 }
 	D = PowerCompression { Power = 12 ; Radius = 6.4 }
@@ -4843,12 +4843,12 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 6 ; Radius = 12.8 }
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 15.5 } # Radius = 11/sqrt(0.87)*sqrt(1.72)
       WaveCompressions = SingleAtomCompressions {
-	F = PowerCompression { Power = 4 ; Radius = 6.4 } # Radius = 2*(1.72/0.529)
-	D = PowerCompression { Power = 4 ; Radius = 6.4 }
-	P = PowerCompression { Power = 4 ; Radius = 6.4 }
-	S = PowerCompression { Power = 4 ; Radius = 6.4 }
+	F = PowerCompression { Power = 13 ; Radius = 6.4 } # Radius = 2*(1.72/0.529)
+	D = PowerCompression { Power = 13 ; Radius = 6.4 }
+	P = PowerCompression { Power = 13 ; Radius = 6.4 }
+	S = PowerCompression { Power = 13 ; Radius = 6.4 }
       }
     }
   }
