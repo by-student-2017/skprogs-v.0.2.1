@@ -4248,10 +4248,10 @@ AtomParameters {
       #DensityCompression = PowerCompression { Power = 7.4; Radius = 15.6 } # baysian No.2, Unnecessary bands (BE=-7.5 eV)
       #DensityCompression = PowerCompression { Power = 7.4; Radius = 15.8 } # baysian No.3, Unnecessary bands (BE=-7.7 eV)
       WaveCompressions = SingleAtomCompressions {
-	#S = PowerCompression { Power = 12.8 ; Radius = 3.8 }
-	#P = PowerCompression { Power = 12.8 ; Radius = 3.8 }
-	#D = PowerCompression { Power = 12.8 ; Radius = 3.8 }
-	#F = PowerCompression { Power = 12.8 ; Radius = 3.8 }
+	#S = PowerCompression { Power = 12.8 ; Radius = 3.8 } # QUASINANO
+	#P = PowerCompression { Power = 12.8 ; Radius = 3.8 } # QUASINANO
+	#D = PowerCompression { Power = 12.8 ; Radius = 3.8 } # QUASINANO
+	#F = PowerCompression { Power = 12.8 ; Radius = 3.8 } # QUASINANO
         #-----------------------------------------------------------------
         F = PowerCompression { Power = 13.5; Radius = 3.4 } # baysian No.1, Unnecessary bands (BE=-8.5 eV)
         D = PowerCompression { Power = 13.5; Radius = 3.4 } # baysian No.1, Unnecessary bands (BE=-8.5 eV)
