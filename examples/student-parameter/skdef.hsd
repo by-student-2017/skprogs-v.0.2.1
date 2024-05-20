@@ -4649,12 +4649,26 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 6 ; Radius = 11.0 }
+      DensityCompression = PowerCompression{ Power = 6.1; Radius = 10.7 } # baysian No.1
+      #DensityCompression = PowerCompression{ Power = 6.2; Radius = 11.9 } # baysian No.2
+      #DensityCompression = PowerCompression{ Power = 7.8; Radius = 17.4 } # baysian No.3
       WaveCompressions = SingleAtomCompressions {
-	F = PowerCompression { Power = 2.2 ; Radius = 5.5 }
-	D = PowerCompression { Power = 2.2 ; Radius = 5.5 }
-	P = PowerCompression { Power = 2.2 ; Radius = 5.5 }
-	S = PowerCompression { Power = 2.2 ; Radius = 5.5 }
+        #-----------------------------------------------------------------
+        F = PowerCompression { Power =  7.6; Radius = 8.9 } # baysian No.1
+        D = PowerCompression { Power =  7.6; Radius = 8.9 } # baysian No.1
+        P = PowerCompression { Power = 21.6; Radius = 5.1 } # baysian No.1
+        S = PowerCompression { Power = 10.8; Radius = 8.0 } # baysian No.1
+        #-----------------------------------------------------------------
+        #F = PowerCompression { Power =  8.8; Radius = 9.5 } # baysian No.2
+        #D = PowerCompression { Power =  8.8; Radius = 9.5 } # baysian No.2
+        #P = PowerCompression { Power = 19.3; Radius = 5.6 } # baysian No.2
+        #S = PowerCompression { Power = 11.2; Radius = 7.8 } # baysian No.2
+        #-----------------------------------------------------------------
+        #F = PowerCompression { Power =  7.5; Radius = 7.4 } # baysian No.3
+        #D = PowerCompression { Power =  7.5; Radius = 7.4 } # baysian No.3
+        #P = PowerCompression { Power = 14.1; Radius = 3.8 } # baysian No.3
+        #S = PowerCompression { Power = 11.6; Radius = 9.2 } # baysian No.3
+        #-----------------------------------------------------------------
       }
     }
   }
@@ -8528,15 +8542,26 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.00 3.06 9.38 28.7 88.0 269.5
-	P = 1.00 3.06 9.38 28.7 88.0 269.5
-	D = 1.00 3.06 9.38 28.7 88.0 269.5
-	F = 1.00 3.06 9.38 28.7 88.0 269.5
     #------------------------------------------------------
     #S = 1.0000 3.0628 9.3808 28.7317 88.0000 269.5277 # mio-like (skexp.py)
     #P = 1.0000 3.0628 9.3808 28.7317 88.0000 269.5277 # mio-like (skexp.py)
     #D = 1.0000 3.0628 9.3808 28.7317 88.0000 269.5277 # mio-like (skexp.py)
     #F = 1.0000 3.0628 9.3808 28.7317 88.0000 269.5277 # mio-like (skexp.py)
+    #------------------------------------------------------
+    S = 1.06 3.13 10.51 31.43 107.33 312.30 # baysian No.1
+    P = 1.22 2.98  9.42 25.78  66.07 239.79 # baysian No.1
+    D = 1.84 5.87 12.85 34.79 172.10 436.84 # baysian No.1
+    F = 0.89 3.52  9.28 31.60 107.62 285.85 # baysian No.1
+    #------------------------------------------------------
+    #S = 0.97 3.51 10.49 28.44  97.89 321.96 # baysian No.2
+    #P = 1.24 3.20  9.93 27.94  69.74 246.23 # baysian No.2
+    #D = 1.89 6.17 13.79 35.24 180.37 459.12 # baysian No.2
+    #F = 0.80 3.50 10.53 30.44 106.49 271.09 # baysian No.2
+    #------------------------------------------------------
+    #S = 0.88 3.05  9.00 32.74  83.20 313.92 # baysian No.3
+    #P = 1.23 2.89 10.74 33.91 106.44 201.62 # baysian No.3
+    #D = 1.73 3.94 11.91 38.68 155.87 487.80 # baysian No.3
+    #F = 1.04 3.77  8.11 25.07  95.49 237.82 # baysian No.3
     #------------------------------------------------------
       }
       MaxPowers {
