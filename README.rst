@@ -541,6 +541,15 @@ Acknowledgment
 ==============
 This research was funded by ATSUMITEC Co., Ltd. by Dr. N. Uchiyama, who is affiliated with meguREnergy Co., Ltd. and ATSUMITEC Co., Ltd. 
 
+
+References
+==========
+- [Rcov1] P. Pyykko and M. Atsumi, A Euro. J. 15 (2009) 186-197.; doi:10.1002/chem.200800987
+- [Rcov2] P. Pyykko and M. Atsumi, A Euro. J. 15 (2009) 12770-12779.; doi:10.1002/chem.200901472
+- [Rcov3] P. Pyykko, S. Riedel and M. Patzschke, A Euro. J. 11 (2005) 3511-3520.; doi:10.1002/chem.200401299
+- [Rcov4] P. Pyykko, Phys. Rev. B 85 (2012) 024115.; doi:10.1103/PhysRevB.85.024115
+
+
 Future plans
 ============
 - https://github.com/by-student-2017/DFTBP (Use DFTB+ calculation results on Lammps. It is not confirmed whether the GCMC method can be used.)

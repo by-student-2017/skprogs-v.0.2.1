@@ -4010,14 +4010,14 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = Yes
-      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 15.5 } # Radius = 12/sqrt(0.87)*sqrt(1.46)
       #DensityCompression = PowerCompression { Power = 7.6; Radius = 13.4 } # baysian No.1, Unnecessary bands (BE=-5.0 eV)
       #DensityCompression = PowerCompression { Power = 7.7; Radius = 13.4 } # baysian No.2, Unnecessary bands (BE=-4.8 eV)
       WaveCompressions = SingleAtomCompressions {
-	S = PowerCompression { Power = 13.8 ; Radius = 4.8 }
-	P = PowerCompression { Power = 13.8 ; Radius = 4.8 }
-	D = PowerCompression { Power = 13.8 ; Radius = 4.8 }
-	F = PowerCompression { Power = 13.8 ; Radius = 4.8 }
+	S = PowerCompression { Power = 13.8 ; Radius = 4.8 } # QUASINANO
+	P = PowerCompression { Power = 13.8 ; Radius = 4.8 } # QUASINANO
+	D = PowerCompression { Power = 13.8 ; Radius = 4.8 } # QUASINANO
+	F = PowerCompression { Power = 13.8 ; Radius = 4.8 } # QUASINANO
         #------------------------------------------------------------------
         #F = PowerCompression { Power = 13.6; Radius = 4.6 } # baysian No.1, Unnecessary bands (BE=-5.0 eV)
         #D = PowerCompression { Power = 13.6; Radius = 4.6 } # baysian No.1, Unnecessary bands (BE=-5.0 eV)
