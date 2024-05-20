@@ -416,7 +416,7 @@ Results and Discussion
 
 A. Relationship between various parameters and fit in Boron
 -----------------------------------------------------------
-We investigated the parameters for Boron using grid search. Figure 1 shows the result when changing r0 and sigma of density compression for Boron. For fit, the smaller the evaluation value, the smaller the deviation from the DFT. The r0 and sigma show an inversely proportional relationship. The point of maximum curvature is often chosen to show a relationship such as inverse proportion. Adopting the value that maximizes the curvature is used to determine the optimal value of the parameter in maximum entropy method (MEM), Tikhonov regularization, etc. The maximum curvature for boron is around r0 = 11, sigma = 6. In this way, we will search for values with just the right fit and error for other elements.
+We investigated the parameters for Boron using grid search. Figure 1 shows the result when changing r0 and sigma of density compression for Boron. For fit, the smaller the evaluation value, the smaller the deviation from the DFT. The r0 and sigma show an inversely proportional relationship. The point of maximum curvature is often chosen to show a relationship such as inverse proportion. Adopting the value that maximizes the curvature is used to determine the optimal value of the parameter in maximum entropy method (MEM), Tikhonov regularization, etc. The maximum curvature for boron is around r0 = 12, sigma = 6. In this way, we will search for values with just the right fit and error for other elements.
 
 Many papers choose sigma values of 2, 4, or 6, and parameter optimization using genetic algorithms (GA) reports sigma values close to 7 for many elements related to LiCoO2.
 As a general trend, as r0 becomes larger, bands that should originally be in vacant levels begin to exist in the valence band. Increasing sigma makes the calculation unstable and eventually impossible.
@@ -427,7 +427,7 @@ Although not intended, the density sigma of 6 for Boron and Mn may make interpre
 For example, the 12th power of the Lennard-Jones (LJ) repulsion term can be interpreted as the 2nd power raised to the 6th power, so the square root of the density r0 is the diameter related to the repulsion (repulsive force due to overlapping electron clouds and collision diameter). may mean.
 
 We estimated r0 in the density using the covalent radius of a single bond obtained using the self-consistent approach by Pyykko et al [Rcov1, Rcov2, Rcov3, Rcov4].
-Using the covalent bond radius rcov = 0.85 Angstrom in Boron and calculating the density r0 in Mn using 11.0/sqrt(0.85)*sqrt(rcov), r0 = 14, which is a good value.
+Using the covalent bond radius rcov = 0.85 Angstrom in Boron and calculating the density r0 in Mn using 12.0/sqrt(0.85)*sqrt(rcov), r0 = 14, which is a good value.
 
 Figure 2 shows the relationship between r0 and sigma for p orbital of Boron. For the p orbital, the best-fitting range shows an inversely proportional relationship between r0 and sigma, similar to the density.
 The p orbital of boron has a value close to the maximum curvature of about 6 in sigma.
@@ -462,7 +462,7 @@ Grid search is a good method, but as the number of parameters increases, it beco
 Other well-known search methods other than grid search include genetic algorithm (GA) and particle swarm method (PSO). However, these methods also require significant computational cost and time. Bayesian optimization is a search method that is more efficient than these methods.
 
 In this research, we tried these methods on several elements in advance for confirmation. Bayesian optimization was the most efficient and showed a good electronic structure compared to DFT.
-Therefore, in this study, we decided to use Bayesian optimization to search for efficient parameters. The initial values for the search were set to simga=7 and r0=11-14, taking into account the grid search results for boron and manganese. The search range was within a +/-27% range for atomic numbers below 56, and a narrower range of +/-17% for atomic numbers above 56 due to the increased computational cost due to f orbitals. If the reproduction of the electronic structure is too poor compared to DFT, we have recalculated using promising parameters obtained during Bayesian optimization as initial values.
+Therefore, in this study, we decided to use Bayesian optimization to search for efficient parameters. The initial values for the search were set to simga=7 and r0=12-14, taking into account the grid search results for boron and manganese. The search range was within a +/-27% range for atomic numbers below 56, and a narrower range of +/-17% for atomic numbers above 56 due to the increased computational cost due to f orbitals. If the reproduction of the electronic structure is too poor compared to DFT, we have recalculated using promising parameters obtained during Bayesian optimization as initial values.
 
 Furthermore, in case it becomes necessary in the future, we searched for parameters with the initial values of sigma at density set to 2.7, 5, 7, 9, and 12 for elements with atomic numbers from 13 to 56. In that case, the initial value of r0 at density is set to reflect the inverse proportionality trend seen with B and Mn.
 
