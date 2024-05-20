@@ -458,7 +458,6 @@ Although not mentioned much in many papers, experimentally the interatomic dista
 B. Search with Bayesian optimization
 ------------------------------------
 The Grid search is a good method, but as the number of parameters increases, it becomes difficult to search for all combinations in terms of time.
-Grid search is a good method, but as the number of parameters increases, it becomes difficult to search for all combinations in terms of time.
 Other well-known search methods other than grid search include genetic algorithm (GA) and particle swarm method (PSO). However, these methods also require significant computational cost and time. Bayesian optimization is a search method that is more efficient than these methods.
 
 In this research, we tried these methods on several elements in advance for confirmation. Bayesian optimization was the most efficient and showed a good electronic structure compared to DFT.
