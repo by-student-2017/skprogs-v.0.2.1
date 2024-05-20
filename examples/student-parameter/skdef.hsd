@@ -3049,7 +3049,7 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = No
-      DensityCompression = PowerCompression { Power = 2 ; Radius = 6.0 } # Radius = 12/sqrt(0.87)*sqrt(1.36)
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 15.2 } # Radius = 12/sqrt(0.87)*sqrt(1.40)
       #DensityCompression = PowerCompression { Power =  3.0; Radius = 15.7 } # baysian No.0A
       #DensityCompression = PowerCompression { Power =  3.3; Radius = 16.0 } # baysian No.0B
       #DensityCompression = PowerCompression { Power =  5.2; Radius = 17.1 } # baysian No.0
@@ -3058,9 +3058,9 @@ AtomParameters {
       #DensityCompression = PowerCompression { Power = 10.1; Radius = 11.1 } # baysian No.3
       #DensityCompression = PowerCompression { Power = 10.5; Radius = 11.0 } # baysian No.4
       WaveCompressions = SingleAtomCompressions {
-	D = PowerCompression { Power = 3 ; Radius = 5.2 }
-	P = PowerCompression { Power = 3 ; Radius = 5.2 }
-	S = PowerCompression { Power = 3 ; Radius = 5.2 }
+	D = PowerCompression { Power = 3 ; Radius = 5.2 } # QUASINANO
+	P = PowerCompression { Power = 3 ; Radius = 5.2 } # QUASINANO
+	S = PowerCompression { Power = 3 ; Radius = 5.2 } # QUASINANO
         #-----------------------------------------------------------------
         #D = PowerCompression { Power = 3.0; Radius = 5.4 } # baysian No.0A
         #P = PowerCompression { Power = 3.6; Radius = 4.6 } # baysian No.0A
@@ -7184,9 +7184,9 @@ OnecenterParameters {
     Calculator = SlaterAtom {
       Exponents {
     #---------------------------------------------
-    S = 1.60 3.80 9.03 21.46 51.0
-    P = 1.60 3.80 9.03 21.46 51.0
-    D = 1.60 3.80 9.03 21.46 51.0
+    S = 1.80 4.15 9.58 22.11 51.0
+    P = 1.80 4.15 9.58 22.11 51.0
+    D = 1.80 4.15 9.58 22.11 51.0
     #---------------------------------------------
     #S = 1.64 4.28  9.60 26.25 63.69 # baysian No.0A
     #P = 2.20 4.79 11.57 37.23 55.67 # baysian No.0A
