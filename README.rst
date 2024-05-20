@@ -426,7 +426,7 @@ In Figure 1, there are parts where the evaluation value deteriorates in large ar
 Although not intended, the density sigma of 6 for Boron and Mn may make interpretation easier.
 For example, the 12th power of the Lennard-Jones (LJ) repulsion term can be interpreted as the 2nd power raised to the 6th power, so the square root of the density r0 is the diameter related to the repulsion (repulsive force due to overlapping electron clouds and collision diameter). may mean.
 
-We estimated r0 in the density using the covalent radius of a single bond obtained using the self-consistent approach by Pyykko et al.
+We estimated r0 in the density using the covalent radius of a single bond obtained using the self-consistent approach by Pyykko et al [Rcov1, Rcov2, Rcov3, Rcov4].
 Using the covalent bond radius rcov = 0.85 Angstrom in Boron and calculating the density r0 in Mn using 11.0/sqrt(0.85)*sqrt(rcov), r0 = 14, which is a good value.
 
 Figure 2 shows the relationship between r0 and sigma for p orbital of Boron. For the p orbital, the best-fitting range shows an inversely proportional relationship between r0 and sigma, similar to the density.
