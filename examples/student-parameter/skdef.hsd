@@ -2988,7 +2988,7 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = No
-      DensityCompression = PowerCompression { Power = 2 ; Radius = 6.0 }
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 15.2 } # Radius = 12/sqrt(0.87)*sqrt(1.40)
       #DensityCompression = PowerCompression { Power = 3.2; Radius = 16.3 } # baysian No.0A
       #DensityCompression = PowerCompression { Power = 3.3; Radius = 16.3 } # baysian No.0B
       #DensityCompression = PowerCompression { Power = 5.2; Radius = 21.2 } # baysian No.00
@@ -2996,9 +2996,9 @@ AtomParameters {
       #DensityCompression = PowerCompression { Power = 7.8; Radius = 15.9 } # baysian No.1
       #DensityCompression = PowerCompression { Power = 7.9; Radius = 14.4 } # baysian No.2
       WaveCompressions = SingleAtomCompressions {
-	D = PowerCompression { Power = 12 ; Radius = 4.7 }
-	P = PowerCompression { Power = 12 ; Radius = 4.7 }
-	S = PowerCompression { Power = 12 ; Radius = 4.7 }
+	D = PowerCompression { Power = 13.4 ; Radius = 4.7 } # QUASINANO
+	P = PowerCompression { Power = 13.4 ; Radius = 4.7 } # QUASINANO
+	S = PowerCompression { Power = 13.4 ; Radius = 4.7 } # QUASINANO
         #-----------------------------------------------------------------
         #D = PowerCompression { Power = 13.5; Radius = 5.7 } # baysian No.0A
         #P = PowerCompression { Power = 14.2; Radius = 5.4 } # baysian No.0A
@@ -7138,13 +7138,13 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 2.27 5.29 12.10 27.97 62.96
-	P = 2.27 5.29 12.10 27.97 62.96
-	D = 2.30 3.32  8.10 19.97 62.96
+	#S = 2.27 5.29 12.10 27.97 62.96
+	#P = 2.27 5.29 12.10 27.97 62.96
+	#D = 2.30 3.32  8.10 19.97 62.96
     #---------------------------------------------
-    #S = 0.5000 1.5811 5.0000 15.8114 50.0000 # mio-like (skexp.py)
-    #P = 0.5000 1.5811 5.0000 15.8114 50.0000 # mio-like (skexp.py)
-    #D = 0.5000 1.5811 5.0000 15.8114 50.0000 # mio-like (skexp.py)
+    S = 1.80 4.13 9.49 21.78 50.0
+    P = 1.80 4.13 9.49 21.78 50.0
+    D = 1.80 4.13 9.49 21.78 50.0
     #---------------------------------------------
     #S = 1.61 3.78  8.57 38.25 82.00 # baysian No.0A
     #P = 1.69 4.31 11.48 23.98 57.63 # baysian No.0A
