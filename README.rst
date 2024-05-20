@@ -423,6 +423,12 @@ As a general trend, as r0 becomes larger, bands that should originally be in vac
 The top left of Figure 2 shows just that. This trend is also seen in the orbital sigma and r0 results.
 In Figure 1, there are parts where the evaluation value deteriorates in large areas of r0, which shows that there is a risk that calculations will become unstable if the value is too large even in r0.
 
+Although not intended, the density sigma of 6 for Boron and Mn may make interpretation easier.
+For example, the 12th power of the Lennard-Jones (LJ) repulsion term can be interpreted as the 2nd power raised to the 6th power, so the square root of the density r0 is the diameter related to the repulsion (repulsive force due to overlapping electron clouds and collision diameter). may mean.
+
+We estimated r0 in the density using the covalent radius of a single bond obtained using the self-consistent approach by Pyykko et al.
+Using the covalent bond radius rcov = 0.85 Angstrom in Boron and calculating the density r0 in Mn using 11.0/sqrt(0.85)*sqrt(rcov), r0 = 14, which is a good value.
+
 Figure 2 shows the relationship between r0 and sigma for p orbital of Boron. For the p orbital, the best-fitting range shows an inversely proportional relationship between r0 and sigma, similar to the density.
 The p orbital of boron has a value close to the maximum curvature of about 6 in sigma.
 
@@ -567,7 +573,6 @@ Acknowledgment (For examples)
 - This project (modified version) is/was partially supported by the following :
 - meguREnergy Co., Ltd.
 - ATSUMITEC Co., Ltd.
-- RIKEN
 - Without the support of "meguREnergy Co., Ltd." and "ATSUMITEC Co., Ltd.", I would not have been able to develop the examples to the level shown on this github. I would like to express my sincere gratitude. 
 
 
