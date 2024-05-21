@@ -2476,7 +2476,7 @@ AtomParameters {
     }
     DftbAtom {
       ShellResolved = No
-      DensityCompression = PowerCompression { Power = 7 ; Radius = 14.0 }
+      DensityCompression = PowerCompression { Power = 6 ; Radius = 14.4 } # Radius = 12/sqrt(0.87)*sqrt(1.25)
       #DensityCompression = PowerCompression { Power = 2.9; Radius = 21.3 } # baysian No.0A
       #DensityCompression = PowerCompression { Power = 3.1; Radius = 17.4 } # baysian No.0B
       #DensityCompression = PowerCompression { Power = 3.1; Radius = 23.5 } # baysian No.00
@@ -2489,9 +2489,9 @@ AtomParameters {
       #DensityCompression = PowerCompression { Power = 8.7; Radius = 14.8 } # baysian No.4
       #DensityCompression = PowerCompression { Power = 9.2; Radius = 17.6 } # baysian No.5
       WaveCompressions = SingleAtomCompressions {
-	D = PowerCompression { Power = 3.8 ; Radius = 4.1 }
-	P = PowerCompression { Power = 3.8 ; Radius = 4.1 }
-	S = PowerCompression { Power = 3.8 ; Radius = 4.1 }
+	D = PowerCompression { Power = 3.8 ; Radius = 4.1 } # QUASINANO
+	P = PowerCompression { Power = 3.8 ; Radius = 4.1 } # QUASINANO
+	S = PowerCompression { Power = 3.8 ; Radius = 4.1 } # QUASINANO
         #-----------------------------------------------------------------
         #D = PowerCompression { Power = 3.1; Radius = 3.3 } # baysian No.0A
         #P = PowerCompression { Power = 3.0; Radius = 3.7 } # baysian No.0A
@@ -6736,13 +6736,14 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 1.90 4.46 10.29 23.59 53.90
-	P = 1.90 4.46 10.29 23.59 53.90
-	D = 2.60 6.12 14.59 34.99 84.10
     #---------------------------------------------
-    #S = 0.5000 1.5314 4.6904 14.3659 44.0000 # mio-like (skexp.py)
-    #P = 0.5000 1.5314 4.6904 14.3659 44.0000 # mio-like (skexp.py)
-    #D = 0.5000 1.5314 4.6904 14.3659 44.0000 # mio-like (skexp.py)
+    #S = 1.00 2.58 6.63 17.08 44.0 # soso, same QUASINANO
+    #P = 1.00 2.58 6.63 17.08 44.0 # soso, same QUASINANO
+    #D = 1.35 3.23 7.70 18.42 44.0 # soso, same QUASINANO
+    #---------------------------------------------
+    S = 1.90 4.46 10.29 23.59 53.90 # better
+    P = 1.90 4.46 10.29 23.59 53.90 # better
+    D = 2.60 6.12 14.59 34.99 84.10 # better
     #---------------------------------------------
     #S = 1.90 3.80  9.30 25.32 54.54 # baysian No.0A
     #P = 2.45 4.04  9.64 21.42 47.96 # baysian No.0A
@@ -6790,9 +6791,6 @@ OnecenterParameters {
     #---------------------------------------------
       }
       MaxPowers {
-	#D = 5 # mio-like (skexp.py)
-	#P = 5 # mio-like (skexp.py)
-	#S = 5 # mio-like (skexp.py)
 	D = 3
 	P = 3
 	S = 3
@@ -6804,9 +6802,10 @@ OnecenterParameters {
     $StandardDeltaFilling
     Calculator = SlaterAtom {
       Exponents {
-	S = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
-	P = 2.00 4.56 10.39 23.69 54.00 # Ref.[2]
-	D = 2.70 6.22 14.69 35.09 84.20 # Ref.[2]
+    #---------------------------------------------
+    S = 2.00 4.56 10.39 23.69 54.00
+    P = 2.00 4.56 10.39 23.69 54.00
+    D = 2.70 6.22 14.69 35.09 84.20
     #---------------------------------------------
     #S = 1.53 3.75  9.89 22.40 68.04 # baysian No.0A
     #P = 2.41 3.91 11.60 30.71 59.85 # baysian No.0A
@@ -6858,9 +6857,9 @@ OnecenterParameters {
     #---------------------------------------------
       }
       MaxPowers {
-	D = 3 # Ref.[2]
-	P = 3 # Ref.[2]
-	S = 3 # Ref.[2]
+	D = 3
+	P = 3
+	S = 3
       }
     }
   }
