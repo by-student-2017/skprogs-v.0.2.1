@@ -76,8 +76,8 @@ min_ind[0] = float(x0) - hwb_den
 max_ind[0] = float(x0) + hwt_den
 #---------------------------
 # r0 of density
-min_ind[1] = float(x1) - float(x1)*hwb_wav
-max_ind[1] = float(x1) + float(x1)*hwt_wav
+min_ind[1] = float(x1)*hwb_wav
+max_ind[1] = float(x1)*hwt_wav
 #---------------------------
 if min_ind[0] < 2.0:
   min_ind[0] = 2.0
