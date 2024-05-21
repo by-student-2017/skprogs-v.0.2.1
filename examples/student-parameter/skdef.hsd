@@ -2665,9 +2665,9 @@ AtomParameters {
       #DensityCompression = PowerCompression { Power = 11.7; Radius = 10.6 } # baysian No.4
       #DensityCompression = PowerCompression { Power = 12.4; Radius = 10.7 } # baysian No.5
       WaveCompressions = SingleAtomCompressions {
-	D = PowerCompression { Power = 3.3; Radius = 3.6 } # QUASINANO-like
-	P = PowerCompression { Power = 3.3; Radius = 3.6 } # QUASINANO-like, L point
-	S = PowerCompression { Power = 3.3; Radius = 3.6 } # QUASINANO-like, G point
+	D = PowerCompression { Power = 3; Radius = 3.6 } # QUASINANO-like
+	P = PowerCompression { Power = 3; Radius = 3.6 } # QUASINANO-like, L point
+	S = PowerCompression { Power = 3; Radius = 3.6 } # QUASINANO-like, G point
         #-----------------------------------------------------------------
         #D = PowerCompression { Power = 3.3; Radius = 3.9 } # baysian No.0A
         #P = PowerCompression { Power = 3.3; Radius = 4.2 } # baysian No.0A
