@@ -90,8 +90,8 @@ x1=`awk -v n1st_dftbatom=${n1st_dftbatom} '{
 #-----------------------------------------------------------------------------------
 #New predict version
 echo "Rcov "$3" [Angstrom]"
-x0=`echo $3 | awk '{printf "%4.1f",24.0*($1)^(0.5)}'`
-x1=`echo $3 | awk '{printf "%4.1f",$1}'`
+x0=`echo $3 | awk '{printf "%4.1f",16.0*($1)^(0.5)}'` # Al:36, K<19, V:23, Cr:14, Mn:20, Fe:17, Co:16, Ni:16, Cu:<10, Zn:<10, Ga:36
+x1=`echo $3 | awk '{printf "%4.1f",(2.0*$1/0.529)}'`
 #New predict version
 #-----------------------------------------------------------------------------------
 sed -i "s/x0_Zz/${x0}/g" baysian_v1_$1.py
