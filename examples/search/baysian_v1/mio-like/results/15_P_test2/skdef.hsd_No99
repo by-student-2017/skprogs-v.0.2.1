@@ -1,0 +1,145 @@
+SkdefVersion = 1
+
+Globals {
+
+
+
+
+  XCFunctional = PBE {}
+  Superposition = density
+}
+
+
+AtomParameters {
+
+  $OCCUPATIONS_Ne {
+    1S = 1.0 1.0
+    2S = 1.0 1.0
+    2P = 3.0 3.0
+  }
+
+  $OCCUPATIONS_Ar {
+    $OCCUPATIONS_Ne
+    3S = 1.0 1.0
+    3P = 3.0 3.0
+  }
+
+  $OCCUPATIONS_Kr {
+    $OCCUPATIONS_Ar
+    3D = 5.0 5.0
+    4S = 1.0 1.0
+    4P = 3.0 3.0
+  }
+
+  $OCCUPATIONS_Xe {
+    $OCCUPATIONS_Kr
+    4D = 5.0 5.0
+    5S = 1.0 1.0
+    5P = 3.0 3.0
+  }
+
+  $OCCUPATIONS_Hg {
+    $OCCUPATIONS_Xe
+    4F = 7.0 7.0
+    5D = 5.0 5.0
+    6S = 1.0 1.0
+  }
+
+  $OCCUPATIONS_Rn {
+    $OCCUPATIONS_Hg
+    6P = 3.0 3.0
+  }
+
+  P {
+    AtomConfig {
+      AtomicNumber = 15
+      Mass = 32.065
+      Occupations {
+	$OCCUPATIONS_Ne
+	3S = 1.0 1.0
+	3P = 2.0 1.0
+	3D = 0.0 0.0
+      }
+      ValenceShells = 3s 3p 3d
+      Relativistics = None
+    }
+    DftbAtom {
+      ShellResolved = No
+      DensityCompression = PowerCompression{ Power = 2; Radius = 13.6 }
+      WaveCompressions = SingleAtomCompressions {
+        S = PowerCompression { Power = 2; Radius = 3.5 }
+        P = PowerCompression { Power = 2; Radius = 3.5 }
+        D = PowerCompression { Power = 2; Radius = 3.5 }
+      }
+      CustomizedOnsites {
+	    3D = 0.520437 # mio
+      }
+    }
+  }
+
+}
+
+OnecenterParameters {
+
+  $StandardDeltaFilling {
+    DeltaFilling = 0.01
+  }
+
+  P {
+    $StandardDeltaFilling
+    Calculator = SlaterAtom {
+      Exponents {
+    S = 0.5 1.19 2.83 6.73 15.0 # mio
+    P = 0.5 1.19 2.83 6.73 15.0 # mio
+    D = 0.5 1.19 2.83 6.73 15.0 # mio
+      }
+      MaxPowers {
+    S = 3 # mio
+    P = 3 # mio
+    D = 3 # mio
+      }
+    }
+  }
+
+}
+
+TwoCenterParameters {
+
+  $EqGrid = EquidistantGrid {
+      GridStart = 0.4
+      GridSeparation = 0.02
+      Tolerance = 5e-5
+      MaxDistance = 40.0
+  }
+
+  $EqGridShort = EquidistantGrid {
+    GridStart = 0.4
+    GridSeparation = 0.02
+    Tolerance = 5e-5
+    MaxDistance = 0.5
+  }
+
+  $EqGridCutoff10 = EquidistantGrid {
+      GridStart = 0.4
+      GridSeparation = 0.02
+      Tolerance = 5e-5
+      MaxDistance = -10.001
+  }
+
+  $EqGridCutoff12 = EquidistantGrid {
+      GridStart = 0.4
+      GridSeparation = 0.02
+      Tolerance = 5e-5
+      MaxDistance = -12.39
+  }
+
+  $SkTwocnt_300_150 = Sktwocnt {
+    IntegrationPoints = 300 150
+  }
+
+  $SkTwocnt_400_200 = Sktwocnt {
+    IntegrationPoints = 400 200
+  }
+
+  P-P { Grid = $EqGridCutoff10 ; Calculator = $SkTwocnt_300_150 }
+}
