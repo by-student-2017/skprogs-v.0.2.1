@@ -4036,6 +4036,7 @@ AtomParameters {
       #DensityCompression = PowerCompression { Power = 6.6; Radius = 16.0 } # baysian No.3, Unnecessary bands (BE=-6.8 eV)
       #DensityCompression = PowerCompression { Power = 5.6; Radius = 14.9 } # baysian No.4, Unnecessary bands (BE=-8.5 eV)
       #DensityCompression = PowerCompression { Power = 5.7; Radius = 15.3 } # baysian No.5, Unnecessary bands (BE=-8.5 eV)
+      #DensityCompression = PowerCompression { Power = 6.8; Radius = 16.9 }
       WaveCompressions = SingleAtomCompressions {
 	S = PowerCompression { Power = 14.8 ; Radius = 5.2 } # QUASINANO
 	P = PowerCompression { Power = 14.8 ; Radius = 5.2 } # QUASINANO
@@ -4066,6 +4067,11 @@ AtomParameters {
         #D = PowerCompression { Power = 18.9; Radius = 4.7 } # baysian No.5, Unnecessary bands (BE=-8.5 eV)
         #P = PowerCompression { Power = 15.3; Radius = 5.2 } # baysian No.5, Unnecessary bands (BE=-8.5 eV)
         #S = PowerCompression { Power = 12.3; Radius = 4.6 } # baysian No.5, Unnecessary bands (BE=-8.5 eV)
+        #-----------------------------------------------------------------
+        #F = PowerCompression { Power = 15.3; Radius = 5.1 }
+        #D = PowerCompression { Power = 15.3; Radius = 5.1 }
+        #P = PowerCompression { Power = 15.3; Radius = 5.4 }
+        #S = PowerCompression { Power = 13.2; Radius = 4.4 }
         #-----------------------------------------------------------------
       }
     #  CustomizedHubbards {
@@ -8126,7 +8132,12 @@ OnecenterParameters {
     #S = 0.99 2.47  9.20 26.58  80.50 214.36 # baysian No.5, Unnecessary bands (BE=-8.5 eV)
     #P = 0.98 3.24  8.69 28.54  62.22 240.40 # baysian No.5, Unnecessary bands (BE=-8.5 eV)
     #D = 1.55 4.89 11.80 34.88 105.24 295.91 # baysian No.5, Unnecessary bands (BE=-8.5 eV)
-    3F = 1.16 2.77  8.87 27.65  79.26 242.72 # baysian No.5, Unnecessary bands (BE=-8.5 eV)
+    #F = 1.16 2.77  8.87 27.65  79.26 242.72 # baysian No.5, Unnecessary bands (BE=-8.5 eV)
+    #------------------------------------------------------
+    S = 1.09 2.52  9.19 27.30  73.76 244.91 
+    P = 0.89 3.22  8.66 23.77  66.05 234.38 
+    D = 1.42 4.65 13.52 33.08 123.57 333.56 
+    F = 0.86 2.78  8.83 25.90  77.52 238.99 
     #------------------------------------------------------
       }
       MaxPowers {
