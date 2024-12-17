@@ -572,14 +572,6 @@ My Wish
 - Ultimately, it is necessary to improve the repulsive force, but it is important to maintain the electronic structure in the optimal structure for almost all elements. In order to develop parameters that can be used free of charge, I sincerely hope for the cooperation of many people in terms of paper reports and financial support.
 
 
-Acknowledgment (For examples)
-=============================
-- This project (modified version) is/was partially supported by the following :
-- meguREnergy Co., Ltd.
-- ATSUMITEC Co., Ltd.
-- Without the support of "meguREnergy Co., Ltd." and "ATSUMITEC Co., Ltd.", I would not have been able to develop the examples to the level shown on this github. I would like to express my sincere gratitude. 
-
-
 PC specs used for test
 ======================
 + OS: Microsoft Windows 11 Home 64 bit
