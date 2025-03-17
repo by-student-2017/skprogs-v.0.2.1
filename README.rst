@@ -572,6 +572,13 @@ My Wish
 - Ultimately, it is necessary to improve the repulsive force, but it is important to maintain the electronic structure in the optimal structure for almost all elements. In order to develop parameters that can be used free of charge, I sincerely hope for the cooperation of many people in terms of paper reports and financial support.
 
 
+ShellResolvedScc version (in band check directory)
+=======
+'''
+find . -name '*.hsd' -exec sed -i '/Scc = Yes/a\  ShellResolvedScc = Yes' {} \;
+'''
+
+
 PC specs used for test
 ======================
 + OS: Microsoft Windows 11 Home 64 bit
