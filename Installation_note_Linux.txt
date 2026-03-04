@@ -5,7 +5,7 @@ skprogs (Edit: 31/Oct/2023)
 Note: $HOME o = ~ = /home/username
 
 libXC (ver.6.2.2)
-0. sudo apt -y install cmake
+0. sudo apt -y install cmake gfortran g++ build-essential
 1. cd $HOME
 2. git clone https://gitlab.com/libxc/libxc.git libxc
 3. cd libxc
